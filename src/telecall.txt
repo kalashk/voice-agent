@@ -1,0 +1,373 @@
+### Let’s talk about your profile in the company
+
+Job Profile : LOAN CONSULTANT
+
+Product To Sell : LOAN SERVICES
+
+Medium Of Selling: Tele Calling
+
+Let’s understand first, what is a **CIBIL Score**
+
+– CIBIL Score is basically a rating given to a customer by a bank or any finance company on the behalf of repayments done by the customer against the loan or credit card utilisation issued by that financial institution.
+
+CIBIL Score Range – 300 points to 900 points
+
+For all those customer, who have never taken any loan or credit card till date, there cibil score is considered to be as 0 or -1.
+
+| **CIBIL SCORE RANGE** | **CUSTOMER CATEGORY** |
+| --- | --- |
+| 300 TO 650 | POOR CAT. CUSTOMER |
+| 651 TO 700 | AVERAGE CAT. CUSTOMER |
+| 701 TO 800 | GOOD CAT. CUSTOMER |
+| 801 TO 900 | EXCELLENT CAT. CUSTOMER |
+| 0 / -1 | NEW TO CREDIT CUSTOMER |
+
+Common Remarks In CIBIL Score –
+
+1. DPD – Days Past Due Date
+2. Overdue
+
+**_USED CAR LOAN_**
+
+## TYPE OF CASES IN USED CAR LOAN
+
+1. PURCHASE CASE
+2. REFINANCE CASE
+    1. NORMAL REFINANCE – VEHICLE BOUGHT IN CASH OR OLD LOAN CLOSED MORE THAN 6 MONTHS AGO
+    2. MULTIPLIER REFINANCE – OLD LOAN ON VEHICLE CLOSED UNDER 6 MONTHS
+    3. BALANCE TRANSFER C TOPUP – RUNNING LOAN ON VEHICLE AND CUSTOMER NEED EXTRA FUND ON SAME VEHICLE
+
+LET’S DISCUSS EACH CASE IN DETAIL NOW
+
+1. **PURCHASE CASE** – MAX. LOAN PROVIDED TO THE CUSTOMER WILL BE UPTO
+
+90% OF THE CAR MARKET VALUE
+
+## REFINANCE CASE
+
+- 1. **NORMAL REFINANCE** - MAX. LOAN PROVIDED TO THE CUSTOMER WILL BE UPTO 90% OF THE CAR MARKET VALUE
+  2. **MULTIPLIER REFINANCE** \- LOAN PROVIDED TO THE CUSTOMER WILL BE BETWEEN 80% to 140% OF THE CAR MARKET VALUE
+  3. **BALANCE TRANSFER & TOPUP** – For BT Cases, min. 9 EMIs of the old loan must be cleared without any bouncing
+        1. 9 EMI Paid – up to 120% OF THE CAR MARKET VALUE
+        2. 10 or 11 EMI Paid – up to 140% OF THE CAR MARKET VALUE
+        3. 12 or 17 EMI Paid – up to 160% OF THE CAR MARKET VALUE
+        4. 18 or above EMI Paid – up to 200% OF THE CAR MARKET VALUE
+
+### Terms & Conditions Of Used Car Loan Funding
+
+1. Customer has not taken any kind of Personal Loan or Business Loan in last 3 months. In such scenario, loan amount will be affected or even the application may also be rejected by the bank.
+2. Customer must maintain a minimum average bank balance of equivalent to one month EMI in the operating current/saving account.
+3. There should be no Emi bounce in last 3 months.
+4. Car which you about to fund should be in production. If any car or brand has closed its production, it is considered as Tier-3 vehicle. Max funding allowed on Tier-3 vehicles are 150%. Some banks even do not fund Tier-3 vehicles.
+5. Min. CIBIL Score required for Used Car Loan is 700.
+6. ROI on Used Car Loan varies from 12.75% to 17.5% depending upon case to case.
+7. Vehicle age considered in case of purchase is 15 Years.
+8. Vehicle age considered in case of refinance or balance transfer is 11 Years.
+9. Minimum Loan Tenure is 25 Months and Maximum Loan Tenure is 60 Months.
+10. Customer must have original RC along with a valid Car Insurance with a minimum remaining validity of 90 days from date of loan disbursement
+
+### Let’s Understand Each Type Of Cases With Example Now
+
+Tentative Vehicle Details :
+
+Car Model – Maruti Swift VXi
+
+Month C Year Of Manufacture – Sep 2022 New Car Value – 8.5Lacs on road
+
+Used Car Current Date Market Value to 2022 Model = Approx 6 Lacs
+
+### Case 1 - PURCHASE CASE
+
+Vehicle Market Value = 6,00,000
+
+Max. Funding Allowed = 90% of market value
+
+Max. Loan that can be provided = **6,00,000 x G0% = 5,40,000**
+
+### Case 2 - NORMAL REFINANCE
+
+Vehicle Market Value = 6,00,000
+
+Max. Funding Allowed = 90% of market value
+
+Max. Loan that can be provided = **6,00,000 x G0% = 5,40,000**
+
+### Case 3 - MULTIPLIER REFINANCE
+
+Vehicle Market Value = 6,00,000
+
+Max. Funding Allowed = 140% of market value
+
+Max. Loan that can be provided = **6,00,000 x 140% = 8,40,000**
+
+### Case 4 - BALANCE TRANSFER & TOPUP CASE – 9 EMI PAID
+
+Vehicle Market Value = 6,00,000
+
+Max. Funding Allowed = 120% of market value
+
+Max. Loan that can be provided = **6,00,000 x 120% = 7,20,000**
+
+Previous loan will be cleared and remaining balance to be paid into customer’s account
+
+### Case 5 - BALANCE TRANSFER & TOPUP CASE – 11 EMI PAID
+
+Vehicle Market Value = 6,00,000
+
+Max. Funding Allowed = 140% of market value
+
+Max. Loan that can be provided = **6,00,000 x 140% = 8,40,000**
+
+Previous loan will be cleared and remaining balance to be paid into customer’s account
+
+### Case 6 - BALANCE TRANSFER & TOPUP CASE – 17 EMI PAID
+
+Vehicle Market Value = 6,00,000
+
+Max. Funding Allowed = 160% of market value
+
+Max. Loan that can be provided = **6,00,000 x 160% = G,60,000**
+
+Previous loan will be cleared and remaining balance to be paid into customer’s account
+
+### Case 7 - BALANCE TRANSFER & TOPUP CASE – 18 EMI PAID
+
+Vehicle Market Value = 6,00,000
+
+Max. Funding Allowed = 200% of market value
+
+Max. Loan that can be provided = **6,00,000 x 200% = 12,00,000**
+
+Previous loan will be cleared and remaining balance to be paid into customer’s account
+
+### How to check maximum loan amount eligibility of a customer?
+
+1. **FOIR BASED CALCULATION (FOR SALARIED)** – Max 70% income of salary can be repaid as EMI. New Loan sanction will depend upon available FOIR.
+
+## AVERAGE BANK BANK BALANCE BASED CALCULATION
+
+- 1. Min. avg bank balance must be above 5k for loan upto 10 Lac
+  2. For loan amt above 10lac, ABB required is 0.75x to 1x of Monthly EMI
+
+### INCOME DOC SURROGATE CALCULATION (FOR SELF EMPLOYED) – In case of
+
+Low ABB, income from ITR will be considered in loan sanctioning which can be max of 4x of ITR Income from business
+
+# Telecalling Sales Pitch
+
+Sabse Pehle -Apne mobile mein 3 Applications install kariye :
+
+### 1\. Neodove 2. Callyzer 3. EMI Calculator
+
+Let's start with the call with the customer :
+
+**Executive :** Namaste / Namastkar / Hello / Hi / Goodmorning / Goodevening Sir/Ma'dm
+
+**Customer :** Namaste Ji
+
+**Executive :** (customer name) Ji bol rahe hai ?
+
+**Customer :** Haan Ji, bol raha hun, bataiye.....
+
+**Executive :** Sir mein (your name), Axis/HDFC/ICICI Bank ki taraf se baat ker raha hu/rahi hu
+
+**Customer :** Haan Ji bolo
+
+**Executive :** Sir, ye gaadi no (vehicle no) (car model name) abhi aap hi use ker rahe hai ya sellout krdi sir ?
+
+**Customer :** Haa Ji mein hi use ker raha hu, kya hua
+
+**Executive :** Sir is vehicle pe hamari bank ki taraf se apke liye offer aaya hua hai sir
+
+**Customer :** kya offer hai ?
+
+**Executive :** Sir aapki gaadi pe loan chal raha hai ya nahi chal raha, hamara bank apke liye dono hi cases mein offer leke aaya hai ? Sir, abhi gaadi pe loan chal raha hai ya gaadi free hai ?
+
+## NOW WE HAVE 2 SCENARIOS, HAM CUSTOMER K REPLY K ACCORDING HI AGE CUSTOMER SE BAAT KREGE
+
+1st Scenario = Gaadi Per Loan Nahi Chal Raha, Loan Free Hai
+
+**Customer :** Loan Free Hai Gaadi
+
+**Executive :** Sir apki gaadi ki market value ka 90% se 140% tak ka refinance ka offer hai, jiti bhi aj ki date mein market value hai apko us value ka 1.5 guna tak loan mil sakta hai
+
+2nd Scenario = Gaadi Per Loan Chal Raha Hai
+
+**Customer :** Loan Chal Raha Hai
+
+**Executive :** Sir apki gaadi ki market value ka 150% se 200% tak ka refinance ho jayega sir. For example - agar apki gaadi ki vakue abhi 5 Lac hai to apko 7.5lac se 10lac tak ka loan ho jayega
+
+**Customer :** Meri gaadi per to pehle se hi loan chal raha hai
+
+**Executive :** usme koi issue nahi hai sir hum apko refinance ka offer de rahe hai, jisme apki gaadi ki market vakue ka 150 se 200% tak ka refinance ho jayega, jis mein apka phle k loan ka job balance hoga vo clear ho jayega and baki paisa direct apke account mein aa jayega.
+
+**Customer :** Achaaa! Kya kerna hoga iske liye ?
+
+**Executive :** Sir kuch details chaiye thi apse?
+
+**Customer :** Kya details chaiye ? pucho....
+
+## AB HUM CUSTOMER SE USKE RUNNING LOAN K REGARDING ǪUESTIONS PUCHEGE
+
+1. Sir apka loan konse bank se chal raha hai ?
+2. Apne kitne amount ka loan lia tha ?
+3. Apne kitne time k liye loan lia tha ?
+4. Kitne ki EMI aati hai abhi ?
+5. Apne abhi tak kitni EMI pay ker di ? (Min. 9EMI Pay honi jaruri hai refinance k liye)
+6. Last 6 mahine mein apki koi EMI bounce to nahi hui ?
+7. Apke according abhi gaadi ki market value kya hogi ?
+
+## YE SABHI ǪUESTIONS K ANS MILNE K BAD HUM CUSTOMER KO BTA PAYEGE KI APKA KITNE KA LOAN HO SAKTA HAI
+
+**Executive :** Sir apka loan ho jayega
+
+**Customer :** Byaz / Rate of interest kitna lagega ?
+
+**Executive :** Sir 75p se 80p sekda padega sir byaz / 8.5% se 9% flat rate ayegi sir / 15% se 16% reducing
+
+**Customer :** Kitna byaz lagega ?
+
+**Executive :** Sir 1 Lac k loan pe apka ik saal ka 8000 se 9000 ka byaz niklega, matlab ki mahine ka 750 se 800 rs per lac pe byaz bnega
+
+**Customer :** Kist kitni ayegi ?
+
+## EMI CHART SE DEKH KER APKO CUSTOMER KO EMI BATANI HAI / EMI CALCULATOR SE EMI CALCULATE KRKE BATANI HAI
+
+**Customer :** Kitne time mein kerwa doge loan ?
+
+**Executive :** Sir 5 se 6 din mein poora process ho jayega
+
+**Executive :** Sir ap kaam kya kerte ho job hai ya business hai ?
+
+## CUSTOME K PROFESSION K ACCORDING HUME CUSTOMER SE DOCUMENT LENE HAI
+
+Common documents jo sabhi customer se lene hai :
+
+1. KYC = Adhar Card, PAN Card, Photo
+2. Bank Statement = 6 Month Bank Statement
+3. Vehicle Docs = Vehicle RC + Insurance Copy
+4. Agar Gaadi per pehle se loan chal raha hai = Loan Account Statement (SOA)
+
+## BAKI DOCUMENT CUSTOMER K PROFESSION K ACCORDING
+
+1. Customer JOB kerta hai : 3 Month Salary Slip + Form16
+2. Customer Business kerta hai : 2 Yr ITR with computation + Business Proof like GST/UDHYAM Registration
+3. Customer Farmer hai, kheti kerta hai : Jamabandhi Receipt
+
+## AGAR CUSTOMER KE PURANE LOAN MEIN CO-APPLICANT HAI, TOO HAAME CO- APPLICANT KI KYC BHI LENI HAI
+
+**Executive :** Sir, maine apko documents ki list whatsapp ker di hai, please vo jaldi se share ker dijiye
+
+### Customer : ok
+
+How To Calculate An EMI ?
+
+There are two methods to calculate the monthly EMI :
+
+- 1. ON REDUCING RATE BASIS – USING EMI CALCULATOR
+  2. ON FLAT RATE BASIS – USING NORMAL CALCULATOR
+
+Basic information we need to calculate EMI :
+
+1. LOAN AMOUNT
+2. RATE OF INTEREST
+3. TENURE OF LOAN
+
+Calculating the **EMI with Reducing Rate** \-
+
+Download any EMI calculator application from google playstore, input the above asked information in the columns like Amount, ROI% and Loan Tenure and press calculate, you will get the Monthly EMI on Reducing Rate Basis
+
+Calculating the **EMI with Flat Rate** \-
+
+**LOAN INTEREST** \= LOAN AMOUNT **x** ROI% **x** TIME IN YEARS
+
+**TOTAL REPAYMENT TO BE DONE** \= LOAN AMOUNT + LOAN INTEREST
+
+**MONTHLY EMI** \= TOTAL REPAYMENT DIVIDED BY TENURE OF LOAN (IN MONTHS)
+
+**WHY PEOPLE PREFER USED CAR LOAN OVER OTHER LOAN PRODUCTS ?**
+
+| PRODUCT COMPARISON | BUSINESS LOAN | USED CAR LOAN |
+| --- | --- | --- |
+| LOAN TENURE | 3 YEARS | 5 YEARS |
+| MONTHLY EMI | HIGH | LOW |
+| ROI | 18-24% | 13-16% |
+| FOIR | 70% | 70% |
+| LOAN AMOUNT | LOW | HIGH |
+| GST REǪ. | YES | NO  |
+| OWNERSHIP REǪ. | YES | NO  |
+| BUSINESS VINTAGE | MIN. 2 YEARS | NO  |
+| MIN. TURNOVER | MIN. 40LACS | NO  |
+| ITR – 3 YEARS | YES | NO  |
+| CAR LOAN TAKEOVER | NO  | YES |
+| PROCESSING FEE | 2-3% | 2-3% |
+| PROCESSING TIME | 8-10 DAYS | 5-7 DAYS |
+
+| PRODUCT COMPARISON | PERSONAL LOAN | USED CAR LOAN |
+| --- | --- | --- |
+| LOAN TENURE | 5 YEARS | 5 YEARS |
+| MONTHLY EMI | APPROX EǪUAL | APPROX EǪUAL |
+| ROI | 12-24% (SALARY WISE) | 13-16% (SAME FOR ALL) |
+| FOIR | 50% | 70% |
+| LOAN AMOUNT | LOW | HIGH |
+| CAR EMI OBLIGATION | YES | NO  |
+| EMPLOYEMENT PROOF | YES | NO  |
+| CASH SALARIED | NO  | YES |
+| CAR LOAN TAKEOVER | NO  | YES |
+| PROCESSING FEE | 1.5-3% | 2-3% |
+| PROCESSING TIME | 5-7 DAYS | 5-7 DAYS |
+
+| **EMI CHART** |     |     |     |     |
+| --- |     |     |     |     | --- | --- | --- | --- |
+| **ROI :** | **FLAT 9% REDUCING 16%** |     |     |     |
+| **EMI / LAC :** | **48G6** | **3516** | **2834** | **2432** |
+| **L.A (IN LACS)** | 2 YR | 3 YR | 4 YR | 5 YR |
+| **1** | 4896 | 3516 | 2834 | 2432 |
+| **2** | 9792 | 7032 | 5668 | 4864 |
+| **3** | 14688 | 10548 | 8502 | 7296 |
+| **4** | 19584 | 14064 | 11336 | 9728 |
+| **5** | 24480 | 17580 | 14170 | 12160 |
+| **6** | 29376 | 21096 | 17004 | 14592 |
+| **7** | 34272 | 24612 | 19838 | 17024 |
+| **8** | 39168 | 28128 | 22672 | 19456 |
+| **G** | 44064 | 31644 | 25506 | 21888 |
+| **10** | 48960 | 35160 | 28340 | 24320 |
+| **11** | 53856 | 38676 | 31174 | 26752 |
+| **12** | 58752 | 42192 | 34008 | 29184 |
+| **13** | 63648 | 45708 | 36842 | 31616 |
+| **14** | 68544 | 49224 | 39676 | 34048 |
+| **15** | 73440 | 52740 | 42510 | 36480 |
+| **16** | 78336 | 56256 | 45344 | 38912 |
+| **17** | 83232 | 59772 | 48178 | 41344 |
+| **18** | 88128 | 63288 | 51012 | 43776 |
+| **1G** | 93024 | 66804 | 53846 | 46208 |
+| **20** | 97920 | 70320 | 56680 | 48640 |
+| **21** | 102816 | 73836 | 59514 | 51072 |
+| **22** | 107712 | 77352 | 62348 | 53504 |
+| **23** | 112608 | 80868 | 65182 | 55936 |
+| **24** | 117504 | 84384 | 68016 | 58368 |
+| **25** | 122400 | 87900 | 70850 | 60800 |
+
+| **MARKET VALUE OF VEHICLE IN LACS** |     |     |     |     |     |     |     |     |
+| --- |     |     |     |     |     |     |     |     | --- | --- | --- | --- | --- | --- | --- | --- |
+| **BRAND** | **MODEL** | **VARIANT** | **201G** | **2020** | **2021** | **2022** | **2023** | **2024** |
+| MARUTI | ALTO | VXI | 2.6 | 3   | 3.25 | 3.6 | 3.8 | 4   |
+| MARUTI | ALTO K10 | VXI | 2.75 | 3.1 | \-  | 4.25 | 4.4 | 4.75 |
+| MARUTI | BALENO | DELTA 1.2 | 5.25 | 5.5 | 5.75 | 6.5 | 6.75 | 7.4 |
+| MARUTI | BREEZA | VXI | 6.25 | 6.75 | 7.25 | 7.75 | 8.5 | 9.5 |
+| MARUTI | CELERIO | VXI | 3.6 | 4   | 4.4 | 4.8 | 5   | 5.25 |
+| MARUTI | DZIRE | VXI | 4.5 | 5   | 5.5 | 6.5 | 7.25 | 8   |
+| MARUTI | EECO | 5STR AC | 3   | 3.25 | 3.75 | 4.5 | 4.75 | 5   |
+| MARUTI | EARTIGA | VXI | 6.75 | 7.25 | 7.75 | 8.75 | 9.25 | 9.75 |
+| MARUTI | SPRESSO | VXI | 2.5 | 2.6 | 3   | 3.8 | 4.25 | 4.8 |
+| MARUTI | SWIFT | VXI | 4.5 | 5   | 5.5 | 6   | 6.5 | 7   |
+| MARUTI | WAGON R | VXI | 3.5 | 3.75 | 4.4 | 5   | 5.5 | 6   |
+| HYUNDAI | GRAND i10 NIOS | SPORTZ | 4.75 | 5   | 5.25 | 5.75 | 6.25 | 7   |
+| HYUNDAI | i20 | SPORTZ | \-  | 6   | 6.25 | 6.75 | 7.5 | 8   |
+| HYUNDAI | VENUE | S 1.2 | 5.4 | 5.75 | 6.5 | 7.5 | 8   | 8.5 |
+| HYUNDAI | CRETA | EX 1.5 DIESEL | 9   | 9.5 | 11.5 | 12  | 12.75 | 14.5 |
+| TATA | PUNCH | ADVENTURE | \-  | \-  | 4.25 | 5   | 5.75 | 6.5 |
+| TATA | NEXON | XM/CREATIVE | 5.25 | 6   | 6.5 | 7.5 | 9.5 | 10.25 |
+| TATA | TIAGO | XM  | 3   | 3.75 | 4.25 | 4.75 | 5.25 | 6   |
+| MAHINDRA | BOLERO | B6  | 7.5 | 8   | 8.5 | 9   | 9.5 | 10  |
+| MAHINDRA | SCORPIO | S11 |     |     |     |     | 14.5 | 16  |

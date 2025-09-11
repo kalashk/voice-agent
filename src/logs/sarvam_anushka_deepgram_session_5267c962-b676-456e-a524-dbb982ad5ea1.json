@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "session_id": "5267c962-b676-456e-a524-dbb982ad5ea1",
+    "TTS provider": "sarvam_anushka",
+    "STT provider": "deepgram",
+    "customer_profile": {
+      "customer_id": "u123",
+      "customer_name": "Rahul",
+      "age": 30,
+      "city": "Mumbai",
+      "language": "hindi",
+      "bank_name": "HDFC",
+      "vehicle_owned": "car",
+      "vehicle_model": "mahindra scorpio",
+      "vehicle_year": 2018
+    },
+    "final_usage": {
+      "llm_prompt_tokens": 1534,
+      "llm_prompt_cached_tokens": 0,
+      "llm_input_audio_tokens": 0,
+      "llm_completion_tokens": 44,
+      "llm_output_audio_tokens": 0,
+      "tts_characters_count": 121,
+      "tts_audio_duration": 8.06893424036281,
+      "stt_audio_duration": 9.799999999999981,
+      "session_id": "5267c962-b676-456e-a524-dbb982ad5ea1",
+      "average_latency_seconds": 0.0,
+      "session_length_seconds": 8.068686
+    },
+    "final_cost": {
+      "llm_cost": 0.001026,
+      "stt_cost": 0.00085,
+      "tts_cost": 0.002178,
+      "total_cost": 0.004054
+    }
+  },
+  "transcript": [
+    {
+      "speech_id": "item_94a4f793f50f",
+      "role": "assistant",
+      "text": "जी सर, नमस्ते! क्या मैं राहुल जी से बात कर रही हूँ? मैं हूँ काजल, एच डी एफ सी से लोन कंसल्टेंट। आपको कैसे मदद कर सकती हूँ?",
+      "interrupted": false,
+      "confidence": null,
+      "timestamp": "2025-09-11T16:59:52.981191+05:30"
+    }
+  ],
+  "stt": [
+    {
+      "speech_id": "d018d003-699d-4be8-be32-47da7daa7087",
+      "audio_duration": 4.799999999999991,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": "2025-09-11T16:59:47.652766+05:30"
+    },
+    {
+      "speech_id": "637ac4c3-0566-49f4-a17c-25f1e08878f4",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": "2025-09-11T16:59:52.651483+05:30"
+    }
+  ],
+  "llm": [
+    {
+      "speech_id": "speech_36c91ad6e4d5",
+      "duration": 1.9673312000231817,
+      "completion_tokens": 44,
+      "prompt_tokens": 1534,
+      "prompt_cached_tokens": 0,
+      "total_tokens": 1578,
+      "tokens_per_second": 22.365324150545437,
+      "ttft": 1.3123104000114836,
+      "timestamp": "2025-09-11T16:59:44.582797+05:30"
+    }
+  ],
+  "tts": [
+    {
+      "speech_id": "speech_36c91ad6e4d5",
+      "audio_duration": 3.4481632653061216,
+      "characters_count": 51,
+      "duration": 0.8708743000170216,
+      "ttfb": 0.7101071000215597,
+      "streamed": false,
+      "timestamp": "2025-09-11T16:59:45.052674+05:30"
+    },
+    {
+      "speech_id": "speech_36c91ad6e4d5",
+      "audio_duration": 4.620770975056688,
+      "characters_count": 70,
+      "duration": 0.9419054000172764,
+      "ttfb": 0.7502079000114463,
+      "streamed": false,
+      "timestamp": "2025-09-11T16:59:46.002762+05:30"
+    }
+  ],
+  "eou": [],
+  "conversation": []
+}

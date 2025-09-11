@@ -1,0 +1,196 @@
+{
+  "metadata": {
+    "session_id": "6ea3aab7-1fb5-447e-a7a6-5ec30fcb9a4e",
+    "TTS provider": "sarvam_anushka",
+    "STT provider": "deepgram",
+    "customer_profile": {
+      "customer_id": "u123",
+      "customer_name": "Rahul",
+      "age": 30,
+      "city": "Mumbai",
+      "language": "hindi",
+      "bank_name": "HDFC",
+      "vehicle_owned": "car",
+      "vehicle_model": "mahindra scorpio",
+      "vehicle_year": 2018
+    },
+    "final_usage": {
+      "llm_prompt_tokens": 3102,
+      "llm_prompt_cached_tokens": 1408,
+      "llm_input_audio_tokens": 0,
+      "llm_completion_tokens": 76,
+      "llm_output_audio_tokens": 0,
+      "tts_characters_count": 232,
+      "tts_audio_duration": 15.0465306122449,
+      "stt_audio_duration": 34.799999999999926,
+      "session_id": "6ea3aab7-1fb5-447e-a7a6-5ec30fcb9a4e",
+      "average_latency_seconds": 3.7911260862019844,
+      "session_length_seconds": 33.461973
+    },
+    "final_cost": {
+      "llm_cost": 0.001621,
+      "stt_cost": 0.003017,
+      "tts_cost": 0.004176,
+      "total_cost": 0.008814
+    }
+  },
+  "transcript": [
+    {
+      "speech_id": "item_cbece4ec18d2",
+      "role": "assistant",
+      "text": "जी सर, नमस्ते! मैं काजल हूँ, एच डी एफ सी से। क्या मैं राहुल जी से बात कर रही हूँ?",
+      "interrupted": false,
+      "confidence": null,
+      "timestamp": "2025-09-11T17:01:45.958312+05:30"
+    },
+    {
+      "speech_id": "ceb9ff82-be47-4cf3-9232-7ad6d3d413ff",
+      "role": "user",
+      "text": "जी हां बोलिए क्या कहा",
+      "is_final": false,
+      "language": "hi",
+      "timestamp": "2025-09-11T17:01:50.137363+05:30"
+    },
+    {
+      "speech_id": "f51dbdd8-6a1d-4bce-9d5c-ebce052477fe",
+      "role": "user",
+      "text": "जी हां बोलिए क्या काम है आपको?",
+      "is_final": true,
+      "language": "hi",
+      "timestamp": "2025-09-11T17:01:50.929525+05:30"
+    },
+    {
+      "speech_id": "item_b3bbcadd0fff",
+      "role": "user",
+      "text": "जी हां बोलिए क्या काम है आपको?",
+      "interrupted": false,
+      "confidence": 0.92822266,
+      "timestamp": "2025-09-11T17:01:51.519319+05:30"
+    },
+    {
+      "speech_id": "item_e37c29e6a956",
+      "role": "assistant",
+      "text": "ओके सर... umm, मैं यहाँ आपके लिए कार लोन की जानकारी देने आई हूँ। क्या आप सोच रहे हैं, नई कार खरीदने की या किसी पुरानी कार के लिए लोन की बात कर रहे हैं?",
+      "interrupted": false,
+      "confidence": null,
+      "timestamp": "2025-09-11T17:02:03.059549+05:30"
+    }
+  ],
+  "stt": [
+    {
+      "speech_id": "752e255d-08f1-4bb2-aefa-24f24e9dddeb",
+      "audio_duration": 4.699999999999991,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": "2025-09-11T17:01:43.058056+05:30"
+    },
+    {
+      "speech_id": "89d8ab34-6b3d-4a95-804d-5b6be30e6ba6",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": "2025-09-11T17:01:48.058433+05:30"
+    },
+    {
+      "speech_id": "b196aa38-af1f-4b63-9552-ca7d38b6a996",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": "2025-09-11T17:01:53.059495+05:30"
+    },
+    {
+      "speech_id": "e65d1d15-172b-4670-9674-8b70dc5e472d",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": "2025-09-11T17:01:58.059874+05:30"
+    },
+    {
+      "speech_id": "f7e83c65-2846-47cc-b2e1-cc59e595609c",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": "2025-09-11T17:02:03.066863+05:30"
+    },
+    {
+      "speech_id": "66690fb5-7695-46ac-87e4-d07870521711",
+      "audio_duration": 5.04999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": "2025-09-11T17:02:08.069910+05:30"
+    },
+    {
+      "speech_id": "4b3f8e50-f2e9-4c4a-9d2f-eb2db8e10c98",
+      "audio_duration": 5.04999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": "2025-09-11T17:02:13.160460+05:30"
+    }
+  ],
+  "llm": [
+    {
+      "speech_id": "speech_a8c28dea0cb8",
+      "duration": 1.6728126000380144,
+      "completion_tokens": 30,
+      "prompt_tokens": 1534,
+      "prompt_cached_tokens": 0,
+      "total_tokens": 1564,
+      "tokens_per_second": 17.93386778609765,
+      "ttft": 1.1794418000499718,
+      "timestamp": "2025-09-11T17:01:39.698487+05:30"
+    },
+    {
+      "speech_id": "speech_16ff9c14bafb",
+      "duration": 1.43493769998895,
+      "completion_tokens": 46,
+      "prompt_tokens": 1568,
+      "prompt_cached_tokens": 1408,
+      "total_tokens": 1614,
+      "tokens_per_second": 32.057140878209715,
+      "ttft": 0.6687063000281341,
+      "timestamp": "2025-09-11T17:01:52.376204+05:30"
+    }
+  ],
+  "tts": [
+    {
+      "speech_id": "speech_a8c28dea0cb8",
+      "audio_duration": 5.352199546485259,
+      "characters_count": 81,
+      "duration": 1.1981023999978788,
+      "ttfb": 0.9004389999900013,
+      "streamed": false,
+      "timestamp": "2025-09-11T17:01:40.898651+05:30"
+    },
+    {
+      "speech_id": "speech_16ff9c14bafb",
+      "audio_duration": 9.694331065759641,
+      "characters_count": 151,
+      "duration": 1.3137547000078484,
+      "ttfb": 0.9743751999922097,
+      "streamed": false,
+      "timestamp": "2025-09-11T17:01:53.689817+05:30"
+    }
+  ],
+  "eou": [
+    {
+      "speech_id": "speech_16ff9c14bafb",
+      "end_of_utterance_delay": 2.1480445861816406,
+      "transcription_delay": 1.5668280124664307,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": "2025-09-11T17:01:51.519319+05:30"
+    }
+  ],
+  "conversation": [
+    {
+      "speech_id": "speech_16ff9c14bafb",
+      "latency_seconds": 3.7911260862019844,
+      "stt_seconds": 0.0,
+      "llm_ttft": 0.6687063000281341,
+      "tts_ttfb": 0.9743751999922097,
+      "eou_delay": 2.1480445861816406,
+      "transcription_delay": 1.5668280124664307,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": "2025-09-11T17:01:53.689817+05:30"
+    }
+  ]
+}

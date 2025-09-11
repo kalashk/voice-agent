@@ -1,0 +1,11 @@
+{
+  "customer_id": "u123",
+  "customer_name": "Rahul",
+  "age": 30,
+  "city": "Mumbai",
+  "language": "hindi",
+  "bank_name": "HDFC",
+  "vehicle_owned": "car",
+  "vehicle_model": "mahindra scorpio",
+  "vehicle_year": 2018
+}
