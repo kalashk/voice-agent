@@ -2,13 +2,7 @@
   "deepgram": {
     "rate": 0.0000867
   },
-  "openai": {
-    "rate": 0.00012
-  },
   "cartesia": {
     "rate": 0.0000392
-  },
-  "sarvam": {
-    "rate": 0.0001
   }
 }

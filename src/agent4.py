@@ -18,10 +18,8 @@ from livekit.agents import (
     cli,
     metrics,
 )
-from livekit.plugins import cartesia, deepgram, noise_cancellation, openai, silero, google, resemble, sarvam, aws, silero
+from livekit.plugins import cartesia, deepgram, noise_cancellation, openai, silero, google, sarvam, aws, silero
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
-from livekit.agents import UserInputTranscribedEvent, ConversationItemAddedEvent
-from livekit.agents.llm import ChatMessage
 from usage_tracker import CostCalculator
 from config import TTS_PROVIDER, STT_PROVIDER
 

@@ -1,12 +1,6 @@
 {
-  "openai": {
-    "rate_per_character": 0.0000024
-  },
   "cartesia": {
     "rate_per_second": 0.00049
-  },
-  "google_chirp": {
-    "rate_per_character": 0.00003
   },
   "sarvam_anushka": {
     "rate_per_character": 0.000018

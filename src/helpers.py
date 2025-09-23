@@ -9,13 +9,18 @@ from livekit.agents import (
     AgentFalseInterruptionEvent,
     NOT_GIVEN
 )
-from livekit.plugins import silero, openai
+from livekit.plugins import silero, openai, turn_detector
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
+from config import TTS_PROVIDER
 
 # Logger for this module
 logger = logging.getLogger("agent")
 
 thinking_track = None  # Global track for thinking sounds
+
+aligned_script = False
+# if TTS_PROVIDER == "cartesia":
+#     aligned_script = True
 
 # --------------------------
 #   Prewarm Function
@@ -73,6 +78,7 @@ def setup_session(ctx: JobContext, setup_stt, setup_tts, STT_PROVIDER, TTS_PROVI
         tts=setup_tts(TTS_PROVIDER),               # Text-to-Speech provider
         turn_detection=MultilingualModel(),        # Handles multi-language turn-taking
         vad=ctx.proc.userdata["vad"],              # Voice Activity Detection (loaded in prewarm)
+        # turn_detector=turn_detector.EOUPlugin()  # Works in Voice_pipeline_agent
 
         # 🔽 Latency tuning — makes assistant feel more responsive
         min_endpointing_delay=0.25,        # Wait this long before deciding speech has ended
@@ -81,7 +87,7 @@ def setup_session(ctx: JobContext, setup_stt, setup_tts, STT_PROVIDER, TTS_PROVI
         min_consecutive_speech_delay=0.05, # Time between two speech segments
 
         # 🔽 Transcript handling
-        use_tts_aligned_transcript=False,  # Don’t wait for TTS metadata to finalize transcript
+        use_tts_aligned_transcript=aligned_script,  # Don’t wait for TTS metadata to finalize transcript
 
         # 🔽 Responsiveness
         preemptive_generation=True,        # Start generating replies while user is still talking

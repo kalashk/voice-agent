@@ -46,3 +46,5 @@ test/
 tests/
 eval/
 evals/
+
+.env.local

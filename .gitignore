@@ -1,4 +1,5 @@
 .env
+.env.locals
 .env.*
 !.env.example
 .DS_Store
@@ -12,3 +13,5 @@ KMS
 .ruff_cache
 .env.local
 key.json
+outbound-trunk.json
+participant.json

@@ -1,0 +1,1273 @@
+{
+  "knowledge_base": {
+    "car_loan_detail": {
+      "loan_types": [
+        {
+          "type": "PURCHASE CASE",
+          "description": "यूज्ड कार खरीदने के लिए.",
+          "max_loan_percentage": "कार की मार्केट वैल्यू का 90% तक.",
+          "example": {
+            "vehicle_market_value": "छह लाख",
+            "max_funding_allowed": "90%",
+            "max_loan_provided": "पांच लाख चालीस हज़ार"
+          }
+        },
+        {
+          "type": "REFINANCE CASE",
+          "sub_types": [
+            {
+              "type": "NORMAL REFINANCE",
+              "condition": "गाड़ी कैश में खरीदी गई हो या पुराना लोन 6 महीने से ज़्यादा पहले बंद हो गया हो.",
+              "max_loan_percentage": "कार की मार्केट वैल्यू का 90% तक.",
+              "example": {
+                "vehicle_market_value": "छह लाख",
+                "max_funding_allowed": "90%",
+                "max_loan_provided": "पांच लाख चालीस हज़ार"
+              }
+            },
+            {
+              "type": "MULTIPLIER REFINANCE",
+              "condition": "गाड़ी पर पुराना लोन 6 महीने से कम समय पहले बंद हुआ हो.",
+              "max_loan_percentage": "कार की मार्केट वैल्यू का 80% से 140% तक.",
+              "example": {
+                "vehicle_market_value": "छह लाख",
+                "max_funding_allowed": "140%",
+                "max_loan_provided": "आठ लाख चालीस हज़ार"
+              }
+            },
+            {
+              "type": "BALANCE TRANSFER & TOPUP",
+              "condition": "गाड़ी पर रनिंग लोन हो और कस्टमर को उसी गाड़ी पर एक्स्ट्रा फंड्स की ज़रूरत हो. पुराने लोन की कम से कम 9 ईएमआई बिना बाउंस के क्लियर होनी चाहिए.",
+              "loan_tiers": [
+                { "emis_paid": "9", "max_loan_percentage": "120%" },
+                { "emis_paid": "10 or 11", "max_loan_percentage": "140%" },
+                { "emis_paid": "12 or 17", "max_loan_percentage": "160%" },
+                { "emis_paid": "18 or above", "max_loan_percentage": "200%" }
+              ],
+              "example": {
+                "9_emi_paid": {
+                  "max_loan_provided": "सात लाख बीस हज़ार"
+                },
+                "11_emi_paid": {
+                  "max_loan_provided": "आठ लाख चालीस हज़ार"
+                },
+                "17_emi_paid": {
+                  "max_loan_provided": "नौ लाख साठ हज़ार"
+                },
+                "18_emi_paid": {
+                  "max_loan_provided": "बारह लाख"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "emi_calculation": {
+        "formula": "लोन अमाउंट, आरओआई और टेन्योर के हिसाब से ईएमआई कैलकुलेट होती है. हम आपको एक मोटा-मोटा आईडिया दे सकते हैं.",
+        "emi_chart": {
+          "roi_flat": "9%",
+          "roi_reducing": "16%",
+          "data": [
+            { "loan_in_lacs": 1, "2_yr": 4896, "3_yr": 3516, "4_yr": 2834, "5_yr": 2432 },
+            { "loan_in_lacs": 2, "2_yr": 9792, "3_yr": 7032, "4_yr": 5668, "5_yr": 4864 },
+            { "loan_in_lacs": 3, "2_yr": 14688, "3_yr": 10548, "4_yr": 8502, "5_yr": 7296 },
+            { "loan_in_lacs": 4, "2_yr": 19584, "3_yr": 14064, "4_yr": 11336, "5_yr": 9728 },
+            { "loan_in_lacs": 5, "2_yr": 24480, "3_yr": 17580, "4_yr": 14170, "5_yr": 12160 },
+            { "loan_in_lacs": 6, "2_yr": 29376, "3_yr": 21096, "4_yr": 17004, "5_yr": 14592 },
+            { "loan_in_lacs": 7, "2_yr": 34272, "3_yr": 24612, "4_yr": 19838, "5_yr": 17024 },
+            { "loan_in_lacs": 8, "2_yr": 39168, "3_yr": 28128, "4_yr": 22672, "5_yr": 19456 },
+            { "loan_in_lacs": 9, "2_yr": 44064, "3_yr": 31644, "4_yr": 25506, "5_yr": 21888 },
+            { "loan_in_lacs": 10, "2_yr": 48960, "3_yr": 35160, "4_yr": 28340, "5_yr": 24320 },
+            { "loan_in_lacs": 11, "2_yr": 53856, "3_yr": 38676, "4_yr": 31174, "5_yr": 26752 },
+            { "loan_in_lacs": 12, "2_yr": 58752, "3_yr": 42192, "4_yr": 34008, "5_yr": 29184 },
+            { "loan_in_lacs": 13, "2_yr": 63648, "3_yr": 45708, "4_yr": 36842, "5_yr": 31616 },
+            { "loan_in_lacs": 14, "2_yr": 68544, "3_yr": 49224, "4_yr": 39676, "5_yr": 34048 },
+            { "loan_in_lacs": 15, "2_yr": 73440, "3_yr": 52740, "4_yr": 42510, "5_yr": 36480 },
+            { "loan_in_lacs": 16, "2_yr": 78336, "3_yr": 56256, "4_yr": 45344, "5_yr": 38912 },
+            { "loan_in_lacs": 17, "2_yr": 83232, "3_yr": 59772, "4_yr": 48178, "5_yr": 41344 },
+            { "loan_in_lacs": 18, "2_yr": 88128, "3_yr": 63288, "4_yr": 51012, "5_yr": 43776 },
+            { "loan_in_lacs": 19, "2_yr": 93024, "3_yr": 66804, "4_yr": 53846, "5_yr": 46208 },
+            { "loan_in_lacs": 20, "2_yr": 97920, "3_yr": 70320, "4_yr": 56680, "5_yr": 48640 },
+            { "loan_in_lacs": 21, "2_yr": 102816, "3_yr": 73836, "4_yr": 59514, "5_yr": 51072 },
+            { "loan_in_lacs": 22, "2_yr": 107712, "3_yr": 77352, "4_yr": 62348, "5_yr": 53504 },
+            { "loan_in_lacs": 23, "2_yr": 112608, "3_yr": 80868, "4_yr": 65182, "5_yr": 55936 },
+            { "loan_in_lacs": 24, "2_yr": 117504, "3_yr": 84384, "4_yr": 68016, "5_yr": 58368 },
+            { "loan_in_lacs": 25, "2_yr": 122400, "3_yr": 87900, "4_yr": 70850, "5_yr": 60800 }
+          ]
+        }
+      }
+    },
+    "documents_required": {
+      "essential_documents": [
+        "के वाई सी डाक्यूमेंट्स: आधार कार्ड, पैन कार्ड, फोटो",
+        "6 महीने का बैंक स्टेटमेंट",
+        "व्हीकल डाक्यूमेंट्स: व्हीकल आरसी + इन्शुरन्स कॉपी",
+        "एग्जिस्टिंग लोन: लोन अकाउंट स्टेटमेंट (एस ओ ए)"
+      ],
+      "documents_based_on_customer_profession": {
+        "salaried employee": "3 महीने की सैलरी स्लिप + फॉर्म 16",
+        "business": "2 साल की आई टी आर विद कम्प्यूटेशन + बिज़नेस प्रूफ जैसे जी एस टी / उद्यम रजिस्ट्रेशन",
+        "farmer": "जमाबंदी रिसिप्ट"
+      },
+      "co_applicant": "अगर कस्टमर के पुराने लोन में को-एप्लीकेंट है, तो हमें को-एप्लीकेंट की के वाई सी भी लेनी है।"
+    },
+    "loan_eligibility": {
+      "salaried": {
+        "method": "एफ ओ आई आर बेस्ड कैलकुलेशन",
+        "rule": "सैलरी का मैक्सिमम 70% ईएमआई के रूप में वापस किया जा सकता है. नया लोन, उपलब्ध एफ ओ आई आर पर निर्भर करता है."
+      },
+      "businessman": {
+        "method": "इनकम डॉक्यूमेंट सरोगेट कैलकुलेशन",
+        "rule": "कम एवरेज बैंक बैलेंस के मामले में, आई टी आर से इनकम को कंसीडर किया जाएगा, जो बिज़नेस से आई टी आर इनकम का मैक्सिमम 4एक्स हो सकता है."
+      },
+      "average_bank_balance": {
+        "loan_up_to_10_lacs": "मिनिमम एवरेज बैंक बैलेंस ₹5,000 से ज़्यादा होना चाहिए.",
+        "loan_above_10_lacs": "मंथली ईएमआई का 0.75एक्स से 1एक्स एवरेज बैंक बैलेंस चाहिए."
+      }
+    },
+    "telecalling_psychology": [
+      {
+        "principle": "Reciprocity",
+        "summary": "गिव एंड टेक: पहले कुछ वैल्यू दें, फिर कुछ मांगें.",
+        "application": "लोन के फायदे पहले बताएं (जैसे पुराना लोन क्लियर और एक्स्ट्रा पैसे मिलेंगे)."
+      },
+      {
+        "principle": "Social Proof",
+        "summary": "जो सब करते हैं, वही सही: लोग दूसरों के एक्शन को फॉलो करते हैं.",
+        "application": "बताएं कि बहुत से कस्टमर इस तरह के लोन ले रहे हैं."
+      },
+      {
+        "principle": "Anchoring",
+        "summary": "पहली बात का असर: पहली जानकारी से डिसीजन पर असर होता है.",
+        "application": "शुरुआत में मैक्सिमम लोन अमाउंट बताएं ताकि बाद का ऑफर भी अच्छा लगे."
+      },
+      {
+        "principle": "Loss Aversion",
+        "summary": "नुकसान का डर: लोग फायदा उठाने से ज़्यादा नुकसान से बचना चाहते हैं.",
+        "application": "लोन के बिना पैसों की ज़रूरत पूरी न होने के नुकसान को हाईलाइट करें."
+      },
+      {
+        "principle": "Authority",
+        "summary": "अथॉरिटी का सम्मान: लोग एक्सपर्ट की बात पर ज़्यादा भरोसा करते हैं.",
+        "application": "खुद को एक भरोसेमंद बैंक प्रोफेशनल के रूप में पेश करें."
+      },
+      {
+        "principle": "Scarcity Principle",
+        "summary": "सीमित चीज़ें ज़्यादा पसंद आती हैं.",
+        "application": "ऑफर की समय सीमा बताएं (जैसे 'यह रेट सिर्फ आज के लिए है')."
+      },
+      {
+        "principle": "Urgency Principle",
+        "summary": "जल्दबाजी के लिए प्रेरित करना.",
+        "application": "प्रमोशन की आखिरी तारीख बताएं (जैसे 'प्रोसेसिंग फीस पर यह ऑफर सिर्फ महीने के आखिर तक है')."
+      },
+      {
+        "principle": "Foot-in-the-Door Technique",
+        "summary": "पहले छोटा रिक्वेस्ट, फिर बड़ा.",
+        "application": "कॉल की शुरुआत में कस्टमर का नाम या गाड़ी की डिटेल पूछें."
+      },
+      {
+        "principle": "Ben Franklin Effect",
+        "summary": "जो आपके लिए फेवर करे, वो और फेवर करेगा.",
+        "application": "कस्टमर से छोटी जानकारी लेकर उन्हें कन्वर्सेशन में एंगेज करें."
+      }
+    ]
+  },
+  "guardrails": {
+    "non_topic_questions": [
+      "I am a financial consultant and my knowledge is limited to car loans. If you have any questions about car loans, I would be happy to help.",
+      "माफ़ कीजिएगा, मैं सिर्फ कार लोन के बारे में जानकारी दे सकती हूं. क्या आप कार लोन के बारे में कुछ जानना चाहते हैं?",
+      "मैं इस विषय पर जानकारी नहीं दे सकती. हमारा यह कॉल सिर्फ कार लोन से जुड़ा है. क्या मैं आपकी कार लोन के बारे में कोई मदद कर सकती हूँ?"
+    ]
+  },
+  "sample_conversations": [
+      {
+        "id": "conversation_001",
+        "product": "Used Car Loan",
+        "consultant_name": "Kajal",
+        "customer_name": "Shubham Kumar",
+        "summary": "This is an introductory call to Shubham Kumar to offer a refinance loan on his 2022 model car. The customer is initially resistant as he already has a running loan and is struggling to repay it. He works as a laborer. The call ends with the consultant politely ending the call and offering to be contacted in the future.",
+        "dialogue": [
+          {
+            "speaker": "consultant",
+            "text": "Hello. जी नमस्कार sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "नमस्कार जी."
+          },
+          {
+            "speaker": "consultant",
+            "text": "अब sir मेरी बात शुभम कुमार जी से हो रही है sir?"
+          },
+          {
+            "speaker": "customer",
+            "text": "बोलिए क्या काम पड़ गया शुभम कुमार जी से आपको?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir मुझे तो कुछ काम नहीं पड़ा काम तो आप ही का होने वाला है। मैं H D F C bank से मनराज बात कर रही हूं।"
+          },
+          {
+            "speaker": "customer",
+            "text": "कौन से bank से?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "H D F C bank से sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "H D F C bank से बोलिए madam."
+          },
+          {
+            "speaker": "consultant",
+            "text": "आप जो present time गाड़ी use कर रहे हैं ना 4 wheeler गाड़ी का number है 4769."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां बोलिए आगे बोलिए."
+          },
+          {
+            "speaker": "consultant",
+            "text": "उसके ऊपर sir गाड़ी के ऊपर जो D finance का offer निकला है sir आपको करवाना हो तो बताइए."
+          },
+          {
+            "speaker": "customer",
+            "text": "क्या चीज़ है?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "refinance का offer निकला है sir loan का offer अगर करवाना हो तो."
+          },
+          {
+            "speaker": "customer",
+            "text": "वह तो पहले भी loan पर है."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Loan पर है?, आपके पास तो दो हज़ार बाइस का model है ना."
+          },
+          {
+            "speaker": "customer",
+            "text": "हैं?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "दो हज़ार बाइस का model है ना यह तो."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां."
+          },
+          {
+            "speaker": "consultant",
+            "text": "तो इसके ऊपर तो मतलब यह loan चलते हुए दो साल से ज़्यादा हो गया मतलब चल ही रहा है."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां तो loan तो जैसे जैसे पैसे आ रहे हैं किश्त आ रही है वैसे वैसे दे भी रहे हैं."
+          },
+          {
+            "speaker": "consultant",
+            "text": "हां वो तो दे रहे हैं फिर मैंने मान लिया but यह kitne साल के लिए लिया था आपने वो पहले वाले?"
+          },
+          {
+            "speaker": "customer",
+            "text": "मैंने पांच साल के लिए लिया था."
+          },
+          {
+            "speaker": "consultant",
+            "text": "पांच साल के लिए लिया था तो फिर आपको अभी जैसे पैसों की requirement हो तो आप दोबारा ले सकते हो इससे मैं जो आपकी गाड़ी की insurance value है ना sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "नहीं नहीं madam और नहीं लेना यह मुश्किल से चुकाया जा रहा है क्या अभी नहीं करते."
+          },
+          {
+            "speaker": "consultant",
+            "text": "क्या करते हो sir आप?"
+          },
+          {
+            "speaker": "customer",
+            "text": "करते तो वैसे ही मजदूरी करते हैं इधर उधर बस हो कर."
+          },
+          {
+            "speaker": "consultant",
+            "text": "ठीक है sir. In future आपको जैसे requirement हो personal loan decision हो तो फिर आप ही number पर call कर सकते हैं."
+          },
+          {
+            "speaker": "customer",
+            "text": "इसी number पर?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "जी sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "आपका number है यह?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "यह bank का number है?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir आपको loan के regarding बात करनी होगी तो इससे मेरे से बात हो जाएगी उससे."
+          },
+          {
+            "speaker": "customer",
+            "text": "अच्छा आपसे बात हो रही है आपका शुभ नाम जान सकता हूं मैं?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir Kajal."
+          },
+          {
+            "speaker": "customer",
+            "text": "Kajal, ठीक है mam. Ok. Thank you sir."
+          }
+        ],
+        "analysis": "The consultant, Kajal, attempts to sell a refinance loan. The customer, Shubham, is resistant, citing financial difficulties and an existing loan. The consultant's attempt to sell is met with firm refusal. The conversation highlights common customer objections (already in debt, struggling with payments) and the need for a graceful exit from the call."
+      },
+      {
+        "id": "conversation_002",
+        "product": "Used Car Loan (Refinance)",
+        "consultant_name": "Kajal",
+        "customer_name": "Vishnu Dev",
+        "summary": "The consultant, Kajal, calls Vishnu Dev to offer a refinance loan on his 2022 Eeco 5-seater. The customer is initially interested but has a running loan. The consultant explains the refinance concept and the high loan amount possible (up to double the car's value) and addresses the customer's income and payment history. The customer, a self-employed supplier of snacks, shows interest in the interest rate, and the call concludes with the consultant asking him to call back.",
+        "dialogue": [
+          {
+            "speaker": "consultant",
+            "text": "Hello. Hello. जी नमस्कार sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "नमस्कार जी."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir मेरी बात विष्णु देव जी से हो रही है sir?"
+          },
+          {
+            "speaker": "customer",
+            "text": "हां जी."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir मैं H D F C bank से मद्रास बात कर रही हूं sir. आप जो sir present time गाड़ी use कर रहे हैं ना 4 wheeler eco 5 star."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां जी."
+          },
+          {
+            "speaker": "consultant",
+            "text": "इसके ऊपर sir re finance का offer निकला हैं अगर आपको करवाना हो तो बताइए sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "क्या निकला हुआ है?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Refinance car loan का offer है sir आपको करवाना हो तो बताइए."
+          },
+          {
+            "speaker": "customer",
+            "text": "Loan? कौन सा loan?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Car loan का sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "Loan एक चल ही रहा है madam."
+          },
+          {
+            "speaker": "consultant",
+            "text": "चल रहा हैं, vo तो sir पहले का चल रहा था, आपके पास तो दो हज़ार बाइस का model हैं, तो वो पहले का दो साल से चल रहा हैं sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "हांं दो साल हो गया."
+          },
+          {
+            "speaker": "consultant",
+            "text": "हांं तो sir उसके ऊपर आप जैसे दोबारा लेना चाहेंगे तो ले सकते हो जैसे आपकी जो गाड़ी की value हैं ना, उसके दो गुना तक आपको loan मिल जाएगा. double है ना. उसमें sir जो पहले का आपका loan चल रहा है ना वो complete हो कर और आपकी गाड़ी free हो जाएगी बाकी जो amount बचेगा वो आपके account में आ जाएंगे sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां पैसे में?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "हां."
+          },
+          {
+            "speaker": "customer",
+            "text": "क्या करते क्या हो sir आप?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "हम namkeen business करते हैं supply करते हैं."
+          },
+          {
+            "speaker": "customer",
+            "text": "क्या?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "क्या sir? namkeen business करते हैं, supply करते हैं नमकीन, नमकीन गुजिया."
+          },
+          {
+            "speaker": "consultant",
+            "text": "अच्छा तो sir आपकी shop होगी? kitna कमा लेते हो आप?"
+          },
+          {
+            "speaker": "customer",
+            "text": "महीने का साठ हज़ार सत्तर हज़ार हो जाते हैं madam."
+          },
+          {
+            "speaker": "consultant",
+            "text": "अच्छा साठ, सत्तर हज़ार हो जाते हैं तो अच्छा तो पहले की किस्त तो आप लगातार दे रहे हो ना beach में due to nahi hui कोई किस्त?"
+          },
+          {
+            "speaker": "customer",
+            "text": "नहीं नहीं हुई थी एक बार भी नहीं हुई."
+          },
+          {
+            "speaker": "consultant",
+            "text": "एक बार भी नहीं हुई हां तो वह किस bank से चल रहा हैं पहले का?"
+          },
+          {
+            "speaker": "customer",
+            "text": "हां जी."
+          },
+          {
+            "speaker": "consultant",
+            "text": "पहले का जो आपका loan चल रहा हैं वह किस bank से चल रहा है?"
+          },
+          {
+            "speaker": "customer",
+            "text": "वह चोयला से चल रहा हैं madam."
+          },
+          {
+            "speaker": "consultant",
+            "text": "महिंद्रा से?"
+          },
+          {
+            "speaker": "customer",
+            "text": "चोयला चोयला."
+          },
+          {
+            "speaker": "consultant",
+            "text": "अच्छा हां तो sir देख लीजिए अगर आपको करवाना हो तो sir आप करवा सकते हो."
+          },
+          {
+            "speaker": "customer",
+            "text": "उसमें कितने तक ब्याज मुझे पहले बता दो जब हमें पता लगेगा."
+          },
+          {
+            "speaker": "consultant",
+            "text": "हां ब्याज sir इसमें रहेगा जिसमें percent के हिसाब से रहता है तो आठ से नौ percent बाकी पैसा के हिसाब से लगता है तो चित्र पचहत्तर पैसा से एक tak लगता है sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "चत्तर पैत्तर पै लगता हैं sir. Phone कर देना sir यह number पर ना. ठीक हैं. ठीक हैं अच्छा."
+          }
+        ],
+        "analysis": "The consultant successfully explains the refinance offer to the customer, Vishnu Dev, despite an initial objection about an existing loan. The consultant provides a clear benefit (higher loan amount and single EMI) and successfully transitions the conversation to the customer's professional details and flawless repayment history. The customer, who is self-employed, shows interest in the interest rate, but the conversation ends abruptly with no clear commitment."
+      },
+      {
+        "id": "conversation_003",
+        "product": "Used Car Loan (Refinance)",
+        "consultant_name": "Kajal",
+        "customer_name": "Sitaram Parikh",
+        "summary": "The consultant, Kajal, calls Sitaram Parikh to offer a refinance loan on his 2022 I20. The customer expresses resistance and confusion over the need for a new loan since he already has one. The consultant explains the 'balance transfer and top-up' feature, but the customer remains skeptical about the financial benefits. He ultimately rejects the offer, and the call ends politely.",
+        "dialogue": [
+          {
+            "speaker": "consultant",
+            "text": "Hello. Hello जी नमस्कार sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "नमस्कार."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir मेरी बात सीताराम पारिख जी से हो रही है sir?"
+          },
+          {
+            "speaker": "customer",
+            "text": "कौन बोल रहे हो?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir मैं H D F C bank से मद्रास बात कर रही हूं sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "जी."
+          },
+          {
+            "speaker": "consultant",
+            "text": "आप जो present time गाड़ी use कर रहे हैं ना sir 4 wheeler I 20?"
+          },
+          {
+            "speaker": "customer",
+            "text": "हां."
+          },
+          {
+            "speaker": "consultant",
+            "text": "उसके ऊपर से refinance का offer निकला है sir आपको करवाना हो तो बताइए sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "क्या करना है?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Refinance का offer निकला है sir आपको करवाना हो तो बताइए. Car loan का offer है sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "Car loan तो लिया हुआ है उसके ऊपर."
+          },
+          {
+            "speaker": "consultant",
+            "text": "लिया हुआ है, तो फिर दो हज़ार बाइस का model है ना आपके पास तो."
+          },
+          {
+            "speaker": "customer",
+            "text": "हैं?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "तो sir इसके ऊपर जैसे दो साल हो गए इस loan को हुए, तो आप इसके ऊपर दुबारा ले सकते हो sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "क्या?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "इसमें sir जो गाड़ी की insurance value ना आपकी."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां."
+          },
+          {
+            "speaker": "consultant",
+            "text": "उसके दो गुना तक आपको loan provide होगा sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां."
+          },
+          {
+            "speaker": "consultant",
+            "text": "तो उसमें sir जो पहले का loan चल रहा है ना वह clear हो कर और बाकी का जो amount रहेगा ना वह आपके account में आएगा sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां."
+          },
+          {
+            "speaker": "consultant",
+            "text": "जी sir, ऐसा रहेगा बाकी जो पहले का loan चल रहा है ना वह आपका बिल्कुल clear होगा."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां."
+          },
+          {
+            "speaker": "consultant",
+            "text": "और बाकी जो बच जाएगा वो amount आपके account में आ जाएगा फिर ऐसा होगा."
+          },
+          {
+            "speaker": "customer",
+            "text": "उसका interest क्या है?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Interest sir आठ से नौ percent."
+          },
+          {
+            "speaker": "customer",
+            "text": "फ़ायदा क्या हुआ?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "फ़ायदा तो sir यही है कि मतलब आपको requirement hogi पैसों की तो आपके account में कुछ थोड़े बहुत पैसे आ जाएंगे बाकी जो पहले का loan है वो clear हो जाएगा आपकी गाड़ी free हो जाएगी वैसे तो."
+          },
+          {
+            "speaker": "customer",
+            "text": "free कहां हुई आप paise loge na madam? क्या?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Installment आप शुरू कर दोगे?"
+          },
+          {
+            "speaker": "customer",
+            "text": "हम तो कर देंगे फिर वह आपके account में भी तो आ रहा ना कुछ balance तो ऐसे तो है नहीं कि बिल्कुल 0 हो गया वो."
+          },
+          {
+            "speaker": "consultant",
+            "text": "कितना balance हो जाएगा? क्या?"
+          },
+          {
+            "speaker": "customer",
+            "text": "नहीं लेना madam."
+          },
+          {
+            "speaker": "consultant",
+            "text": "नहीं लेना?"
+          },
+          {
+            "speaker": "customer",
+            "text": "जी."
+          },
+          {
+            "speaker": "consultant",
+            "text": "फिर से in future आपको किसी का भी requirement हो किसी loan की जैसे personal loan की चीज़ हो तो आप इस number पर phone कर सकते हो sir."
+          }
+        ],
+        "analysis": "The consultant, Kajal, attempts to sell a refinance loan to Sitaram Parikh. The customer is skeptical from the beginning, highlighting that he already has a loan and sees no clear benefit. Despite the consultant explaining the 'balance transfer and top-up' feature and a low-interest rate, the customer remains unconvinced, pointing out that he would still have a new installment. The conversation ends with the customer's polite refusal, showcasing the importance of quickly identifying a customer's disinterest and offering a graceful exit while keeping the door open for future contact."
+      },
+      {
+        "id": "conversation_004",
+        "product": "Used Car Loan (Refinance)",
+        "consultant_name": "Kajal",
+        "customer_name": "Akshay Singh",
+        "summary": "The consultant, Kajal, calls Akshay Singh to offer a refinance loan on his car. The customer is a cautious and informed buyer who already has a running loan on a 2022 model car. He questions the new interest rate compared to his existing one, expresses skepticism about the benefits, and ultimately rejects the offer. The conversation highlights the customer's focus on the bottom line (interest rate and cost) and the consultant’s persistence.",
+        "dialogue": [
+          {
+            "speaker": "consultant",
+            "text": "Hello. Hello जी नमस्कार sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "नमस्कार जी."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir मेरी बात अक्षय सिंह जी से हो रही हैं sir?"
+          },
+          {
+            "speaker": "customer",
+            "text": "हांं जी."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir मैं H D F C bank से मनराज बात कर रही हूं sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "हांं जी बोलो."
+          },
+          {
+            "speaker": "consultant",
+            "text": "आप जो present time गाड़ी use कर रहे हैं ना sir 4 wheeler."
+          },
+          {
+            "speaker": "customer",
+            "text": "हांं जी हां."
+          },
+          {
+            "speaker": "consultant",
+            "text": "गाड़ी का number sir 1760. हां. उसके ऊपर refinance का offer निकला हैं अगर आपको करवाना हैं तो बताइए sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "क्या charge होगा? क्या charge होगा sir?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "अभी गाड़ी finance में हैं या finance पर ही हैं?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Finance हैं. Finance हैं."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Finance हैं तो sir जो आपकी गाड़ी की insurance value हैं ना उसके दो गुना तक मतलब double तक loan provide हो जाएगा आपको. इसमें sir जो पहले का loan चल रहा हैं ना आपका वह clear हो जाएगा और बाकि का amount रहेगा वह आपके account में आएगा sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "कितना charge क्या होगा फिर? ब्याज क्या charge होगा?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "ब्याज sir आठ से नौ percent रहेगा sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "हैं?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "आठ से नौ percent रहेगा sir ब्याज."
+          },
+          {
+            "speaker": "customer",
+            "text": "यह pehele से मेरे को कम लगा हुआ tha ब्याज, abhi से."
+          },
+          {
+            "speaker": "consultant",
+            "text": " कितना लगा? हैं?"
+          },
+          {
+            "speaker": "customer",
+            "text": "छह percent हैं, छह percent हैं."
+          },
+          {
+            "speaker": "consultant",
+            "text": "छह percent हैं तो sir वह आपने वह तो sir आपने नई गाड़ी ली थी ना उस time."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां."
+          },
+          {
+            "speaker": "consultant",
+            "text": "तो उस पर तो वैसे ही कम लगता हैं sir नई गाड़ी पर तो हम भी sir 5 percent तक ही देते हैं मतलब पचास पैसे के हिसाब से ही देते हैं."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां."
+          },
+          {
+            "speaker": "consultant",
+            "text": "तो अब दो साल हो गया आपका दो हज़ार बाइस का model हैं आपके पास."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां."
+          },
+          {
+            "speaker": "consultant",
+            "text": "तो इसमें."
+          },
+          {
+            "speaker": "customer",
+            "text": "कैसे enquiry आती हैं यह इसका कैसे पता चलता हैं आपको?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "हमें कैसे पता चलता हैं sir? हमारे पास data आता हैं sir."
+          },
+          {
+            "speaker": "customer",
+            "text": "हैं?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "पूरा data आता हैं sir हमारे पास."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां."
+          },
+          {
+            "speaker": "consultant",
+            "text": "वह company वाले देते हैं हमें फिर हम जिसको यह loan की requirement होती है वह हम bank वालों को file भेजते हैं फिर bank वाले उनके account में पैसे डालते हैं loan provide हो जाता है उनको. हां. ऐसा होता है sir और जिस भी bank से कम ब्याज लगता है ना हम उस bank से करवा देते हैं."
+          },
+          {
+            "speaker": "customer",
+            "text": "हैं?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "अब जिस भी bank से कम ब्याज लगता है ना हम उस bank से करवा देते हैं उनका loan."
+          },
+          {
+            "speaker": "customer",
+            "text": "हां."
+          },
+          {
+            "speaker": "consultant",
+            "text": "सब सब bank का अलग अलग यह ब्याज लगता है sir सबका same rate पर होता है नहीं."
+          },
+          {
+            "speaker": "customer",
+            "text": "चलो ठीक है जी मेरे को नहीं चाहिए."
+          },
+          {
+            "speaker": "consultant",
+            "text": "नहीं चाहिए ठीक है फिर in future आपको requirement है जैसे personal loan business loan तो आप phone कर सकते हैं फिर number पर."
+          },
+          {
+            "speaker": "customer",
+            "text": "ठीक ठीक."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Thank you sir."
+          }
+        ],
+        "analysis": "The consultant, Kajal, attempts to sell a refinance loan to Akshay Singh. The customer is initially interested in the details but is immediately skeptical when the new interest rate is revealed to be higher than his current one. The consultant attempts to justify the higher rate by explaining the difference between new and used car loans. The customer then questions how the consultancy gets their information. The conversation ultimately ends in a rejection, highlighting the customer's cost-consciousness and skepticism towards cold calls. The consultant ends the call politely, keeping the door open for future business."
+      },
+      {
+        "id": "conversation_005_balanced",
+        "product": "Used Car Loan (Refinance)",
+        "consultant_name": "Kajal",
+        "customer_name": "Akshay Singh",
+        "summary": "This conversation is a balanced, consultative dialogue where the consultant, Kajal, uses medium-length responses to guide the customer. She breaks down her pitch into logical, digestible steps, ensuring the customer is engaged. By addressing objections directly and providing detailed, yet concise, information, she builds trust and successfully convinces the customer to accept the loan offer.",
+        "dialogue": [
+          {
+            "speaker": "consultant",
+            "text": "Hello, namaskar sir. Meri baat Akshay Singh ji se ho rahi hai?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Namaskar ji. Haan, main hi bol raha hoon."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir, main HDFC Bank se Kajal baat kar rahi hoon. Maine aapko aapki Swift VXi 2022 model gaadi ke liye call kiya hai. Kya ispe abhi loan chal raha hai ya free hai?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Finance hai."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Theek hai sir. Aapki gaadi par ek special refinance offer hai. Ismein aapki gaadi ki market value ka double tak loan mil sakta hai. Iski poori detail batane se pehle, main aapse kuch sawaal puchna chahti hoon taaki main aapke liye best deal nikaal sakoon."
+          },
+          {
+            "speaker": "customer",
+            "text": "Puchiye."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir, aapka loan kis bank se chal raha hai? Aur abhi tak aap kitni EMI's de chuke hain?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Loan HDFC Bank se hi hai. Main 17 EMI's de chuka hoon."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Bahut accha hai! 17 EMI's paid hone ka matlab hai ki aapka loan account purana hai aur history achchi hai. Sir, aapki EMI kitni aati hai?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Lagbhag ₹12,000."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Got it. Sir, kya aapko refinance ke saath koi extra funds ki zaroorat hai, jaise business ya personal use ke liye? Ya aap sirf purane loan ko close karana chahte hain?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Mujhe personal use ke liye kuch extra paisa chahiye. Par aapka byaaj to mere existing loan se zyada hoga?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir, aap bilkul sahi keh rahe hain. Nayi gaadi ka rate kam hota hai. Lekin, kya aapko personal ya business loan itne kam byaaj par mil sakta hai? Unka interest rate 18-24% tak hota hai. Yahan, hum aapko sirf 11-16% par, ek hi loan mein, dono fayde de rahe hain - purana loan close aur extra cash."
+          },
+          {
+            "speaker": "customer",
+            "text": "Hmm, ye baat to theek hai. Toh kitna loan mil jayega?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Jaisa ki aapne bataya, aapki gaadi 2022 model hai, to market value approx ₹6 lakh hai. Aur aapne 17 EMI's di hain, to aapko 160% tak ka loan mil sakta hai, yaani ₹9.6 lakh. Ismein aapka purana loan clear ho jayega aur lagbhag ₹6 lakh aapke account mein aa jayenge."
+          },
+          {
+            "speaker": "customer",
+            "text": "₹19,000 wali EMI theek hai. Par itne paise kaise milenge?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir, iske liye humein kuch documents chahiye. Sir, aap salaried hain ya business karte hain?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Main salaried hoon. IT mein job karta hoon."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Excellent sir. Salaried hain to process bahut smooth hai. Main aapko documents ki list WhatsApp par bhej rahi hoon—KYC, 6-mahine ka bank statement, salary slips, Form 16 aur gaadi ke documents. Jaise hi aap share karenge, main aapka process aage badha doongi."
+          },
+          {
+            "speaker": "customer",
+            "text": "Theek hai, aap list bhej do. Main check karke send karta hoon."
+          }
+        ],
+        "analysis": "This conversation strikes a perfect balance between a direct sales pitch and a consultative approach. Kajal avoids long monologues by breaking down her responses into medium-length, impactful statements, each designed to lead the customer to the next logical conclusion. She successfully uses **needs-based selling** to uncover the customer's need for extra funds and then applies a **comparative selling** tactic to justify the loan's interest rate. The increased frequency of dialogue, with the consultant responding to each of the customer's points, creates a dynamic and trustworthy interaction that leads to a clear and positive outcome."
+      },
+      {
+        "id": "conversation_purchase_001_super_rapid",
+        "product": "Used Car Loan (Purchase Case)",
+        "consultant_name": "Kajal",
+        "customer_name": "Amit Sharma",
+        "summary": "This is a high-speed, interactive conversation where Kajal, the consultant, uses a rapid, back-and-forth dialogue to sell a 'Purchase Case' loan. She quickly discovers the customer's intent to pay in cash and immediately reframes the situation by highlighting the value of a loan over using personal savings. The high-frequency dialogue keeps the customer engaged and leads to a quick decision.",
+        "dialogue": [
+          {
+            "speaker": "consultant",
+            "text": "Hello, namaste Amit ji. Main Kajal, Axis Bank se baat kar rahi hoon."
+          },
+          {
+            "speaker": "customer",
+            "text": "Namaste ji. Boliye."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir, main aapki gaadi ke liye call kiya hai. Gaadi ka number DL8C XYZ 1234, aap hi use kar rahe hain?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Ji, main hi use kar raha hoon. Kya hua?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Aap apni gaadi bech rahe hain ya koi nayi lene ka plan hai?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Ek second-hand Swift lene ka soch raha hoon. Cash mein."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Perfect, sir. Isi liye call kiya hai. Aapko ek behtar option de sakti hoon."
+          },
+          {
+            "speaker": "customer",
+            "text": "Kya option?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Aapko ₹5.4 lakh tak ka loan mil jayega."
+          },
+          {
+            "speaker": "customer",
+            "text": "Loan? Par main to cash mein lene ka soch raha hoon."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sahi hai. Par woh cash aapke paas hi rahega. Samajh rahe hain na?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Haan, par byaaj lagega na?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Ji. Par personal ya business loan se bahut kam. Sahi keh rahi hoon?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Sahi keh rahe ho. Kitna byaaj?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "11-16% reducing rate. Aap us cash ko investment mein laga sakte hain. Kya aapko yeh idea theek lag raha hai?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Haan, theek hai. EMI kya aayegi?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "₹5.4 lakh par, 5 saal ki EMI ₹13,133 hogi."
+          },
+          {
+            "speaker": "customer",
+            "text": "EMI theek hai. Par processing fee?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "2-3% fee. Par sochiye, aapke bache hue cash se aapka ROI kitna badh sakta hai? Paise ko free rakhna smart move hota hai. Sahi keh rahi hoon na?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Haan. Process kitne din mein ho jayega?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "5-6 din mein. Aap salaried hain ya business karte hain?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Main salaried hoon."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Perfect. Main documents ki list WhatsApp kar rahi hoon. Aap bhej denge?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Ok, list dekh kar bhejta hoon. Process shuru kar do."
+          }
+        ],
+        "analysis": "This conversation is highly effective due to its rapid, micro-dialogue format. Kajal quickly uncovers the customer's intent and then uses a series of short, punchy statements and questions to present the value of the loan. Instead of a monologue, she creates a fast-paced back-and-forth, getting immediate confirmation and reactions from the customer. This approach makes the call feel more conversational and less like a sales pitch, successfully converting the customer by making them an active participant in the decision-making process."
+      },
+      {
+        "id": "conversation_normal_refinance_002_rapid",
+        "product": "Used Car Loan (Normal Refinance)",
+        "consultant_name": "Kajal",
+        "customer_name": "Sanjay Kapoor",
+        "summary": "Kajal, the consultant, engages Sanjay in a rapid, interactive conversation to sell a refinance loan. She uses short, high-frequency dialogues to break down her pitch, ensuring the customer is engaged at every step. This approach is designed to overcome the customer's initial reluctance by creating a sense of urgency and highlighting the loan's value as a strategic financial tool in a clear, concise manner.",
+        "dialogue": [
+          {
+            "speaker": "consultant",
+            "text": "Hello, namaskar. Meri baat Sanjay Kapoor ji se ho rahi hai?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Haan ji, main bol raha hoon. Kaun?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir, main Kajal, ICICI Bank se. Aapki Maruti Swift 2022 model?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Haan, wohi. Kya hua?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Gaadi pe koi loan hai ya close ho gaya hai?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Pichle saal hi band ho gaya tha. Mujhe koi loan nahi chahiye."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Theek hai. Toh aapki gaadi bilkul free hai."
+          },
+          {
+            "speaker": "customer",
+            "text": "Haan."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Isme aapka CIBIL score bhi strong hoga, right?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Haan, shayad 800 ke aas-paas hai. Par iska loan se kya lena-dena?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir, accha CIBIL matlab banks aapko trust karte hain."
+          },
+          {
+            "speaker": "customer",
+            "text": "Theek hai."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Isliye aapke liye ek special refinance offer hai. Aapka koi business hai?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Haan, hai."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Toh aapko business ya personal kaam ke liye emergency funds ki zaroorat pad sakti hai, right?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Aise to kuch bhi ho sakta hai. Par loan kyu loon?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir, isme aapka paisa aapke paas hi rahega. Gaadi ki market value ka 90% tak loan."
+          },
+          {
+            "speaker": "customer",
+            "text": "Matlab ₹5.4 lakh?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Exactly. Is paise ko savings ya business mein laga sakte hain. Theek hai?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Par byaaj lagega na?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Haan, sir. Par personal loan se kam. Personal loan par 18-24% byaaj hota hai."
+          },
+          {
+            "speaker": "customer",
+            "text": "Woh to bahut zyada hai."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Iska byaaj 13% se 16% hai. Aur 5 saal ka tenure bhi milta hai. EMI bhi kam rahegi. Kya yeh ek smart move nahi hai?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Thoda sahi lag raha hai. Par yeh offer kab tak hai?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir, offer limited-time hai. Aisi schemes baar-baar nahi aati."
+          },
+          {
+            "speaker": "customer",
+            "text": "Ok. EMI kya aayegi?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "₹5.4 lakh ke loan par EMI ₹13,133 hogi. Ye affordable hai, right?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Haan, theek hai."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Toh process shuru karoon? Documents ke saath."
+          },
+          {
+            "speaker": "customer",
+            "text": "Theek hai. Kya documents chahiye?"
+          }
+        ],
+        "analysis": "This version of the conversation is a masterclass in **high-frequency dialogue**. The consultant, Kajal, successfully reduces her dialogue length and increases the frequency of exchanges. She uses short, probing questions ('Aapka koi business hai?') to quickly uncover the customer's needs and then provides concise, direct answers. This rapid-fire approach keeps the customer engaged and forces them to think and respond in real-time. By breaking down her pitch into small, manageable points and confirming the customer's understanding at each step, she builds trust and guides the customer toward a successful and well-informed decision."
+      },
+      {
+        "id": "conversation_multiplier_refinance_004_super_rapid",
+        "product": "Used Car Loan (Multiplier Refinance)",
+        "consultant_name": "Kajal",
+        "customer_name": "Rajesh Gupta",
+        "summary": "This is a high-speed, highly interactive conversation where the consultant, Kajal, uses an extremely rapid back-and-forth dialogue. Her lines are very short, almost like a checklist, to quickly convey information and elicit a response from the customer. This approach is designed to create immediate engagement, overcome objections quickly, and lead to a swift decision.",
+        "dialogue": [
+          {
+            "speaker": "consultant",
+            "text": "Hello, Rajesh ji. Main Kajal, HDFC Bank se."
+          },
+          {
+            "speaker": "customer",
+            "text": "Haan ji. Boliye."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir, aapki Maruti Swift 2022 ka model hai na?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Haan, hai, Kya hua?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "sir uspar Ek special refinance offer hai. kya ap sunna chahate hai?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Aisa kya special?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "sir apka Loan close hua tha 4 mahine pehle?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Haan, hua tha."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Toh aapko ek multiplier offer mila hai."
+          },
+          {
+            "speaker": "customer",
+            "text": "Multiplier? Kya hota hai?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Gaadi ki market value ka 140% tak loan."
+          },
+          {
+            "speaker": "customer",
+            "text": "Itna zyada?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Ji sir. Market value 6 lakh hai, right?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Sahi hai. Toh kitna?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "₹8.4 lakh tak ka loan."
+          },
+          {
+            "speaker": "customer",
+            "text": "Par mujhe zaroorat nahi hai. Mera loan to band hai."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Samajhti hoon. Par sochiye...Itne paise haath mein honge toh kya karenge?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Pata nahi."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Investment kar sakte hain. ya fir business main laga sakte hai?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Achha idea hai. Byaaj kya lagega?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Personal loan ya business loan se kafi kam, sir. 11% se 16%."
+          },
+          {
+            "speaker": "customer",
+            "text": "Kitni EMI aayegi?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "₹8.4 lakh par, 5 saal ke liye, ₹20,432 honge. Theek hai?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Affordable hai. Par itne paise ka sochna padega."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Sir, jab paise hote hain to options apne aap aa jaate hain. Aap bas process shuru karwaiye."
+          },
+          {
+            "speaker": "customer",
+            "text": "Kya documents chahiye?"
+          },
+          {
+            "speaker": "consultant",
+            "text": "Aap salaried hain ya self-employed?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Salaried hoon."
+          },
+          {
+            "speaker": "consultant",
+            "text": "Perfect! Main aapko list WhatsApp kar rahi hoon. Main file lagwa doon?"
+          },
+          {
+            "speaker": "customer",
+            "text": "Haan, bhejta hoon. Aap shuru karo."
+          }
+        ],
+        "analysis": "This conversation elevates the interactive sales approach to a new level. By using extremely short, question-and-answer format dialogues, the consultant forces continuous engagement. This high frequency creates a sense of momentum, making it difficult for the customer to disengage. It's an effective tactic for cold calls where the goal is to quickly grab and hold attention. The consultant uses a series of 'micro-pitches' to introduce each benefit and get immediate buy-in, leading to a swift and efficient close."
+      }
+    ],
+}

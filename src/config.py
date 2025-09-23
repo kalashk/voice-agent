@@ -2,26 +2,12 @@ import uuid
 from pathlib import Path
 from datetime import timezone, timedelta
 
-#TTS_PROVIDER = "cartesia"  # Requires payment (402 error)
-#TTS_PROVIDER = "openai"  
-# Free tier available, good performance 
-#TTS_PROVIDER = "aws"  
-# AWS Polly with ap-southeast-2 region
-#TTS_PROVIDER = "google_chirp"
+#TTS_PROVIDER = "cartesia"
 TTS_PROVIDER = "sarvam_anushka"
 #TTS_PROVIDER = "sarvam_manisha"  
-# Slow TTFB (0.6-1.5s)
-#TTS_PROVIDER = "gemini"
 
 
 STT_PROVIDER = "deepgram" 
-#STT_PROVIDER = "openai" 
-#STT_PROVIDER = "cartesia" 
-#STT_PROVIDER = "azure" 
-#STT_PROVIDER = "aws"  
-# AWS Transcribe with ap-southeast-2 region
-#STT_PROVIDER = "google"
-#STT_PROVIDER = "sarvam"
 
 # Base directory of the project
 BASE_DIR = Path(__file__).resolve().parent
@@ -46,3 +32,4 @@ SESSION_LOGS = {
 THINKING_PROBABILITY = 1 # Probability of playing a thinking sound before replies
 
 COST_PATH = Path("src/costs")
+REC_PATH = Path("src/rec")

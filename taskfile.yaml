@@ -9,8 +9,8 @@ tasks:
       - echo -e "To try the new agent directly in your terminal:\r\n"
       - echo -e "\tcd {{.ROOT_DIR}}\r"
       - echo -e "\tuv sync\r"
-      - echo -e "\tuv run src/agent.py download-files\r"
-      - echo -e "\tuv run src/agent.py console\r\n"
+      - echo -e "\tuv run src/agent5.py download-files\r"
+      - echo -e "\tuv run src/agent5.py console\r\n"
 
   install:
     desc: "Bootstrap application for local development"
@@ -19,4 +19,4 @@ tasks:
   dev:
     interactive: true
     cmds:
-      - "uv run src/agent.py dev"
+      - "uv run src/agent5.py dev"
