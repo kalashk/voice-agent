@@ -1,7 +1,5 @@
 import json
 import logging
-import random
-from livekit import rtc
 from livekit.agents import (
     JobProcess,
     JobContext,
@@ -11,16 +9,15 @@ from livekit.agents import (
 )
 from livekit.plugins import silero, openai, turn_detector
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
-from config import TTS_PROVIDER
+from helpers.config import TTS_PROVIDER
 
 # Logger for this module
 logger = logging.getLogger("agent")
 
 thinking_track = None  # Global track for thinking sounds
-
 aligned_script = False
-# if TTS_PROVIDER == "cartesia":
-#     aligned_script = True
+if TTS_PROVIDER == "cartesia":
+    aligned_script = True
 
 # --------------------------
 #   Prewarm Function
@@ -78,12 +75,11 @@ def setup_session(ctx: JobContext, setup_stt, setup_tts, STT_PROVIDER, TTS_PROVI
         tts=setup_tts(TTS_PROVIDER),               # Text-to-Speech provider
         turn_detection=MultilingualModel(),        # Handles multi-language turn-taking
         vad=ctx.proc.userdata["vad"],              # Voice Activity Detection (loaded in prewarm)
-        # turn_detector=turn_detector.EOUPlugin()  # Works in Voice_pipeline_agent
+        # turn_detection=turn_detector.EOUPlugin()  # Works in Voice_pipeline_agent
 
         # 🔽 Latency tuning — makes assistant feel more responsive
         min_endpointing_delay=0.25,        # Wait this long before deciding speech has ended
         max_endpointing_delay=2.0,         # Hard stop for silence detection
-        min_interruption_duration=0.25,    # Minimum silence to allow interruption
         min_consecutive_speech_delay=0.05, # Time between two speech segments
 
         # 🔽 Transcript handling
@@ -94,6 +90,8 @@ def setup_session(ctx: JobContext, setup_stt, setup_tts, STT_PROVIDER, TTS_PROVI
 
         # 🔽 Defaults (safe values)
         allow_interruptions=True,                 # Allow user to interrupt agent
+        min_interruption_words=2,
+        min_interruption_duration=0.25,           # Minimum silence to allow interruption
         discard_audio_if_uninterruptible=True,    # Save compute if interruption not possible
         agent_false_interruption_timeout=1.0,     # Grace period after false interruption
     )

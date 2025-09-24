@@ -141,7 +141,7 @@ from livekit import rtc
 from livekit.agents import Agent
 from livekit.agents.voice import ModelSettings
 from instructions import get_instructions
-from config import TTS_PROVIDER
+from helpers.config import TTS_PROVIDER
 
 class MyAssistant(Agent):
     def __init__(self, customer_profile: dict, session, **kwargs):

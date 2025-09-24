@@ -2,8 +2,8 @@ from livekit.agents import (
     WorkerOptions,
     cli,
 )
-from entrypoint import entrypoint
-from helpers import prewarm
+from helpers.entrypoint import entrypoint
+from helpers.helpers import prewarm
 
 # --------------------------
 #   CLI Runner

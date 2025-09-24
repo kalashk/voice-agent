@@ -1,4 +1,4 @@
-from config import TTS_PROVIDER, STT_PROVIDER 
+from helpers.config import TTS_PROVIDER, STT_PROVIDER 
 from livekit.plugins import cartesia, deepgram, sarvam
 
 # --------------------------
@@ -17,6 +17,7 @@ def setup_tts(provider: str = TTS_PROVIDER):
             voice='faf0731e-dfb9-4cfc-8119-259a79b27e12',
             language="hi",
             text_pacing=True,
+            word_timestamps=True,
             speed=-0.2,
             emotion=['positivity:high', 'sadness'],
         )

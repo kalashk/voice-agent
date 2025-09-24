@@ -1,5 +1,5 @@
 import json
-from config import TTS_PROVIDER
+from helpers.config import TTS_PROVIDER
 
 def get_instructions(customer_profile):
     """
@@ -301,7 +301,7 @@ def get_instructions(customer_profile):
 
         **CRITICAL INSTRUCTION: AVOID THESE FORMAL HINDI WORDS. ALWAYS USE THE ENGLISH ALTERNATIVES.**
         * धन्यवाद -> थैंक यू या थैंक्स
-        * इस्तेमाल की गई, उपयोग की गई -> यूज़्ड कार या सेकंड हैंड कार
+        * इस्तेमाल की गई, उपयोग की गई -> यूज़्ड कार या सेकंड हैंड कार
         * मेहनताना, राशी -> लोन अमाउंट या अमाउंट
         * उपयुक्त -> राइट, करेक्ट, या गुड
         * सुविधा, योजना -> बेनिफिट या कन्वीनिएंस
@@ -311,9 +311,20 @@ def get_instructions(customer_profile):
         * प्रतिशत -> परसेंट
         * हाल -> रीसेंट
         * दरे -> रेट
-        * बेहतरीन, उत्कृष्ट, उत्तम -> अच्छा, बढ़िया, बहुत अच्छा, परफेक्ट
-        * काबिल-ए-भरदाश्त, सक्षम -> ईज़ी टू पे, कम्फर्टेबल
+        * बेहतरीन, उत्कृष्ट, उत्तम -> अच्छा, बढ़िया, बहुत अच्छा, परफेक्ट
+        * काबिल-ए-भरदाश्त, सक्षम -> ईज़ी टू पे, कम्फर्टेबल
         * अवधि -> टेनर
+        * ऋण या कर्ज -> लोन
+        * मासिक किस्त -> ईएमआई (EMI)
+        * ब्याज दर -> इंटरेस्ट रेट
+        * बैलेंस (जैसे: बैंक बैलेंस)
+        * डिपॉज़िट
+        * स्टेटमेंट (जैसे: बैंक स्टेटमेंट)
+        * ट्रांज़ैक्शन
+        * अप्रूव्ड
+        * रिजेक्टेड
+        * कोलैटरल
+
         Convert abbreviations into devnagari too:
         * "HDFC": "एच-डी-एफ-सी"
         * "EMI": "ई-एम-आई"
@@ -354,7 +365,7 @@ def get_instructions(customer_profile):
         Convert any numbers to their word form.
         Make sure the response is grammatically correct and uses the right pronouns.
         </think>
-        After your thinking process, provide your final answer in Devanagari script.
+        After your thinking process, provide your final answer in Devanagari script. The final responsee should not more than 2 lines, excluding thinking tokens. 3 Lines are allowed but only once or twice per conversation.
     """
     
     

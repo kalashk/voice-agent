@@ -20,8 +20,8 @@ from livekit.agents import (
 )
 from livekit.plugins import cartesia, deepgram, noise_cancellation, openai, silero, google, sarvam, aws, silero
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
-from usage_tracker import CostCalculator
-from config import TTS_PROVIDER, STT_PROVIDER
+from helpers.usage_tracker import CostCalculator
+from helpers.config import TTS_PROVIDER, STT_PROVIDER
 
 logger = logging.getLogger("agent")
 load_dotenv(".env.local")

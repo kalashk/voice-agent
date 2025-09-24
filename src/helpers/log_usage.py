@@ -3,7 +3,7 @@ import logging
 from pathlib import Path
 from dataclasses import asdict
 from datetime import datetime
-from config import LOG_PATH
+from helpers.config import LOG_PATH
 
 # Logger for agent/session events
 logger = logging.getLogger("agent")

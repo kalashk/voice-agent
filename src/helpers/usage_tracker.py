@@ -2,7 +2,7 @@ import json
 import logging
 from datetime import timezone, datetime, timedelta
 from livekit.agents import metrics
-from config import COST_PATH, IST
+from helpers.config import COST_PATH, IST
 
 # Logger dedicated to usage & cost tracking
 logger = logging.getLogger("usage")

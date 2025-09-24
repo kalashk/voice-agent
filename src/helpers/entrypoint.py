@@ -7,12 +7,12 @@ from livekit.agents import (
     RoomInputOptions,
 )
 from livekit.plugins import noise_cancellation
-from setup_tts_stt import setup_tts, setup_stt
-from metrics import setup_metrics
-from log_usage import log_usage
-from helpers import load_customer_profile, setup_session
-from assistant import MyAssistant
-from config import TTS_PROVIDER, STT_PROVIDER, SESSION_LOGS, SESSION_ID
+from helpers.setup_tts_stt import setup_tts, setup_stt
+from helpers.metrics import setup_metrics
+from helpers.log_usage import log_usage
+from helpers.helpers import load_customer_profile, setup_session
+from class_mod.assistant import MyAssistant
+from helpers.config import TTS_PROVIDER, STT_PROVIDER, SESSION_LOGS, SESSION_ID
 
 logger = logging.getLogger("agent")   # Logger for debugging and info logs
 load_dotenv(".env.local")             # Load environment variables from .env.local file
