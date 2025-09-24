@@ -154,14 +154,18 @@ async def start_audio_recording(room_name: str, participant_identity: str):
                 if egress:
                     if egress.status == 0:
                         print(f"▶️ Recording in progress...")
-                    elif egress.status == 2:  # completed
+                    elif egress.status == 2:  # COMPLETED
                         if egress.file and hasattr(egress.file, "location"):
                             print(f"✅ Recording completed. File location: {egress.file.location}")
                         else:
                             print("✅ Recording completed, but file location not available")
                         break
-                    elif egress.status == 3:  # failed
-                        print(f"❌ Recording failed for room {room_name}")
+                    elif egress.status == 3:  # FAILED
+                        # Sometimes transient errors set failed but file still exists
+                        if egress.file and hasattr(egress.file, "location"):
+                            print(f"⚠️ Recording reported as failed, but file exists at: {egress.file.location}")
+                        else:
+                            print(f"❌ Recording failed for room {room_name}")
                         break
 
                 # Stop recording if participant disconnected
@@ -183,18 +187,39 @@ async def start_audio_recording(room_name: str, participant_identity: str):
 # --------------------------
 # Run Calls
 # --------------------------
+# async def run_calls():
+#     # Ensure trunk exists
+#     trunk_id = await create_or_get_trunk()
+#     print(f"🔑 Final trunk ID to use: {trunk_id}")
+
+#     # Make calls
+#     numbers = [CALL_TO_NUMBER]  # extend this list if needed
+#     for number in numbers:
+#         participant = await make_call(number, trunk_id, participant_identity)
+#         if participant:
+#             # Start recording
+#             # await start_audio_recording(participant.room_name, participant_identity)
+#             await asyncio.gather(
+#                 start_audio_recording(participant.room_name, participant_identity)
+#             )
 async def run_calls():
-    # Ensure trunk exists
     trunk_id = await create_or_get_trunk()
     print(f"🔑 Final trunk ID to use: {trunk_id}")
 
-    # Make calls
-    numbers = [CALL_TO_NUMBER]  # extend this list if needed
+    numbers = [CALL_TO_NUMBER]
     for number in numbers:
-        participant = await make_call(number, trunk_id, participant_identity)
-        if participant:
-            # Start recording
-            await start_audio_recording(participant.room_name, participant_identity)
+        room_name = f"room-{uuid.uuid4().hex[:4]}"
+
+        # Start recording immediately after creating room
+        recording_task = asyncio.create_task(
+            start_audio_recording(room_name, participant_identity)
+        )
+
+        # Then place the call into that room
+        await make_call(number, trunk_id, room_name)
+
+        # Wait for recording to finish
+        await recording_task
 
 # --------------------------
 # Main
