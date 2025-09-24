@@ -96,7 +96,7 @@ async def make_call(phone_number: str, sip_trunk_id: str, participant_identity: 
             print(f"❌ Failed to call {phone_number}: {e}")
 
 # --------------------------
-# Start Audio Recording
+# Start Audio Recording (with auto-stop on participant disconnect)
 # --------------------------
 async def start_audio_recording(room_name: str, participant_identity: str):
     async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
