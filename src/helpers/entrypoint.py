@@ -1,11 +1,13 @@
 import os
 import logging
+import asyncio
 import json
 from dotenv import load_dotenv
 from livekit.agents import (
     JobContext,
     RoomInputOptions,
 )
+from livekit.agents.llm import LLM
 from livekit.plugins import noise_cancellation
 from helpers.setup_tts_stt import setup_tts, setup_stt
 from helpers.metrics import setup_metrics
@@ -79,6 +81,45 @@ async def entrypoint(ctx: JobContext):
             instructions="simply greet with namaste and introduce yourself, keep it simple and short, without think tag, dont think here",
         )
         print("LLM →", reply.chat_items)   # Print AI response to console
+
+        # while True:
+        #     # Wait for user input (via STT)
+        #     user_input = await session.get_user_input()  # Adjust based on your STT method
+        #     if not user_input:
+        #         await asyncio.sleep(1)
+        #         continue
+
+        #     print(f"User → {user_input}")
+
+        #     # Respond normally with TTS
+        #     await session.generate_reply(instructions=user_input)
+        #     # Silent LLM check if session should end
+        #     llm_instance = assistant.session_ref.llm
+        #     if llm_instance and isinstance(llm_instance, LLM):
+        #         should_end = await assistant.query_llm_silently(
+        #             llm=llm_instance,
+        #             prompt="Based on the conversation so far, should the session end? Reply yes or no."
+        #         )
+        #         if should_end.strip().lower().startswith("yes"):
+        #             print("🛑 LLM requested session end")
+        #             # Call shutdown safely
+        #             shutdown_result = ctx.shutdown(reason="LLM decided to end session")
+        #             if asyncio.iscoroutine(shutdown_result):
+        #                 await shutdown_result
+        #             break
+        #     # Silent LLM check if session should end
+        #     should_end = await assistant.query_llm_silently(
+        #         llm=assistant.session_ref.llm,
+        #         prompt=f"Based on the conversation so far, should the session end? Reply yes or no."
+        #     )
+
+        #     if should_end.strip().lower().startswith("yes"):
+        #         print("🛑 LLM requested session end")
+        #         await ctx.shutdown(reason="LLM decided to end session")
+        #         break
+
+        #     # Small delay to prevent tight loop
+        #     await asyncio.sleep(0.5)
 
     except Exception as e:
         # Log any errors and re-raise

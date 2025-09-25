@@ -5,10 +5,11 @@ from livekit.agents import (
     JobContext,
     AgentSession,
     AgentFalseInterruptionEvent,
-    NOT_GIVEN
+    NOT_GIVEN,
 )
-from livekit.plugins import silero, openai, turn_detector
+from livekit.plugins import silero, openai
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
+from livekit.plugins.turn_detector.english import EnglishModel
 from helpers.config import TTS_PROVIDER
 from class_mod.ns_agentsession import NSAgentSession
 
@@ -20,6 +21,10 @@ aligned_script = False
 if TTS_PROVIDER == "cartesia":
     aligned_script = True
 
+def turn_detector_model(TTS_PROVIDER):
+    if TTS_PROVIDER == "cartesia": 
+        return EnglishModel()
+    return MultilingualModel()
 # --------------------------
 #   Prewarm Function
 # --------------------------
@@ -75,9 +80,8 @@ def setup_session(ctx: JobContext, setup_stt, setup_tts, STT_PROVIDER, TTS_PROVI
         llm=openai.LLM(model="gpt-4o-mini"),       # Use OpenAI LLM for responses
         stt=setup_stt(STT_PROVIDER),               # Speech-to-Text provider
         tts=setup_tts(TTS_PROVIDER),               # Text-to-Speech provider
-        turn_detection=MultilingualModel(),        # Handles multi-language turn-taking
+        turn_detection=turn_detector_model(TTS_PROVIDER),        # Handles multi-language turn-taking
         vad=ctx.proc.userdata["vad"],              # Voice Activity Detection (loaded in prewarm)
-        # turn_detection=turn_detector.EOUPlugin()  # Works in Voice_pipeline_agent
 
         # 🔽 Latency tuning — makes assistant feel more responsive
         min_endpointing_delay=0.25,        # Wait this long before deciding speech has ended
@@ -142,3 +146,7 @@ def setup_session(ctx: JobContext, setup_stt, setup_tts, STT_PROVIDER, TTS_PROVI
         session.generate_reply(instructions=ev.extra_instructions or NOT_GIVEN)
 
     return session
+
+# --------------------------
+#   Session Setup Using Voice Agent Pipeline
+# --------------------------
