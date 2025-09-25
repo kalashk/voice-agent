@@ -242,7 +242,7 @@ from livekit.protocol.sip import (
     CreateSIPParticipantRequest,
     ListSIPOutboundTrunkRequest,
 )
-from livekit.api import EncodedFileOutput, RoomCompositeEgressRequest
+from livekit.api import EncodedFileOutput, RoomCompositeEgressRequest, CreateRoomRequest
 from google.cloud import storage
 from livekit.protocol.room import ListParticipantsRequest
 
@@ -407,26 +407,36 @@ async def run_calls():
     numbers = [CALL_TO_NUMBER]
     for number in numbers:
         room_name = f"room-{uuid.uuid4().hex[:4]}"
+        print(f"\n📂 Starting new call flow for room: {room_name}")
 
-        # 1. Start recording locally
-        egress_info, local_path = await start_audio_recording(room_name, participant_identity)
-
-        # 2. Place the call
-        participant = await make_call(number, trunk_id, room_name)
-
-        if not participant:
-            # Stop recording and delete local file if not answered
-            if egress_info:
-                await stop_audio_recording(egress_info.egress_id)
-            if local_path and os.path.exists(local_path):
-                os.remove(local_path)
-                print(f"🗑️ Deleted local recording for missed call {number}")
-            continue
-
-        print(f"✅ Call answered by {number}, recording continues...")
-
-        # 3. Poll until participant leaves
         async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
+            # 0. Pre-create the room (ensures egress won’t 404)
+            try:
+                await lkapi.room.create_room(CreateRoomRequest(name=room_name))
+                print(f"🏗️ Room created: {room_name}")
+            except Exception as e:
+                print(f"❌ Failed to create room {room_name}: {e}")
+                continue
+
+            # 1. Start recording (egress spins up before the call)
+            egress_info, local_path = await start_audio_recording(room_name, participant_identity)
+            if not egress_info:
+                print(f"⚠️ Recording did not start for {room_name}, skipping call.")
+                continue
+
+            # 2. Place the call
+            participant = await make_call(number, trunk_id, room_name)
+            if not participant:
+                # Stop recording and delete local file if call not answered
+                await stop_audio_recording(egress_info.egress_id)
+                if local_path and os.path.exists(local_path):
+                    os.remove(local_path)
+                    print(f"🗑️ Deleted local recording for missed call {number}")
+                continue
+
+            print(f"✅ Call answered by {number}, recording in progress...")
+
+            # 3. Poll until participant leaves
             while True:
                 participants_resp = await lkapi.room.list_participants(
                     ListParticipantsRequest(room=room_name)
@@ -436,15 +446,13 @@ async def run_calls():
                     print("📴 Participant left, stopping recording.")
                     break
                 await asyncio.sleep(5)
-            # Stop egress
-            if egress_info:
-                await stop_audio_recording(egress_info.egress_id)
 
-            # Trim silence only if recording exists
-            if local_path:  # ensures local_path is not None
+            # Stop egress when call ends
+            await stop_audio_recording(egress_info.egress_id)
+
+            # 4. Post-process & upload
+            if local_path and os.path.exists(local_path):
                 trimmed_file = trim_silence(local_path)
-
-                # Upload trimmed file to GCP
                 if os.path.exists(trimmed_file):
                     dest_blob = f"calls/{os.path.basename(trimmed_file)}"
                     upload_to_gcp(trimmed_file, GCP_BUCKET, dest_blob)
