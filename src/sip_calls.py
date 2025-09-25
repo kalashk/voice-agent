@@ -266,7 +266,71 @@ async def run_calls():
 
 
 # --------------------------
+# Run Calls (Simplified)
+# --------------------------
+async def run_calls_simple():
+    trunk_id = await create_or_get_trunk()
+    print(f"🔑 Trunk ID: {trunk_id}")
+
+    numbers = [CALL_TO_NUMBER]
+    for number in numbers:
+        room_name = f"room-{uuid.uuid4().hex[:4]}"
+        print(f"\n📂 Starting new call flow for room: {room_name}")
+
+        async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
+            # 0. Pre-create the room
+            try:
+                await lkapi.room.create_room(CreateRoomRequest(name=room_name))
+                print(f"🏗️ Room created: {room_name}")
+            except Exception as e:
+                print(f"❌ Failed to create room {room_name}: {e}")
+                continue
+
+            # 1. Start egress recording to GCP directly
+            gcp_path = f"calls/{room_name}.mp4"
+            file_output = EncodedFileOutput(filepath=gcp_path)  # direct upload path in GCP
+            egress_req = RoomCompositeEgressRequest(
+                room_name=room_name,
+                audio_only=True,
+                file_outputs=[file_output],
+            )
+
+            try:
+                egress_info = await lkapi.egress.start_room_composite_egress(egress_req)
+                print(f"🎙️ Egress request sent, ID: {egress_info.egress_id}")
+            except Exception as e:
+                print(f"❌ Failed to start recording: {e}")
+                continue
+
+            # 2. Place the call
+            participant = await make_call(number, trunk_id, room_name)
+            if not participant:
+                # Stop recording if participant never joins
+                await stop_audio_recording(egress_info.egress_id)
+                print(f"⚠️ Participant never joined, recording canceled for room {room_name}")
+                continue
+
+            print(f"✅ Participant joined, recording in progress...")
+
+            # 3. Poll until participant leaves
+            while True:
+                participants_resp = await lkapi.room.list_participants(
+                    ListParticipantsRequest(room=room_name)
+                )
+                identities = [p.identity for p in participants_resp.participants]
+                print({"identities": identities})
+                if participant_identity not in identities:
+                    print("📴 Participant left, stopping recording.")
+                    break
+                await asyncio.sleep(5)
+
+            # 4. Stop recording after call ends
+            await stop_audio_recording(egress_info.egress_id)
+            print(f"☁️ Recording uploaded to GCP: {gcp_path}")
+
+
+# --------------------------
 # Main
 # --------------------------
 if __name__ == "__main__":
-    asyncio.run(run_calls())
+    asyncio.run(run_calls_simple())
