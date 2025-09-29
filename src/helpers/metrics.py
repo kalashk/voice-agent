@@ -219,7 +219,6 @@ def setup_metrics(session: AgentSession, SESSION_LOGS: dict):
             "role": "user",
             "text": ev.transcript.strip(),
             "is_final": ev.is_final,
-            #"language": ev.language,
             "timestamp": timestamp,
         })
 
