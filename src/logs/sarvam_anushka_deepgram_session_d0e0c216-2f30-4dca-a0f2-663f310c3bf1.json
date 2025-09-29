@@ -1,0 +1,894 @@
+{
+  "metadata": {
+    "session_id": "d0e0c216-2f30-4dca-a0f2-663f310c3bf1",
+    "TTS provider": "sarvam_anushka",
+    "STT provider": "deepgram",
+    "customer_profile": {
+      "customer_id": "u123",
+      "customer_name": "Rahul",
+      "age": 30,
+      "city": "Mumbai",
+      "language": "hindi",
+      "bank_name": "HDFC"
+    },
+    "final_usage": {
+      "llm_prompt_tokens": 14097,
+      "llm_prompt_cached_tokens": 8320,
+      "llm_input_audio_tokens": 0,
+      "llm_completion_tokens": 456,
+      "llm_output_audio_tokens": 0,
+      "tts_characters_count": 1361,
+      "tts_audio_duration": 85.90222222222222,
+      "stt_audio_duration": 159.89999999999972,
+      "session_id": "d0e0c216-2f30-4dca-a0f2-663f310c3bf1",
+      "average_latency_seconds": 8.300721308349498,
+      "session_length_seconds": 129.949001
+    },
+    "final_cost": {
+      "llm_cost": 0.007057,
+      "stt_cost": 0.013863,
+      "tts_cost": 0.024498,
+      "total_cost": 0.045418
+    }
+  },
+  "transcript": [
+    {
+      "speech_id": "item_5eaf512b39a3",
+      "role": "assistant",
+      "text": "नमस्ते, मैं काजल हूँ, एच डी एफ सी की लोन कंसल्टेंट। क्या मैं आपसे थोड़ी देर बात कर सकती हूँ?",
+      "interrupted": false,
+      "confidence": null,
+      "timestamp": "2025-09-29T01:20:15.014141+05:30"
+    },
+    {
+      "speech_id": "a955281b-d50c-47b3-96be-5e5ccf32f378",
+      "role": "user",
+      "text": "हां बोलिए",
+      "is_final": false,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:20:16.624480+05:30"
+    },
+    {
+      "speech_id": "bbe91dfa-efed-4e12-bfef-33149d80b9f9",
+      "role": "user",
+      "text": "हां बोलो पता नहीं को",
+      "is_final": false,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:20:17.614346+05:30"
+    },
+    {
+      "speech_id": "355035d1-eac4-4ce9-92be-22c3160b89ab",
+      "role": "user",
+      "text": "हां बोलो पता नहीं को.",
+      "is_final": true,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:20:17.823624+05:30"
+    },
+    {
+      "speech_id": "item_fb49cb014120",
+      "role": "user",
+      "text": "हां बोलो पता नहीं को.",
+      "interrupted": false,
+      "confidence": 0.69055176,
+      "timestamp": "2025-09-29T01:20:18.433829+05:30"
+    },
+    {
+      "speech_id": "item_34075c27eac7",
+      "role": "assistant",
+      "text": "थैंक यू, राहुल। मुझे पता चला है कि आप मुंबई में रहते हैं। क्या आपने कभी सोचा है चलाने के लिए एक सेकंड हैंड कार खरीदने का? इससे आपका सफर काफी आसान हो जाएगा।",
+      "interrupted": false,
+      "confidence": null,
+      "timestamp": "2025-09-29T01:20:30.956007+05:30"
+    },
+    {
+      "speech_id": "e42ba45a-5838-4fff-bf5f-36de4526c487",
+      "role": "user",
+      "text": "जी हां सोच तो राता मैं",
+      "is_final": false,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:20:35.915833+05:30"
+    },
+    {
+      "speech_id": "3f39b9d0-b88c-413a-85f7-fcb01617d80f",
+      "role": "user",
+      "text": "जी हां सोच तो रहा था मैं घड़ी खरीदने की.",
+      "is_final": true,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:20:36.825824+05:30"
+    },
+    {
+      "speech_id": "item_cd96d86dd414",
+      "role": "user",
+      "text": "जी हां सोच तो रहा था मैं घड़ी खरीदने की.",
+      "interrupted": false,
+      "confidence": 0.97021484,
+      "timestamp": "2025-09-29T01:20:37.288602+05:30"
+    },
+    {
+      "speech_id": "item_f0c5916dc9a2",
+      "role": "assistant",
+      "text": "बहुत बढ़िया, राहुल! लेकिन क्या आप जानते हैं कि सेकंड हैंड कार भी बेहतरीन विकल्प हो सकती है? इसको खरीदने के लिए हम ईज़ी लोन भी दे सकते हैं, जो महज नौ परसेंट पर है। आपको अगर ये अच्छा लगे तो हमें बात करनी चाहिए। आपकी बजट क्या है?",
+      "interrupted": false,
+      "confidence": null,
+      "timestamp": "2025-09-29T01:20:53.144432+05:30"
+    },
+    {
+      "speech_id": "52a3d4e4-bb7d-418d-a642-915f1fc32336",
+      "role": "user",
+      "text": "I",
+      "is_final": false,
+      "language": "en",
+      "timestamp": "2025-09-29T01:20:55.705597+05:30"
+    },
+    {
+      "speech_id": "105a5135-4c9f-47e3-9e80-46a84950f009",
+      "role": "user",
+      "text": "That's why",
+      "is_final": false,
+      "language": "en",
+      "timestamp": "2025-09-29T01:20:56.715539+05:30"
+    },
+    {
+      "speech_id": "ef67c001-05ac-4264-bfae-e6c20cedd7c8",
+      "role": "user",
+      "text": "मैं कुछ दसवां की गाड़ी का दीद में",
+      "is_final": false,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:20:57.724133+05:30"
+    },
+    {
+      "speech_id": "c62044bb-0840-42ed-88ea-d16badb5923d",
+      "role": "user",
+      "text": "हां मैं कुछ दसवा की गाड़ी खरीदने की सोच रहा था.",
+      "is_final": true,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:20:58.434151+05:30"
+    },
+    {
+      "speech_id": "item_f98d05a7fc59",
+      "role": "user",
+      "text": "हां मैं कुछ दसवा की गाड़ी खरीदने की सोच रहा था.",
+      "interrupted": false,
+      "confidence": 0.8786621,
+      "timestamp": "2025-09-29T01:20:58.924458+05:30"
+    },
+    {
+      "speech_id": "item_6501a419d149",
+      "role": "assistant",
+      "text": "दस लाख की कार के लिए, आप एच डी एफ सी से नब्बे परसेंट लोन ले सकते हैं। मतलब आपको सिर्फ एक लाख का डाउन पेमेंट करना पड़ेगा। ये बहुत अच्छा डील है! क्या आप जानते हैं, हमारे ग्राहक अक्सर इसी तरह के लोन लेते हैं। क्या आप आगे बढ़ने के लिए तैयार हैं?",
+      "interrupted": false,
+      "confidence": null,
+      "timestamp": "2025-09-29T01:21:16.514223+05:30"
+    },
+    {
+      "speech_id": "e4ecd153-8458-4798-a5fe-008614c556f1",
+      "role": "user",
+      "text": "जी पर इसको",
+      "is_final": false,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:21:18.814316+05:30"
+    },
+    {
+      "speech_id": "55ad4bcc-61da-4fcd-ac0d-26d36dd5a108",
+      "role": "user",
+      "text": "जी पर इसका interest rate कितना",
+      "is_final": false,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:21:19.815487+05:30"
+    },
+    {
+      "speech_id": "b216f2df-fa80-4fe7-aa67-bf8ab5865175",
+      "role": "user",
+      "text": "जी पर इसका interest rate कितना होगा?",
+      "is_final": true,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:21:20.214414+05:30"
+    },
+    {
+      "speech_id": "item_bab17a6d5341",
+      "role": "user",
+      "text": "जी पर इसका interest rate कितना होगा?",
+      "interrupted": false,
+      "confidence": 0.96484375,
+      "timestamp": "2025-09-29T01:21:20.733797+05:30"
+    },
+    {
+      "speech_id": "item_e730152e4226",
+      "role": "assistant",
+      "text": "इंटरेस्ट रेट नौ परसेंट है, जो कि एक सुरक्षित लोन होने के कारण बहुत अच्छा है। ऐसे लोन की तुलना में, पर्सनल लोन की दर बाईस से चौबीस परसेंट तक हो सकती है। क्या यह आपको ठीक लग रहा है?",
+      "interrupted": false,
+      "confidence": null,
+      "timestamp": "2025-09-29T01:21:35.343595+05:30"
+    },
+    {
+      "speech_id": "4ead3940-aa87-41af-8c9d-ecd3a85bfd36",
+      "role": "user",
+      "text": "Uh-huh. He got",
+      "is_final": true,
+      "language": "en",
+      "timestamp": "2025-09-29T01:21:39.418658+05:30"
+    },
+    {
+      "speech_id": "2ac8cb6b-6470-4b4b-8d49-a23cca9345ce",
+      "role": "user",
+      "text": "आप EMI पर",
+      "is_final": false,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:21:40.426035+05:30"
+    },
+    {
+      "speech_id": "2ad6041b-8281-467a-a726-e793e8fd5466",
+      "role": "user",
+      "text": "आप EMI बता सकते",
+      "is_final": true,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:21:40.825747+05:30"
+    },
+    {
+      "speech_id": "cd038029-de4d-4629-878f-3017d67365a7",
+      "role": "user",
+      "text": "हैं.",
+      "is_final": true,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:21:41.236247+05:30"
+    },
+    {
+      "speech_id": "item_e72b8d4b6ee2",
+      "role": "user",
+      "text": "Uh-huh. He got आप EMI बता सकते हैं.",
+      "interrupted": false,
+      "confidence": 0.6982421799999999,
+      "timestamp": "2025-09-29T01:21:41.906039+05:30"
+    },
+    {
+      "speech_id": "item_aa3f1fe09302",
+      "role": "assistant",
+      "text": "बिल्कुल, राहुल! अगर आप दस लाख का लोन लेते हैं, तो आपकी ई-एम-आई करीब साड़े ग्यारह से बारह हजार रुपये होगी, जो आपके आवक पर निर्भर करेगी। आप कब तक का टेनर लेना चाहेंगे? २५ से ६० महीने तक के ऑप्शंस हैं।",
+      "interrupted": false,
+      "confidence": null,
+      "timestamp": "2025-09-29T01:21:57.955916+05:30"
+    },
+    {
+      "speech_id": "b236e3d2-83dd-4f9c-bea5-b01fe377b48a",
+      "role": "user",
+      "text": "At",
+      "is_final": false,
+      "language": "en",
+      "timestamp": "2025-09-29T01:22:01.955812+05:30"
+    },
+    {
+      "speech_id": "cec953dd-732d-462a-b3bf-6482193f1019",
+      "role": "user",
+      "text": "पांच साल की ले",
+      "is_final": false,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:22:03.625383+05:30"
+    },
+    {
+      "speech_id": "5d49993c-84ee-458d-8dce-bff7350c927b",
+      "role": "user",
+      "text": "पांच साल के लिए loan लेना चाहूंगा.",
+      "is_final": true,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:22:04.634279+05:30"
+    },
+    {
+      "speech_id": "item_7de63fdfdcad",
+      "role": "user",
+      "text": "पांच साल के लिए loan लेना चाहूंगा.",
+      "interrupted": false,
+      "confidence": 0.9980469,
+      "timestamp": "2025-09-29T01:22:05.125539+05:30"
+    },
+    {
+      "speech_id": "item_80ce932f2672",
+      "role": "assistant",
+      "text": "परफेक्ट! अगर आप पचास महीनों का टेनर लेते हैं, तो आपकी ई-एम-आई करीब ग्यारह हजार रुपये होगी। क्या मैं आपको इस प्रोसेस के लिए डॉक्यूमेंट्स की लिस्ट भेज दूं?",
+      "interrupted": false,
+      "confidence": null,
+      "timestamp": "2025-09-29T01:22:20.054801+05:30"
+    },
+    {
+      "speech_id": "2fb999b9-6d69-404a-b6ac-5fb3cadb6ae3",
+      "role": "user",
+      "text": "जी भाई इसको.",
+      "is_final": true,
+      "language": "hi",
+      "timestamp": "2025-09-29T01:22:22.714099+05:30"
+    },
+    {
+      "speech_id": "item_c632aca460a2",
+      "role": "user",
+      "text": "जी भाई इसको.",
+      "interrupted": false,
+      "confidence": 0.8561198,
+      "timestamp": "2025-09-29T01:22:23.214322+05:30"
+    },
+    {
+      "speech_id": "item_c2f55f56df36",
+      "role": "assistant",
+      "text": "थैंक यू, राहुल! मैं आपको डॉक्यूमेंट्स की लिस्ट व्हाट्सएप पर भेज रही हूँ। आप जब भी तैयार हों, भेजिएगा। फिर हम आगे बढ़ेंगे।",
+      "interrupted": false,
+      "confidence": null,
+      "timestamp": "2025-09-29T01:22:38.714707+05:30"
+    }
+  ],
+  "stt": [
+    {
+      "speech_id": "ee986efb-2dd2-47d9-9ac7-1098b29dafc3",
+      "audio_duration": 4.799999999999991,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089010.8543177
+    },
+    {
+      "speech_id": "3081d3f5-9744-4400-8035-79337fb8c7bc",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089015.8559299
+    },
+    {
+      "speech_id": "fe607640-b64d-4dd2-bf3e-c4cdd0a0847e",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089020.8556426
+    },
+    {
+      "speech_id": "47493865-ee93-4097-803a-a7a1caabd586",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089025.8553095
+    },
+    {
+      "speech_id": "cb3e7f03-fb34-4f60-aa2a-0683e582a44a",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089030.8558495
+    },
+    {
+      "speech_id": "b55349e0-e49c-495b-8cc8-65560ed21fae",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089035.8558624
+    },
+    {
+      "speech_id": "0b779c7a-447a-478a-92fb-a699360797b9",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089040.8545613
+    },
+    {
+      "speech_id": "de81ecd2-266d-438f-a73c-ca221c49cb3a",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089045.8541338
+    },
+    {
+      "speech_id": "22ddba34-d485-422e-826b-4e309169c70a",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089050.8542783
+    },
+    {
+      "speech_id": "7856763e-8fb8-4d6a-8d51-6be626d0ce02",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089055.8545194
+    },
+    {
+      "speech_id": "7e54e95f-fe89-4b84-b85f-9a4a179c62e6",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089060.8545713
+    },
+    {
+      "speech_id": "8537067e-3f83-48d4-8851-3b6c3233fa86",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089065.8540912
+    },
+    {
+      "speech_id": "04f7878f-e904-49cf-b8e5-46d6520c257d",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089070.8560443
+    },
+    {
+      "speech_id": "c19620a3-96d0-4f13-9f7e-5ac0b345cccb",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089075.8556702
+    },
+    {
+      "speech_id": "cf3f71e8-0fa4-48d8-bc4a-0a77927be5f9",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089080.8559377
+    },
+    {
+      "speech_id": "db87b1bc-4d50-4d64-89ac-86a36a24c8e4",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089085.8553042
+    },
+    {
+      "speech_id": "b0f4de8a-acc6-4087-a609-da9011331bc7",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089090.8558629
+    },
+    {
+      "speech_id": "691d790d-c4f1-4dd3-8303-96e6c5df7d70",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089095.8545194
+    },
+    {
+      "speech_id": "63f38283-1559-42b8-b16c-49303384ca36",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089100.8585603
+    },
+    {
+      "speech_id": "0901bf6f-f68c-4bcb-962f-fdd3887fa756",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089105.885552
+    },
+    {
+      "speech_id": "56d3c7bf-e20a-4a40-b565-401cb3a42d2d",
+      "audio_duration": 5.09999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089110.9546027
+    },
+    {
+      "speech_id": "ceedf227-7526-4ea5-a805-3eec40cf7a2a",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089115.9543068
+    },
+    {
+      "speech_id": "fe0dbde6-b414-4d16-93cd-079096008872",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089120.9543965
+    },
+    {
+      "speech_id": "76c524e9-87e7-4690-a7a8-496c7a2db242",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089125.9556642
+    },
+    {
+      "speech_id": "590204d2-0d8f-449a-863a-4d6df46f9b2b",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089130.9554396
+    },
+    {
+      "speech_id": "34dee066-3c38-4f08-8afc-aefb8ec53a70",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089135.9555957
+    },
+    {
+      "speech_id": "4dad8f08-9b89-4f7e-afee-18fb44d017a7",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089140.9558797
+    },
+    {
+      "speech_id": "62abf5c8-3ec5-40a5-90f5-9325a47a1c1d",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089145.9557745
+    },
+    {
+      "speech_id": "433ef9dd-cda0-4c50-aa8e-90b0820a9c1b",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089150.9557
+    },
+    {
+      "speech_id": "fda79063-387e-432b-9dd5-11ca114924c5",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089155.954292
+    },
+    {
+      "speech_id": "9aafbc70-1170-4e10-8f6a-2288ea44de61",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089160.9541476
+    },
+    {
+      "speech_id": "46cdd75d-796f-4421-8231-3ee8242f46b0",
+      "audio_duration": 4.99999999999999,
+      "duration": 0.0,
+      "streamed": true,
+      "timestamp": 1759089165.9542994
+    }
+  ],
+  "llm": [
+    {
+      "speech_id": "speech_d820fa01c6f4",
+      "duration": 2.2561501000309363,
+      "completion_tokens": 37,
+      "prompt_tokens": 1518,
+      "prompt_cached_tokens": 0,
+      "total_tokens": 1555,
+      "tokens_per_second": 16.39961809256071,
+      "ttft": 1.8456855999538675,
+      "timestamp": 1759089008.0841517
+    },
+    {
+      "speech_id": "speech_64327434bd52",
+      "duration": 2.6572453000117093,
+      "completion_tokens": 46,
+      "prompt_tokens": 1548,
+      "prompt_cached_tokens": 0,
+      "total_tokens": 1594,
+      "tokens_per_second": 17.311160546524363,
+      "ttft": 1.993019999936223,
+      "timestamp": 1759089020.484446
+    },
+    {
+      "speech_id": "speech_de0263d07cba",
+      "duration": 2.1038587999064475,
+      "completion_tokens": 71,
+      "prompt_tokens": 1616,
+      "prompt_cached_tokens": 1536,
+      "total_tokens": 1687,
+      "tokens_per_second": 33.74751195429901,
+      "ttft": 1.2881482999073341,
+      "timestamp": 1759089038.934545
+    },
+    {
+      "speech_id": "speech_9bd83b010886",
+      "duration": 2.2826484999386594,
+      "completion_tokens": 74,
+      "prompt_tokens": 1712,
+      "prompt_cached_tokens": 1664,
+      "total_tokens": 1786,
+      "tokens_per_second": 32.41848230333692,
+      "ttft": 1.362877000006847,
+      "timestamp": 1759089060.7141054
+    },
+    {
+      "speech_id": "speech_ca8fbb65ce33",
+      "duration": 2.726293999934569,
+      "completion_tokens": 63,
+      "prompt_tokens": 1802,
+      "prompt_cached_tokens": 1408,
+      "total_tokens": 1865,
+      "tokens_per_second": 23.108292796562658,
+      "ttft": 1.9723605000181124,
+      "timestamp": 1759089082.9461358
+    },
+    {
+      "speech_id": "speech_2adc69802db8",
+      "duration": 1.42011820001062,
+      "completion_tokens": 0,
+      "prompt_tokens": 0,
+      "prompt_cached_tokens": 0,
+      "total_tokens": 0,
+      "tokens_per_second": 0.0,
+      "ttft": -1.0,
+      "timestamp": 1759089100.8434107
+    },
+    {
+      "speech_id": "speech_d392e2b2184e",
+      "duration": 0.41864849999547005,
+      "completion_tokens": 0,
+      "prompt_tokens": 0,
+      "prompt_cached_tokens": 0,
+      "total_tokens": 0,
+      "tokens_per_second": 0.0,
+      "ttft": -1.0,
+      "timestamp": 1759089101.2443235
+    },
+    {
+      "speech_id": "speech_f707cc669efb",
+      "duration": 3.908397800056264,
+      "completion_tokens": 71,
+      "prompt_tokens": 1885,
+      "prompt_cached_tokens": 1792,
+      "total_tokens": 1956,
+      "tokens_per_second": 18.16601165801954,
+      "ttft": 3.0367228999966756,
+      "timestamp": 1759089105.1441789
+    },
+    {
+      "speech_id": "speech_ccd5a52a137b",
+      "duration": 5.067973500001244,
+      "completion_tokens": 53,
+      "prompt_tokens": 1975,
+      "prompt_cached_tokens": 1920,
+      "total_tokens": 2028,
+      "tokens_per_second": 10.457828952733669,
+      "ttft": 3.4814621000550687,
+      "timestamp": 1759089129.7045135
+    },
+    {
+      "speech_id": "speech_1b10075f85c0",
+      "duration": 7.37793389998842,
+      "completion_tokens": 41,
+      "prompt_tokens": 2041,
+      "prompt_cached_tokens": 0,
+      "total_tokens": 2082,
+      "tokens_per_second": 5.557111320835275,
+      "ttft": 2.7004014999838546,
+      "timestamp": 1759089150.1041338
+    }
+  ],
+  "tts": [
+    {
+      "speech_id": "speech_d820fa01c6f4",
+      "audio_duration": 5.839818594104307,
+      "characters_count": 92,
+      "duration": 1.2765794999431819,
+      "ttfb": 1.0550879000220448,
+      "streamed": false,
+      "timestamp": 1759089009.3688893
+    },
+    {
+      "speech_id": "speech_64327434bd52",
+      "audio_duration": 7.709024943310656,
+      "characters_count": 121,
+      "duration": 0.9550691000185907,
+      "ttfb": 0.7053317999234423,
+      "streamed": false,
+      "timestamp": 1759089021.285504
+    },
+    {
+      "speech_id": "speech_64327434bd52",
+      "audio_duration": 2.205895691609977,
+      "characters_count": 33,
+      "duration": 0.7615604000166059,
+      "ttfb": 0.6731647000415251,
+      "streamed": false,
+      "timestamp": 1759089022.0487235
+    },
+    {
+      "speech_id": "speech_de0263d07cba",
+      "audio_duration": 5.561179138321994,
+      "characters_count": 91,
+      "duration": 0.7054259000578895,
+      "ttfb": 0.5621564000612125,
+      "streamed": false,
+      "timestamp": 1759089039.1457818
+    },
+    {
+      "speech_id": "speech_de0263d07cba",
+      "audio_duration": 8.579773242630385,
+      "characters_count": 134,
+      "duration": 1.1999822000507265,
+      "ttfb": 0.8367938000010327,
+      "streamed": false,
+      "timestamp": 1759089040.3542573
+    },
+    {
+      "speech_id": "speech_9bd83b010886",
+      "audio_duration": 9.102222222222224,
+      "characters_count": 142,
+      "duration": 1.1752799999667332,
+      "ttfb": 0.8749928999459371,
+      "streamed": false,
+      "timestamp": 1759089061.5755873
+    },
+    {
+      "speech_id": "speech_9bd83b010886",
+      "audio_duration": 6.106848072562357,
+      "characters_count": 98,
+      "duration": 1.0374919000314549,
+      "ttfb": 0.7511145999887958,
+      "streamed": false,
+      "timestamp": 1759089062.6185405
+    },
+    {
+      "speech_id": "speech_ca8fbb65ce33",
+      "audio_duration": 11.377777777777789,
+      "characters_count": 179,
+      "duration": 1.4061037000501528,
+      "ttfb": 0.9947597000282258,
+      "streamed": false,
+      "timestamp": 1759089084.3585472
+    },
+    {
+      "speech_id": "speech_f707cc669efb",
+      "audio_duration": 10.495419501133794,
+      "characters_count": 165,
+      "duration": 1.132588699925691,
+      "ttfb": 0.7327011999441311,
+      "streamed": false,
+      "timestamp": 1759089106.125561
+    },
+    {
+      "speech_id": "speech_f707cc669efb",
+      "audio_duration": 1.7414965986394557,
+      "characters_count": 32,
+      "duration": 0.417520200018771,
+      "ttfb": 0.355672899982892,
+      "streamed": false,
+      "timestamp": 1759089106.5488348
+    },
+    {
+      "speech_id": "speech_ccd5a52a137b",
+      "audio_duration": 9.450521541950117,
+      "characters_count": 153,
+      "duration": 1.2177448000293225,
+      "ttfb": 0.8921922000590712,
+      "streamed": false,
+      "timestamp": 1759089130.924092
+    },
+    {
+      "speech_id": "speech_1b10075f85c0",
+      "audio_duration": 7.732244897959181,
+      "characters_count": 121,
+      "duration": 1.1284222999820486,
+      "ttfb": 0.8741118999896571,
+      "streamed": false,
+      "timestamp": 1759089151.2345057
+    }
+  ],
+  "eou": [
+    {
+      "speech_id": "speech_64327434bd52",
+      "end_of_utterance_delay": 2.0083401203155518,
+      "transcription_delay": 1.403169870376587,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": 1759089018.428795
+    },
+    {
+      "speech_id": "speech_de0263d07cba",
+      "end_of_utterance_delay": 2.4450130462646484,
+      "transcription_delay": 1.9822347164154053,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": 1759089037.2886028
+    },
+    {
+      "speech_id": "speech_9bd83b010886",
+      "end_of_utterance_delay": 24.0790798664093,
+      "transcription_delay": 23.589813470840454,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": 1759089058.9234176
+    },
+    {
+      "speech_id": "speech_ca8fbb65ce33",
+      "end_of_utterance_delay": 1.8542077541351318,
+      "transcription_delay": 1.3398528099060059,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": 1759089080.728769
+    },
+    {
+      "speech_id": "speech_f707cc669efb",
+      "end_of_utterance_delay": 1.8590071201324463,
+      "transcription_delay": 1.1917521953582764,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": 1759089101.9050288
+    },
+    {
+      "speech_id": "speech_ccd5a52a137b",
+      "end_of_utterance_delay": 3.098158121109009,
+      "transcription_delay": 2.607897996902466,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": 1759089125.1255395
+    },
+    {
+      "speech_id": "speech_1b10075f85c0",
+      "end_of_utterance_delay": 1.2900047302246094,
+      "transcription_delay": 0.7991788387298584,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": 1759089143.2143223
+    }
+  ],
+  "conversation": [
+    {
+      "speech_id": "speech_64327434bd52",
+      "latency_seconds": 4.706691920175217,
+      "stt_seconds": 0.0,
+      "llm_ttft": 1.993019999936223,
+      "tts_ttfb": 0.7053317999234423,
+      "eou_delay": 2.0083401203155518,
+      "transcription_delay": 1.403169870376587,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": "2025-09-29T01:20:21.285504+05:30"
+    },
+    {
+      "speech_id": "speech_de0263d07cba",
+      "latency_seconds": 4.295317746233195,
+      "stt_seconds": 0.0,
+      "llm_ttft": 1.2881482999073341,
+      "tts_ttfb": 0.5621564000612125,
+      "eou_delay": 2.4450130462646484,
+      "transcription_delay": 1.9822347164154053,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": "2025-09-29T01:20:39.145781+05:30"
+    },
+    {
+      "speech_id": "speech_9bd83b010886",
+      "latency_seconds": 26.316949766362086,
+      "stt_seconds": 0.0,
+      "llm_ttft": 1.362877000006847,
+      "tts_ttfb": 0.8749928999459371,
+      "eou_delay": 24.0790798664093,
+      "transcription_delay": 23.589813470840454,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": "2025-09-29T01:21:01.575587+05:30"
+    },
+    {
+      "speech_id": "speech_ca8fbb65ce33",
+      "latency_seconds": 4.82132795418147,
+      "stt_seconds": 0.0,
+      "llm_ttft": 1.9723605000181124,
+      "tts_ttfb": 0.9947597000282258,
+      "eou_delay": 1.8542077541351318,
+      "transcription_delay": 1.3398528099060059,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": "2025-09-29T01:21:24.358547+05:30"
+    },
+    {
+      "speech_id": "speech_f707cc669efb",
+      "latency_seconds": 5.628431220073253,
+      "stt_seconds": 0.0,
+      "llm_ttft": 3.0367228999966756,
+      "tts_ttfb": 0.7327011999441311,
+      "eou_delay": 1.8590071201324463,
+      "transcription_delay": 1.1917521953582764,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": "2025-09-29T01:21:46.125561+05:30"
+    },
+    {
+      "speech_id": "speech_ccd5a52a137b",
+      "latency_seconds": 7.471812421223149,
+      "stt_seconds": 0.0,
+      "llm_ttft": 3.4814621000550687,
+      "tts_ttfb": 0.8921922000590712,
+      "eou_delay": 3.098158121109009,
+      "transcription_delay": 2.607897996902466,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": "2025-09-29T01:22:10.924092+05:30"
+    },
+    {
+      "speech_id": "speech_1b10075f85c0",
+      "latency_seconds": 4.864518130198121,
+      "stt_seconds": 0.0,
+      "llm_ttft": 2.7004014999838546,
+      "tts_ttfb": 0.8741118999896571,
+      "eou_delay": 1.2900047302246094,
+      "transcription_delay": 0.7991788387298584,
+      "on_user_turn_completed_delay": 0.0,
+      "timestamp": "2025-09-29T01:22:31.234505+05:30"
+    }
+  ]
+}

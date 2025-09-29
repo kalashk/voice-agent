@@ -73,7 +73,7 @@ async def entrypoint(ctx: JobContext):
         await session.start(
             agent=assistant,
             room=ctx.room,
-            room_input_options=RoomInputOptions(noise_cancellation=noise_cancellation.BVC()),
+            room_input_options=RoomInputOptions(noise_cancellation=noise_cancellation.BVCTelephony()),
         )
 
         # Generate an initial greeting reply (short introduction)

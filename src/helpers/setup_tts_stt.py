@@ -54,6 +54,11 @@ def setup_stt(provider: str = STT_PROVIDER):
             model="nova-3", 
             language="multi"
         )
+    elif provider == "sarvam":
+        return sarvam.STT(
+            language="hi-IN",
+            model="saarika:v2.5"
+        )
     else:
         # Raise error if provider is unknown
         raise ValueError(f"Unknown STT provider: {provider}")

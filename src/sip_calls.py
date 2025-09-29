@@ -5,7 +5,7 @@ import tempfile
 import subprocess
 from dotenv import load_dotenv
 from livekit import api
-from livekit.api import StopEgressRequest
+from livekit.api import StopEgressRequest, GCPUpload
 from livekit.protocol.sip import (
     CreateSIPOutboundTrunkRequest,
     SIPOutboundTrunkInfo,
@@ -64,7 +64,6 @@ async def create_or_get_trunk():
         print(f"✅ Created new trunk: {created_trunk.sip_trunk_id}")
         return created_trunk.sip_trunk_id
 
-
 # --------------------------
 # Make SIP Call
 # --------------------------
@@ -91,7 +90,6 @@ async def make_call(phone_number: str, sip_trunk_id: str, room_name: str):
         except Exception as e:
             print(f"❌ Failed to call {phone_number}: {e}")
             return None
-
 
 # --------------------------
 # Start Audio Recording (local)
@@ -120,7 +118,27 @@ async def start_audio_recording(room_name: str, participant_identity: str):
         except Exception as e:
             print(f"❌ Failed to start recording: {e}")
             return None, None
+        
+# --------------------------
+# Start Audio Recording
+# --------------------------
+async def start_audio_recording_simple(room_name: str, participant_identity: str):
+    async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
+        # Keyless GCP upload using VM-attached service account
+        file_output = EncodedFileOutput(
+            gcp=GCPUpload(bucket=GCP_BUCKET)
+        )
+        print(f"☁️ Recording will be saved to GCP bucket: {GCP_BUCKET}")
 
+        egress_req = RoomCompositeEgressRequest(
+            room_name=room_name,
+            audio_only=True,
+            file_outputs=[file_output],
+        )
+
+        egress_info = await lkapi.egress.start_room_composite_egress(egress_req)
+        print(f"🎙️ Recording started for room {room_name}, egress ID: {egress_info.egress_id}")
+        return egress_info
 
 # --------------------------
 # Stop Audio Recording
@@ -133,7 +151,6 @@ async def stop_audio_recording(egress_id: str):
             print(f"🛑 Recording stopped for egress {egress_id}")
         except Exception as e:
             print(f"❌ Failed to stop recording {egress_id}: {e}")
-
 
 # --------------------------
 # Trim Silence using ffmpeg
@@ -156,7 +173,6 @@ def trim_silence(file_path: str):
     except Exception as e:
         print(f"❌ Failed to trim silence: {e}")
         return file_path
-
 
 # --------------------------
 # Upload to GCP
@@ -263,8 +279,6 @@ async def run_calls():
             else:
                 print("❌ No local recording file to trim/upload.")
 
-
-
 # --------------------------
 # Run Calls (Simplified)
 # --------------------------
@@ -328,9 +342,25 @@ async def run_calls_simple():
             await stop_audio_recording(egress_info.egress_id)
             print(f"☁️ Recording uploaded to GCP: {gcp_path}")
 
+# --------------------------
+# Run Calls
+# --------------------------
+async def run_calls_very_simple():
+    # Ensure trunk exists
+    trunk_id = await create_or_get_trunk()
+    print(f"🔑 Final trunk ID to use: {trunk_id}")
+
+    # Make calls
+    numbers = [CALL_TO_NUMBER]  # extend this list if needed
+    for number in numbers:
+        participant = await make_call(number, trunk_id, participant_identity)
+        if participant:
+            # Start recording
+            await start_audio_recording(participant.room_name, participant_identity)
 
 # --------------------------
 # Main
 # --------------------------
 if __name__ == "__main__":
-    asyncio.run(run_calls_simple())
+    asyncio.run(run_calls_very_simple())
+

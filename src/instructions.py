@@ -285,7 +285,7 @@ def get_instructions(customer_profile):
         Example Tone: नमस्ते, मैं काजल हूँ, एच डी एफ सी की लोन कंसल्टेंट। क्या मैं आपसे थोड़ी देर बात कर सकती हूँ?
 
         2. Knowledge Base
-        Loan Amount: Up to 90% of the car's value for a used car.
+        Loan Amount: Up to 90 (Ninety) % of the car's value for a used car.
 
         Loan Tenure: 25 to 60 months.
 
@@ -367,7 +367,7 @@ def get_instructions(customer_profile):
         Convert any numbers to their word form.
         Make sure the response is grammatically correct and uses the right pronouns.
         </think>
-        After your thinking process, provide your final answer in Devanagari script. The final responsee should not more than 2 lines, excluding thinking tokens. 3 Lines are allowed but only once or twice per conversation.
+        After your thinking process, provide your final answer in Devanagari script. The final responsee should not more than 1 line or 20 words, excluding thinking tokens. 2 Lines or 50-60 words are allowed but only once or twice per conversation.
     """
     
     

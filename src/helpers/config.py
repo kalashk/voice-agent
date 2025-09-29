@@ -7,13 +7,14 @@ TTS_PROVIDER = "sarvam_anushka"
 #TTS_PROVIDER = "sarvam_manisha"  
 
 
-STT_PROVIDER = "deepgram" 
+STT_PROVIDER = "deepgram"
+# STT_PROVIDER = "sarvam"
 
 # Base directory of the project
 BASE_DIR = Path(__file__).resolve().parent
 
 # Path for storing logs
-LOG_PATH = BASE_DIR / "logs"
+LOG_PATH = BASE_DIR.parent / "logs"
 # Ensure logs directory exists
 LOG_PATH.mkdir(exist_ok=True)
 
@@ -32,4 +33,3 @@ SESSION_LOGS = {
 THINKING_PROBABILITY = 1 # Probability of playing a thinking sound before replies
 
 COST_PATH = Path("src/costs")
-REC_PATH = BASE_DIR / "rec"

@@ -88,6 +88,11 @@ def setup_session(ctx: JobContext, setup_stt, setup_tts, STT_PROVIDER, TTS_PROVI
         max_endpointing_delay=2.0,         # Hard stop for silence detection
         min_consecutive_speech_delay=0.05, # Time between two speech segments
 
+        # min_endpointing_delay=0.15,
+        # max_endpointing_delay=1.0,
+        # min_interruption_duration=0.15,
+
+
         # 🔽 Transcript handling
         use_tts_aligned_transcript=aligned_script,  # Don’t wait for TTS metadata to finalize transcript
 
