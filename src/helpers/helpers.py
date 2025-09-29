@@ -104,7 +104,7 @@ def setup_session(ctx: JobContext, setup_stt, setup_tts, STT_PROVIDER, TTS_PROVI
         min_interruption_words=2,
         min_interruption_duration=0.25,           # Minimum silence to allow interruption
         discard_audio_if_uninterruptible=True,    # Save compute if interruption not possible
-        agent_false_interruption_timeout=1.0,     # Grace period after false interruption
+        agent_false_interruption_timeout=0.5,     # Grace period after false interruption
     )
 
     # --------------------------

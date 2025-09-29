@@ -90,39 +90,11 @@ async def make_call(phone_number: str, sip_trunk_id: str, room_name: str):
         except Exception as e:
             print(f"❌ Failed to call {phone_number}: {e}")
             return None
-
-# --------------------------
-# Start Audio Recording (local)
-# --------------------------
-async def start_audio_recording(room_name: str, participant_identity: str):
-    """Start egress recording locally (not uploaded to GCP)."""
-    async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
-        # Use persistent folder inside your project
-        recordings_dir = os.path.join(os.path.dirname(__file__), "recordings")
-        os.makedirs(recordings_dir, exist_ok=True)
-
-        local_path = os.path.join(recordings_dir, f"{room_name}.mp4")
-        file_output = EncodedFileOutput(filepath=local_path)
-        print(f"💾 Recording locally: {local_path}")
-
-        egress_req = RoomCompositeEgressRequest(
-            room_name=room_name,
-            audio_only=True,
-            file_outputs=[file_output],
-        )
-
-        try:
-            egress_info = await lkapi.egress.start_room_composite_egress(egress_req)
-            print(f"🎙️ Egress request sent, ID: {egress_info.egress_id}")
-            return egress_info, local_path
-        except Exception as e:
-            print(f"❌ Failed to start recording: {e}")
-            return None, None
         
 # --------------------------
 # Start Audio Recording
 # --------------------------
-async def start_audio_recording_simple(room_name: str, participant_identity: str):
+async def start_audio_recording(room_name: str, participant_identity: str):
     async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
         # Keyless GCP upload using VM-attached service account
         file_output = EncodedFileOutput(
@@ -199,85 +171,81 @@ def upload_to_gcp(local_file: str, bucket: str, dest_blob: str):
 # --------------------------
 # Run Calls
 # --------------------------
-async def run_calls():
-    trunk_id = await create_or_get_trunk()
-    print(f"🔑 Trunk ID: {trunk_id}")
+# async def run_calls():
+#     trunk_id = await create_or_get_trunk()
+#     print(f"🔑 Trunk ID: {trunk_id}")
 
-    numbers = [CALL_TO_NUMBER]
-    for number in numbers:
-        room_name = f"room-{uuid.uuid4().hex[:4]}"
-        print(f"\n📂 Starting new call flow for room: {room_name}")
+#     numbers = [CALL_TO_NUMBER]
+#     for number in numbers:
+#         room_name = f"room-{uuid.uuid4().hex[:4]}"
+#         print(f"\n📂 Starting new call flow for room: {room_name}")
 
-        async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
-            # 0. Pre-create the room (ensures egress won’t 404)
-            try:
-                await lkapi.room.create_room(CreateRoomRequest(name=room_name))
-                print(f"🏗️ Room created: {room_name}")
-            except Exception as e:
-                print(f"❌ Failed to create room {room_name}: {e}")
-                continue
+#         async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
+#             # 0. Pre-create the room (ensures egress won’t 404)
+#             try:
+#                 await lkapi.room.create_room(CreateRoomRequest(name=room_name))
+#                 print(f"🏗️ Room created: {room_name}")
+#             except Exception as e:
+#                 print(f"❌ Failed to create room {room_name}: {e}")
+#                 continue
 
-            # 1. Start recording (egress spins up before the call)
-            egress_info, local_path = await start_audio_recording(room_name, participant_identity)
-            if not egress_info:
-                print(f"⚠️ Recording did not start for {room_name}, skipping call.")
-                continue
+#             # 1. Start recording (egress spins up before the call)
+#             egress_info = await start_audio_recording(room_name, participant_identity)
+#             if not egress_info:
+#                 print(f"⚠️ Recording did not start for {room_name}, skipping call.")
+#                 continue
 
-            # 2. Place the call
-            participant = await make_call(number, trunk_id, room_name)
-            if not participant:
-                # Stop recording and delete local file if call not answered
-                await stop_audio_recording(egress_info.egress_id)
-                if local_path and os.path.exists(local_path):
-                    os.remove(local_path)
-                    print(f"🗑️ Deleted local recording for missed call {number}")
-                continue
+#             # 2. Place the call
+#             participant = await make_call(number, trunk_id, room_name)
+#             if not participant:
+#                 # Stop recording and delete local file if call not answered
+#                 await stop_audio_recording(egress_info.egress_id)
 
-            print(f"✅ Call answered by {number}, recording in progress...")
+#             print(f"✅ Call answered by {number}, recording in progress...")
 
-            # 3. Poll until participant leaves
-            while True:
-                participants_resp = await lkapi.room.list_participants(
-                    ListParticipantsRequest(room=room_name)
-                )
-                identities = [p.identity for p in participants_resp.participants]
-                if participant_identity not in identities:
-                    print("📴 Participant left, stopping recording.")
-                    break
-                await asyncio.sleep(5)
+#             # 3. Poll until participant leaves
+#             while True:
+#                 participants_resp = await lkapi.room.list_participants(
+#                     ListParticipantsRequest(room=room_name)
+#                 )
+#                 identities = [p.identity for p in participants_resp.participants]
+#                 if participant_identity not in identities:
+#                     print("📴 Participant left, stopping recording.")
+#                     break
+#                 await asyncio.sleep(5)
 
-            # Stop egress when call ends
-            await stop_audio_recording(egress_info.egress_id)
+#             # Stop egress when call ends
+#             await stop_audio_recording(egress_info.egress_id)
 
-            # 4. Post-process & upload
-            if local_path and os.path.exists(local_path):
-                trimmed_file = trim_silence(local_path)
-                if os.path.exists(trimmed_file):
-                    dest_blob = f"calls/{os.path.basename(trimmed_file)}"
-                    upload_to_gcp(trimmed_file, GCP_BUCKET, dest_blob)
+#             # 4. Post-process & upload
+#             if local_path and os.path.exists(local_path):
+#                 trimmed_file = trim_silence(local_path)
+#                 if os.path.exists(trimmed_file):
+#                     dest_blob = f"calls/{os.path.basename(trimmed_file)}"
+#                     upload_to_gcp(trimmed_file, GCP_BUCKET, dest_blob)
 
-                    # Ask user what to do with local files
-                    while True:
-                        choice = input(
-                            f"💾 Enter 0 to delete both, 1 to keep only original, 2 to keep both: "
-                        )
-                        if choice == "0":
-                            os.remove(local_path)
-                            os.remove(trimmed_file)
-                            print(f"🗑️ Both original and trimmed recordings deleted.")
-                            break
-                        elif choice == "1":
-                            if os.path.exists(trimmed_file):
-                                os.remove(trimmed_file)
-                            print(f"✅ Only original recording kept: {local_path}")
-                            break
-                        elif choice == "2":
-                            print(f"✅ Both recordings kept:\nOriginal: {local_path}\nTrimmed: {trimmed_file}")
-                            break
-                        else:
-                            print("⚠️ Invalid input. Please enter 0, 1, or 2.")
-            else:
-                print("❌ No local recording file to trim/upload.")
+#                     # Ask user what to do with local files
+#                     while True:
+#                         choice = input(
+#                             f"💾 Enter 0 to delete both, 1 to keep only original, 2 to keep both: "
+#                         )
+#                         if choice == "0":
+#                             os.remove(local_path)
+#                             os.remove(trimmed_file)
+#                             print(f"🗑️ Both original and trimmed recordings deleted.")
+#                             break
+#                         elif choice == "1":
+#                             if os.path.exists(trimmed_file):
+#                                 os.remove(trimmed_file)
+#                             print(f"✅ Only original recording kept: {local_path}")
+#                             break
+#                         elif choice == "2":
+#                             print(f"✅ Both recordings kept:\nOriginal: {local_path}\nTrimmed: {trimmed_file}")
+#                             break
+#                         else:
+#                             print("⚠️ Invalid input. Please enter 0, 1, or 2.")
+#             else:
+#                 print("❌ No local recording file to trim/upload.")
 
 # --------------------------
 # Run Calls (Simplified)
@@ -353,10 +321,23 @@ async def run_calls_very_simple():
     # Make calls
     numbers = [CALL_TO_NUMBER]  # extend this list if needed
     for number in numbers:
-        participant = await make_call(number, trunk_id, participant_identity)
+        room_name = f"room-{uuid.uuid4().hex[:4]}"
+        participant = await make_call(number, trunk_id, room_name=room_name)
         if participant:
             # Start recording
-            await start_audio_recording(participant.room_name, participant_identity)
+            egress_info = await start_audio_recording(participant.room_name, participant_identity)
+            async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
+                while True:
+                    participants_resp = await lkapi.room.list_participants(
+                        ListParticipantsRequest(room=room_name)
+                    )
+                    identities = [p.identity for p in participants_resp.participants]
+                    if participant_identity not in identities:
+                        print("📴 Participant left, stopping recording.")
+                        await stop_audio_recording(egress_info.egress_id)
+                        break
+                    await asyncio.sleep(5)
+                    
 
 # --------------------------
 # Main       
