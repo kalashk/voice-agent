@@ -1,6 +1,5 @@
 import os
 import logging
-import asyncio
 import json
 from dotenv import load_dotenv
 from livekit.agents import (
