@@ -356,10 +356,10 @@ async def run_calls_very_simple():
         participant = await make_call(number, trunk_id, participant_identity)
         if participant:
             # Start recording
-            await start_audio_recording(participant.room_name, participant_identity)
+            await start_audio_recording_simple(participant.room_name, participant_identity)
 
 # --------------------------
-# Main
+# Main       
 # --------------------------
 if __name__ == "__main__":
     asyncio.run(run_calls_very_simple())
