@@ -21,7 +21,7 @@ from livekit.agents import (
     stt,
 )
 from livekit.agents.llm.tool_context import RawFunctionTool
-from livekit.plugins import cartesia, deepgram, noise_cancellation, openai, silero
+from livekit.plugins import sarvam, noise_cancellation, openai, silero
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
 load_dotenv(".env.local")
@@ -149,7 +149,7 @@ class MonitoredAssistant(Agent):
     """Agent with detailed monitoring at every pipeline stage."""
     
     def __init__(self, metrics_collector: DetailedMetricsCollector) -> None:
-        super().__init__(instructions="You are a helpful voice AI assistant.")
+        super().__init__(instructions="You are a helpful voice AI assistant made to take users information and try to sell them quick loan based on the information you got")
         self.metrics_collector = metrics_collector
         
     async def on_enter(self):
@@ -352,7 +352,10 @@ async def entrypoint(ctx: agents.JobContext):
     
     logger.info("🔧 Initializing STT...")
     stt_start = time.time()
-    stt_instance = deepgram.STT(model="nova-3", language="multi")
+    stt_instance = sarvam.STT(
+            language="hi-IN",
+            model="saarika:v2.5"
+        )
     metrics_collector.log_timing("initialization", "stt", time.time() - stt_start)
     
     logger.info("🔧 Initializing LLM...")
@@ -362,10 +365,11 @@ async def entrypoint(ctx: agents.JobContext):
     
     logger.info("🔧 Initializing TTS...")
     tts_start = time.time()
-    tts_instance = cartesia.TTS(
-        model="sonic-2", 
-        voice="f786b574-daa5-4673-aa0c-cbe3e8534c02"
-    )
+    tts_instance = sarvam.TTS(
+            target_language_code="hi-IN",
+            speaker="anushka",
+            #enable_preprocessing=True,
+        )
     metrics_collector.log_timing("initialization", "tts", time.time() - tts_start)
     
     logger.info("🔧 Initializing VAD...")
