@@ -709,6 +709,7 @@ class StructuredMetricsLogger:
     def save_all_metrics(self):
         """Save all metrics into a single JSON file in the current working directory."""
         session_file = Path(f"{self.session_id}_metrics.json")
+        summary_obj = self.usage_collector.get_summary()
 
         all_metrics = {
             "session_id": self.session_id,
@@ -717,7 +718,7 @@ class StructuredMetricsLogger:
             # summaries
             "component_statistics": self.calculate_statistics(),
             "conversation_latency": self.calculate_conversation_latency_stats(),
-            "usage_summary": self.usage_collector.get_summary(),
+            "usage_summary": summary_obj.__dict__,
             "component_breakdown": self._get_component_breakdown(),
 
             # raw data
