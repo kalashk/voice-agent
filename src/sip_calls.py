@@ -10,6 +10,7 @@ from livekit.protocol.sip import (
     CreateSIPParticipantRequest,
     ListSIPOutboundTrunkRequest,
 )
+import evaluation
 from livekit.api import EncodedFileOutput, RoomCompositeEgressRequest
 from livekit.protocol.room import ListParticipantsRequest
 
@@ -123,7 +124,7 @@ async def stop_audio_recording(egress_id: str):
 # --------------------------
 # Run Calls
 # --------------------------
-async def run_calls_very_simple():
+async def run_calls():
     """
     1. Create a trunk id
     2. make a call to the participant's number
@@ -152,6 +153,17 @@ async def run_calls_very_simple():
                     if participant_identity not in identities:
                         print("📴 Participant left, stopping recording.")
                         await stop_audio_recording(egress_info.egress_id)
+
+                        # Wait 5 seconds before evaluating
+                        print("⏱️ Waiting 5 seconds before evaluation...")
+                        await asyncio.sleep(5)
+                        print("📝 Starting evaluation of the session...")
+                        try:
+                            avg_scores, usage_info = evaluation.main()  # Or call a function from evaluation.py
+                            print("[DEBUG] Evaluation done.")
+                            print({"Average Acore": avg_scores, "Usage Info": usage_info})
+                        except Exception as e:
+                            print(f"❌ Evaluation failed: {e}")
                         break
                     await asyncio.sleep(5)
 
@@ -159,4 +171,4 @@ async def run_calls_very_simple():
 # Main       
 # --------------------------
 if __name__ == "__main__":
-    asyncio.run(run_calls_very_simple())
+    asyncio.run(run_calls())

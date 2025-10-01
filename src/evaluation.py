@@ -9,7 +9,7 @@ from ragas.evaluation import evaluate
 from ragas.metrics import AspectCritic
 from ragas.llms import LangchainLLMWrapper
 from langchain_openai import ChatOpenAI
-from langchain.callbacks import get_openai_callback
+from langchain.callbacks.manager import get_openai_callback
 from helpers.config import SESSION_ID, TTS_PROVIDER, STT_PROVIDER, LLM_PROVIDER
 
 
@@ -52,7 +52,7 @@ def prepare_dataset_per_turn(conversations: list[dict]) -> EvaluationDataset:
                     reference=None
                 )
                 samples.append(sample)
-                print(f"[DEBUG] Created SingleTurnSample for assistant turn: {turn['content'][:50]}...")
+                # print(f"[DEBUG] Created SingleTurnSample for assistant turn: {turn['content'][:50]}...")
 
     dataset = EvaluationDataset(samples=samples)
     print(f"[DEBUG] Prepared per-turn dataset with {len(dataset.samples)} samples")
@@ -210,8 +210,8 @@ def load_and_prepare_dataset_from_logs() -> List[Dict]:
     print(f"[DEBUG] Logs folder: {log_folder}")
 
     # Construct the specific session file name
-    # session_to_evaluate = f"{TTS_PROVIDER}_{STT_PROVIDER}_{LLM_PROVIDER}_session_{SESSION_ID}.json"
-    session_to_evaluate=f"sarvam_anushka_deepgram_session_eaa7c2f1-548a-404d-be46-0c11736cbf12.json"
+    session_to_evaluate = f"{TTS_PROVIDER}_{STT_PROVIDER}_{LLM_PROVIDER}_session_{SESSION_ID}.json"
+    # session_to_evaluate=f"sarvam_anushka_deepgram_session_eaa7c2f1-548a-404d-be46-0c11736cbf12.json"
     filepath = os.path.join(log_folder, session_to_evaluate)
     print(f"[DEBUG] Evaluating session log file: {filepath}")
 
@@ -228,10 +228,10 @@ def load_and_prepare_dataset_from_logs() -> List[Dict]:
         # if item["role"] == "assistant" and item.get("interrupted", False):
         if item["role"] == "assistant":
             conversation.append({"role": "assistant", "content": item["text"]})
-            print(f"[DEBUG] Assistant: {item['text']}")
+            # print(f"[DEBUG] Assistant: {item['text']}")
         elif item["role"] == "user" and item.get("is_final", False):
             conversation.append({"role": "user", "content": item["text"]})
-            print(f"[DEBUG] User: {item['text']}")
+            # print(f"[DEBUG] User: {item['text']}")
     print(f"[DEBUG] Filtered conversation length: {len(conversation)}")
 
     formatted_conversations = []
@@ -248,7 +248,7 @@ def main():
     conversations = load_and_prepare_dataset_from_logs()
     if not conversations:
         print("[DEBUG] No conversation data found in the log.")
-        return
+        return {}, {}
     print(f"[DEBUG] Number of conversations to evaluate: {len(conversations)}") 
 
     # Run evaluation and get average scores and total tokens
@@ -269,6 +269,7 @@ def main():
             print(f"{k}: {v}")
 
     print("[DEBUG] Evaluation script finished successfully.")
+    return avg_scores, usage_info
 
 if __name__ == "__main__":
     main()
