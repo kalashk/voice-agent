@@ -75,16 +75,13 @@ def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER
       - Turn detection (who's speaking, when to switch)
       - VAD (voice activity detection)
     """
-    llm_setup=setup_llm(LLM_PROVIDER)
-    tts_setup=setup_tts(TTS_PROVIDER)
-    stt_setup=setup_stt(STT_PROVIDER)
 
     # Noise Cancellation
     # Initialize AgentSession with components
-    session = NSAgentSession(
-        llm=llm_setup,       # Use OpenAI LLM for responses
-        stt=tts_setup,               # Speech-to-Text provider
-        tts=stt_setup,               # Text-to-Speech provider
+    session = AgentSession(
+        llm=setup_llm(LLM_PROVIDER),       # Use OpenAI LLM for responses
+        stt=setup_stt(STT_PROVIDER),               # Speech-to-Text provider
+        tts=setup_tts(TTS_PROVIDER),               # Text-to-Speech provider
         turn_detection=turn_detector_model(TTS_PROVIDER),        # Handles multi-language turn-taking
         vad=ctx.proc.userdata["vad"],              # Voice Activity Detection (loaded in prewarm)
 
