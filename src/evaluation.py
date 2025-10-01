@@ -9,7 +9,7 @@ from ragas.evaluation import evaluate
 from ragas.metrics import AspectCritic
 from ragas.llms import LangchainLLMWrapper
 from langchain_openai import ChatOpenAI
-from langchain.callbacks.manager import get_openai_callback
+from langchain_community.callbacks.manager import get_openai_callback
 from helpers.config import SESSION_ID, TTS_PROVIDER, STT_PROVIDER, LLM_PROVIDER
 
 
