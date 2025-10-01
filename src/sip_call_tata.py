@@ -142,19 +142,19 @@ async def run_calls():
         room_name = f"room-{uuid.uuid4().hex[:4]}"
         print("Attempting to call Participant")
         participant = await make_call(number, trunk_id, room_name=room_name, participant_identity=participant_identity)
-        # if participant:
-        #     # Start recording
-        #     egress_info = await start_audio_recording(participant.room_name)
-        #     async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
-        #         while True:
-        #             participants_resp = await lkapi.room.list_participants(
-        #                 ListParticipantsRequest(room=room_name)
-        #             )
-        #             identities = [p.identity for p in participants_resp.participants]
-        #             if participant_identity not in identities:
-        #                 print("📴 Participant left, stopping recording.")
-        #                 await stop_audio_recording(egress_info.egress_id)
-        #                 break
+        if participant:
+            # Start recording
+            egress_info = await start_audio_recording(participant.room_name)
+            async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
+                while True:
+                    participants_resp = await lkapi.room.list_participants(
+                        ListParticipantsRequest(room=room_name)
+                    )
+                    identities = [p.identity for p in participants_resp.participants]
+                    if participant_identity not in identities:
+                        print("📴 Participant left, stopping recording.")
+                        await stop_audio_recording(egress_info.egress_id)
+                        break
 
 
 # --------------------------
