@@ -1,3 +1,4 @@
+import os
 import json
 import logging
 from livekit.agents import (
@@ -12,6 +13,7 @@ from livekit.plugins.turn_detector.multilingual import MultilingualModel
 from livekit.plugins.turn_detector.english import EnglishModel
 from helpers.config import TTS_PROVIDER
 from class_mod.ns_agentsession import NSAgentSession
+
 
 # Logger for this module
 logger = logging.getLogger("agent")
@@ -64,7 +66,7 @@ def load_customer_profile(path="src/customer.json") -> dict:
 #   Session Setup
 # --------------------------
 
-def setup_session(ctx: JobContext, setup_stt, setup_tts, STT_PROVIDER, TTS_PROVIDER) -> AgentSession:
+def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER, STT_PROVIDER, TTS_PROVIDER) -> AgentSession:
     """
     Create and configure an AgentSession for handling:
       - LLM (OpenAI GPT model)
@@ -77,7 +79,7 @@ def setup_session(ctx: JobContext, setup_stt, setup_tts, STT_PROVIDER, TTS_PROVI
     # Noise Cancellation
     # Initialize AgentSession with components
     session = NSAgentSession(
-        llm=openai.LLM(model="gpt-4o-mini"),       # Use OpenAI LLM for responses
+        llm=setup_llm(LLM_PROVIDER),       # Use OpenAI LLM for responses
         stt=setup_stt(STT_PROVIDER),               # Speech-to-Text provider
         tts=setup_tts(TTS_PROVIDER),               # Text-to-Speech provider
         turn_detection=turn_detector_model(TTS_PROVIDER),        # Handles multi-language turn-taking

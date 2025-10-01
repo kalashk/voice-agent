@@ -1,6 +1,5 @@
 import json
 import logging
-from pathlib import Path
 from dataclasses import asdict
 from datetime import datetime
 from helpers.config import LOG_PATH
@@ -9,7 +8,7 @@ from helpers.config import LOG_PATH
 logger = logging.getLogger("agent")
 
 
-async def log_usage(usage_collector, cost_calc, SESSION_LOGS, SESSION_ID, customer_profile, TTS_PROVIDER, STT_PROVIDER):
+async def log_usage(usage_collector, cost_calc, SESSION_LOGS, SESSION_ID, customer_profile, TTS_PROVIDER, STT_PROVIDER, LLM_PROVIDER):
     """
     Logs and persists session usage and cost information.
     
@@ -71,6 +70,7 @@ async def log_usage(usage_collector, cost_calc, SESSION_LOGS, SESSION_ID, custom
         "session_id": SESSION_ID,
         "TTS provider": TTS_PROVIDER,
         "STT provider": STT_PROVIDER,
+        "LLM provider": LLM_PROVIDER,
         "customer_profile": customer_profile,
         "final_usage": usage_dict,
         "final_cost": cost_summary,
@@ -79,6 +79,6 @@ async def log_usage(usage_collector, cost_calc, SESSION_LOGS, SESSION_ID, custom
     # ------------------------
     # Persist session logs to JSON file
     # ------------------------
-    file_path = LOG_PATH / f"{TTS_PROVIDER}_{STT_PROVIDER}_session_{SESSION_ID}.json"
+    file_path = LOG_PATH / f"{TTS_PROVIDER}_{STT_PROVIDER}_{LLM_PROVIDER}_session_{SESSION_ID}.json"
     with open(file_path, "w", encoding='utf-8') as f:
         json.dump(SESSION_LOGS, f, indent=2, ensure_ascii=False)

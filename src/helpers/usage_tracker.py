@@ -1,6 +1,6 @@
 import json
 import logging
-from datetime import timezone, datetime, timedelta
+from datetime import datetime
 from livekit.agents import metrics
 from helpers.config import COST_PATH, IST
 
@@ -41,7 +41,7 @@ class CostCalculator:
     Also records detailed per-event logs with timestamps.
     """
 
-    def __init__(self, stt_provider: str, tts_provider: str):
+    def __init__(self, stt_provider: str, tts_provider: str, llm_provider: str):
         # Load static pricing configs from JSON files
         self.llm_config = load_cost_config("llm")
         self.stt_config = load_cost_config("stt")
@@ -50,6 +50,7 @@ class CostCalculator:
         # Active providers being used (e.g., OpenAI, Deepgram, ElevenLabs)
         self.stt_provider = stt_provider
         self.tts_provider = tts_provider
+        self.llm_provider = llm_provider
 
         # Store detailed logs for each usage event
         self.events = {
@@ -69,11 +70,20 @@ class CostCalculator:
           - cached_tokens = tokens reused from cache (cheaper)
           - completion_tokens = tokens generated in response
         """
+        # input_rate = self.llm_config.get(self.llm_provider, {}).get("rate", 0.0)
 
-        # Load rates (fallbacks in case not defined)
-        input_rate = self.llm_config.get("input_rate", 0.0)
-        cached_rate = self.llm_config.get("cached_input_rate", input_rate)
-        output_rate = self.llm_config.get("output_rate", 0.0)
+        # # Load rates (fallbacks in case not defined)
+        # input_rate = self.llm_config.get("input_rate", 0.0)
+        # cached_rate = self.llm_config.get("cached_input_rate", input_rate)
+        # output_rate = self.llm_config.get("output_rate", 0.0)
+
+        cfg = self.llm_config.get(self.llm_provider, {})
+
+        input_rate = cfg.get("input_rate", 0.0)
+        cached_rate = cfg.get("cached_input_rate", input_rate)
+        output_rate = cfg.get("output_rate", 0.0)
+
+
 
         # Apply cost formula
         cost = (

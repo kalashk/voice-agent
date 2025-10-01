@@ -1,5 +1,6 @@
-from helpers.config import TTS_PROVIDER, STT_PROVIDER 
-from livekit.plugins import cartesia, deepgram, sarvam
+# from helpers.config import TTS_PROVIDER, STT_PROVIDER, LLM_PROVIDER
+from livekit.plugins import cartesia, deepgram, sarvam, openai, google
+from helpers.config import TTS_PROVIDER, STT_PROVIDER,LLM_PROVIDER
 
 # --------------------------
 #   TTS (Text-to-Speech) Setup
@@ -62,3 +63,11 @@ def setup_stt(provider: str = STT_PROVIDER):
     else:
         # Raise error if provider is unknown
         raise ValueError(f"Unknown STT provider: {provider}")
+
+def setup_llm(provider: str = LLM_PROVIDER):
+    if provider == "openai":
+        return openai.LLM(model="gpt-4o-mini")
+    elif provider == "ggemini":
+        return google.LLM(model="gemini-2.5-flash-preview-05-20")
+    else:
+        raise ValueError(f"Unknown LLM provider: {provider}")

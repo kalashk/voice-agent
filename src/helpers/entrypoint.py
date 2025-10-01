@@ -6,18 +6,16 @@ from livekit.agents import (
     JobContext,
     RoomInputOptions,
 )
-from livekit.agents.llm import LLM
 from livekit.plugins import noise_cancellation
-from helpers.setup_tts_stt import setup_tts, setup_stt
+from helpers.setup_tts_stt import setup_tts, setup_stt, setup_llm
 from helpers.metrics import setup_metrics
 from helpers.log_usage import log_usage
 from helpers.helpers import load_customer_profile, setup_session
 from class_mod.assistant import MyAssistant
-from helpers.config import TTS_PROVIDER, STT_PROVIDER, SESSION_LOGS, SESSION_ID
-
+# from helpers.config import LLM_PROVIDER, TTS_PROVIDER, STT_PROVIDER, SESSION_LOGS, SESSION_ID
+from helpers.config import SESSION_ID,SESSION_LOGS,TTS_PROVIDER,STT_PROVIDER,LLM_PROVIDER
 logger = logging.getLogger("agent")   # Logger for debugging and info logs
 load_dotenv(".env.local")             # Load environment variables from .env.local file
-
 
 async def entrypoint(ctx: JobContext):
     """
@@ -44,7 +42,7 @@ async def entrypoint(ctx: JobContext):
         logger.info(f"User profile loaded: {metadata}")
 
         # Setup session with STT (speech-to-text), TTS (text-to-speech)
-        session = setup_session(ctx, setup_stt, setup_tts, STT_PROVIDER, TTS_PROVIDER)
+        session = setup_session(ctx,setup_llm, setup_stt, setup_tts,LLM_PROVIDER, STT_PROVIDER, TTS_PROVIDER)
 
         # Setup usage metrics (collect cost, tokens, events, etc.)
         usage_collector, cost_calc = setup_metrics(session, SESSION_LOGS)
@@ -58,7 +56,8 @@ async def entrypoint(ctx: JobContext):
                 SESSION_ID=SESSION_ID,
                 customer_profile=customer_profile,
                 TTS_PROVIDER=TTS_PROVIDER,
-                STT_PROVIDER=STT_PROVIDER
+                STT_PROVIDER=STT_PROVIDER,
+                LLM_PROVIDER=LLM_PROVIDER
             )
         )
 

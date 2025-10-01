@@ -1,5 +1,12 @@
 {
-  "input_rate": 0.0000006,
-  "cached_input_rate": 0.0000003,
-  "output_rate": 0.0000024
+  "openai": {
+    "input_rate": 0.0000006,
+    "cached_input_rate": 0.0000003,
+    "output_rate": 0.0000024
+  },
+  "gemini": {
+    "input_rate": 0.0000003,
+    "cached_input_rate": 0.000000075,
+    "output_rate": 0.0000025
+  }
 }

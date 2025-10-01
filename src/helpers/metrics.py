@@ -185,7 +185,9 @@ from livekit.agents import (
 from livekit.agents.llm import ChatMessage
 
 from helpers.usage_tracker import CostCalculator
-from helpers.config import TTS_PROVIDER, STT_PROVIDER, IST
+# from helpers.config import LLM_PROVIDER, TTS_PROVIDER, STT_PROVIDER, IST
+import os
+from helpers.config import IST, TTS_PROVIDER, STT_PROVIDER, LLM_PROVIDER
 
 logger = logging.getLogger("agent")
 
@@ -203,7 +205,7 @@ def setup_metrics(session: AgentSession, SESSION_LOGS: dict):
     usage_collector = metrics.UsageCollector()
 
     # Billing calculator
-    cost_calc = CostCalculator(stt_provider=STT_PROVIDER, tts_provider=TTS_PROVIDER)
+    cost_calc = CostCalculator(llm_provider=LLM_PROVIDER ,stt_provider=STT_PROVIDER, tts_provider=TTS_PROVIDER)
 
     # Per-turn temporary store {speech_id: {...metrics...}}
     turn_metrics: Dict[str, dict] = {}
@@ -330,8 +332,9 @@ def setup_metrics(session: AgentSession, SESSION_LOGS: dict):
             })
 
         # ---------------- VAD ----------------
-        elif isinstance(ev.metrics, metrics.VADMetrics):
-            logger.info(f"VAD metrics: {ev.metrics.model_dump()}")
+        # Commented out cause it clutters the terminal
+        # elif isinstance(ev.metrics, metrics.VADMetrics):
+        #     logger.info(f"VAD metrics: {ev.metrics.model_dump()}")
 
         else:
             logger.warning(f"Unknown metrics type: {type(ev.metrics)}")

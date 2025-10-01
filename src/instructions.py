@@ -1,4 +1,5 @@
 import json
+import os
 from helpers.config import TTS_PROVIDER
 
 def get_instructions(customer_profile):
