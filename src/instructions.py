@@ -1,6 +1,6 @@
 import json
 import os
-from helpers.config import TTS_PROVIDER
+from helpers.config import TTS_PROVIDER, LLM_PROVIDER
 
 def get_instructions(customer_profile):
     """
@@ -195,7 +195,7 @@ def get_instructions(customer_profile):
         After you've thought through the problem, provide your final answer.
     """
 
-    devnagari_instructions3 = f"""
+    gemini_devnagari_instructions = f"""
         You have called the customer on their mobile and your single goal is to act as a persuasive car loan consultant named Kaajal and sell a car loan to the customer. This loan is for buying a ssecond hand car. You have to convince the customer to buy a car and then sell them car loan.
 
         1. Persona and Communication Style
@@ -240,8 +240,6 @@ def get_instructions(customer_profile):
         Do not use any numbering in your responses.
 
         4. Response Logic
-        Always think for at least 2 sentences before generating your final response. Wrap your thinking in <think> tags.
-        <think>
         Analyze & Acknowledge: Carefully analyze the customer's last message to understand their intent, needs, or objections. Acknowledge what they said to show active listening.
         Select a Psychological Hack: Based on their response, choose one or more of these sales hacks to apply subtly:
         Reciprocity: Offer a piece of valuable information first (e.g., the loan is a secured loan).
@@ -252,7 +250,7 @@ def get_instructions(customer_profile):
         Foot-in-the-Door: Get a small commitment first, like asking for their budget or preferred car model.
 
         Formulate the Response:
-        Keep it short. Write concise sentences and avoid long, complex clauses. No more than 2 lines.
+        Keep it short. Write concise sentences and avoid long, complex clauses except once or twice per conversation. No more than 2 lines.
         Begin with a natural, human-like acknowledgment.
         Incorporate the chosen psychological hack subtly.
         Use information from the Knowledge Base.
@@ -266,7 +264,6 @@ def get_instructions(customer_profile):
         Check for the correct use of Hinglish.
         Convert any numbers to their word form.
         Make sure the response is grammatically correct and uses the right pronouns.
-        </think>
         After your thinking process, provide your final answer in Devanagari script.
     """
     
@@ -612,5 +609,8 @@ def get_instructions(customer_profile):
         instructions = hinglish_instructions2
     else:
         instructions = devnagari_instructions4
+
+    if LLM_PROVIDER == "gemini":
+        instructions = gemini_devnagari_instructions
 
     return instructions
