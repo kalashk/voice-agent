@@ -333,8 +333,8 @@ def setup_metrics(session: AgentSession, SESSION_LOGS: dict):
 
         # ---------------- VAD ----------------
         # Commented out cause it clutters the terminal
-        # elif isinstance(ev.metrics, metrics.VADMetrics):
-        #     logger.info(f"VAD metrics: {ev.metrics.model_dump()}")
+        elif isinstance(ev.metrics, metrics.VADMetrics):
+            logger.info(f"VAD metrics: {ev.metrics.model_dump()}")
 
         else:
             logger.warning(f"Unknown metrics type: {type(ev.metrics)}")

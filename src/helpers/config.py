@@ -9,8 +9,8 @@ TTS_PROVIDER = "sarvam_anushka"
 # STT_PROVIDER = "deepgram"
 STT_PROVIDER = "sarvam"
 
-LLM_PROVIDER = "gemini"
-# LLM_PROVIDER = "openai"
+#LLM_PROVIDER = "gemini"
+LLM_PROVIDER = "openai"
 
 # Base directory of the project
 BASE_DIR = Path(__file__).resolve().parent
