@@ -68,7 +68,7 @@ async def make_call(phone_number: str, sip_trunk_id: str, room_name: str, partic
     async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
         request = CreateSIPParticipantRequest(
             sip_trunk_id=sip_trunk_id,
-            sip_number=TRUNK_NUMBER,
+            sip_number="00919240908350",
             sip_call_to=phone_number,
             room_name=room_name,
             participant_identity=participant_identity,
@@ -140,24 +140,25 @@ async def run_calls():
         participant_identity = f"sip-{uuid.uuid4().hex[:4]}"
         room_name = f"room-{uuid.uuid4().hex[:4]}"
         participant = await make_call(number, trunk_id, room_name=room_name, participant_identity=participant_identity)
-        if participant:
+        #if participant:
             # Start recording
-            egress_info = await start_audio_recording(participant.room_name)
-            async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
-                while True:
-                    participants_resp = await lkapi.room.list_participants(
-                        ListParticipantsRequest(room=room_name)
-                    )
-                    identities = [p.identity for p in participants_resp.participants]
-                    if participant_identity not in identities:
-                        print("📴 Participant left, stopping recording.")
-                        await stop_audio_recording(egress_info.egress_id)
+            # egress_info = await start_audio_recording(participant.room_name)
+            # async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
+            #     while True:
+            #         participants_resp = await lkapi.room.list_participants(
+            #             ListParticipantsRequest(room=room_name)
+            #         )
+            #         identities = [p.identity for p in participants_resp.participants]
+            #         if participant_identity not in identities:
+            #             print("📴 Participant left, stopping recording.")
+            #             await stop_audio_recording(egress_info.egress_id)
 
-                        break
-                    await asyncio.sleep(5)
+            #             break
+            #         await asyncio.sleep(5)
+
 
 # --------------------------
 # Main       
 # --------------------------
 if __name__ == "__main__":
-    asyncio.run(create_or_get_trunk())
+    asyncio.run(run_calls())
