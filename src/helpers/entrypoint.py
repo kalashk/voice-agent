@@ -12,8 +12,8 @@ from helpers.metrics import setup_metrics
 from helpers.log_usage import log_usage
 from helpers.helpers import load_customer_profile, setup_session
 from class_mod.assistant import MyAssistant
-# from helpers.config import LLM_PROVIDER, TTS_PROVIDER, STT_PROVIDER, SESSION_LOGS, SESSION_ID
 from helpers.config import SESSION_ID,SESSION_LOGS,TTS_PROVIDER,STT_PROVIDER,LLM_PROVIDER
+
 logger = logging.getLogger("agent")   # Logger for debugging and info logs
 load_dotenv(".env.local")             # Load environment variables from .env.local file
 
@@ -42,7 +42,15 @@ async def entrypoint(ctx: JobContext):
         logger.info(f"User profile loaded: {metadata}")
 
         # Setup session with STT (speech-to-text), TTS (text-to-speech)
-        session = setup_session(ctx,setup_llm, setup_stt, setup_tts,LLM_PROVIDER, STT_PROVIDER, TTS_PROVIDER)
+        session = setup_session(
+            ctx,
+            setup_llm, 
+            setup_stt, 
+            setup_tts, 
+            LLM_PROVIDER, 
+            STT_PROVIDER, 
+            TTS_PROVIDER
+        )
 
         # Setup usage metrics (collect cost, tokens, events, etc.)
         usage_collector, cost_calc = setup_metrics(session, SESSION_LOGS)
@@ -80,44 +88,6 @@ async def entrypoint(ctx: JobContext):
         )
         print("LLM →", reply.chat_items)   # Print AI response to console
 
-        # while True:
-        #     # Wait for user input (via STT)
-        #     user_input = await session.get_user_input()  # Adjust based on your STT method
-        #     if not user_input:
-        #         await asyncio.sleep(1)
-        #         continue
-
-        #     print(f"User → {user_input}")
-
-        #     # Respond normally with TTS
-        #     await session.generate_reply(instructions=user_input)
-        #     # Silent LLM check if session should end
-        #     llm_instance = assistant.session_ref.llm
-        #     if llm_instance and isinstance(llm_instance, LLM):
-        #         should_end = await assistant.query_llm_silently(
-        #             llm=llm_instance,
-        #             prompt="Based on the conversation so far, should the session end? Reply yes or no."
-        #         )
-        #         if should_end.strip().lower().startswith("yes"):
-        #             print("🛑 LLM requested session end")
-        #             # Call shutdown safely
-        #             shutdown_result = ctx.shutdown(reason="LLM decided to end session")
-        #             if asyncio.iscoroutine(shutdown_result):
-        #                 await shutdown_result
-        #             break
-        #     # Silent LLM check if session should end
-        #     should_end = await assistant.query_llm_silently(
-        #         llm=assistant.session_ref.llm,
-        #         prompt=f"Based on the conversation so far, should the session end? Reply yes or no."
-        #     )
-
-        #     if should_end.strip().lower().startswith("yes"):
-        #         print("🛑 LLM requested session end")
-        #         await ctx.shutdown(reason="LLM decided to end session")
-        #         break
-
-        #     # Small delay to prevent tight loop
-        #     await asyncio.sleep(0.5)
 
     except Exception as e:
         # Log any errors and re-raise
