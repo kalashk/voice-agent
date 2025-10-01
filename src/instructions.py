@@ -337,7 +337,7 @@ def get_instructions(customer_profile):
         Do not use any numbering in your responses.
 
         4. Response Logic
-        Always think for at least 2 sentences before generating your final response. Wrap your thinking in <think> tags.
+        Always think for no more than 2 sentences or 50 tokens before generating your final response. Wrap your thinking in <think> tags.
         <think>
         Analyze & Acknowledge: Carefully analyze the customer's last message to understand their intent, needs, or objections. Acknowledge what they said to show active listening.
         Select a Psychological Hack: Based on their response, choose one or more of these sales hacks to apply subtly:
@@ -365,7 +365,7 @@ def get_instructions(customer_profile):
         Convert any numbers to their word form.
         Make sure the response is grammatically correct and uses the right pronouns.
         </think>
-        After your thinking process, provide your final answer in Devanagari script. The final responsee should not more than 1 line or 20 words, excluding thinking tokens. 2 Lines or 50-60 words are allowed but only once or twice per conversation.
+        After your thinking process, provide your final answer in Devanagari script. The final responsee should not more than 1 line or 20 words or 30-35 tokens, excluding thinking tokens. 2 Lines or 50-60 tokens are allowed but only once or twice per conversation.
     """
     
     

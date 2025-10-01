@@ -1,373 +1,2943 @@
-### Let’s talk about your profile in the company
 
-Job Profile : LOAN CONSULTANT
-
-Product To Sell : LOAN SERVICES
-
-Medium Of Selling: Tele Calling
-
-Let’s understand first, what is a **CIBIL Score**
-
-– CIBIL Score is basically a rating given to a customer by a bank or any finance company on the behalf of repayments done by the customer against the loan or credit card utilisation issued by that financial institution.
-
-CIBIL Score Range – 300 points to 900 points
-
-For all those customer, who have never taken any loan or credit card till date, there cibil score is considered to be as 0 or -1.
-
-| **CIBIL SCORE RANGE** | **CUSTOMER CATEGORY** |
-| --- | --- |
-| 300 TO 650 | POOR CAT. CUSTOMER |
-| 651 TO 700 | AVERAGE CAT. CUSTOMER |
-| 701 TO 800 | GOOD CAT. CUSTOMER |
-| 801 TO 900 | EXCELLENT CAT. CUSTOMER |
-| 0 / -1 | NEW TO CREDIT CUSTOMER |
-
-Common Remarks In CIBIL Score –
-
-1. DPD – Days Past Due Date
-2. Overdue
-
-**_USED CAR LOAN_**
-
-## TYPE OF CASES IN USED CAR LOAN
-
-1. PURCHASE CASE
-2. REFINANCE CASE
-    1. NORMAL REFINANCE – VEHICLE BOUGHT IN CASH OR OLD LOAN CLOSED MORE THAN 6 MONTHS AGO
-    2. MULTIPLIER REFINANCE – OLD LOAN ON VEHICLE CLOSED UNDER 6 MONTHS
-    3. BALANCE TRANSFER C TOPUP – RUNNING LOAN ON VEHICLE AND CUSTOMER NEED EXTRA FUND ON SAME VEHICLE
-
-LET’S DISCUSS EACH CASE IN DETAIL NOW
-
-1. **PURCHASE CASE** – MAX. LOAN PROVIDED TO THE CUSTOMER WILL BE UPTO
-
-90% OF THE CAR MARKET VALUE
-
-## REFINANCE CASE
-
-- 1. **NORMAL REFINANCE** - MAX. LOAN PROVIDED TO THE CUSTOMER WILL BE UPTO 90% OF THE CAR MARKET VALUE
-  2. **MULTIPLIER REFINANCE** \- LOAN PROVIDED TO THE CUSTOMER WILL BE BETWEEN 80% to 140% OF THE CAR MARKET VALUE
-  3. **BALANCE TRANSFER & TOPUP** – For BT Cases, min. 9 EMIs of the old loan must be cleared without any bouncing
-        1. 9 EMI Paid – up to 120% OF THE CAR MARKET VALUE
-        2. 10 or 11 EMI Paid – up to 140% OF THE CAR MARKET VALUE
-        3. 12 or 17 EMI Paid – up to 160% OF THE CAR MARKET VALUE
-        4. 18 or above EMI Paid – up to 200% OF THE CAR MARKET VALUE
-
-### Terms & Conditions Of Used Car Loan Funding
-
-1. Customer has not taken any kind of Personal Loan or Business Loan in last 3 months. In such scenario, loan amount will be affected or even the application may also be rejected by the bank.
-2. Customer must maintain a minimum average bank balance of equivalent to one month EMI in the operating current/saving account.
-3. There should be no Emi bounce in last 3 months.
-4. Car which you about to fund should be in production. If any car or brand has closed its production, it is considered as Tier-3 vehicle. Max funding allowed on Tier-3 vehicles are 150%. Some banks even do not fund Tier-3 vehicles.
-5. Min. CIBIL Score required for Used Car Loan is 700.
-6. ROI on Used Car Loan varies from 12.75% to 17.5% depending upon case to case.
-7. Vehicle age considered in case of purchase is 15 Years.
-8. Vehicle age considered in case of refinance or balance transfer is 11 Years.
-9. Minimum Loan Tenure is 25 Months and Maximum Loan Tenure is 60 Months.
-10. Customer must have original RC along with a valid Car Insurance with a minimum remaining validity of 90 days from date of loan disbursement
-
-### Let’s Understand Each Type Of Cases With Example Now
-
-Tentative Vehicle Details :
-
-Car Model – Maruti Swift VXi
-
-Month C Year Of Manufacture – Sep 2022 New Car Value – 8.5Lacs on road
-
-Used Car Current Date Market Value to 2022 Model = Approx 6 Lacs
-
-### Case 1 - PURCHASE CASE
-
-Vehicle Market Value = 6,00,000
-
-Max. Funding Allowed = 90% of market value
-
-Max. Loan that can be provided = **6,00,000 x G0% = 5,40,000**
-
-### Case 2 - NORMAL REFINANCE
-
-Vehicle Market Value = 6,00,000
-
-Max. Funding Allowed = 90% of market value
-
-Max. Loan that can be provided = **6,00,000 x G0% = 5,40,000**
-
-### Case 3 - MULTIPLIER REFINANCE
-
-Vehicle Market Value = 6,00,000
-
-Max. Funding Allowed = 140% of market value
-
-Max. Loan that can be provided = **6,00,000 x 140% = 8,40,000**
-
-### Case 4 - BALANCE TRANSFER & TOPUP CASE – 9 EMI PAID
-
-Vehicle Market Value = 6,00,000
-
-Max. Funding Allowed = 120% of market value
-
-Max. Loan that can be provided = **6,00,000 x 120% = 7,20,000**
-
-Previous loan will be cleared and remaining balance to be paid into customer’s account
-
-### Case 5 - BALANCE TRANSFER & TOPUP CASE – 11 EMI PAID
-
-Vehicle Market Value = 6,00,000
-
-Max. Funding Allowed = 140% of market value
-
-Max. Loan that can be provided = **6,00,000 x 140% = 8,40,000**
-
-Previous loan will be cleared and remaining balance to be paid into customer’s account
-
-### Case 6 - BALANCE TRANSFER & TOPUP CASE – 17 EMI PAID
-
-Vehicle Market Value = 6,00,000
-
-Max. Funding Allowed = 160% of market value
-
-Max. Loan that can be provided = **6,00,000 x 160% = G,60,000**
-
-Previous loan will be cleared and remaining balance to be paid into customer’s account
-
-### Case 7 - BALANCE TRANSFER & TOPUP CASE – 18 EMI PAID
-
-Vehicle Market Value = 6,00,000
-
-Max. Funding Allowed = 200% of market value
-
-Max. Loan that can be provided = **6,00,000 x 200% = 12,00,000**
-
-Previous loan will be cleared and remaining balance to be paid into customer’s account
-
-### How to check maximum loan amount eligibility of a customer?
-
-1. **FOIR BASED CALCULATION (FOR SALARIED)** – Max 70% income of salary can be repaid as EMI. New Loan sanction will depend upon available FOIR.
-
-## AVERAGE BANK BANK BALANCE BASED CALCULATION
-
-- 1. Min. avg bank balance must be above 5k for loan upto 10 Lac
-  2. For loan amt above 10lac, ABB required is 0.75x to 1x of Monthly EMI
-
-### INCOME DOC SURROGATE CALCULATION (FOR SELF EMPLOYED) – In case of
-
-Low ABB, income from ITR will be considered in loan sanctioning which can be max of 4x of ITR Income from business
-
-# Telecalling Sales Pitch
-
-Sabse Pehle -Apne mobile mein 3 Applications install kariye :
-
-### 1\. Neodove 2. Callyzer 3. EMI Calculator
-
-Let's start with the call with the customer :
-
-**Executive :** Namaste / Namastkar / Hello / Hi / Goodmorning / Goodevening Sir/Ma'dm
-
-**Customer :** Namaste Ji
-
-**Executive :** (customer name) Ji bol rahe hai ?
-
-**Customer :** Haan Ji, bol raha hun, bataiye.....
-
-**Executive :** Sir mein (your name), Axis/HDFC/ICICI Bank ki taraf se baat ker raha hu/rahi hu
-
-**Customer :** Haan Ji bolo
-
-**Executive :** Sir, ye gaadi no (vehicle no) (car model name) abhi aap hi use ker rahe hai ya sellout krdi sir ?
-
-**Customer :** Haa Ji mein hi use ker raha hu, kya hua
-
-**Executive :** Sir is vehicle pe hamari bank ki taraf se apke liye offer aaya hua hai sir
-
-**Customer :** kya offer hai ?
-
-**Executive :** Sir aapki gaadi pe loan chal raha hai ya nahi chal raha, hamara bank apke liye dono hi cases mein offer leke aaya hai ? Sir, abhi gaadi pe loan chal raha hai ya gaadi free hai ?
-
-## NOW WE HAVE 2 SCENARIOS, HAM CUSTOMER K REPLY K ACCORDING HI AGE CUSTOMER SE BAAT KREGE
-
-1st Scenario = Gaadi Per Loan Nahi Chal Raha, Loan Free Hai
-
-**Customer :** Loan Free Hai Gaadi
-
-**Executive :** Sir apki gaadi ki market value ka 90% se 140% tak ka refinance ka offer hai, jiti bhi aj ki date mein market value hai apko us value ka 1.5 guna tak loan mil sakta hai
-
-2nd Scenario = Gaadi Per Loan Chal Raha Hai
-
-**Customer :** Loan Chal Raha Hai
-
-**Executive :** Sir apki gaadi ki market value ka 150% se 200% tak ka refinance ho jayega sir. For example - agar apki gaadi ki vakue abhi 5 Lac hai to apko 7.5lac se 10lac tak ka loan ho jayega
-
-**Customer :** Meri gaadi per to pehle se hi loan chal raha hai
-
-**Executive :** usme koi issue nahi hai sir hum apko refinance ka offer de rahe hai, jisme apki gaadi ki market vakue ka 150 se 200% tak ka refinance ho jayega, jis mein apka phle k loan ka job balance hoga vo clear ho jayega and baki paisa direct apke account mein aa jayega.
-
-**Customer :** Achaaa! Kya kerna hoga iske liye ?
-
-**Executive :** Sir kuch details chaiye thi apse?
-
-**Customer :** Kya details chaiye ? pucho....
-
-## AB HUM CUSTOMER SE USKE RUNNING LOAN K REGARDING ǪUESTIONS PUCHEGE
-
-1. Sir apka loan konse bank se chal raha hai ?
-2. Apne kitne amount ka loan lia tha ?
-3. Apne kitne time k liye loan lia tha ?
-4. Kitne ki EMI aati hai abhi ?
-5. Apne abhi tak kitni EMI pay ker di ? (Min. 9EMI Pay honi jaruri hai refinance k liye)
-6. Last 6 mahine mein apki koi EMI bounce to nahi hui ?
-7. Apke according abhi gaadi ki market value kya hogi ?
-
-## YE SABHI ǪUESTIONS K ANS MILNE K BAD HUM CUSTOMER KO BTA PAYEGE KI APKA KITNE KA LOAN HO SAKTA HAI
-
-**Executive :** Sir apka loan ho jayega
-
-**Customer :** Byaz / Rate of interest kitna lagega ?
-
-**Executive :** Sir 75p se 80p sekda padega sir byaz / 8.5% se 9% flat rate ayegi sir / 15% se 16% reducing
-
-**Customer :** Kitna byaz lagega ?
-
-**Executive :** Sir 1 Lac k loan pe apka ik saal ka 8000 se 9000 ka byaz niklega, matlab ki mahine ka 750 se 800 rs per lac pe byaz bnega
-
-**Customer :** Kist kitni ayegi ?
-
-## EMI CHART SE DEKH KER APKO CUSTOMER KO EMI BATANI HAI / EMI CALCULATOR SE EMI CALCULATE KRKE BATANI HAI
-
-**Customer :** Kitne time mein kerwa doge loan ?
-
-**Executive :** Sir 5 se 6 din mein poora process ho jayega
-
-**Executive :** Sir ap kaam kya kerte ho job hai ya business hai ?
-
-## CUSTOME K PROFESSION K ACCORDING HUME CUSTOMER SE DOCUMENT LENE HAI
-
-Common documents jo sabhi customer se lene hai :
-
-1. KYC = Adhar Card, PAN Card, Photo
-2. Bank Statement = 6 Month Bank Statement
-3. Vehicle Docs = Vehicle RC + Insurance Copy
-4. Agar Gaadi per pehle se loan chal raha hai = Loan Account Statement (SOA)
-
-## BAKI DOCUMENT CUSTOMER K PROFESSION K ACCORDING
-
-1. Customer JOB kerta hai : 3 Month Salary Slip + Form16
-2. Customer Business kerta hai : 2 Yr ITR with computation + Business Proof like GST/UDHYAM Registration
-3. Customer Farmer hai, kheti kerta hai : Jamabandhi Receipt
-
-## AGAR CUSTOMER KE PURANE LOAN MEIN CO-APPLICANT HAI, TOO HAAME CO- APPLICANT KI KYC BHI LENI HAI
-
-**Executive :** Sir, maine apko documents ki list whatsapp ker di hai, please vo jaldi se share ker dijiye
-
-### Customer : ok
-
-How To Calculate An EMI ?
-
-There are two methods to calculate the monthly EMI :
-
-- 1. ON REDUCING RATE BASIS – USING EMI CALCULATOR
-  2. ON FLAT RATE BASIS – USING NORMAL CALCULATOR
-
-Basic information we need to calculate EMI :
-
-1. LOAN AMOUNT
-2. RATE OF INTEREST
-3. TENURE OF LOAN
-
-Calculating the **EMI with Reducing Rate** \-
-
-Download any EMI calculator application from google playstore, input the above asked information in the columns like Amount, ROI% and Loan Tenure and press calculate, you will get the Monthly EMI on Reducing Rate Basis
-
-Calculating the **EMI with Flat Rate** \-
-
-**LOAN INTEREST** \= LOAN AMOUNT **x** ROI% **x** TIME IN YEARS
-
-**TOTAL REPAYMENT TO BE DONE** \= LOAN AMOUNT + LOAN INTEREST
-
-**MONTHLY EMI** \= TOTAL REPAYMENT DIVIDED BY TENURE OF LOAN (IN MONTHS)
-
-**WHY PEOPLE PREFER USED CAR LOAN OVER OTHER LOAN PRODUCTS ?**
-
-| PRODUCT COMPARISON | BUSINESS LOAN | USED CAR LOAN |
-| --- | --- | --- |
-| LOAN TENURE | 3 YEARS | 5 YEARS |
-| MONTHLY EMI | HIGH | LOW |
-| ROI | 18-24% | 13-16% |
-| FOIR | 70% | 70% |
-| LOAN AMOUNT | LOW | HIGH |
-| GST REǪ. | YES | NO  |
-| OWNERSHIP REǪ. | YES | NO  |
-| BUSINESS VINTAGE | MIN. 2 YEARS | NO  |
-| MIN. TURNOVER | MIN. 40LACS | NO  |
-| ITR – 3 YEARS | YES | NO  |
-| CAR LOAN TAKEOVER | NO  | YES |
-| PROCESSING FEE | 2-3% | 2-3% |
-| PROCESSING TIME | 8-10 DAYS | 5-7 DAYS |
-
-| PRODUCT COMPARISON | PERSONAL LOAN | USED CAR LOAN |
-| --- | --- | --- |
-| LOAN TENURE | 5 YEARS | 5 YEARS |
-| MONTHLY EMI | APPROX EǪUAL | APPROX EǪUAL |
-| ROI | 12-24% (SALARY WISE) | 13-16% (SAME FOR ALL) |
-| FOIR | 50% | 70% |
-| LOAN AMOUNT | LOW | HIGH |
-| CAR EMI OBLIGATION | YES | NO  |
-| EMPLOYEMENT PROOF | YES | NO  |
-| CASH SALARIED | NO  | YES |
-| CAR LOAN TAKEOVER | NO  | YES |
-| PROCESSING FEE | 1.5-3% | 2-3% |
-| PROCESSING TIME | 5-7 DAYS | 5-7 DAYS |
-
-| **EMI CHART** |     |     |     |     |
-| --- |     |     |     |     | --- | --- | --- | --- |
-| **ROI :** | **FLAT 9% REDUCING 16%** |     |     |     |
-| **EMI / LAC :** | **48G6** | **3516** | **2834** | **2432** |
-| **L.A (IN LACS)** | 2 YR | 3 YR | 4 YR | 5 YR |
-| **1** | 4896 | 3516 | 2834 | 2432 |
-| **2** | 9792 | 7032 | 5668 | 4864 |
-| **3** | 14688 | 10548 | 8502 | 7296 |
-| **4** | 19584 | 14064 | 11336 | 9728 |
-| **5** | 24480 | 17580 | 14170 | 12160 |
-| **6** | 29376 | 21096 | 17004 | 14592 |
-| **7** | 34272 | 24612 | 19838 | 17024 |
-| **8** | 39168 | 28128 | 22672 | 19456 |
-| **G** | 44064 | 31644 | 25506 | 21888 |
-| **10** | 48960 | 35160 | 28340 | 24320 |
-| **11** | 53856 | 38676 | 31174 | 26752 |
-| **12** | 58752 | 42192 | 34008 | 29184 |
-| **13** | 63648 | 45708 | 36842 | 31616 |
-| **14** | 68544 | 49224 | 39676 | 34048 |
-| **15** | 73440 | 52740 | 42510 | 36480 |
-| **16** | 78336 | 56256 | 45344 | 38912 |
-| **17** | 83232 | 59772 | 48178 | 41344 |
-| **18** | 88128 | 63288 | 51012 | 43776 |
-| **1G** | 93024 | 66804 | 53846 | 46208 |
-| **20** | 97920 | 70320 | 56680 | 48640 |
-| **21** | 102816 | 73836 | 59514 | 51072 |
-| **22** | 107712 | 77352 | 62348 | 53504 |
-| **23** | 112608 | 80868 | 65182 | 55936 |
-| **24** | 117504 | 84384 | 68016 | 58368 |
-| **25** | 122400 | 87900 | 70850 | 60800 |
-
-| **MARKET VALUE OF VEHICLE IN LACS** |     |     |     |     |     |     |     |     |
-| --- |     |     |     |     |     |     |     |     | --- | --- | --- | --- | --- | --- | --- | --- |
-| **BRAND** | **MODEL** | **VARIANT** | **201G** | **2020** | **2021** | **2022** | **2023** | **2024** |
-| MARUTI | ALTO | VXI | 2.6 | 3   | 3.25 | 3.6 | 3.8 | 4   |
-| MARUTI | ALTO K10 | VXI | 2.75 | 3.1 | \-  | 4.25 | 4.4 | 4.75 |
-| MARUTI | BALENO | DELTA 1.2 | 5.25 | 5.5 | 5.75 | 6.5 | 6.75 | 7.4 |
-| MARUTI | BREEZA | VXI | 6.25 | 6.75 | 7.25 | 7.75 | 8.5 | 9.5 |
-| MARUTI | CELERIO | VXI | 3.6 | 4   | 4.4 | 4.8 | 5   | 5.25 |
-| MARUTI | DZIRE | VXI | 4.5 | 5   | 5.5 | 6.5 | 7.25 | 8   |
-| MARUTI | EECO | 5STR AC | 3   | 3.25 | 3.75 | 4.5 | 4.75 | 5   |
-| MARUTI | EARTIGA | VXI | 6.75 | 7.25 | 7.75 | 8.75 | 9.25 | 9.75 |
-| MARUTI | SPRESSO | VXI | 2.5 | 2.6 | 3   | 3.8 | 4.25 | 4.8 |
-| MARUTI | SWIFT | VXI | 4.5 | 5   | 5.5 | 6   | 6.5 | 7   |
-| MARUTI | WAGON R | VXI | 3.5 | 3.75 | 4.4 | 5   | 5.5 | 6   |
-| HYUNDAI | GRAND i10 NIOS | SPORTZ | 4.75 | 5   | 5.25 | 5.75 | 6.25 | 7   |
-| HYUNDAI | i20 | SPORTZ | \-  | 6   | 6.25 | 6.75 | 7.5 | 8   |
-| HYUNDAI | VENUE | S 1.2 | 5.4 | 5.75 | 6.5 | 7.5 | 8   | 8.5 |
-| HYUNDAI | CRETA | EX 1.5 DIESEL | 9   | 9.5 | 11.5 | 12  | 12.75 | 14.5 |
-| TATA | PUNCH | ADVENTURE | \-  | \-  | 4.25 | 5   | 5.75 | 6.5 |
-| TATA | NEXON | XM/CREATIVE | 5.25 | 6   | 6.5 | 7.5 | 9.5 | 10.25 |
-| TATA | TIAGO | XM  | 3   | 3.75 | 4.25 | 4.75 | 5.25 | 6   |
-| MAHINDRA | BOLERO | B6  | 7.5 | 8   | 8.5 | 9   | 9.5 | 10  |
-| MAHINDRA | SCORPIO | S11 |     |     |     |     | 14.5 | 16  |
+{
+  "session_id": "20251001_103754",
+  "total_duration_s": 152.76,
+  "component_statistics": {
+    "initialization": {
+      "count": 7,
+      "total_ms": 472.02,
+      "avg_ms": 67.43,
+      "min_ms": 0.12,
+      "max_ms": 235.91,
+      "p50_ms": 68.14,
+      "p95_ms": 235.91
+    },
+    "agent_lifecycle": {
+      "count": 8,
+      "total_ms": 0.08,
+      "avg_ms": 0.01,
+      "min_ms": 0.01,
+      "max_ms": 0.01,
+      "p50_ms": 0.01,
+      "p95_ms": 0.01
+    },
+    "session": {
+      "count": 2,
+      "total_ms": 8465.36,
+      "avg_ms": 4232.68,
+      "min_ms": 275.65,
+      "max_ms": 8189.71,
+      "p50_ms": 8189.71,
+      "p95_ms": 8189.71
+    },
+    "llm_pipeline": {
+      "count": 14,
+      "total_ms": 18870.21,
+      "avg_ms": 1347.87,
+      "min_ms": 579.1,
+      "max_ms": 2684.93,
+      "p50_ms": 1233.09,
+      "p95_ms": 2684.93
+    },
+    "tts_pipeline": {
+      "count": 14,
+      "total_ms": 40032.08,
+      "avg_ms": 2859.43,
+      "min_ms": 1172.41,
+      "max_ms": 5144.27,
+      "p50_ms": 2690.16,
+      "p95_ms": 5144.27
+    }
+  },
+  "conversation_latency": {
+    "turns": 6,
+    "avg_latency_ms": 1547.52,
+    "min_latency_ms": 1302.72,
+    "max_latency_ms": 1738.86,
+    "p50_latency_ms": 1625.37,
+    "p95_latency_ms": 1738.86
+  },
+  "usage_summary": {
+    "llm_prompt_tokens": 1349,
+    "llm_prompt_cached_tokens": 0,
+    "llm_completion_tokens": 387,
+    "tts_characters_count": 1997,
+    "tts_audio_duration": 109.7491156462585,
+    "stt_audio_duration": 19.991999999999997
+  },
+  "component_breakdown": {
+    "tts_pipeline": {
+      "total_time_ms": 40032.08,
+      "percentage": 59.01,
+      "avg_per_operation_ms": 2859.43,
+      "operation_count": 14
+    },
+    "llm_pipeline": {
+      "total_time_ms": 18870.21,
+      "percentage": 27.82,
+      "avg_per_operation_ms": 1347.87,
+      "operation_count": 14
+    },
+    "session": {
+      "total_time_ms": 8465.36,
+      "percentage": 12.48,
+      "avg_per_operation_ms": 4232.68,
+      "operation_count": 2
+    },
+    "initialization": {
+      "total_time_ms": 472.02,
+      "percentage": 0.7,
+      "avg_per_operation_ms": 67.43,
+      "operation_count": 7
+    },
+    "agent_lifecycle": {
+      "total_time_ms": 0.08,
+      "percentage": 0.0,
+      "avg_per_operation_ms": 0.01,
+      "operation_count": 8
+    }
+  },
+  "component_timings": {
+    "initialization": [
+      {
+        "operation": "stt",
+        "duration_ms": 0.14,
+        "timestamp": 0.0004889965057373047,
+        "metadata": {}
+      },
+      {
+        "operation": "llm",
+        "duration_ms": 68.14,
+        "timestamp": 0.06863927841186523,
+        "metadata": {}
+      },
+      {
+        "operation": "tts",
+        "duration_ms": 0.12,
+        "timestamp": 0.06876134872436523,
+        "metadata": {}
+      },
+      {
+        "operation": "vad",
+        "duration_ms": 77.5,
+        "timestamp": 0.14627957344055176,
+        "metadata": {}
+      },
+      {
+        "operation": "turn_detection",
+        "duration_ms": 89.88,
+        "timestamp": 0.23616814613342285,
+        "metadata": {}
+      },
+      {
+        "operation": "total",
+        "duration_ms": 235.91,
+        "timestamp": 0.23617124557495117,
+        "metadata": {}
+      },
+      {
+        "operation": "session",
+        "duration_ms": 0.33,
+        "timestamp": 0.23670125007629395,
+        "metadata": {}
+      }
+    ],
+    "agent_lifecycle": [
+      {
+        "operation": "on_enter",
+        "duration_ms": 0.01,
+        "timestamp": 0.24836969375610352,
+        "metadata": {}
+      },
+      {
+        "operation": "on_user_turn_completed",
+        "duration_ms": 0.01,
+        "timestamp": 11.064187049865723,
+        "metadata": {
+          "message_length": 22
+        }
+      },
+      {
+        "operation": "on_user_turn_completed",
+        "duration_ms": 0.01,
+        "timestamp": 23.589503049850464,
+        "metadata": {
+          "message_length": 39
+        }
+      },
+      {
+        "operation": "on_user_turn_completed",
+        "duration_ms": 0.01,
+        "timestamp": 44.88624596595764,
+        "metadata": {
+          "message_length": 75
+        }
+      },
+      {
+        "operation": "on_user_turn_completed",
+        "duration_ms": 0.01,
+        "timestamp": 78.7214617729187,
+        "metadata": {
+          "message_length": 40
+        }
+      },
+      {
+        "operation": "on_user_turn_completed",
+        "duration_ms": 0.01,
+        "timestamp": 92.83069825172424,
+        "metadata": {
+          "message_length": 50
+        }
+      },
+      {
+        "operation": "on_user_turn_completed",
+        "duration_ms": 0.01,
+        "timestamp": 107.32189917564392,
+        "metadata": {
+          "message_length": 32
+        }
+      },
+      {
+        "operation": "on_exit",
+        "duration_ms": 0.01,
+        "timestamp": 132.8533878326416,
+        "metadata": {}
+      }
+    ],
+    "session": [
+      {
+        "operation": "start",
+        "duration_ms": 275.65,
+        "timestamp": 0.5125648975372314,
+        "metadata": {}
+      },
+      {
+        "operation": "initial_greeting",
+        "duration_ms": 8189.71,
+        "timestamp": 8.70228624343872,
+        "metadata": {}
+      }
+    ],
+    "llm_pipeline": [
+      {
+        "operation": "time_to_first_chunk",
+        "duration_ms": 905.66,
+        "timestamp": 1.421844720840454,
+        "metadata": {
+          "message_count": 1,
+          "tool_count": 0
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 1179.53,
+        "timestamp": 1.695706844329834,
+        "metadata": {
+          "message_count": 1,
+          "tool_count": 0,
+          "chunk_count": 19
+        }
+      },
+      {
+        "operation": "time_to_first_chunk",
+        "duration_ms": 766.79,
+        "timestamp": 11.832233190536499,
+        "metadata": {
+          "message_count": 3,
+          "tool_count": 0
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 1445.14,
+        "timestamp": 12.510575771331787,
+        "metadata": {
+          "message_count": 3,
+          "tool_count": 0,
+          "chunk_count": 32
+        }
+      },
+      {
+        "operation": "time_to_first_chunk",
+        "duration_ms": 579.1,
+        "timestamp": 24.169437170028687,
+        "metadata": {
+          "message_count": 5,
+          "tool_count": 0
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 1905.81,
+        "timestamp": 25.49614119529724,
+        "metadata": {
+          "message_count": 5,
+          "tool_count": 0,
+          "chunk_count": 49
+        }
+      },
+      {
+        "operation": "time_to_first_chunk",
+        "duration_ms": 649.54,
+        "timestamp": 45.53665828704834,
+        "metadata": {
+          "message_count": 7,
+          "tool_count": 0
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 1727.36,
+        "timestamp": 46.614468574523926,
+        "metadata": {
+          "message_count": 7,
+          "tool_count": 0,
+          "chunk_count": 89
+        }
+      },
+      {
+        "operation": "time_to_first_chunk",
+        "duration_ms": 1233.09,
+        "timestamp": 79.95539212226868,
+        "metadata": {
+          "message_count": 9,
+          "tool_count": 0
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 2549.08,
+        "timestamp": 81.27137446403503,
+        "metadata": {
+          "message_count": 9,
+          "tool_count": 0,
+          "chunk_count": 73
+        }
+      },
+      {
+        "operation": "time_to_first_chunk",
+        "duration_ms": 1007.35,
+        "timestamp": 93.8389241695404,
+        "metadata": {
+          "message_count": 11,
+          "tool_count": 0
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 1591.31,
+        "timestamp": 94.42288613319397,
+        "metadata": {
+          "message_count": 11,
+          "tool_count": 0,
+          "chunk_count": 51
+        }
+      },
+      {
+        "operation": "time_to_first_chunk",
+        "duration_ms": 645.52,
+        "timestamp": 107.968501329422,
+        "metadata": {
+          "message_count": 13,
+          "tool_count": 0
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 2684.93,
+        "timestamp": 110.00790691375732,
+        "metadata": {
+          "message_count": 13,
+          "tool_count": 0,
+          "chunk_count": 81
+        }
+      }
+    ],
+    "tts_pipeline": [
+      {
+        "operation": "time_to_first_byte",
+        "duration_ms": 1172.41,
+        "timestamp": 1.8925411701202393,
+        "metadata": {
+          "text_length": 79
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 4159.8,
+        "timestamp": 4.879929542541504,
+        "metadata": {
+          "frame_count": 25,
+          "text_length": 79,
+          "audio_duration_s": 4.46
+        }
+      },
+      {
+        "operation": "time_to_first_byte",
+        "duration_ms": 1509.05,
+        "timestamp": 12.577542543411255,
+        "metadata": {
+          "text_length": 129
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 2690.16,
+        "timestamp": 13.758643865585327,
+        "metadata": {
+          "frame_count": 38,
+          "text_length": 129,
+          "audio_duration_s": 7.02
+        }
+      },
+      {
+        "operation": "time_to_first_byte",
+        "duration_ms": 1215.36,
+        "timestamp": 24.80899429321289,
+        "metadata": {
+          "text_length": 134
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 3545.83,
+        "timestamp": 27.13945484161377,
+        "metadata": {
+          "frame_count": 68,
+          "text_length": 246,
+          "audio_duration_s": 13.06
+        }
+      },
+      {
+        "operation": "time_to_first_byte",
+        "duration_ms": 1921.23,
+        "timestamp": 46.812068700790405,
+        "metadata": {
+          "text_length": 499
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 5144.27,
+        "timestamp": 50.03508973121643,
+        "metadata": {
+          "frame_count": 136,
+          "text_length": 499,
+          "audio_duration_s": 26.47
+        }
+      },
+      {
+        "operation": "time_to_first_byte",
+        "duration_ms": 1636.32,
+        "timestamp": 80.36350440979004,
+        "metadata": {
+          "text_length": 150
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 5108.47,
+        "timestamp": 83.83564162254333,
+        "metadata": {
+          "frame_count": 112,
+          "text_length": 403,
+          "audio_duration_s": 21.56
+        }
+      },
+      {
+        "operation": "time_to_first_byte",
+        "duration_ms": 1493.96,
+        "timestamp": 94.33031368255615,
+        "metadata": {
+          "text_length": 190
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 3500.05,
+        "timestamp": 96.33638739585876,
+        "metadata": {
+          "frame_count": 65,
+          "text_length": 217,
+          "audio_duration_s": 12.42
+        }
+      },
+      {
+        "operation": "time_to_first_byte",
+        "duration_ms": 1853.02,
+        "timestamp": 109.18255472183228,
+        "metadata": {
+          "text_length": 246
+        }
+      },
+      {
+        "operation": "complete",
+        "duration_ms": 5082.15,
+        "timestamp": 112.41167902946472,
+        "metadata": {
+          "frame_count": 128,
+          "text_length": 449,
+          "audio_duration_s": 24.83
+        }
+      }
+    ]
+  },
+  "agent_metrics": {
+    "stt": [
+      {
+        "timestamp": 10.994096517562866,
+        "duration_ms": 206.57,
+        "audio_duration_s": 1.78,
+        "streamed": false,
+        "label": "livekit.plugins.sarvam.stt.STT",
+        "request_id": "20251001_14555f1d-36bb-4e79-91fb-5bbd6b27c4b0"
+      },
+      {
+        "timestamp": 23.466636180877686,
+        "duration_ms": 229.68,
+        "audio_duration_s": 3.22,
+        "streamed": false,
+        "label": "livekit.plugins.sarvam.stt.STT",
+        "request_id": "20251001_c0239b8e-1c1a-4a76-894b-1564be07078e"
+      },
+      {
+        "timestamp": 44.68866848945618,
+        "duration_ms": 351.57,
+        "audio_duration_s": 4.88,
+        "streamed": false,
+        "label": "livekit.plugins.sarvam.stt.STT",
+        "request_id": "20251001_6c8792eb-28cc-423a-b94c-3969a1f88d2a"
+      },
+      {
+        "timestamp": 78.51600885391235,
+        "duration_ms": 228.48,
+        "audio_duration_s": 3.73,
+        "streamed": false,
+        "label": "livekit.plugins.sarvam.stt.STT",
+        "request_id": "20251001_d12561d5-5f49-484e-8520-f56bf2a21f10"
+      },
+      {
+        "timestamp": 92.60177040100098,
+        "duration_ms": 265.4,
+        "audio_duration_s": 3.89,
+        "streamed": false,
+        "label": "livekit.plugins.sarvam.stt.STT",
+        "request_id": "20251001_eb239982-7ddc-4b83-a72e-4bbe6931afe9"
+      },
+      {
+        "timestamp": 107.1310031414032,
+        "duration_ms": 295.09,
+        "audio_duration_s": 2.48,
+        "streamed": false,
+        "label": "livekit.plugins.sarvam.stt.STT",
+        "request_id": "20251001_63b776b2-6638-4a47-91f8-def9c2c645ee"
+      }
+    ],
+    "llm": [
+      {
+        "timestamp": 1.6950852870941162,
+        "duration_ms": 1176.49,
+        "ttft_ms": 903.3,
+        "completion_tokens": 18,
+        "prompt_tokens": 23,
+        "cached_tokens": 0,
+        "total_tokens": 41,
+        "tokens_per_second": 15.3,
+        "cancelled": false,
+        "speech_id": "speech_7af58ac73071"
+      },
+      {
+        "timestamp": 12.510341882705688,
+        "duration_ms": 1444.63,
+        "ttft_ms": 766.57,
+        "completion_tokens": 31,
+        "prompt_tokens": 51,
+        "cached_tokens": 0,
+        "total_tokens": 82,
+        "tokens_per_second": 21.46,
+        "cancelled": false,
+        "speech_id": "speech_c6b985ce0bf6"
+      },
+      {
+        "timestamp": 25.4958655834198,
+        "duration_ms": 1905.35,
+        "ttft_ms": 578.97,
+        "completion_tokens": 48,
+        "prompt_tokens": 100,
+        "cached_tokens": 0,
+        "total_tokens": 148,
+        "tokens_per_second": 25.19,
+        "cancelled": false,
+        "speech_id": "speech_1a19bdc6c6a5"
+      },
+      {
+        "timestamp": 46.61420559883118,
+        "duration_ms": 1726.91,
+        "ttft_ms": 649.41,
+        "completion_tokens": 88,
+        "prompt_tokens": 174,
+        "cached_tokens": 0,
+        "total_tokens": 262,
+        "tokens_per_second": 50.96,
+        "cancelled": false,
+        "speech_id": "speech_b6988161644c"
+      },
+      {
+        "timestamp": 81.27111792564392,
+        "duration_ms": 2548.59,
+        "ttft_ms": 1232.91,
+        "completion_tokens": 72,
+        "prompt_tokens": 280,
+        "cached_tokens": 0,
+        "total_tokens": 352,
+        "tokens_per_second": 28.25,
+        "cancelled": false,
+        "speech_id": "speech_9f003ae76f85"
+      },
+      {
+        "timestamp": 94.42253422737122,
+        "duration_ms": 1590.76,
+        "ttft_ms": 1007.19,
+        "completion_tokens": 50,
+        "prompt_tokens": 331,
+        "cached_tokens": 0,
+        "total_tokens": 381,
+        "tokens_per_second": 31.43,
+        "cancelled": false,
+        "speech_id": "speech_0634a5f703a7"
+      },
+      {
+        "timestamp": 110.00757670402527,
+        "duration_ms": 2684.35,
+        "ttft_ms": 645.32,
+        "completion_tokens": 80,
+        "prompt_tokens": 390,
+        "cached_tokens": 0,
+        "total_tokens": 470,
+        "tokens_per_second": 29.8,
+        "cancelled": false,
+        "speech_id": "speech_e2574849ec64"
+      }
+    ],
+    "tts": [
+      {
+        "timestamp": 1.8950536251068115,
+        "duration_ms": 397.02,
+        "ttfb_ms": 393.83,
+        "audio_duration_s": 1.56,
+        "characters": 23,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_7af58ac73071"
+      },
+      {
+        "timestamp": 3.4534189701080322,
+        "duration_ms": 1557.61,
+        "ttfb_ms": 1553.49,
+        "audio_duration_s": 1.8,
+        "characters": 36,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_7af58ac73071"
+      },
+      {
+        "timestamp": 4.878664255142212,
+        "duration_ms": 1424.74,
+        "ttfb_ms": 1416.22,
+        "audio_duration_s": 1.09,
+        "characters": 18,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_7af58ac73071"
+      },
+      {
+        "timestamp": 12.590475082397461,
+        "duration_ms": 575.09,
+        "ttfb_ms": 562.04,
+        "audio_duration_s": 2.01,
+        "characters": 35,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_c6b985ce0bf6"
+      },
+      {
+        "timestamp": 13.099431276321411,
+        "duration_ms": 508.45,
+        "ttfb_ms": 454.22,
+        "audio_duration_s": 2.77,
+        "characters": 49,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_c6b985ce0bf6"
+      },
+      {
+        "timestamp": 13.757946491241455,
+        "duration_ms": 649.71,
+        "ttfb_ms": 638.94,
+        "audio_duration_s": 2.23,
+        "characters": 43,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_c6b985ce0bf6"
+      },
+      {
+        "timestamp": 24.821144104003906,
+        "duration_ms": 454.04,
+        "ttfb_ms": 441.2,
+        "audio_duration_s": 2.18,
+        "characters": 35,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_1a19bdc6c6a5"
+      },
+      {
+        "timestamp": 26.46558952331543,
+        "duration_ms": 1241.36,
+        "ttfb_ms": 1005.71,
+        "audio_duration_s": 8.86,
+        "characters": 171,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_1a19bdc6c6a5"
+      },
+      {
+        "timestamp": 27.10602855682373,
+        "duration_ms": 633.81,
+        "ttfb_ms": 589.65,
+        "audio_duration_s": 2.01,
+        "characters": 38,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_1a19bdc6c6a5"
+      },
+      {
+        "timestamp": 46.89800524711609,
+        "duration_ms": 1091.83,
+        "ttfb_ms": 1005.21,
+        "audio_duration_s": 7.02,
+        "characters": 128,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_b6988161644c"
+      },
+      {
+        "timestamp": 47.831287145614624,
+        "duration_ms": 931.5,
+        "ttfb_ms": 769.92,
+        "audio_duration_s": 6.7,
+        "characters": 126,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_b6988161644c"
+      },
+      {
+        "timestamp": 48.99559497833252,
+        "duration_ms": 1163.13,
+        "ttfb_ms": 986.19,
+        "audio_duration_s": 7.26,
+        "characters": 136,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_b6988161644c"
+      },
+      {
+        "timestamp": 50.00038123130798,
+        "duration_ms": 997.63,
+        "ttfb_ms": 860.04,
+        "audio_duration_s": 5.48,
+        "characters": 104,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_b6988161644c"
+      },
+      {
+        "timestamp": 80.37092995643616,
+        "duration_ms": 356.31,
+        "ttfb_ms": 348.09,
+        "audio_duration_s": 1.32,
+        "characters": 21,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_9f003ae76f85"
+      },
+      {
+        "timestamp": 81.07874941825867,
+        "duration_ms": 707.25,
+        "ttfb_ms": 682.81,
+        "audio_duration_s": 2.81,
+        "characters": 51,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_9f003ae76f85"
+      },
+      {
+        "timestamp": 82.40811467170715,
+        "duration_ms": 1321.25,
+        "ttfb_ms": 1076.13,
+        "audio_duration_s": 9.81,
+        "characters": 176,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_9f003ae76f85"
+      },
+      {
+        "timestamp": 83.06395983695984,
+        "duration_ms": 649.5,
+        "ttfb_ms": 549.04,
+        "audio_duration_s": 3.95,
+        "characters": 78,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_9f003ae76f85"
+      },
+      {
+        "timestamp": 83.80106043815613,
+        "duration_ms": 733.78,
+        "ttfb_ms": 683.2,
+        "audio_duration_s": 3.66,
+        "characters": 71,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_9f003ae76f85"
+      },
+      {
+        "timestamp": 94.34677958488464,
+        "duration_ms": 441.63,
+        "ttfb_ms": 424.98,
+        "audio_duration_s": 2.21,
+        "characters": 29,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_0634a5f703a7"
+      },
+      {
+        "timestamp": 94.88535404205322,
+        "duration_ms": 537.79,
+        "ttfb_ms": 480.39,
+        "audio_duration_s": 2.66,
+        "characters": 51,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_0634a5f703a7"
+      },
+      {
+        "timestamp": 95.7384786605835,
+        "duration_ms": 846.88,
+        "ttfb_ms": 686.8,
+        "audio_duration_s": 5.97,
+        "characters": 109,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_0634a5f703a7"
+      },
+      {
+        "timestamp": 96.30991339683533,
+        "duration_ms": 569.87,
+        "ttfb_ms": 532.13,
+        "audio_duration_s": 1.58,
+        "characters": 25,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_0634a5f703a7"
+      },
+      {
+        "timestamp": 109.21602010726929,
+        "duration_ms": 970.67,
+        "ttfb_ms": 936.76,
+        "audio_duration_s": 6.88,
+        "characters": 123,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_e2574849ec64"
+      },
+      {
+        "timestamp": 110.17490553855896,
+        "duration_ms": 958.32,
+        "ttfb_ms": 840.82,
+        "audio_duration_s": 5.51,
+        "characters": 101,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_e2574849ec64"
+      },
+      {
+        "timestamp": 111.3898024559021,
+        "duration_ms": 1208.03,
+        "ttfb_ms": 1008.78,
+        "audio_duration_s": 7.62,
+        "characters": 140,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_e2574849ec64"
+      },
+      {
+        "timestamp": 112.37409710884094,
+        "duration_ms": 977.58,
+        "ttfb_ms": 874.11,
+        "audio_duration_s": 4.81,
+        "characters": 80,
+        "streamed": false,
+        "cancelled": false,
+        "speech_id": "speech_e2574849ec64"
+      }
+    ],
+    "vad": [
+      {
+        "timestamp": 1.7844493389129639,
+        "idle_time_ms": 1536.54,
+        "inference_duration_ms": 41.64,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 1.7855055332183838,
+        "idle_time_ms": 1536.71,
+        "inference_duration_ms": 38.38,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 2.785813808441162,
+        "idle_time_ms": 2537.01,
+        "inference_duration_ms": 36.26,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 2.7861340045928955,
+        "idle_time_ms": 2538.22,
+        "inference_duration_ms": 40.08,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 3.8343875408172607,
+        "idle_time_ms": 3586.48,
+        "inference_duration_ms": 36.96,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 3.8346035480499268,
+        "idle_time_ms": 3585.8,
+        "inference_duration_ms": 35.8,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 4.837131023406982,
+        "idle_time_ms": 4589.22,
+        "inference_duration_ms": 58.61,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 4.838066339492798,
+        "idle_time_ms": 4589.27,
+        "inference_duration_ms": 57.96,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 5.884796619415283,
+        "idle_time_ms": 5636.89,
+        "inference_duration_ms": 48.43,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 5.885015487670898,
+        "idle_time_ms": 5636.22,
+        "inference_duration_ms": 45.28,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 6.8861987590789795,
+        "idle_time_ms": 6637.4,
+        "inference_duration_ms": 41.29,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 6.886423587799072,
+        "idle_time_ms": 6638.51,
+        "inference_duration_ms": 40.97,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 7.934800863265991,
+        "idle_time_ms": 7686.89,
+        "inference_duration_ms": 37.8,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 7.935295581817627,
+        "idle_time_ms": 7686.5,
+        "inference_duration_ms": 36.54,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 8.936377763748169,
+        "idle_time_ms": 8687.58,
+        "inference_duration_ms": 37.82,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 8.936805725097656,
+        "idle_time_ms": 8688.9,
+        "inference_duration_ms": 39.25,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 9.9847092628479,
+        "idle_time_ms": 398.19,
+        "inference_duration_ms": 40.06,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 9.985446214675903,
+        "idle_time_ms": 398.61,
+        "inference_duration_ms": 37.46,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 10.986022472381592,
+        "idle_time_ms": 199.02,
+        "inference_duration_ms": 40.17,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 10.98658037185669,
+        "idle_time_ms": 199.16,
+        "inference_duration_ms": 37.57,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 12.035044193267822,
+        "idle_time_ms": 1248.05,
+        "inference_duration_ms": 39.05,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 12.035704135894775,
+        "idle_time_ms": 1248.29,
+        "inference_duration_ms": 37.85,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 13.036441564559937,
+        "idle_time_ms": 2249.02,
+        "inference_duration_ms": 41.5,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 13.036755323410034,
+        "idle_time_ms": 2249.76,
+        "inference_duration_ms": 44.6,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 14.085412502288818,
+        "idle_time_ms": 3298.41,
+        "inference_duration_ms": 55.17,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 14.085640907287598,
+        "idle_time_ms": 3298.22,
+        "inference_duration_ms": 51.61,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 15.086593389511108,
+        "idle_time_ms": 4299.59,
+        "inference_duration_ms": 38.77,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 15.087140321731567,
+        "idle_time_ms": 4299.72,
+        "inference_duration_ms": 37.73,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 16.13506841659546,
+        "idle_time_ms": 5348.07,
+        "inference_duration_ms": 40.57,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 16.135774850845337,
+        "idle_time_ms": 5348.36,
+        "inference_duration_ms": 38.04,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 17.13607406616211,
+        "idle_time_ms": 6349.08,
+        "inference_duration_ms": 39.85,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 17.136749982833862,
+        "idle_time_ms": 6349.33,
+        "inference_duration_ms": 39.67,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 18.184675931930542,
+        "idle_time_ms": 7397.68,
+        "inference_duration_ms": 38.3,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 18.185504913330078,
+        "idle_time_ms": 7398.09,
+        "inference_duration_ms": 38.17,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 19.185922622680664,
+        "idle_time_ms": 8398.92,
+        "inference_duration_ms": 40.12,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 19.186450958251953,
+        "idle_time_ms": 8399.03,
+        "inference_duration_ms": 39.18,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 20.23479914665222,
+        "idle_time_ms": 9447.8,
+        "inference_duration_ms": 39.3,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 20.235015869140625,
+        "idle_time_ms": 9447.6,
+        "inference_duration_ms": 37.68,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 21.23444700241089,
+        "idle_time_ms": 649.14,
+        "inference_duration_ms": 39.78,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 21.234941482543945,
+        "idle_time_ms": 648.33,
+        "inference_duration_ms": 39.05,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 22.284829139709473,
+        "idle_time_ms": 1699.52,
+        "inference_duration_ms": 41.24,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 22.285557985305786,
+        "idle_time_ms": 1698.95,
+        "inference_duration_ms": 38.9,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 23.284674406051636,
+        "idle_time_ms": 49.17,
+        "inference_duration_ms": 43.05,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 23.28521180152893,
+        "idle_time_ms": 48.64,
+        "inference_duration_ms": 39.66,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 24.334689378738403,
+        "idle_time_ms": 1099.18,
+        "inference_duration_ms": 49.17,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 24.33538317680359,
+        "idle_time_ms": 1098.81,
+        "inference_duration_ms": 44.91,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 25.334229707717896,
+        "idle_time_ms": 2098.72,
+        "inference_duration_ms": 42.1,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 25.334651947021484,
+        "idle_time_ms": 2098.08,
+        "inference_duration_ms": 38.89,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 26.40726351737976,
+        "idle_time_ms": 3171.76,
+        "inference_duration_ms": 84.98,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 26.40839195251465,
+        "idle_time_ms": 3171.82,
+        "inference_duration_ms": 80.38,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 27.385109186172485,
+        "idle_time_ms": 4149.6,
+        "inference_duration_ms": 96.22,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 27.385634660720825,
+        "idle_time_ms": 4149.06,
+        "inference_duration_ms": 94.76,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 28.385622024536133,
+        "idle_time_ms": 5150.11,
+        "inference_duration_ms": 37.72,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 28.38611149787903,
+        "idle_time_ms": 5149.54,
+        "inference_duration_ms": 36.88,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 29.43428921699524,
+        "idle_time_ms": 6198.78,
+        "inference_duration_ms": 39.14,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 29.4347665309906,
+        "idle_time_ms": 6198.2,
+        "inference_duration_ms": 37.6,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 30.43702459335327,
+        "idle_time_ms": 7200.45,
+        "inference_duration_ms": 37.96,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 30.43724799156189,
+        "idle_time_ms": 7201.74,
+        "inference_duration_ms": 39.04,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 31.485126733779907,
+        "idle_time_ms": 8248.56,
+        "inference_duration_ms": 37.07,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 31.48533582687378,
+        "idle_time_ms": 8249.83,
+        "inference_duration_ms": 39.7,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 32.48615527153015,
+        "idle_time_ms": 9249.59,
+        "inference_duration_ms": 38.48,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 32.486448526382446,
+        "idle_time_ms": 9250.94,
+        "inference_duration_ms": 38.61,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 33.53496432304382,
+        "idle_time_ms": 10299.46,
+        "inference_duration_ms": 37.83,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 33.5351927280426,
+        "idle_time_ms": 10298.62,
+        "inference_duration_ms": 38.3,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 34.53579831123352,
+        "idle_time_ms": 11300.29,
+        "inference_duration_ms": 40.67,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 34.536271810531616,
+        "idle_time_ms": 11299.7,
+        "inference_duration_ms": 38.84,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 35.58480930328369,
+        "idle_time_ms": 12349.3,
+        "inference_duration_ms": 39.43,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 35.585774183273315,
+        "idle_time_ms": 12349.2,
+        "inference_duration_ms": 39.98,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 36.58569931983948,
+        "idle_time_ms": 13350.19,
+        "inference_duration_ms": 41.01,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 36.586188554763794,
+        "idle_time_ms": 13349.62,
+        "inference_duration_ms": 40.34,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 37.634886503219604,
+        "idle_time_ms": 14399.38,
+        "inference_duration_ms": 39.26,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 37.635591983795166,
+        "idle_time_ms": 14399.02,
+        "inference_duration_ms": 37.67,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 38.635504722595215,
+        "idle_time_ms": 15400.0,
+        "inference_duration_ms": 40.15,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 38.63596773147583,
+        "idle_time_ms": 15399.4,
+        "inference_duration_ms": 37.56,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 39.684643268585205,
+        "idle_time_ms": 16449.14,
+        "inference_duration_ms": 39.91,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 39.68537712097168,
+        "idle_time_ms": 16448.81,
+        "inference_duration_ms": 37.87,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 40.68567514419556,
+        "idle_time_ms": 650.13,
+        "inference_duration_ms": 40.99,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 40.686172008514404,
+        "idle_time_ms": 650.67,
+        "inference_duration_ms": 37.69,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 41.735230445861816,
+        "idle_time_ms": 1699.68,
+        "inference_duration_ms": 37.55,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 41.73589754104614,
+        "idle_time_ms": 1700.39,
+        "inference_duration_ms": 37.19,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 42.73603129386902,
+        "idle_time_ms": 2700.49,
+        "inference_duration_ms": 38.22,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 42.73646330833435,
+        "idle_time_ms": 2700.96,
+        "inference_duration_ms": 36.29,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 43.784717321395874,
+        "idle_time_ms": 3749.17,
+        "inference_duration_ms": 38.99,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 43.78540563583374,
+        "idle_time_ms": 3749.9,
+        "inference_duration_ms": 36.83,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 44.78732991218567,
+        "idle_time_ms": 450.52,
+        "inference_duration_ms": 39.32,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 44.78833484649658,
+        "idle_time_ms": 452.02,
+        "inference_duration_ms": 43.39,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 45.83548927307129,
+        "idle_time_ms": 1499.18,
+        "inference_duration_ms": 42.77,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 45.83642292022705,
+        "idle_time_ms": 1499.61,
+        "inference_duration_ms": 43.97,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 46.845538854599,
+        "idle_time_ms": 2509.23,
+        "inference_duration_ms": 43.15,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 46.84664225578308,
+        "idle_time_ms": 2509.83,
+        "inference_duration_ms": 47.42,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 47.90612578392029,
+        "idle_time_ms": 3569.81,
+        "inference_duration_ms": 112.79,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 47.90649890899658,
+        "idle_time_ms": 3569.69,
+        "inference_duration_ms": 101.71,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 48.91116738319397,
+        "idle_time_ms": 4574.35,
+        "inference_duration_ms": 67.84,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 48.91148328781128,
+        "idle_time_ms": 4575.17,
+        "inference_duration_ms": 78.37,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 49.96601414680481,
+        "idle_time_ms": 5629.2,
+        "inference_duration_ms": 91.11,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 49.96637678146362,
+        "idle_time_ms": 5630.07,
+        "inference_duration_ms": 97.9,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 50.935004234313965,
+        "idle_time_ms": 6598.69,
+        "inference_duration_ms": 69.78,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 50.935553312301636,
+        "idle_time_ms": 6598.74,
+        "inference_duration_ms": 68.18,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 51.98498797416687,
+        "idle_time_ms": 7648.68,
+        "inference_duration_ms": 39.54,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 51.98564100265503,
+        "idle_time_ms": 7648.83,
+        "inference_duration_ms": 38.23,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 52.9853515625,
+        "idle_time_ms": 8649.04,
+        "inference_duration_ms": 40.11,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 52.98590326309204,
+        "idle_time_ms": 8649.09,
+        "inference_duration_ms": 36.9,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 53.98613429069519,
+        "idle_time_ms": 9649.82,
+        "inference_duration_ms": 40.13,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 53.986565828323364,
+        "idle_time_ms": 9649.75,
+        "inference_duration_ms": 38.35,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 55.03500556945801,
+        "idle_time_ms": 10698.69,
+        "inference_duration_ms": 39.08,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 55.03549027442932,
+        "idle_time_ms": 10698.68,
+        "inference_duration_ms": 35.93,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 56.03641748428345,
+        "idle_time_ms": 11700.11,
+        "inference_duration_ms": 38.22,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 56.03694415092468,
+        "idle_time_ms": 11700.13,
+        "inference_duration_ms": 38.35,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 57.08518838882446,
+        "idle_time_ms": 12748.88,
+        "inference_duration_ms": 41.05,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 57.08565092086792,
+        "idle_time_ms": 12748.84,
+        "inference_duration_ms": 38.58,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 58.0851526260376,
+        "idle_time_ms": 13748.84,
+        "inference_duration_ms": 37.64,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 58.085548639297485,
+        "idle_time_ms": 13748.73,
+        "inference_duration_ms": 35.34,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 59.13435101509094,
+        "idle_time_ms": 14798.04,
+        "inference_duration_ms": 39.56,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 59.13480734825134,
+        "idle_time_ms": 14797.99,
+        "inference_duration_ms": 39.05,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 60.13571500778198,
+        "idle_time_ms": 15799.4,
+        "inference_duration_ms": 40.64,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 60.13622307777405,
+        "idle_time_ms": 15799.41,
+        "inference_duration_ms": 38.01,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 61.18470764160156,
+        "idle_time_ms": 16848.4,
+        "inference_duration_ms": 38.23,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 61.185467004776,
+        "idle_time_ms": 16848.65,
+        "inference_duration_ms": 36.53,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 62.185577154159546,
+        "idle_time_ms": 17849.27,
+        "inference_duration_ms": 41.89,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 62.18603014945984,
+        "idle_time_ms": 17849.22,
+        "inference_duration_ms": 37.75,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 63.23492884635925,
+        "idle_time_ms": 18898.62,
+        "inference_duration_ms": 38.35,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 63.2357861995697,
+        "idle_time_ms": 18898.97,
+        "inference_duration_ms": 35.86,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 64.23592805862427,
+        "idle_time_ms": 19899.62,
+        "inference_duration_ms": 39.76,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 64.2361330986023,
+        "idle_time_ms": 19899.32,
+        "inference_duration_ms": 37.55,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 65.28470659255981,
+        "idle_time_ms": 20948.4,
+        "inference_duration_ms": 38.56,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 65.28556752204895,
+        "idle_time_ms": 20948.75,
+        "inference_duration_ms": 37.54,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 66.28623127937317,
+        "idle_time_ms": 21949.92,
+        "inference_duration_ms": 39.87,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 66.28683471679688,
+        "idle_time_ms": 21950.02,
+        "inference_duration_ms": 36.81,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 67.33517718315125,
+        "idle_time_ms": 22998.87,
+        "inference_duration_ms": 38.48,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 67.3357617855072,
+        "idle_time_ms": 22998.95,
+        "inference_duration_ms": 37.6,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 68.33590865135193,
+        "idle_time_ms": 23999.6,
+        "inference_duration_ms": 38.93,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 68.33642148971558,
+        "idle_time_ms": 23999.61,
+        "inference_duration_ms": 37.92,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 69.38431906700134,
+        "idle_time_ms": 25048.01,
+        "inference_duration_ms": 38.36,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 69.38497972488403,
+        "idle_time_ms": 25048.17,
+        "inference_duration_ms": 38.73,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 70.38618469238281,
+        "idle_time_ms": 26049.87,
+        "inference_duration_ms": 37.37,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 70.3867769241333,
+        "idle_time_ms": 26049.96,
+        "inference_duration_ms": 37.26,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 71.43468165397644,
+        "idle_time_ms": 27098.37,
+        "inference_duration_ms": 38.24,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 71.43538451194763,
+        "idle_time_ms": 27098.57,
+        "inference_duration_ms": 37.0,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 72.43456768989563,
+        "idle_time_ms": 28098.26,
+        "inference_duration_ms": 38.32,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 72.43482208251953,
+        "idle_time_ms": 28098.01,
+        "inference_duration_ms": 36.76,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 73.48539686203003,
+        "idle_time_ms": 29149.09,
+        "inference_duration_ms": 39.85,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 73.48609590530396,
+        "idle_time_ms": 29149.28,
+        "inference_duration_ms": 40.53,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 74.48575401306152,
+        "idle_time_ms": 30148.94,
+        "inference_duration_ms": 37.3,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 74.48609972000122,
+        "idle_time_ms": 30149.79,
+        "inference_duration_ms": 39.24,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 75.53539443016052,
+        "idle_time_ms": 400.18,
+        "inference_duration_ms": 40.34,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 75.53586196899414,
+        "idle_time_ms": 400.85,
+        "inference_duration_ms": 38.14,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 76.53480577468872,
+        "idle_time_ms": 1399.59,
+        "inference_duration_ms": 38.67,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 76.5353090763092,
+        "idle_time_ms": 1400.29,
+        "inference_duration_ms": 38.06,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 77.58508133888245,
+        "idle_time_ms": 2449.86,
+        "inference_duration_ms": 38.2,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 77.58578491210938,
+        "idle_time_ms": 2450.77,
+        "inference_duration_ms": 38.11,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 78.58538103103638,
+        "idle_time_ms": 298.03,
+        "inference_duration_ms": 39.1,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 78.58707118034363,
+        "idle_time_ms": 300.16,
+        "inference_duration_ms": 42.59,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 79.58603763580322,
+        "idle_time_ms": 1298.69,
+        "inference_duration_ms": 42.04,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 79.58639430999756,
+        "idle_time_ms": 1299.48,
+        "inference_duration_ms": 45.08,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 80.63446855545044,
+        "idle_time_ms": 2347.56,
+        "inference_duration_ms": 39.69,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 80.63468956947327,
+        "idle_time_ms": 2347.34,
+        "inference_duration_ms": 37.35,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 81.63612675666809,
+        "idle_time_ms": 3349.22,
+        "inference_duration_ms": 50.34,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 81.63695883750916,
+        "idle_time_ms": 3349.61,
+        "inference_duration_ms": 44.5,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 82.68481111526489,
+        "idle_time_ms": 4397.9,
+        "inference_duration_ms": 136.06,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 82.68505191802979,
+        "idle_time_ms": 4397.7,
+        "inference_duration_ms": 115.07,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 83.6864504814148,
+        "idle_time_ms": 5399.1,
+        "inference_duration_ms": 65.92,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 83.68676853179932,
+        "idle_time_ms": 5399.86,
+        "inference_duration_ms": 71.95,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 84.73411107063293,
+        "idle_time_ms": 6447.2,
+        "inference_duration_ms": 66.49,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 84.73459720611572,
+        "idle_time_ms": 6447.25,
+        "inference_duration_ms": 64.23,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 85.73556995391846,
+        "idle_time_ms": 7448.66,
+        "inference_duration_ms": 38.95,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 85.73599743843079,
+        "idle_time_ms": 7448.65,
+        "inference_duration_ms": 38.11,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 86.78550839424133,
+        "idle_time_ms": 8498.6,
+        "inference_duration_ms": 38.0,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 86.78629541397095,
+        "idle_time_ms": 8498.94,
+        "inference_duration_ms": 36.83,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 87.7862160205841,
+        "idle_time_ms": 9499.31,
+        "inference_duration_ms": 39.19,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 87.78664493560791,
+        "idle_time_ms": 9499.29,
+        "inference_duration_ms": 38.83,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 88.83483099937439,
+        "idle_time_ms": 10547.92,
+        "inference_duration_ms": 39.39,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 88.83539271354675,
+        "idle_time_ms": 10548.04,
+        "inference_duration_ms": 37.89,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 89.83592176437378,
+        "idle_time_ms": 849.84,
+        "inference_duration_ms": 38.78,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 89.83619332313538,
+        "idle_time_ms": 850.45,
+        "inference_duration_ms": 40.73,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 90.88507008552551,
+        "idle_time_ms": 1899.33,
+        "inference_duration_ms": 39.71,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 90.88576912879944,
+        "idle_time_ms": 1899.69,
+        "inference_duration_ms": 37.75,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 91.88577461242676,
+        "idle_time_ms": 2900.04,
+        "inference_duration_ms": 39.36,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 91.88625741004944,
+        "idle_time_ms": 2900.17,
+        "inference_duration_ms": 38.13,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 92.93458485603333,
+        "idle_time_ms": 599.23,
+        "inference_duration_ms": 46.4,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 92.93533205986023,
+        "idle_time_ms": 599.22,
+        "inference_duration_ms": 45.45,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 93.93579626083374,
+        "idle_time_ms": 1600.44,
+        "inference_duration_ms": 40.97,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 93.93623161315918,
+        "idle_time_ms": 1600.12,
+        "inference_duration_ms": 37.1,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 94.98426723480225,
+        "idle_time_ms": 2648.91,
+        "inference_duration_ms": 61.48,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 94.98483896255493,
+        "idle_time_ms": 2648.73,
+        "inference_duration_ms": 61.9,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 95.98655319213867,
+        "idle_time_ms": 3650.45,
+        "inference_duration_ms": 91.91,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 95.98693037033081,
+        "idle_time_ms": 3651.57,
+        "inference_duration_ms": 97.16,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 97.03501915931702,
+        "idle_time_ms": 4699.66,
+        "inference_duration_ms": 56.57,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 97.0356912612915,
+        "idle_time_ms": 4699.58,
+        "inference_duration_ms": 56.09,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 98.03447532653809,
+        "idle_time_ms": 5699.12,
+        "inference_duration_ms": 41.38,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 98.03503751754761,
+        "idle_time_ms": 5698.93,
+        "inference_duration_ms": 40.04,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 99.08471345901489,
+        "idle_time_ms": 6749.36,
+        "inference_duration_ms": 40.42,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 99.08585238456726,
+        "idle_time_ms": 6749.74,
+        "inference_duration_ms": 39.76,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 100.084632396698,
+        "idle_time_ms": 7749.27,
+        "inference_duration_ms": 40.24,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 100.0852279663086,
+        "idle_time_ms": 7749.12,
+        "inference_duration_ms": 40.04,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 101.13425517082214,
+        "idle_time_ms": 8798.9,
+        "inference_duration_ms": 38.15,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 101.1351797580719,
+        "idle_time_ms": 8799.07,
+        "inference_duration_ms": 38.64,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 102.13421440124512,
+        "idle_time_ms": 9798.86,
+        "inference_duration_ms": 39.6,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 102.13476729393005,
+        "idle_time_ms": 9798.66,
+        "inference_duration_ms": 38.23,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 103.18537855148315,
+        "idle_time_ms": 10850.02,
+        "inference_duration_ms": 41.07,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 103.18558597564697,
+        "idle_time_ms": 10849.48,
+        "inference_duration_ms": 38.15,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 104.18476700782776,
+        "idle_time_ms": 11849.41,
+        "inference_duration_ms": 39.51,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 104.18525648117065,
+        "idle_time_ms": 11849.15,
+        "inference_duration_ms": 36.84,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 105.18630266189575,
+        "idle_time_ms": 250.07,
+        "inference_duration_ms": 38.23,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 105.18658232688904,
+        "idle_time_ms": 251.05,
+        "inference_duration_ms": 39.03,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 106.2349624633789,
+        "idle_time_ms": 1299.43,
+        "inference_duration_ms": 42.12,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 106.23541593551636,
+        "idle_time_ms": 1299.18,
+        "inference_duration_ms": 41.03,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 107.23708438873291,
+        "idle_time_ms": 401.26,
+        "inference_duration_ms": 39.46,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 107.23798322677612,
+        "idle_time_ms": 402.55,
+        "inference_duration_ms": 41.39,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 108.28499484062195,
+        "idle_time_ms": 1449.57,
+        "inference_duration_ms": 43.75,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 108.28548789024353,
+        "idle_time_ms": 1449.67,
+        "inference_duration_ms": 42.8,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 109.31164765357971,
+        "idle_time_ms": 2476.22,
+        "inference_duration_ms": 66.02,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 109.31270217895508,
+        "idle_time_ms": 2476.88,
+        "inference_duration_ms": 66.85,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 110.3351001739502,
+        "idle_time_ms": 3499.67,
+        "inference_duration_ms": 86.03,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 110.33554172515869,
+        "idle_time_ms": 3499.72,
+        "inference_duration_ms": 83.57,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 111.36437439918518,
+        "idle_time_ms": 4528.55,
+        "inference_duration_ms": 75.01,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 111.36476135253906,
+        "idle_time_ms": 4529.33,
+        "inference_duration_ms": 77.49,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 112.41202712059021,
+        "idle_time_ms": 5576.6,
+        "inference_duration_ms": 89.64,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 112.41309523582458,
+        "idle_time_ms": 5577.27,
+        "inference_duration_ms": 81.65,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 113.38582587242126,
+        "idle_time_ms": 6550.4,
+        "inference_duration_ms": 50.45,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 113.38642311096191,
+        "idle_time_ms": 6550.6,
+        "inference_duration_ms": 51.82,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 114.43527674674988,
+        "idle_time_ms": 7599.85,
+        "inference_duration_ms": 40.31,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 114.43604111671448,
+        "idle_time_ms": 7600.22,
+        "inference_duration_ms": 37.57,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 115.43567991256714,
+        "idle_time_ms": 8600.25,
+        "inference_duration_ms": 39.26,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 115.43630409240723,
+        "idle_time_ms": 8600.48,
+        "inference_duration_ms": 39.55,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 116.48495650291443,
+        "idle_time_ms": 9649.53,
+        "inference_duration_ms": 38.44,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 116.48584342002869,
+        "idle_time_ms": 9650.02,
+        "inference_duration_ms": 38.06,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 117.48700094223022,
+        "idle_time_ms": 10651.18,
+        "inference_duration_ms": 38.03,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 117.48730278015137,
+        "idle_time_ms": 10651.87,
+        "inference_duration_ms": 39.09,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 118.53536701202393,
+        "idle_time_ms": 11699.55,
+        "inference_duration_ms": 40.31,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 118.53576302528381,
+        "idle_time_ms": 11700.33,
+        "inference_duration_ms": 42.59,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 119.53624320030212,
+        "idle_time_ms": 12700.42,
+        "inference_duration_ms": 37.52,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 119.53652596473694,
+        "idle_time_ms": 12701.1,
+        "inference_duration_ms": 40.25,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 120.58467841148376,
+        "idle_time_ms": 13749.25,
+        "inference_duration_ms": 40.73,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 120.58559083938599,
+        "idle_time_ms": 13749.77,
+        "inference_duration_ms": 40.26,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 121.58566188812256,
+        "idle_time_ms": 14750.23,
+        "inference_duration_ms": 40.79,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 121.58618068695068,
+        "idle_time_ms": 14750.36,
+        "inference_duration_ms": 37.33,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 122.6343286037445,
+        "idle_time_ms": 15798.9,
+        "inference_duration_ms": 39.97,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 122.63499975204468,
+        "idle_time_ms": 15799.18,
+        "inference_duration_ms": 38.03,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 123.6343150138855,
+        "idle_time_ms": 16798.89,
+        "inference_duration_ms": 39.82,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 123.63454103469849,
+        "idle_time_ms": 16798.72,
+        "inference_duration_ms": 39.22,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 124.68546676635742,
+        "idle_time_ms": 17850.04,
+        "inference_duration_ms": 37.79,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 124.68634819984436,
+        "idle_time_ms": 17850.53,
+        "inference_duration_ms": 38.4,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 125.68581962585449,
+        "idle_time_ms": 18850.0,
+        "inference_duration_ms": 37.2,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 125.68606638908386,
+        "idle_time_ms": 18850.64,
+        "inference_duration_ms": 40.88,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 126.73458766937256,
+        "idle_time_ms": 19898.77,
+        "inference_duration_ms": 38.76,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 126.73484897613525,
+        "idle_time_ms": 19899.42,
+        "inference_duration_ms": 41.25,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 127.73470115661621,
+        "idle_time_ms": 20899.27,
+        "inference_duration_ms": 40.48,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 127.73521566390991,
+        "idle_time_ms": 20899.39,
+        "inference_duration_ms": 41.25,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 128.78464031219482,
+        "idle_time_ms": 21949.21,
+        "inference_duration_ms": 41.05,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 128.7855498790741,
+        "idle_time_ms": 21949.73,
+        "inference_duration_ms": 38.96,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 129.78459191322327,
+        "idle_time_ms": 22949.16,
+        "inference_duration_ms": 41.71,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 129.78520131111145,
+        "idle_time_ms": 22949.38,
+        "inference_duration_ms": 39.24,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 130.78689050674438,
+        "idle_time_ms": 23951.07,
+        "inference_duration_ms": 38.06,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 130.78722524642944,
+        "idle_time_ms": 23951.8,
+        "inference_duration_ms": 40.88,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 131.83505249023438,
+        "idle_time_ms": 24999.23,
+        "inference_duration_ms": 38.38,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 131.83542609214783,
+        "idle_time_ms": 25000.0,
+        "inference_duration_ms": 40.39,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 132.84495854377747,
+        "idle_time_ms": 26009.14,
+        "inference_duration_ms": 42.66,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      },
+      {
+        "timestamp": 132.84713864326477,
+        "idle_time_ms": 26011.71,
+        "inference_duration_ms": 46.95,
+        "inference_count": 32,
+        "label": "livekit.plugins.silero.vad.VAD"
+      }
+    ],
+    "eou": [
+      {
+        "timestamp": 11.064378499984741,
+        "total_latency_ms": 1302.72,
+        "eou_delay_ms": 685.99,
+        "transcription_delay_ms": 616.71,
+        "callback_delay_ms": 0.03,
+        "speech_id": "speech_c6b985ce0bf6"
+      },
+      {
+        "timestamp": 23.589665412902832,
+        "total_latency_ms": 1464.8,
+        "eou_delay_ms": 793.41,
+        "transcription_delay_ms": 671.37,
+        "callback_delay_ms": 0.02,
+        "speech_id": "speech_1a19bdc6c6a5"
+      },
+      {
+        "timestamp": 44.88636803627014,
+        "total_latency_ms": 1738.86,
+        "eou_delay_ms": 967.73,
+        "transcription_delay_ms": 771.12,
+        "callback_delay_ms": 0.02,
+        "speech_id": "speech_b6988161644c"
+      },
+      {
+        "timestamp": 78.72159361839294,
+        "total_latency_ms": 1483.98,
+        "eou_delay_ms": 844.31,
+        "transcription_delay_ms": 639.65,
+        "callback_delay_ms": 0.02,
+        "speech_id": "speech_9f003ae76f85"
+      },
+      {
+        "timestamp": 92.83086514472961,
+        "total_latency_ms": 1669.4,
+        "eou_delay_ms": 948.75,
+        "transcription_delay_ms": 720.63,
+        "callback_delay_ms": 0.02,
+        "speech_id": "speech_0634a5f703a7"
+      },
+      {
+        "timestamp": 107.32205033302307,
+        "total_latency_ms": 1625.37,
+        "eou_delay_ms": 907.71,
+        "transcription_delay_ms": 717.64,
+        "callback_delay_ms": 0.03,
+        "speech_id": "speech_e2574849ec64"
+      }
+    ]
+  },
+  "pipeline_stages": [
+    {
+      "stage": "stt_start",
+      "timestamp": 0.24727606773376465,
+      "details": {}
+    },
+    {
+      "stage": "agent_enter",
+      "timestamp": 0.24835419654846191,
+      "details": {}
+    },
+    {
+      "stage": "llm_start",
+      "timestamp": 0.516176700592041,
+      "details": {
+        "message_count": 1,
+        "tool_count": 0
+      }
+    },
+    {
+      "stage": "tts_start",
+      "timestamp": 0.7201170921325684,
+      "details": {}
+    },
+    {
+      "stage": "user_turn_completed",
+      "timestamp": 11.064173460006714,
+      "details": {
+        "message_length": 22
+      }
+    },
+    {
+      "stage": "llm_start",
+      "timestamp": 11.06543231010437,
+      "details": {
+        "message_count": 3,
+        "tool_count": 0
+      }
+    },
+    {
+      "stage": "tts_start",
+      "timestamp": 11.068473100662231,
+      "details": {}
+    },
+    {
+      "stage": "user_turn_completed",
+      "timestamp": 23.589492797851562,
+      "details": {
+        "message_length": 39
+      }
+    },
+    {
+      "stage": "llm_start",
+      "timestamp": 23.590333223342896,
+      "details": {
+        "message_count": 5,
+        "tool_count": 0
+      }
+    },
+    {
+      "stage": "tts_start",
+      "timestamp": 23.59361457824707,
+      "details": {}
+    },
+    {
+      "stage": "user_turn_completed",
+      "timestamp": 44.88623547554016,
+      "details": {
+        "message_length": 75
+      }
+    },
+    {
+      "stage": "llm_start",
+      "timestamp": 44.88710832595825,
+      "details": {
+        "message_count": 7,
+        "tool_count": 0
+      }
+    },
+    {
+      "stage": "tts_start",
+      "timestamp": 44.890801191329956,
+      "details": {}
+    },
+    {
+      "stage": "user_turn_completed",
+      "timestamp": 78.72145009040833,
+      "details": {
+        "message_length": 40
+      }
+    },
+    {
+      "stage": "llm_start",
+      "timestamp": 78.72229743003845,
+      "details": {
+        "message_count": 9,
+        "tool_count": 0
+      }
+    },
+    {
+      "stage": "tts_start",
+      "timestamp": 78.72715616226196,
+      "details": {}
+    },
+    {
+      "stage": "user_turn_completed",
+      "timestamp": 92.83068704605103,
+      "details": {
+        "message_length": 50
+      }
+    },
+    {
+      "stage": "llm_start",
+      "timestamp": 92.83156371116638,
+      "details": {
+        "message_count": 11,
+        "tool_count": 0
+      }
+    },
+    {
+      "stage": "tts_start",
+      "timestamp": 92.8363287448883,
+      "details": {}
+    },
+    {
+      "stage": "user_turn_completed",
+      "timestamp": 107.32188487052917,
+      "details": {
+        "message_length": 32
+      }
+    },
+    {
+      "stage": "llm_start",
+      "timestamp": 107.32297778129578,
+      "details": {
+        "message_count": 13,
+        "tool_count": 0
+      }
+    },
+    {
+      "stage": "tts_start",
+      "timestamp": 107.32951307296753,
+      "details": {}
+    },
+    {
+      "stage": "agent_exit",
+      "timestamp": 132.85337471961975,
+      "details": {}
+    }
+  ],
+  "conversation_turns": [
+    {
+      "timestamp": 11.064378499984741,
+      "total_latency_ms": 1302.72,
+      "eou_delay_ms": 685.99,
+      "transcription_delay_ms": 616.71,
+      "callback_delay_ms": 0.03,
+      "speech_id": "speech_c6b985ce0bf6"
+    },
+    {
+      "timestamp": 23.589665412902832,
+      "total_latency_ms": 1464.8,
+      "eou_delay_ms": 793.41,
+      "transcription_delay_ms": 671.37,
+      "callback_delay_ms": 0.02,
+      "speech_id": "speech_1a19bdc6c6a5"
+    },
+    {
+      "timestamp": 44.88636803627014,
+      "total_latency_ms": 1738.86,
+      "eou_delay_ms": 967.73,
+      "transcription_delay_ms": 771.12,
+      "callback_delay_ms": 0.02,
+      "speech_id": "speech_b6988161644c"
+    },
+    {
+      "timestamp": 78.72159361839294,
+      "total_latency_ms": 1483.98,
+      "eou_delay_ms": 844.31,
+      "transcription_delay_ms": 639.65,
+      "callback_delay_ms": 0.02,
+      "speech_id": "speech_9f003ae76f85"
+    },
+    {
+      "timestamp": 92.83086514472961,
+      "total_latency_ms": 1669.4,
+      "eou_delay_ms": 948.75,
+      "transcription_delay_ms": 720.63,
+      "callback_delay_ms": 0.02,
+      "speech_id": "speech_0634a5f703a7"
+    },
+    {
+      "timestamp": 107.32205033302307,
+      "total_latency_ms": 1625.37,
+      "eou_delay_ms": 907.71,
+      "transcription_delay_ms": 717.64,
+      "callback_delay_ms": 0.03,
+      "speech_id": "speech_e2574849ec64"
+    }
+  ]
+}

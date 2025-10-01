@@ -37,7 +37,15 @@ def prewarm(proc: JobProcess):
     Here, we load a Voice Activity Detection (VAD) model once,
     and store it in the process userdata for reuse.
     """
-    proc.userdata["vad"] = silero.VAD.load()
+    proc.userdata["vad"] = silero.VAD.load(
+        min_speech_duration=0.05,        # detect speech after 50ms
+        min_silence_duration=0.2,        # quicker stop after 200ms silence (default is 0.4s)
+        prefix_padding_duration=0.2,     # keep only 200ms padding before speech
+        max_buffered_speech=30.0,        # smaller buffer for responsiveness
+        activation_threshold=0.4,        # lower threshold for earlier detection of speech start
+        sample_rate=16000,
+        force_cpu=True
+    )
 
 
 # --------------------------

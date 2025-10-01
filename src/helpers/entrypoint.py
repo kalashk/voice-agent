@@ -1,5 +1,6 @@
 import os
 import logging
+import asyncio
 import json
 from dotenv import load_dotenv
 from livekit.agents import (
@@ -81,7 +82,7 @@ async def entrypoint(ctx: JobContext):
             room=ctx.room,
             room_input_options=RoomInputOptions(noise_cancellation=noise_cancellation.BVC()),
         )
-
+        await asyncio.sleep(3)
         # Generate an initial greeting reply (short introduction)
         reply = await session.generate_reply(
             instructions="simply greet with namaste and introduce yourself, keep it simple and short, without think tag, dont think here",
