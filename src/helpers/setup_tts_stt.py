@@ -70,12 +70,24 @@ def setup_llm(provider: str = LLM_PROVIDER):
     elif provider == "gemini":
         return google.LLM(model="gemini-2.5-flash-lite")
     elif provider == "groq llama 3.1 8b instant":
-        return groq.LLM(model="llama-3.1-8b-instant", tool_choice='none')
-    elif provider == "groq openai/gpt-oss-120b":
-        return groq.LLM(model="openai/gpt-oss-120b", tool_choice='none')
-    elif provider == "groq meta-llama/llama-4-scout-17b-16e-instruct":
-        return groq.LLM(model="meta-llama/llama-4-scout-17b-16e-instruct", tool_choice='none')
-    elif provider == "groq openai/gpt-oss-20b":
-        return groq.LLM(model="openai/gpt-oss-20b", tool_choice='none')
+        return groq.LLM(
+            model="llama-3.1-8b-instant", 
+            tool_choice='none'
+            )
+    elif provider == "groq openai gpt-oss-120b":
+        return groq.LLM(
+            model="openai/gpt-oss-120b", 
+            tool_choice='none'
+            )
+    elif provider == "groq meta-llama llama-4-scout-17b-16e-instruct":
+        return groq.LLM(
+            model="meta-llama/llama-4-scout-17b-16e-instruct", 
+            tool_choice='none'
+            )
+    elif provider == "groq openai gpt-oss-20b":
+        return groq.LLM(
+            model="openai/gpt-oss-20b", 
+            tool_choice='none'
+            )
     else:
         raise ValueError(f"Unknown LLM provider: {provider}")
