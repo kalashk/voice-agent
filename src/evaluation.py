@@ -265,8 +265,8 @@ def load_and_prepare_dataset_from_logs() -> List[Dict]:
     print(f"[DEBUG] Logs folder: {log_folder}")
 
     # Construct the specific session file name
-    session_to_evaluate = f"{TTS_PROVIDER}_{STT_PROVIDER}_{LLM_PROVIDER}_session_{SESSION_ID}.json"
-    # session_to_evaluate=f"sarvam_anushka_deepgram_session_eaa7c2f1-548a-404d-be46-0c11736cbf12.json"
+    #session_to_evaluate = f"{TTS_PROVIDER}_{STT_PROVIDER}_{LLM_PROVIDER}_session_{SESSION_ID}.json"
+    session_to_evaluate=f"sarvam_anushka_deepgram_session_eaa7c2f1-548a-404d-be46-0c11736cbf12.json"
     filepath = os.path.join(log_folder, session_to_evaluate)
     print(f"[DEBUG] Evaluating session log file: {filepath}")
 

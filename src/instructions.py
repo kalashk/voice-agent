@@ -626,7 +626,7 @@ def get_instructions(customer_profile):
 
     if LLM_PROVIDER == "gemini":
         instructions = gemini_devnagari_instructions
-    if LLM_PROVIDER == "groq":
-        instructions = devnagari_instructions_min
+    # if LLM_PROVIDER == "groq":
+    #     instructions = devnagari_instructions_min
 
     return instructions
