@@ -66,7 +66,7 @@ def setup_stt(provider: str = STT_PROVIDER):
 
 def setup_llm(provider: str = LLM_PROVIDER):
     if provider == "openai":
-        return openai.LLM(model="gpt-5o-mini")
+        return openai.LLM(model="gpt-5-mini")
     elif provider == "gemini":
         return google.LLM(model="gemini-2.5-flash-preview-05-20")
     else:
