@@ -7,6 +7,7 @@ from pydantic import SecretStr
 from ragas.dataset_schema import EvaluationDataset, SingleTurnSampleOrMultiTurnSample, EvaluationResult, SingleTurnSample
 from ragas.evaluation import evaluate
 from ragas.metrics import AspectCritic
+from ragas.metrics import SimpleCriteriaScore, RubricsScore
 from ragas.llms import LangchainLLMWrapper
 from langchain_openai import ChatOpenAI
 from langchain_community.callbacks.manager import get_openai_callback
@@ -58,68 +59,122 @@ def prepare_dataset_per_turn(conversations: list[dict]) -> EvaluationDataset:
     print(f"[DEBUG] Prepared per-turn dataset with {len(dataset.samples)} samples")
     return dataset
 
-def get_metrics(llm: LangchainLLMWrapper) -> list[AspectCritic]:
+# def get_metrics(llm: LangchainLLMWrapper) -> list[AspectCritic]:
+#     print("[DEBUG] Defining metrics...")
+#     metrics = [
+#         AspectCritic(
+#             name="persuasiveness",
+#             llm=llm,
+#             definition=(
+#                 "Check if the assistant successfully tries to persuade the customer to consider "
+#                 "a car or car loan while remaining subtle and convincing."
+#             )
+#         ),
+#         AspectCritic(
+#             name="clarity",
+#             llm=llm,
+#             definition=(
+#                 "Check if the assistant's responses are clear, concise, and easy to understand "
+#                 "for a customer on a voice call."
+#             )
+#         ),
+#         AspectCritic(
+#             name="politeness",
+#             llm=llm,
+#             definition=(
+#                 "Check if the assistant is polite, friendly, and professional in tone "
+#                 "throughout the conversation."
+#             )
+#         ),
+#         AspectCritic(
+#             name="relevance",
+#             llm=llm,
+#             definition=(
+#                 "Check if the assistant's replies are contextually appropriate, "
+#                 "directly responding to the customer's queries and inputs."
+#             )
+#         ),
+#         AspectCritic(
+#             name="language_script_compliance",
+#             llm=llm,
+#             definition="Check if the assistant's responses are written in Devanagari script."
+#         ),
+#         AspectCritic(
+#             name="language_style_naturalness",
+#             llm=llm,
+#             definition="Check if the assistant's responses follow natural Hinglish style of conversation."
+#         ),
+#         AspectCritic(
+#             name="language_no_forbidden_words",
+#             llm=llm,
+#             definition="Check if the assistant avoids forbidden or inappropriate words."
+#         ),
+#         AspectCritic(
+#             name="language_number_format",
+#             llm=llm,
+#             definition="Check if numbers in the assistant's responses are converted correctly to Devanagari/Hinglish style."
+#         ),
+#         AspectCritic(
+#             name="language_persona_consistency",
+#             llm=llm,
+#             definition="Check if the assistant maintains the intended persona throughout the conversation."
+#         )
+#     ]
+#     print(f"[DEBUG] {len(metrics)} metrics defined")
+#     return metrics
+
+def get_metrics(llm: LangchainLLMWrapper):
     print("[DEBUG] Defining metrics...")
+
     metrics = [
-        AspectCritic(
+        SimpleCriteriaScore(
             name="persuasiveness",
+            definition="Score from 0 (not persuasive at all) to 5 (very persuasive and convincing).",
             llm=llm,
-            definition=(
-                "Check if the assistant successfully tries to persuade the customer to consider "
-                "a car or car loan while remaining subtle and convincing."
-            )
         ),
-        AspectCritic(
+        SimpleCriteriaScore(
             name="clarity",
+            definition="Score from 0 (very unclear and confusing) to 5 (very clear, concise, and easy to understand).",
             llm=llm,
-            definition=(
-                "Check if the assistant's responses are clear, concise, and easy to understand "
-                "for a customer on a voice call."
-            )
         ),
-        AspectCritic(
+        SimpleCriteriaScore(
             name="politeness",
+            definition="Score from 0 (impolite or rude) to 5 (very polite, professional, and friendly).",
             llm=llm,
-            definition=(
-                "Check if the assistant is polite, friendly, and professional in tone "
-                "throughout the conversation."
-            )
         ),
-        AspectCritic(
+        SimpleCriteriaScore(
             name="relevance",
+            definition="Score from 0 (completely irrelevant) to 5 (highly relevant and directly addressing the customer).",
             llm=llm,
-            definition=(
-                "Check if the assistant's replies are contextually appropriate, "
-                "directly responding to the customer's queries and inputs."
-            )
         ),
-        AspectCritic(
+        SimpleCriteriaScore(
             name="language_script_compliance",
+            definition="Score from 0 (not in Devanagari at all) to 5 (fully compliant with Devanagari script).",
             llm=llm,
-            definition="Check if the assistant's responses are written in Devanagari script."
         ),
-        AspectCritic(
+        SimpleCriteriaScore(
             name="language_style_naturalness",
+            definition="Score from 0 (unnatural Hinglish) to 5 (very natural Hinglish conversational style).",
             llm=llm,
-            definition="Check if the assistant's responses follow natural Hinglish style of conversation."
         ),
-        AspectCritic(
+        SimpleCriteriaScore(
             name="language_no_forbidden_words",
+            definition="Score from 0 (contains forbidden/inappropriate words) to 5 (no forbidden words at all).",
             llm=llm,
-            definition="Check if the assistant avoids forbidden or inappropriate words."
         ),
-        AspectCritic(
+        SimpleCriteriaScore(
             name="language_number_format",
+            definition="Score from 0 (incorrect or inconsistent number formatting) to 5 (all numbers correctly converted to Devanagari/Hinglish).",
             llm=llm,
-            definition="Check if numbers in the assistant's responses are converted correctly to Devanagari/Hinglish style."
         ),
-        AspectCritic(
+        SimpleCriteriaScore(
             name="language_persona_consistency",
+            definition="Score from 0 (persona breaks often) to 5 (persona consistently maintained).",
             llm=llm,
-            definition="Check if the assistant maintains the intended persona throughout the conversation."
         )
     ]
-    print(f"[DEBUG] {len(metrics)} metrics defined")
+
+    print(f"[DEBUG] {len(metrics)} metrics defined (scored, not binary)")
     return metrics
 
 def compute_average_scores(conversation_results: list[dict]) -> dict:
