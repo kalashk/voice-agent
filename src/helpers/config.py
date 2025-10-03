@@ -10,7 +10,8 @@ TTS_PROVIDER = "sarvam_anushka"
 STT_PROVIDER = "sarvam"
 
 #LLM_PROVIDER = "gemini"
-LLM_PROVIDER = "openai"
+#LLM_PROVIDER = "openai"
+LLM_PROVIDER = "groq"
 
 # Base directory of the project
 BASE_DIR = Path(__file__).resolve().parent

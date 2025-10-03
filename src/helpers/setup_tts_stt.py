@@ -1,5 +1,5 @@
 # from helpers.config import TTS_PROVIDER, STT_PROVIDER, LLM_PROVIDER
-from livekit.plugins import cartesia, deepgram, sarvam, openai, google
+from livekit.plugins import cartesia, deepgram, sarvam, openai, google, groq
 from helpers.config import TTS_PROVIDER, STT_PROVIDER,LLM_PROVIDER
 
 # --------------------------
@@ -68,6 +68,8 @@ def setup_llm(provider: str = LLM_PROVIDER):
     if provider == "openai":
         return openai.LLM(model="gpt-5-mini")
     elif provider == "gemini":
-        return google.LLM(model="gemini-2.5-flash-preview-05-20")
+        return google.LLM(model="gemini-2.5-flash-lite")
+    elif provider == "groq":
+        return groq.LLM(model="llama-3.1-8b-instant", tool_choice='none')
     else:
         raise ValueError(f"Unknown LLM provider: {provider}")

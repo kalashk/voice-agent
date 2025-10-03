@@ -17,7 +17,7 @@ dependencies = [
     { name = "dataclasses" },
     { name = "google-cloud-storage" },
     { name = "google-genai" },
-    { name = "livekit-agents", extra = ["aws", "cartesia", "deepgram", "google", "lmnt", "openai", "playai", "resemble", "sarvam", "silero", "speechify", "turn-detector"] },
+    { name = "livekit-agents", extra = ["aws", "cartesia", "deepgram", "google", "groq", "lmnt", "openai", "playai", "resemble", "sarvam", "silero", "speechify", "turn-detector"] },
     { name = "livekit-plugins-noise-cancellation" },
     { name = "loguru" },
     { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
@@ -49,7 +49,7 @@ requires-dist = [
     { name = "dataclasses", specifier = ">=0.8" },
     { name = "google-cloud-storage", specifier = ">=3.4.0" },
     { name = "google-genai", specifier = ">=1.32.0" },
-    { name = "livekit-agents", extras = ["aws", "cartesia", "deepgram", "google", "lmnt", "openai", "playai", "resemble", "sarvam", "silero", "speechify", "turn-detector"], specifier = "~=1.2" },
+    { name = "livekit-agents", extras = ["aws", "cartesia", "deepgram", "google", "groq", "lmnt", "openai", "playai", "resemble", "sarvam", "silero", "speechify", "turn-detector"], specifier = "~=1.2" },
     { name = "livekit-plugins-noise-cancellation", specifier = "~=0.2" },
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "numpy", specifier = ">=2.0.2" },
@@ -1999,6 +1999,9 @@ deepgram = [
 google = [
     { name = "livekit-plugins-google" },
 ]
+groq = [
+    { name = "livekit-plugins-groq" },
+]
 images = [
     { name = "pillow" },
 ]
@@ -2124,6 +2127,21 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/18/0b/cc2aeaced90f0f5dbfb986cb0c7635691adc8da467b8697c22a1b8421129/livekit_plugins_google-1.2.4.tar.gz", hash = "sha256:89b72bcf568f342aea59f110fdafff6d7cf95f3d2c8fe8c829b9e656c736644c", size = 29867, upload-time = "2025-08-07T17:26:17.446Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d6/14/a2475e3a5f4e3e79c43e5ed8d2f6deedc831d3efb4a1330cc0256288401f/livekit_plugins_google-1.2.4-py3-none-any.whl", hash = "sha256:200fc4efadf5065e27732da7578ec903afd351c63584cae31151a2988da0a4ac", size = 36816, upload-time = "2025-08-07T17:26:16.563Z" },
+]
+
+[[package]]
+name = "livekit-plugins-groq"
+version = "1.2.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "aiohttp" },
+    { name = "livekit" },
+    { name = "livekit-agents", extra = ["codecs"] },
+    { name = "livekit-plugins-openai" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/0a/cc/d89a61656eb3518f466d839e2917f392fb2dbf3b09e8dcc4b5422cc7749e/livekit_plugins_groq-1.2.4.tar.gz", hash = "sha256:96e11d16895e998a1a4eae6c22be1adc1fdfa8764e618c28b059881ab4b46d15", size = 5868, upload-time = "2025-08-07T17:26:19.34Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/00/61/c09bb81bc020ea0c02a7a34fef576db5435722fc074ef8abfaf6235dab0e/livekit_plugins_groq-1.2.4-py3-none-any.whl", hash = "sha256:3bdfd001bf9fa9ca8bbce856d86611850a0dc0e02e48c1c2bf2e19e17a7a4544", size = 7051, upload-time = "2025-08-07T17:26:18.119Z" },
 ]
 
 [[package]]
