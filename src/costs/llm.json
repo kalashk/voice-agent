@@ -14,17 +14,17 @@
     "cached_input_rate": 0.0,
     "output_rate": 0.000000076923
   },
-  "groq openai/gpt-oss-120b": {
+  "groq openai gpt-oss-120b": {
     "input_rate": 0.00000015,
     "cached_input_rate": 0.000000075,
     "output_rate": 0.00000075
   },
-  "groq meta-llama/llama-4-scout-17b-16e-instruct": {
+  "groq meta-llama llama-4-scout-17b-16e-instruct": {
     "input_rate": 0.00000011,
     "cached_input_rate": 0.0,
     "output_rate": 0.00000034
   },
-  "groq openai/gpt-oss-20b": {
+  "groq openai gpt-oss-20b": {
     "input_rate": 0.0000001,
     "cached_input_rate": 0.00000005,
     "output_rate": 0.0000005
