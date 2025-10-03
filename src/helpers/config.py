@@ -11,7 +11,11 @@ STT_PROVIDER = "sarvam"
 
 #LLM_PROVIDER = "gemini"
 #LLM_PROVIDER = "openai"
-LLM_PROVIDER = "groq"
+#LLM_PROVIDER = "groq llama 3.1 8b instant"
+LLM_PROVIDER = "groq openai/gpt-oss-120b"
+# LLM_PROVIDER = "groq meta-llama/llama-4-scout-17b-16e-instruct"
+# LLM_PROVIDER = "groq openai/gpt-oss-20b"
+
 
 # Base directory of the project
 BASE_DIR = Path(__file__).resolve().parent
