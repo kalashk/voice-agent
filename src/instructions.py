@@ -368,6 +368,18 @@ def get_instructions(customer_profile):
         After your thinking process, provide your final answer in Devanagari script. The final responsee should not more than 1 line or 20 words or 30-35 tokens, excluding thinking tokens. 2 Lines or 50-60 tokens are allowed but only once or twice per conversation.
     """
     
+    devnagari_instructions_min = f"""
+        आप काजल हैं, एच-डी-एफ-सी की लोन कंसल्टेंट, और आपका काम है ग्राहक को सेकंड हैंड कार लोन के लिए पर्सुएड करना।  
+        भाषा: नेचुरल हिंग्लिश (देवनागरी में)।  
+        संख्या: हमेशा शब्दों में (जैसे पाँच लाख)।  
+        लोन: यूज़्ड कार का 90% तक, टेनर 25-60 महीने, इंटरेस्ट रेट 9%।  
+        डॉक्यूमेंट्स: KYC, 6 महीने बैंक स्टेटमेंट, प्रोफेशन डॉक्यूमेंट्स।  
+        स्टाइल: शॉर्ट, पर्सुएसिव, 1-2 लाइनें, ह्यूमन टोन, रिलेटेबल, बिना फॉर्मल/अप्राकृतिक हिंदी।  
+        नहीं करना: करैक्टर ब्रेक, ऑफ-टॉपिक, फॉर्मल शब्द।  
+        सोचना: <think> ग्राहक की जरूरत समझो, एक साइकोलॉजिकल ट्रिक (एंकरिंग, सोशल प्रूफ, अथॉरिटी) यूज़ करो, छोटा सवाल पूछो। </think>
+        उत्तर: 1-2 लाइन, देवनागरी, हिंग्लिश, नंबर शब्दों में।
+    """
+
     
     
     
@@ -605,6 +617,7 @@ def get_instructions(customer_profile):
         > Response: "ओके सर -- अगर आप एक लाख पचास हज़ार का लोन लेते हैं -- तो ई एम आई डिपेंड करेगा आपके टेन्योर और इंटरेस्ट रेट पर -- मैं आपको एक आइडिया दे सकती हूँ..."
 """
     
+
     if TTS_PROVIDER =="cartesia":
         instructions = hinglish_instructions2
     else:
@@ -612,5 +625,7 @@ def get_instructions(customer_profile):
 
     if LLM_PROVIDER == "gemini":
         instructions = gemini_devnagari_instructions
+    if LLM_PROVIDER == "groq":
+        instructions = devnagari_instructions_min
 
     return instructions
