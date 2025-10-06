@@ -62,8 +62,10 @@ async def create_or_get_trunk():
 # --------------------------
 # Make SIP Call
 # --------------------------
-async def make_call(phone_number: str, sip_trunk_id: str, room_name: str, participant_identity: str):
+async def make_call(phone_number: str, name: str, gender: str, sip_trunk_id: str, room_name: str, participant_identity: str):
     """Dial the phone number via SIP trunk and join to LiveKit room."""
+    participant_name = f"{name} ({gender.upper()})"
+
     async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
         request = CreateSIPParticipantRequest(
             sip_trunk_id=sip_trunk_id,
@@ -71,20 +73,20 @@ async def make_call(phone_number: str, sip_trunk_id: str, room_name: str, partic
             sip_call_to=phone_number,
             room_name=room_name,
             participant_identity=participant_identity,
-            participant_name=f"Customer {phone_number}",
+            participant_name=participant_name,
             wait_until_answered=True,
         )
-        print("📤 SIP request created...")
+        print(f"📤 SIP request created for {participant_name}...")
 
         try:
             participant = await lkapi.sip.create_sip_participant(request)
             if participant:
-                print(f"📞 Call to {phone_number} connected in room {room_name}")
+                print(f"📞 Call to {participant_name} ({phone_number}) connected in room {room_name}")
                 return participant
-            print(f"❌ Call to {phone_number} not answered")
+            print(f"❌ Call to {participant_name} not answered")
             return None
         except Exception as e:
-            print(f"❌ Failed to call {phone_number}: {e}")
+            print(f"❌ Failed to call {participant_name}: {e}")
             return None
 
 
@@ -123,7 +125,7 @@ async def stop_audio_recording(egress_id: str):
 
 
 # --------------------------
-# Get Valid Phone Number
+# Input Validation Helpers
 # --------------------------
 def get_valid_phone_number() -> str:
     """Prompt user until a valid 10-digit phone number is entered."""
@@ -136,27 +138,46 @@ def get_valid_phone_number() -> str:
         print("❌ Invalid number! Please enter exactly 10 digits (numbers only).")
 
 
+def get_valid_name() -> str:
+    """Prompt user for a valid name (non-empty)."""
+    while True:
+        name = input("👤 Enter participant name: ").strip()
+        if len(name) > 0:
+            return name
+        print("❌ Name cannot be empty!")
+
+
+def get_valid_gender() -> str:
+    """Prompt user for gender (M or F)."""
+    while True:
+        gender = input("⚧ Enter gender (M/F): ").strip().upper()
+        if gender in ["M", "F"]:
+            return gender
+        print("❌ Invalid gender! Please enter 'M' or 'F' only.")
+
+
 # --------------------------
 # Run Calls
 # --------------------------
 async def run_calls():
     """
     1. Create a trunk id
-    2. Ask user for valid 10-digit number
+    2. Ask user for name, gender, and number
     3. Make call
     4. Start & stop recording
     """
     trunk_id = await create_or_get_trunk()
     print(f"🔑 Using trunk ID: {trunk_id}")
 
-    # ✅ Input validation loop
+    name = get_valid_name()
+    gender = get_valid_gender()
     phone_number = get_valid_phone_number()
 
     participant_identity = f"sip-{uuid.uuid4().hex[:4]}"
     room_name = f"room-{uuid.uuid4().hex[:4]}"
 
-    print(f"📞 Attempting to call {phone_number}...")
-    participant = await make_call(phone_number, trunk_id, room_name=room_name, participant_identity=participant_identity)
+    print(f"📞 Attempting to call {name} ({gender}) at {phone_number}...")
+    participant = await make_call(phone_number, name, gender, trunk_id, room_name=room_name, participant_identity=participant_identity)
 
     if participant:
         # Start recording
