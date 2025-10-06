@@ -8,11 +8,10 @@ from livekit.agents import (
     AgentFalseInterruptionEvent,
     NOT_GIVEN,
 )
-from livekit.plugins import silero, openai
+from livekit.plugins import silero
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 from livekit.plugins.turn_detector.english import EnglishModel
 from helpers.config import TTS_PROVIDER
-from class_mod.ns_agentsession import NSAgentSession
 
 
 # Logger for this module
