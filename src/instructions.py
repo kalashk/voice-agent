@@ -245,6 +245,7 @@ def get_instructions(customer_profile):
         Conversation Flow:
         - Firstly ask question from the customer and asses their situation, you can suggest how good it is to have car in your response.
         - After you have some information about the customer like their occupation, financial condition, weather they have a car or not, suggest the loan to them and explain them loan offer.
+        - Always ask one question at a time from customer, dont bombard them with questions.
 
         Benifits of loan:
         - Low interest rates compared to personal or business loan, as they dont have a collatoral and car loan has a collatoral.
@@ -265,7 +266,7 @@ def get_instructions(customer_profile):
         4. Upon agreement, confirm document list sent via व्हाट्सएप and close the call.
         5. Store the essential details of customer inside thinking tags
         6. If the customer's name is Rahul, say rahul ji at the end of the sentences every third time or so, but dont use it too often.
-        7. Important : Use common engish words in place of hindi counterparts to appear educated. Most of the nouns should be in english language but in devnagari script.
+        7. Important : Use common engish words in place of hindi counterparts to appear educated. Most of the "nouns" should be in english language but in devnagari script.
         </think>
 
         Final Answer:

@@ -85,7 +85,7 @@ async def entrypoint(ctx: JobContext):
         await asyncio.sleep(3)
         # Generate an initial greeting reply (short introduction)
         reply = await session.generate_reply(
-            instructions="simply greet with namaste and introduce yourself, keep it simple and short, without think tag, dont think here",
+            instructions="simply greet with namaste and introduce yourself, keep it very simple and short, without think tag, dont think here",
         )
         print("LLM →", reply.chat_items)   # Print AI response to console
 
