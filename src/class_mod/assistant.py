@@ -79,14 +79,3 @@ class MyAssistant(Agent):
         # Feed the processed text into default TTS
         async for frame in Agent.default.tts_node(self, adjust_text(text), model_settings):
             yield frame
-
-    # async def query_llm_silently(self, llm: LLM, prompt: str) -> str:
-    #     # Create a temporary context to avoid touching main session memory
-    #     temp_ctx = deepcopy(self.chat_ctx)
-    #     temp_ctx.add_message(role = "developer", content=prompt)
-
-    #     async with llm.chat(chat_ctx=temp_ctx) as stream:  # returns LLMStream
-    #         text = ""
-    #         async for chunk in stream.to_str_iterable():
-    #             text += chunk
-    #     return text

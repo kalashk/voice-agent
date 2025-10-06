@@ -37,11 +37,11 @@ def prewarm(proc: JobProcess):
     and store it in the process userdata for reuse.
     """
     proc.userdata["vad"] = silero.VAD.load(
-        min_speech_duration=0.05,        # detect speech after 50ms
-        min_silence_duration=0.2,        # quicker stop after 200ms silence (default is 0.4s)
-        prefix_padding_duration=0.2,     # keep only 200ms padding before speech
-        max_buffered_speech=30.0,        # smaller buffer for responsiveness
-        activation_threshold=0.4,        # lower threshold for earlier detection of speech start
+        min_speech_duration=0.1,        # require 100ms of speech to start
+        min_silence_duration=0.35,      # slightly longer pause before marking end
+        prefix_padding_duration=0.2,    # small padding before speech start
+        max_buffered_speech=45.0,       # enough buffer for normal latency
+        activation_threshold=0.6,       # stricter threshold = less false triggers
         sample_rate=16000,
         force_cpu=True
     )
@@ -108,12 +108,12 @@ def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER
         # 🔽 Responsiveness
         preemptive_generation=True,        # Start generating replies while user is still talking
 
-        # 🔽 Defaults (safe values)
-        allow_interruptions=True,                 # Allow user to interrupt agent
-        min_interruption_words=2,
-        min_interruption_duration=0.25,           # Minimum silence to allow interruption
-        discard_audio_if_uninterruptible=True,    # Save compute if interruption not possible
-        agent_false_interruption_timeout=0.5,     # Grace period after false interruption
+        # 🧏 Interruptions – smoother and less aggressive
+        allow_interruptions=True,
+        min_interruption_duration=0.5,   # require 500ms of user speech to count as real interruption
+        min_interruption_words=3,        # only if STT is enabled
+        discard_audio_if_uninterruptible=False,  # keep audio even if agent is mid-sentence
+        agent_false_interruption_timeout=1.5,    # quicker recovery if user stopped
     )
 
     # --------------------------
