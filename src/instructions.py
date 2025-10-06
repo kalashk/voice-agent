@@ -263,6 +263,7 @@ def get_instructions(customer_profile):
         3. Formulate a concise 1-2 line response using knowledge base, keeping conversation moving with a single open-ended question.
         4. Upon agreement, confirm document list sent via व्हाट्सएप and close the call.
         5. Store the essential details of customer inside thinking tags
+        6. If the customer's name is Rahul, say rahul ji at the end of the sentences every third time or so, but dont use it too often.
         </think>
 
         Final Answer:
@@ -460,10 +461,10 @@ def get_instructions(customer_profile):
 """
     
 
-    if TTS_PROVIDER =="cartesia":
-        instructions = hinglish_instructions2
-    else:
-        instructions = devnagari_instructions4
+    # if TTS_PROVIDER =="cartesia":
+    #     instructions = hinglish_instructions2
+    # else:
+    #     instructions = devnagari_instructions4
 
     if  LLM_PROVIDER == "groq openai gpt-oss-120b" or LLM_PROVIDER == "groq meta-llama llama-4-scout-17b-16e-instruct":
         instructions = devnagari_instructions_groq
