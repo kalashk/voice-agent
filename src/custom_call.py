@@ -1,4 +1,5 @@
 import os
+import json
 import uuid
 import asyncio
 from dotenv import load_dotenv
@@ -10,6 +11,7 @@ from livekit.protocol.sip import (
     CreateSIPParticipantRequest,
     ListSIPOutboundTrunkRequest,
 )
+from helpers.customer_helper import update_customer_profile, CustomerProfileType
 from livekit.api import EncodedFileOutput, RoomCompositeEgressRequest
 from livekit.protocol.room import ListParticipantsRequest
 
@@ -124,37 +126,6 @@ async def stop_audio_recording(egress_id: str):
             print(f"❌ Failed to stop recording {egress_id}: {e}")
 
 
-# --------------------------
-# Input Validation Helpers
-# --------------------------
-def get_valid_phone_number() -> str:
-    """Prompt user until a valid 10-digit phone number is entered."""
-    while True:
-        number = input("📱 Enter 10-digit Indian phone number (without +91): ").strip()
-        if number.isdigit() and len(number) == 10:
-            full_number = f"+91{number}"
-            print(f"✅ Calling {full_number}")
-            return full_number
-        print("❌ Invalid number! Please enter exactly 10 digits (numbers only).")
-
-
-def get_valid_name() -> str:
-    """Prompt user for a valid name (non-empty)."""
-    while True:
-        name = input("👤 Enter participant name: ").strip()
-        if len(name) > 0:
-            return name
-        print("❌ Name cannot be empty!")
-
-
-def get_valid_gender() -> str:
-    """Prompt user for gender (M or F)."""
-    while True:
-        gender = input("⚧ Enter gender (M/F): ").strip().upper()
-        if gender in ["M", "F"]:
-            return gender
-        print("❌ Invalid gender! Please enter 'M' or 'F' only.")
-
 
 # --------------------------
 # Run Calls
@@ -166,18 +137,22 @@ async def run_calls():
     3. Make call
     4. Start & stop recording
     """
+    customer = update_customer_profile()
     trunk_id = await create_or_get_trunk()
-    print(f"🔑 Using trunk ID: {trunk_id}")
 
-    name = get_valid_name()
-    gender = get_valid_gender()
-    phone_number = get_valid_phone_number()
+    print(f"🔑 Using trunk ID: {trunk_id}")
 
     participant_identity = f"sip-{uuid.uuid4().hex[:4]}"
     room_name = f"room-{uuid.uuid4().hex[:4]}"
 
-    print(f"📞 Attempting to call {name} ({gender}) at {phone_number}...")
-    participant = await make_call(phone_number, name, gender, trunk_id, room_name=room_name, participant_identity=participant_identity)
+    participant = await make_call(
+        phone_number=customer["phone_number"],
+        name=customer["customer_name"],
+        gender=customer["gender"], 
+        sip_trunk_id=trunk_id, 
+        room_name=room_name, 
+        participant_identity=participant_identity
+    )
 
     if participant:
         # Start recording

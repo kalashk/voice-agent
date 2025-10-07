@@ -6,9 +6,10 @@ from livekit.agents.voice import ModelSettings
 from instructions import get_instructions
 from helpers.config import TTS_PROVIDER
 from livekit.agents.llm import LLM
+from helpers.customer_helper import CustomerProfileType
 
 class MyAssistant(Agent):
-    def __init__(self, customer_profile: dict, session : AgentSession, **kwargs):
+    def __init__(self, customer_profile: CustomerProfileType, session : AgentSession, **kwargs):
         instructions = get_instructions(customer_profile)
         super().__init__(instructions=instructions)
         self.customer_profile = customer_profile
