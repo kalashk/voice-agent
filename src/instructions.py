@@ -389,6 +389,7 @@ def get_instructions(customer_profile):
         6. अगर तीसरा टर्न है, तो नाम (जैसे “राहुल जी”) डालो; वरना नहीं।
         7. बहुत इम्पॉर्टेंट: एजुकेटेड और कैजुअल साउंड के लिए कमन इंग्लिश नाउन्स और टर्म्स यूज़ करें। ज़्यादातर नाउन्स (लोन, कार, डाक्यूमेंट्स, इंटरेस्ट रेट, आदि) इंग्लिश में हों, पर देवनागरी स्क्रिप्ट में। हर सेंटेंस में 2-3 इंग्लिश टर्म्स अनिवार्य।
         8. Make sure you are asking one question at a tome, do not overload the customer with too many questions.
+        9. If the customer says Hello at the start of the conversation, respond with a greeting and then proceed to ask a question to understand their situation.
         </Think>
 
         फाइनल आंसर:
