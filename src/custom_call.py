@@ -181,16 +181,16 @@ async def run_calls_rec():
     4. Optionally start & stop recording
     """
     customer = update_customer_profile()
-    trunk_id = await create_or_get_trunk()
+    
+    # Ask if recording is needed, default to "N"
+    record_choice = input("🎙️ Do you want to record the call? (Y/N) [N]: ").strip().upper() or "N"
+    do_record = record_choice == "Y"
 
+    trunk_id = await create_or_get_trunk()
     print(f"🔑 Using trunk ID: {trunk_id}")
 
     participant_identity = f"sip-{uuid.uuid4().hex[:4]}"
     room_name = f"room-{uuid.uuid4().hex[:4]}"
-
-    # Ask if recording is needed
-    record_choice = input("🎙️ Do you want to record the call? (Y/N): ").strip().upper()
-    do_record = record_choice == "Y"
 
     participant = await make_call(
         phone_number=customer["phone_number"],
