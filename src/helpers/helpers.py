@@ -110,10 +110,10 @@ def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER
 
         # 🧏 Interruptions – smoother and less aggressive
         allow_interruptions=True,
-        min_interruption_duration=0.5,   # require 500ms of user speech to count as real interruption
-        min_interruption_words=3,        # only if STT is enabled
+        min_interruption_duration=0.15,   # require 500ms of user speech to count as real interruption
+        min_interruption_words=1,        # only if STT is enabled
         discard_audio_if_uninterruptible=False,  # keep audio even if agent is mid-sentence
-        agent_false_interruption_timeout=1.5,    # quicker recovery if user stopped
+        agent_false_interruption_timeout=1.0,    # quicker recovery if user stopped
     )
 
     # --------------------------
@@ -130,7 +130,3 @@ def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER
         session.generate_reply(instructions=ev.extra_instructions or NOT_GIVEN)
 
     return session
-
-# --------------------------
-#   Session Setup Using Voice Agent Pipeline
-# --------------------------
