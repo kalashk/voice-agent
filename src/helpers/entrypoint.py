@@ -183,13 +183,13 @@ async def entrypoint(ctx: JobContext):
             room_input_options=RoomInputOptions(noise_cancellation=noise_cancellation.BVC()),
         )
 
-        await asyncio.sleep(3)
+        # await asyncio.sleep(3)
 
-        # Generate initial greeting
-        reply = await session.generate_reply(
-            instructions="simply greet with namaste and introduce yourself, keep it very simple and short, without think tag, dont think here",
-        )
-        print("LLM →", reply.chat_items)
+        # # Generate initial greeting
+        # reply = await session.generate_reply(
+        #     instructions="simply greet with namaste and introduce yourself, keep it very simple and short, without think tag, dont think here",
+        # )
+        # print("LLM →", reply.chat_items)
 
     except Exception as e:
         logger.exception("Error in entrypoint")
