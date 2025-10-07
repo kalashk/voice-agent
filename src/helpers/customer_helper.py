@@ -72,15 +72,23 @@ def get_valid_gender(current_gender="") -> str:
             return current_gender
         print("❌ Invalid input! Enter 'M' or 'F'.")
 
-def get_valid_phone(current_phone="") -> str:
-    """Prompt for phone number; keep current if empty input."""
+def get_valid_phone(current_phone: str = "") -> str:
+    """Prompt for phone number; keep current if empty input. Adds +91 by default."""
     while True:
         phone = input(f"📱 Enter 10-digit phone number [{current_phone}]: ").strip()
-        if phone.isdigit() and len(phone) == 10:
-            return phone
-        elif current_phone:
+
+        # Keep current number if user presses Enter
+        if not phone and current_phone:
             return current_phone
-        print("❌ Invalid number! Must be 10 digits.")
+
+        # Validate and add +91 prefix if missing
+        if phone.isdigit() and len(phone) == 10:
+            return f"+91{phone}"
+        elif phone.startswith("+91") and len(phone) == 13 and phone[3:].isdigit():
+            return phone
+
+        print("❌ Invalid number! Must be 10 digits (or include +91).")
+
 
 # --------------------------
 # Update customer interactively
