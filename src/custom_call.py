@@ -171,7 +171,58 @@ async def run_calls():
 
 
 # --------------------------
+# Run Calls
+# --------------------------
+async def run_calls_rec():
+    """
+    1. Create a trunk id
+    2. Ask user for name, gender, and number
+    3. Make call
+    4. Optionally start & stop recording
+    """
+    customer = update_customer_profile()
+    trunk_id = await create_or_get_trunk()
+
+    print(f"🔑 Using trunk ID: {trunk_id}")
+
+    participant_identity = f"sip-{uuid.uuid4().hex[:4]}"
+    room_name = f"room-{uuid.uuid4().hex[:4]}"
+
+    # Ask if recording is needed
+    record_choice = input("🎙️ Do you want to record the call? (Y/N): ").strip().upper()
+    do_record = record_choice == "Y"
+
+    participant = await make_call(
+        phone_number=customer["phone_number"],
+        name=customer["customer_name"],
+        gender=customer["gender"], 
+        sip_trunk_id=trunk_id, 
+        room_name=room_name, 
+        participant_identity=participant_identity
+    )
+
+    if participant:
+        egress_info = None
+        if do_record:
+            # Start recording if chosen
+            egress_info = await start_audio_recording(participant.room_name)
+
+        async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
+            while True:
+                participants_resp = await lkapi.room.list_participants(
+                    ListParticipantsRequest(room=room_name)
+                )
+                identities = [p.identity for p in participants_resp.participants]
+                if participant_identity not in identities:
+                    print("📴 Participant left.")
+                    if do_record and egress_info:
+                        print("🛑 Stopping recording...")
+                        await stop_audio_recording(egress_info.egress_id)
+                    break
+
+
+# --------------------------
 # Main
 # --------------------------
 if __name__ == "__main__":
-    asyncio.run(run_calls())
+    asyncio.run(run_calls_rec())
