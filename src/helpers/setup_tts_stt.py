@@ -82,7 +82,8 @@ def setup_llm(provider: str = LLM_PROVIDER):
     elif provider == "groq meta-llama llama-4-scout-17b-16e-instruct":
         return groq.LLM(
             model="meta-llama/llama-4-scout-17b-16e-instruct", 
-            tool_choice='none'
+            tool_choice='none',
+            temperature=0.1
             )
     elif provider == "groq openai gpt-oss-20b":
         return groq.LLM(

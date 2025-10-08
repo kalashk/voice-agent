@@ -1,5 +1,6 @@
 import os
 import json
+import asyncio
 import logging
 from livekit.agents import (
     JobProcess,
@@ -91,7 +92,7 @@ def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER
         min_interruption_duration=0.15,   # require 500ms of user speech to count as real interruption
         min_interruption_words=1,        # only if STT is enabled
         discard_audio_if_uninterruptible=False,  # keep audio even if agent is mid-sentence
-        agent_false_interruption_timeout=1.0,    # quicker recovery if user stopped
+        agent_false_interruption_timeout=2.0,    # quicker recovery if user stopped
     )
 
     # --------------------------
@@ -106,5 +107,23 @@ def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER
         """
         logger.info("false positive interruption, resuming")
         session.generate_reply(instructions=ev.extra_instructions or NOT_GIVEN)
+
+    # @session.on("user_state_changed")
+    # async def handle_user_speaking(event):
+    #     # Detect if user started talking
+    #     if event.new_state == "speaking":
+    #         # If agent was speaking, treat it as interruption
+    #         if session.agent_state == "speaking":
+    #             print("⚠️ User interrupted agent. Pausing for 2 seconds...")
+
+    #             # Stop current TTS playback (speech handle)
+    #             if session._active_speech:
+    #                 await session._active_speech.cancel()
+
+    #             # Wait 2 seconds before listening again
+    #             await asyncio.sleep(2)
+    #             print("🕓 Listening again...")
+
+
 
     return session
