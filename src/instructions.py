@@ -381,8 +381,7 @@ def get_instructions(customer_profile):
         - हर सेंटेंस में कम से कम तीन इंग्लिश टर्म्स (देवनागरी में) हों।
 
         Interruption Handling (Important):
-        - If early in conversaion, respond with a greeting and then proceed to ask a question to understand their situation.
-        - If the interruption happens after some exchange, ask the user to repeat or clarify, and wait for their answer, then continue the conversation naturally.
+        - If the customer interrupts the conersation, ask them to restate or clarify their point politely. And continue the conversation from there. Dont Repeat what you said earlier. Just continue from where you left off. Or you can paraphrase your last sentence in a shorter way and continue the conversation.
 
 
         रिस्पॉन्स लॉजिक:
