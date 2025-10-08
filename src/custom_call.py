@@ -222,7 +222,52 @@ async def run_calls_rec():
 
 
 # --------------------------
+# Run Multiple Calls
+# --------------------------
+async def run_multiple_calls():
+    """
+    Make multiple calls concurrently (no recording).
+    """
+    num_calls = int(input("📞 How many calls do you want to make? "))
+
+    customers = []
+    for i in range(num_calls):
+        print(f"\n🧍‍♂️ Customer {i+1}")
+        name = input("👤 Enter name: ").strip()
+        gender = input("⚧️ Enter gender (M/F): ").strip().lower()
+        phone = input("📱 Enter 10-digit phone number: ").strip()
+        if not phone.startswith("+91"):
+            phone = "+91" + phone
+        customers.append({"customer_name": name, "gender": gender, "phone_number": phone})
+
+    trunk_id = await create_or_get_trunk()
+    print(f"\n🔑 Using trunk ID: {trunk_id}")
+
+    async def make_individual_call(customer):
+        room_name = f"room-{uuid.uuid4().hex[:4]}"
+        participant_identity = f"sip-{uuid.uuid4().hex[:4]}"
+        try:
+            participant = await make_call(
+                phone_number=customer["phone_number"],
+                name=customer["customer_name"],
+                gender=customer["gender"],
+                sip_trunk_id=trunk_id,
+                room_name=room_name,
+                participant_identity=participant_identity
+            )
+            if participant:
+                print(f"✅ Call started for {customer['customer_name']} ({customer['phone_number']})")
+        except Exception as e:
+            print(f"❌ Error for {customer['customer_name']}: {e}")
+
+    # Launch all calls concurrently
+    await asyncio.gather(*(make_individual_call(c) for c in customers))
+
+    print("\n📞 All calls initiated successfully!")
+
+
+# --------------------------
 # Main
 # --------------------------
 if __name__ == "__main__":
-    asyncio.run(run_calls_rec())
+    asyncio.run(run_multiple_calls())
