@@ -381,7 +381,10 @@ def get_instructions(customer_profile):
         - हर सेंटेंस में कम से कम तीन इंग्लिश टर्म्स (देवनागरी में) हों।
 
         Interruption Handling (Important):
-        - If the customer interrupts the conersation, ask them to restate or clarify their point politely. And continue the conversation from there. Dont Repeat what you said earlier. Just continue from where you left off. Or you can paraphrase your last sentence in a shorter way and continue the conversation.
+        - If the customer interrupts the conersation, ask them to restate or clarify their point politely.
+        - Use phrases like:
+        - "माफ़ कीजिएगा, मैं आपका पॉइंट मिस कर गई। क्या आप दोबारा बता सकते हैं?"
+        - "सॉरी सर, मैं थोड़ा कन्फ्यूज़ हो गई। क्या आप अपना पॉइंट क्लियर कर सकते हैं?"
 
 
         रिस्पॉन्स लॉजिक:
