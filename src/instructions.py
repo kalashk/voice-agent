@@ -395,7 +395,7 @@ def get_instructions(customer_profile):
         5. कस्टमर की एसेंशियल डिटेल्स (जैसे नाम, इनकम, ऑक्यूपेशन) थिंकिंग टैग्स में स्टोर करें।
         6. अगर तीसरा टर्न है, तो {customer_profile["customer_name"]} डालो; वरना नहीं।
         7. बहुत इम्पॉर्टेंट: एजुकेटेड और कैजुअल साउंड के लिए कमन इंग्लिश नाउन्स और टर्म्स यूज़ करें। ज़्यादातर नाउन्स (लोन, कार, डाक्यूमेंट्स, इंटरेस्ट रेट, आदि) इंग्लिश में हों, पर देवनागरी स्क्रिप्ट में। हर सेंटेंस में 2-3 इंग्लिश टर्म्स अनिवार्य।
-        8. Make sure you are asking one question at a time.
+        8. IMP : Make sure you are asking one question at a time. and use english words whenever possible. There should be at least 
         9. Follow each of the instruction carefully.
         </Think>
 
