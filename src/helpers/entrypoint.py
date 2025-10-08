@@ -90,7 +90,7 @@ async def entrypoint(ctx: JobContext):
 
         # Generate initial greeting
         reply = await session.generate_reply(
-            instructions="simply greet with namaste and introduce yourself, keep it very simple and short, without think tag, dont think here",
+            instructions="simply greet with namaste and introduce yourself (say your name and bank name), keep it very simple and short, without think tag, dont think here",
         )
         print("LLM →", reply.chat_items)
 
