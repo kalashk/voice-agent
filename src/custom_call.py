@@ -571,97 +571,6 @@ async def run_calls_rec():
                         await stop_audio_recording(egress_info.egress_id)
                     break
 
-# # --------------------------
-# # Run Multiple Calls
-# # --------------------------
-# async def run_multiple_calls():
-#     """
-#     Make multiple customer calls concurrently.
-#     Each call:
-#       - Saves its own customer.json before the call
-#       - Makes the call (no recording)
-#       - Logs every step
-#       - Adds delay between calls to prevent profile overlap
-#     """
-#     logger.info("🚀 Starting multi-call workflow")
-#     num_calls = int(input("📞 How many calls do you want to make? "))
-
-#     customers: list[CustomerProfileType] = []
-
-#     for i in range(num_calls):
-#         print(f"\n🧍‍♂️ Customer {i + 1}")
-#         name = input("👤 Enter name: ").strip()
-#         gender = input("⚧ Enter gender (M/F): ").strip().upper()
-#         gender = "Male" if gender == "M" else "Female" if gender == "F" else gender
-#         phone = input("📱 Enter 10-digit phone number: ").strip()
-#         if not phone.startswith("+91"):
-#             phone = "+91" + phone
-
-#         customer: CustomerProfileType = {
-#             "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
-#             "customer_name": name,
-#             "age": 30,
-#             "city": "Pune",
-#             "language": "hindi",
-#             "bank_name": "HDFC",
-#             "phone_number": phone,
-#             "gender": gender
-#         }
-
-#         logger.info(f"🧾 Added customer {i + 1}: {customer['customer_name']} ({customer['phone_number']})")
-#         customers.append(customer)
-
-#     logger.info("🔄 Creating or fetching trunk ID...")
-#     trunk_id = await create_or_get_trunk()
-#     logger.info(f"🔑 Using trunk ID: {trunk_id}")
-
-#     async def make_individual_call(customer: CustomerProfileType):
-#         cid = customer["customer_id"]
-#         prefix = f"[{customer['customer_name']}]"
-#         try:
-#             save_customer_profile(profile=customer)
-#             logger.info(f"{prefix} 💾 Profile saved")
-
-#             room_name = f"room-{uuid.uuid4().hex[:4]}"
-#             participant_identity = cid
-#             logger.info(f"{prefix} 📞 Initiating call to {customer['phone_number']}...")
-
-#             participant = await make_call(
-#                 phone_number=customer["phone_number"],
-#                 name=customer["customer_name"],
-#                 gender=customer["gender"],
-#                 sip_trunk_id=trunk_id,
-#                 room_name=room_name,
-#                 participant_identity=participant_identity
-#             )
-
-#             if participant:
-#                 logger.info(f"{prefix} ✅ Call successfully started (room: {room_name})")
-#             else:
-#                 logger.warning(f"{prefix} ⚠️ Call initiation failed or returned None")
-
-#         except Exception as e:
-#             logger.error(f"{prefix} ❌ Error during call: {e}", exc_info=True)
-#         finally:
-#             logger.info(f"{prefix} 📴 Call process ended")
-
-#     logger.info(f"📲 Launching {num_calls} call(s) with delay between each...")
-
-#     delay_seconds = 5  # ⏳ tweak this to adjust gap between calls
-#     tasks = []
-
-#     for idx, customer in enumerate(customers):
-#         task = asyncio.create_task(make_individual_call(customer))
-#         tasks.append(task)
-
-#         if idx < len(customers) - 1:
-#             logger.info(f"⏱️ Waiting {delay_seconds}s before next call...")
-#             await asyncio.sleep(delay_seconds)
-
-#     await asyncio.gather(*tasks)
-#     logger.info("✅ All calls initiated successfully!")
-
-
 # --------------------------
 # Run Calls with Rolling Concurrency + Delay
 # --------------------------
@@ -777,4 +686,4 @@ async def run_parallel_calls(max_concurrent: int = 4, delay_seconds: int = 5):
 # Main
 # --------------------------
 if __name__ == "__main__":
-    asyncio.run(run_parallel_calls())
+    asyncio.run(run_calls_rec())
