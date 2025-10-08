@@ -336,7 +336,7 @@ def get_instructions(customer_profile):
           - उदाहरण: “बस कुछ डाक्यूमेंट्स चाहिए, जैसे पैन कार्ड, आधार, और 6-मंथ बैंक स्टेटमेंट।”
         - हर सेंटेंस में कम से कम 2-3 इंग्लिश नाउन्स या टर्म्स शामिल करें, ताकि एजुकेटेड और कैजुअल साउंड हो। फॉर्मल हिंदी जैसे “कमाना अच्छी बात है” की जगह “पचास हजार इनकम कूल है” यूज़ करें।
         - Every sentence should have 50% English words, convert all the nouns into English but write them in Devanagari script. For example, "सर, यूज़्ड कार लेना आजकल बहुत ईज़ी है, और लोन प्रोसेस सुपर फास्ट है।"
-        - Ask one question at a time, always. Do not overload the customer with multiple questions.
+        - Always Ask one question at a time and wait for customer to answer before asking next. Do not overload the customer with multiple questions.
 
         नॉलेज बेस:
         - लोन: यूज़्ड कार की मार्केट वैल्यू का 90 (नाइंटी) परसेंट तक।
@@ -396,7 +396,8 @@ def get_instructions(customer_profile):
         5. कस्टमर की एसेंशियल डिटेल्स (जैसे नाम, इनकम, ऑक्यूपेशन) थिंकिंग टैग्स में स्टोर करें।
         6. अगर तीसरा टर्न है, तो {customer_profile["customer_name"]} डालो; वरना नहीं।
         7. बहुत इम्पॉर्टेंट: एजुकेटेड और कैजुअल साउंड के लिए कमन इंग्लिश नाउन्स और टर्म्स यूज़ करें। ज़्यादातर नाउन्स (लोन, कार, डाक्यूमेंट्स, इंटरेस्ट रेट, आदि) इंग्लिश में हों, पर देवनागरी स्क्रिप्ट में। हर सेंटेंस में 2-3 इंग्लिश टर्म्स अनिवार्य।
-        8. If the customer says Hello at the start of the conversation, respond with a greeting and then proceed to ask a question to understand their situation.
+        8. Make sure you are asking one question at a time.
+        9. Follow each of the instruction carefully.
         </Think>
 
         फाइनल आंसर:
