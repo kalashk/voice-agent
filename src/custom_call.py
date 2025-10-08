@@ -571,7 +571,6 @@ async def run_calls_rec():
                         await stop_audio_recording(egress_info.egress_id)
                     break
 
-
 # # --------------------------
 # # Run Multiple Calls
 # # --------------------------
@@ -582,6 +581,7 @@ async def run_calls_rec():
 #       - Saves its own customer.json before the call
 #       - Makes the call (no recording)
 #       - Logs every step
+#       - Adds delay between calls to prevent profile overlap
 #     """
 #     logger.info("🚀 Starting multi-call workflow")
 #     num_calls = int(input("📞 How many calls do you want to make? "))
@@ -645,95 +645,188 @@ async def run_calls_rec():
 #         finally:
 #             logger.info(f"{prefix} 📴 Call process ended")
 
-#     logger.info(f"📲 Launching {num_calls} call(s) concurrently...")
-#     await asyncio.gather(*(make_individual_call(c) for c in customers))
+#     logger.info(f"📲 Launching {num_calls} call(s) with delay between each...")
+
+#     delay_seconds = 5  # ⏳ tweak this to adjust gap between calls
+#     tasks = []
+
+#     for idx, customer in enumerate(customers):
+#         task = asyncio.create_task(make_individual_call(customer))
+#         tasks.append(task)
+
+#         if idx < len(customers) - 1:
+#             logger.info(f"⏱️ Waiting {delay_seconds}s before next call...")
+#             await asyncio.sleep(delay_seconds)
+
+#     await asyncio.gather(*tasks)
 #     logger.info("✅ All calls initiated successfully!")
 
+
 # --------------------------
-# Run Multiple Calls
+# Run Calls with Rolling Concurrency + Delay
 # --------------------------
-async def run_multiple_calls():
+async def run_parallel_calls(max_concurrent: int = 3, delay_seconds: int = 5):
     """
-    Make multiple customer calls concurrently.
-    Each call:
-      - Saves its own customer.json before the call
-      - Makes the call (no recording)
-      - Logs every step
-      - Adds delay between calls to prevent profile overlap
+    Run multiple customer calls concurrently with:
+    - Up to `max_concurrent` calls active at any time
+    - Delay between starting each call to prevent profile overlap
+    - Automatically starts next call as soon as a call finishes
     """
-    logger.info("🚀 Starting multi-call workflow")
-    num_calls = int(input("📞 How many calls do you want to make? "))
 
-    customers: list[CustomerProfileType] = []
+    logger.info(f"🚀 Starting rolling call workflow (max_concurrent={max_concurrent})")
 
-    for i in range(num_calls):
-        print(f"\n🧍‍♂️ Customer {i + 1}")
-        name = input("👤 Enter name: ").strip()
-        gender = input("⚧ Enter gender (M/F): ").strip().upper()
-        gender = "Male" if gender == "M" else "Female" if gender == "F" else gender
-        phone = input("📱 Enter 10-digit phone number: ").strip()
-        if not phone.startswith("+91"):
-            phone = "+91" + phone
-
-        customer: CustomerProfileType = {
+    # 🧍 Hardcoded customer list — edit as needed
+    customers: list[CustomerProfileType] = [
+        {
             "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
-            "customer_name": name,
-            "age": 30,
+            "customer_name": "Arpit",
+            "age": 32,
+            "city": "Mumbai",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+918127028998",
+            "gender": "Male",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Hari",
+            "age": 27,
+            "city": "Delhi",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+918103420879",
+            "gender": "Male",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Prakhar",
+            "age": 29,
             "city": "Pune",
             "language": "hindi",
             "bank_name": "HDFC",
-            "phone_number": phone,
-            "gender": gender
-        }
+            "phone_number": "+916307348954",
+            "gender": "Male",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Aboli",
+            "age": 25,
+            "city": "Lucknow",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+917972476969",
+            "gender": "Female",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Shubham",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+919450573909",
+            "gender": "Male",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Sunil",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+918090511458",
+            "gender": "Male",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Rujuta",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+919403629149",
+            "gender": "Female",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Atharva",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+917020387251",
+            "gender": "Male",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Abhishek",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+918953678465",
+            "gender": "Male",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Rahul",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+919669953995",
+            "gender": "Male",
+        },
+    ]
 
-        logger.info(f"🧾 Added customer {i + 1}: {customer['customer_name']} ({customer['phone_number']})")
-        customers.append(customer)
+    logger.info(f"🧾 Loaded {len(customers)} customers for calling")
 
+    # 🔑 Get trunk once
     logger.info("🔄 Creating or fetching trunk ID...")
     trunk_id = await create_or_get_trunk()
     logger.info(f"🔑 Using trunk ID: {trunk_id}")
 
-    async def make_individual_call(customer: CustomerProfileType):
-        cid = customer["customer_id"]
-        prefix = f"[{customer['customer_name']}]"
-        try:
-            save_customer_profile(profile=customer)
-            logger.info(f"{prefix} 💾 Profile saved")
+    # 🎯 Define single call routine
+    async def make_individual_call(customer: CustomerProfileType, sem: asyncio.Semaphore):
+        async with sem:  # limits concurrency
+            prefix = f"[{customer['customer_name']}]"
+            try:
+                save_customer_profile(profile=customer)
+                logger.info(f"{prefix} 💾 Profile saved")
 
-            room_name = f"room-{uuid.uuid4().hex[:4]}"
-            participant_identity = cid
-            logger.info(f"{prefix} 📞 Initiating call to {customer['phone_number']}...")
+                room_name = f"room-{uuid.uuid4().hex[:4]}"
+                participant_identity = customer["customer_id"]
+                logger.info(f"{prefix} 📞 Initiating call to {customer['phone_number']}...")
 
-            participant = await make_call(
-                phone_number=customer["phone_number"],
-                name=customer["customer_name"],
-                gender=customer["gender"],
-                sip_trunk_id=trunk_id,
-                room_name=room_name,
-                participant_identity=participant_identity
-            )
+                participant = await make_call(
+                    phone_number=customer["phone_number"],
+                    name=customer["customer_name"],
+                    gender=customer["gender"],
+                    sip_trunk_id=trunk_id,
+                    room_name=room_name,
+                    participant_identity=participant_identity
+                )
 
-            if participant:
-                logger.info(f"{prefix} ✅ Call successfully started (room: {room_name})")
-            else:
-                logger.warning(f"{prefix} ⚠️ Call initiation failed or returned None")
+                if participant:
+                    logger.info(f"{prefix} ✅ Call successfully started (room: {room_name})")
+                else:
+                    logger.warning(f"{prefix} ⚠️ Call initiation failed or returned None")
 
-        except Exception as e:
-            logger.error(f"{prefix} ❌ Error during call: {e}", exc_info=True)
-        finally:
-            logger.info(f"{prefix} 📴 Call process ended")
+            except Exception as e:
+                logger.error(f"{prefix} ❌ Error during call: {e}", exc_info=True)
+            finally:
+                logger.info(f"{prefix} 📴 Call process ended")
 
-    logger.info(f"📲 Launching {num_calls} call(s) with delay between each...")
-
-    delay_seconds = 5  # ⏳ tweak this to adjust gap between calls
+    # ⚙️ Use rolling concurrency with semaphore + delay
+    sem = asyncio.Semaphore(max_concurrent)
     tasks = []
 
     for idx, customer in enumerate(customers):
-        task = asyncio.create_task(make_individual_call(customer))
+        task = asyncio.create_task(make_individual_call(customer, sem))
         tasks.append(task)
 
         if idx < len(customers) - 1:
-            logger.info(f"⏱️ Waiting {delay_seconds}s before next call...")
+            logger.info(f"⏱️ Waiting {delay_seconds}s before starting next call...")
             await asyncio.sleep(delay_seconds)
 
     await asyncio.gather(*tasks)
@@ -744,4 +837,4 @@ async def run_multiple_calls():
 # Main
 # --------------------------
 if __name__ == "__main__":
-    asyncio.run(run_multiple_calls())
+    asyncio.run(run_parallel_calls())
