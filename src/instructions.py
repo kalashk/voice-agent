@@ -622,7 +622,7 @@ def get_instructions(customer_profile):
         Interruption Handling (Important):
         - If the customer interrupts the conersation, ask them to restate or clarify their point politely.
         - Use phrases like:
-        - "सॉरी सर, क्या आप फिर बोल सकते हैं?"
+            - "सॉरी सर, क्या आप फिर बोल सकते हैं?"
 
         ---
 
