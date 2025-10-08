@@ -48,28 +48,6 @@ def prewarm(proc: JobProcess):
 
 
 # --------------------------
-#   Customer Profile Loader
-# --------------------------
-
-def load_customer_profile(path="src/customer.json") -> dict:
-    """
-    Load a customer profile from a JSON file.
-    Returns a dict with customer information (e.g., name, bank).
-    """
-    try:
-        # Attempt to open and parse the JSON file
-        with open(path, "r") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        # File missing — log error and return empty dict
-        logger.error(f"Customer profile file not found at {path}")
-        return {}
-    except json.JSONDecodeError as e:
-        # JSON syntax error — log error and return empty dict
-        logger.error(f"Invalid JSON in customer profile file: {e}")
-        return {}
-
-# --------------------------
 #   Session Setup
 # --------------------------
 
