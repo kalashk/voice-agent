@@ -1004,5 +1004,5 @@ def get_instructions(customer_profile):
     #     instructions = devnagari_instructions4
 
     if  LLM_PROVIDER == "groq openai gpt-oss-120b" or LLM_PROVIDER == "groq meta-llama llama-4-scout-17b-16e-instruct":
-        instructions = devnagari_instructions_groq_aligned
+        instructions = devnagari_instructions_groq_11
     return instructions
