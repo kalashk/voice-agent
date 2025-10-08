@@ -28,7 +28,7 @@ def setup_tts(provider: str = TTS_PROVIDER):
             target_language_code="hi-IN",
             speaker="anushka",
             pace=0.95,
-            enable_preprocessing=True,
+            #enable_preprocessing=True,
         )
     elif provider == "sarvam_manisha":
         # Sarvam TTS with Hindi target language, speaker 'manisha'
@@ -36,7 +36,7 @@ def setup_tts(provider: str = TTS_PROVIDER):
             target_language_code="hi-IN",
             speaker="manisha",
             pace=0.95,
-            enable_preprocessing=True,
+            #enable_preprocessing=True,
         )
     else:
         # Raise error if provider is unknown

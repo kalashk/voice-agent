@@ -74,12 +74,7 @@ def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER
         # 🔽 Latency tuning — makes assistant feel more responsive
         min_endpointing_delay=0.25,        # Wait this long before deciding speech has ended
         max_endpointing_delay=2.0,         # Hard stop for silence detection
-        min_consecutive_speech_delay=0.05, # Time between two speech segments
-
-        # min_endpointing_delay=0.15,
-        # max_endpointing_delay=1.0,
-        # min_interruption_duration=0.15,
-
+        min_consecutive_speech_delay=0.15, # Time between two speech segments
 
         # 🔽 Transcript handling
         use_tts_aligned_transcript=aligned_script,  # Don’t wait for TTS metadata to finalize transcript
@@ -89,7 +84,7 @@ def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER
 
         # 🧏 Interruptions – smoother and less aggressive
         allow_interruptions=True,
-        min_interruption_duration=0.15,   # require 500ms of user speech to count as real interruption
+        min_interruption_duration=0.15,   # require 150ms of user speech to count as real interruption
         min_interruption_words=1,        # only if STT is enabled
         discard_audio_if_uninterruptible=False,  # keep audio even if agent is mid-sentence
         agent_false_interruption_timeout=2.0,    # quicker recovery if user stopped
