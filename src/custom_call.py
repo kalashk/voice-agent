@@ -665,7 +665,7 @@ async def run_calls_rec():
 # --------------------------
 # Run Calls with Rolling Concurrency + Delay
 # --------------------------
-async def run_parallel_calls(max_concurrent: int = 3, delay_seconds: int = 5):
+async def run_parallel_calls(max_concurrent: int = 4, delay_seconds: int = 5):
     """
     Run multiple customer calls concurrently with:
     - Up to `max_concurrent` calls active at any time
@@ -689,72 +689,12 @@ async def run_parallel_calls(max_concurrent: int = 3, delay_seconds: int = 5):
         },
         {
             "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
-            "customer_name": "Hari",
-            "age": 27,
-            "city": "Delhi",
-            "language": "hindi",
-            "bank_name": "HDFC",
-            "phone_number": "+918103420879",
-            "gender": "Male",
-        },
-        {
-            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
-            "customer_name": "Prakhar",
-            "age": 29,
-            "city": "Pune",
-            "language": "hindi",
-            "bank_name": "HDFC",
-            "phone_number": "+916307348954",
-            "gender": "Male",
-        },
-        {
-            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
-            "customer_name": "Aboli",
-            "age": 25,
-            "city": "Lucknow",
-            "language": "hindi",
-            "bank_name": "HDFC",
-            "phone_number": "+917972476969",
-            "gender": "Female",
-        },
-        {
-            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
             "customer_name": "Shubham",
             "age": 29,
             "city": "Pune",
             "language": "hindi",
             "bank_name": "HDFC",
             "phone_number": "+919450573909",
-            "gender": "Male",
-        },
-        {
-            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
-            "customer_name": "Sunil",
-            "age": 29,
-            "city": "Pune",
-            "language": "hindi",
-            "bank_name": "HDFC",
-            "phone_number": "+918090511458",
-            "gender": "Male",
-        },
-        {
-            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
-            "customer_name": "Rujuta",
-            "age": 29,
-            "city": "Pune",
-            "language": "hindi",
-            "bank_name": "HDFC",
-            "phone_number": "+919403629149",
-            "gender": "Female",
-        },
-        {
-            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
-            "customer_name": "Atharva",
-            "age": 29,
-            "city": "Pune",
-            "language": "hindi",
-            "bank_name": "HDFC",
-            "phone_number": "+917020387251",
             "gender": "Male",
         },
         {
