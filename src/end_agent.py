@@ -44,10 +44,6 @@ class MyAgent(Agent):
     @function_tool()
     async def end_session(self, context: RunContext):
         """Politely end the LiveKit call for everyone."""
-        # Step 1: Say goodbye
-        await context.session.generate_reply(
-            instructions="Politely say goodbye before ending the call."
-        )
         # Step 2: Small pause before hangup
         await asyncio.sleep(2)
 
