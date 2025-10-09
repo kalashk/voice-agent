@@ -70,11 +70,6 @@ def setup_stt(provider: str = STT_PROVIDER):
 def setup_llm(provider: str = LLM_PROVIDER):
     if provider == "openai":
         return openai.LLM(model="gpt-5-mini-2025-08-07")
-    elif provider == "groq llama 3.1 8b instant":
-        return groq.LLM(
-            model="llama-3.1-8b-instant", 
-            tool_choice='none'
-            )
     elif provider == "groq openai gpt-oss-120b":
         return groq.LLM(
             model="openai/gpt-oss-120b", 
@@ -85,11 +80,6 @@ def setup_llm(provider: str = LLM_PROVIDER):
             model="meta-llama/llama-4-scout-17b-16e-instruct", 
             tool_choice='none',
             temperature=0.1
-            )
-    elif provider == "groq openai gpt-oss-20b":
-        return groq.LLM(
-            model="openai/gpt-oss-20b", 
-            tool_choice='none'
             )
     else:
         raise ValueError(f"Unknown LLM provider: {provider}")
