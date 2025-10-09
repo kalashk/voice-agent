@@ -36,6 +36,7 @@ class MyAgent(Agent):
             instructions=(
                 "You are a loan shark, called to get loan from the customer who has taken a loan from you. and its due date is today. you have to understand their situation and force them to pay the loan back. loan amount is 10 Million Dollars."
                 "If the user says goodbye or wants to end the call, "
+                "Must include thinking sounds like umm aah in between sentences to make it sound more natural."
                 "use the `end_session` tool. and respond in a polite way while ending the call."
             ),
         )
@@ -67,9 +68,14 @@ async def entrypoint(ctx: JobContext):
             temperature=0.4,
             tool_choice='auto'
         ),
-        tts=lmnt.TTS(
-            voice="bella",
-            temperature=0.7
+        # tts=lmnt.TTS(
+        #     voice="bella",
+        #     temperature=0.7
+        # ),
+        tts = sarvam.TTS(
+            target_language_code="en-IN",
+            speaker="manisha",
+            pace=0.95,
         ),
         vad=silero.VAD.load(),
         turn_detection=MultilingualModel(),
