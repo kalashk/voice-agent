@@ -44,11 +44,11 @@ class MyAgent(Agent):
     async def end_session(self, context: RunContext):
         """Politely end the LiveKit call for everyone."""
         # Step 1: Say goodbye
-        await context.session.generate_reply(
-            instructions="Just say have a great day before ending the call. IMP: dont repeat yourself while ending the call."
-        )
+        # await context.session.generate_reply(
+        #     instructions="Just say have a great day before ending the call. IMP: dont repeat yourself while ending the call."
+        # )
         # Step 2: Small pause before hangup
-        await asyncio.sleep(2)
+        await asyncio.sleep(5)
 
         # Step 3: Delete the room (ends SIP + agent)
         await hangup_current_room()
@@ -67,15 +67,15 @@ async def entrypoint(ctx: JobContext):
             temperature=0.4,
             tool_choice='auto'
         ),
-        # tts=lmnt.TTS(
-        #     voice="bella",
-        #     temperature=0.7
-        # ),
-        tts = sarvam.TTS(
-            target_language_code="en-IN",
-            speaker="manisha",
-            pace=0.95,
+        tts=lmnt.TTS(
+            voice="bella",
+            temperature=0.7
         ),
+        # tts = sarvam.TTS(
+        #     target_language_code="en-IN",
+        #     speaker="manisha",
+        #     pace=0.95,
+        # ),
         vad=silero.VAD.load(),
         turn_detection=MultilingualModel(),
     )
