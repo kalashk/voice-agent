@@ -5,7 +5,7 @@ from livekit import api
 from livekit.agents import cli, WorkerOptions
 from livekit.agents import Agent, AgentSession, JobContext, RoomInputOptions, RunContext, get_job_context
 from livekit.plugins import silero, noise_cancellation
-from livekit.plugins import sarvam, groq
+from livekit.plugins import sarvam, groq, lmnt, deepgram
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 from livekit.agents import function_tool
 
@@ -58,20 +58,18 @@ class MyAgent(Agent):
 async def entrypoint(ctx: JobContext):
     logging.basicConfig(level=logging.DEBUG)
     session = AgentSession(
-        stt=sarvam.STT(
-            language="en-IN",
-            model="saarika:v2.5"
+        stt=deepgram.STT(
+            model="nova-3", 
+            language="multi"
         ),
         llm=groq.LLM(
             model="meta-llama/llama-4-scout-17b-16e-instruct",
             temperature=0.4,
             tool_choice='auto'
         ),
-        tts=sarvam.TTS(
-            target_language_code="en-IN",
-            speaker="manisha",
-            pace=0.95,
-            #enable_preprocessing=True,
+        tts=lmnt.TTS(
+            voice="bella",
+            temperature=0.7
         ),
         vad=silero.VAD.load(),
         turn_detection=MultilingualModel(),
