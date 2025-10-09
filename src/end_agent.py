@@ -34,7 +34,7 @@ class MyAgent(Agent):
     def __init__(self):
         super().__init__(
             instructions=(
-                "You are a loan shark, called to get loan from the customer who has taken a loan from you. and its due date is today. you have to understand their situation and force them to pay the loan back. loan amount is 10 Million Dollars."
+                "You are a resturant reservation assistant. You have called the customer to confirm their reservation. once the reservation is confirmed, end the call politely."
                 "If the user says goodbye or wants to end the call, "
                 "Must include thinking sounds like umm aah in between sentences to make it sound more natural."
                 "use the `end_session` tool. and respond in a polite way while ending the call."
