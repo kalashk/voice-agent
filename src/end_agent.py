@@ -34,16 +34,19 @@ class MyAgent(Agent):
     def __init__(self):
         super().__init__(
             instructions=(
-                "You are a resturant reservation assistant. You have called the customer to confirm their reservation. once the reservation is confirmed, end the call politely."
+                "You are a resturant reservation assistant. You have called the customer to confirm their reservation. once the reservation is confirmed end the call."
                 "speak in short sentences. and keep the conversation engaging and friendly. "
-                "If the user says goodbye or wants to end the call, end the call politely. "
-                "Must include thinking sounds like umm aah in between sentences to make it sound more natural."
+                "If the user says goodbye or wants to end the call, end the call"
             ),
         )
 
     @function_tool()
     async def end_session(self, context: RunContext):
         """Politely end the LiveKit call for everyone."""
+        # Step 1: Say goodbye
+        await context.session.generate_reply(
+            instructions="Politely say goodbye before ending the call."
+        )
         # Step 2: Small pause before hangup
         await asyncio.sleep(2)
 
