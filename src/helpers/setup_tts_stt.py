@@ -1,5 +1,5 @@
 # from helpers.config import TTS_PROVIDER, STT_PROVIDER, LLM_PROVIDER
-from livekit.plugins import cartesia, deepgram, sarvam, openai, google, groq
+from livekit.plugins import cartesia, deepgram, sarvam, openai, google, groq, lmnt
 from helpers.config import TTS_PROVIDER, STT_PROVIDER,LLM_PROVIDER
 
 # --------------------------
@@ -21,6 +21,11 @@ def setup_tts(provider: str = TTS_PROVIDER):
             word_timestamps=True,
             speed=-0.2,
             emotion=['positivity:high', 'sadness'],
+        )
+    elif provider == "lmnt":
+        return lmnt.TTS(
+            voice="bella",
+            temperature=0.7
         )
     elif provider == "sarvam_anushka":
         # Sarvam TTS with Hindi target language, speaker 'anushka'
