@@ -38,7 +38,6 @@ class MyAgent(Agent):
                 "If the user says goodbye or wants to end the call, "
                 "use the `end_session` tool to hang up gracefully."
             ),
-            tools=[self.end_session],
         )
 
     @function_tool()
