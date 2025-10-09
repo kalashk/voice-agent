@@ -14,13 +14,14 @@ load_dotenv(".env.local")
 class MyAgent(Agent):
     def __init__(self):
         super().__init__(
-            instructions="Be friendly. If the user says goodbye, end the call gracefull using the tool: `end_session`.",
+            instructions="Be friendly. If the user says goodbye, end the call gracefully using the tool: `end_session`.",
         )
 
     @function_tool()
     async def end_session(self, context: RunContext):
         """End the LiveKit session politely."""
-        await context.session.say("Okay, ending our call. Goodbye!")
+        await context.session.generate_reply(
+            instructions="The user has indicated they want to end the call. Politely say goodbye and end the session.")
         await asyncio.sleep(1)
         await context.session.aclose()
         return "Session closed."
@@ -29,7 +30,7 @@ async def entrypoint(ctx: JobContext):
     logging.basicConfig(level=logging.DEBUG)
     session = AgentSession(
         stt=sarvam.STT(
-            language="hi-IN",
+            language="en-IN",
             model="saarika:v2.5"
         ),
         llm=groq.LLM(
@@ -38,7 +39,7 @@ async def entrypoint(ctx: JobContext):
             tool_choice='auto'
         ),
         tts=sarvam.TTS(
-            target_language_code="hi-IN",
+            target_language_code="en-IN",
             speaker="manisha",
             pace=0.95,
             #enable_preprocessing=True,

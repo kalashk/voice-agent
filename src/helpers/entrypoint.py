@@ -30,12 +30,6 @@ async def entrypoint(ctx: JobContext):
     """
     try:
         logging.basicConfig(level=logging.DEBUG)
-        print("Starting agent...")
-
-        # Room info
-        room_name = os.getenv("ROOM_NAME", ctx.room.name)
-        ctx.log_context_fields = {"room": room_name}
-        print(f"Room: {room_name}")
 
         # Load customer profile
         customer_profile = load_customer_profile()

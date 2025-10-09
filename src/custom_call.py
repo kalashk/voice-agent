@@ -249,6 +249,87 @@ async def run_parallel_calls(max_concurrent: int = 4, delay_seconds: int = 5):
             "phone_number": "+919669953995",
             "gender": "Male",
         },
+        # Additional test numbers (uncomment/edit as needed)
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Abhishek",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+918957253518",
+            "gender": "Male",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Atharva",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+917020387251",
+            "gender": "Male",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Rujata",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+919403629149",
+            "gender": "Female",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Sunil",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+918090511458",
+            "gender": "Male",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Aboli",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+917972476969",
+            "gender": "Female",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Prakhar",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+916307348954",
+            "gender": "Male",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Hari",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+918103420879",
+            "gender": "Male",
+        },
+        {
+            "customer_id": f"cust_{uuid.uuid4().hex[:6]}",
+            "customer_name": "Arpit",
+            "age": 29,
+            "city": "Pune",
+            "language": "hindi",
+            "bank_name": "HDFC",
+            "phone_number": "+919175468998",
+            "gender": "Male",
+        },
     ]
 
     logger.info(f"🧾 Loaded {len(customers)} customers for calling")
@@ -309,4 +390,4 @@ async def run_parallel_calls(max_concurrent: int = 4, delay_seconds: int = 5):
 # Main
 # --------------------------
 if __name__ == "__main__":
-    asyncio.run(run_calls_rec())
+    asyncio.run(run_parallel_calls(max_concurrent=12))
