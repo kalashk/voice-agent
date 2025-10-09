@@ -1,8 +1,9 @@
 import asyncio
 import logging
 from dotenv import load_dotenv
+from livekit import api
 from livekit.agents import cli, WorkerOptions
-from livekit.agents import Agent, AgentSession, JobContext, RoomInputOptions, RunContext
+from livekit.agents import Agent, AgentSession, JobContext, RoomInputOptions, RunContext, get_job_context
 from livekit.plugins import silero, noise_cancellation
 from livekit.plugins import sarvam, groq
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
@@ -11,20 +12,49 @@ from livekit.agents import function_tool
 logger = logging.getLogger("agent")
 load_dotenv(".env.local")
 
+
+async def hangup_current_room():
+    """Gracefully close the LiveKit room for this job."""
+    ctx = get_job_context()
+    if ctx is None or ctx.room is None:
+        print("⚠️ No active room found. Cannot hang up.")
+        return
+
+    room_name = ctx.room.name
+    print(f"🛑 Deleting room: {room_name}")
+
+    try:
+        await ctx.api.room.delete_room(api.DeleteRoomRequest(room=room_name))
+        print(f"✅ Room '{room_name}' deleted successfully.")
+    except Exception as e:
+        print(f"❌ Failed to delete room: {e}")
+
+
 class MyAgent(Agent):
     def __init__(self):
         super().__init__(
-            instructions="Be friendly. If the user says goodbye, end the call gracefully using the tool: `end_session`.",
+            instructions=(
+                "Be helpful and friendly. "
+                "If the user says goodbye or wants to end the call, "
+                "use the `end_session` tool to hang up gracefully."
+            ),
+            tools=[self.end_session],
         )
 
     @function_tool()
     async def end_session(self, context: RunContext):
-        """End the LiveKit session politely."""
+        """Politely end the LiveKit call for everyone."""
+        # Step 1: Say goodbye
         await context.session.generate_reply(
-            instructions="The user has indicated they want to end the call. Politely say goodbye and end the session.")
-        await asyncio.sleep(1)
-        await context.session.aclose()
-        return "Session closed."
+            instructions="Politely say goodbye before ending the call."
+        )
+        # Step 2: Small pause before hangup
+        await asyncio.sleep(2)
+
+        # Step 3: Delete the room (ends SIP + agent)
+        await hangup_current_room()
+
+        return "Session ended gracefully."
 
 async def entrypoint(ctx: JobContext):
     logging.basicConfig(level=logging.DEBUG)

@@ -1,5 +1,6 @@
 import re
-from livekit import rtc
+import asyncio
+from livekit import rtc, api
 from typing import AsyncIterable
 from livekit.agents import Agent, AgentSession
 from livekit.agents.voice import ModelSettings
@@ -7,13 +8,30 @@ from instructions import get_instructions
 from helpers.config import TTS_PROVIDER
 from livekit.agents.llm import LLM
 from helpers.customer_helper import CustomerProfileType
+from livekit.agents import function_tool, RunContext, get_job_context
+
+async def hangup_current_room():
+    """Gracefully close the LiveKit room for this job."""
+    ctx = get_job_context()
+    if ctx is None or ctx.room is None:
+        print("⚠️ No active room found. Cannot hang up.")
+        return
+
+    room_name = ctx.room.name
+    print(f"🛑 Deleting room: {room_name}")
+
+    try:
+        await ctx.api.room.delete_room(api.DeleteRoomRequest(room=room_name))
+        print(f"✅ Room '{room_name}' deleted successfully.")
+    except Exception as e:
+        print(f"❌ Failed to delete room: {e}")
 
 class MyAssistant(Agent):
     def __init__(self, customer_profile: CustomerProfileType, session : AgentSession, **kwargs):
         instructions = get_instructions(customer_profile)
         super().__init__(instructions=instructions)
         self.customer_profile = customer_profile
-        self.session_ref = session
+        self.session_ref = session       
 
     async def tts_node(
         self,
@@ -82,3 +100,18 @@ class MyAssistant(Agent):
         # Feed the processed text into default TTS
         async for frame in Agent.default.tts_node(self, adjust_text(text), model_settings):
             yield frame
+
+    @function_tool()
+    async def end_session(self, context: RunContext):
+        """Politely end the LiveKit call for everyone."""
+        # Step 1: Say goodbye
+        await context.session.generate_reply(
+            instructions="Politely say goodbye before ending the call."
+        )
+        # Step 2: Small pause before hangup
+        await asyncio.sleep(2)
+
+        # Step 3: Delete the room (ends SIP + agent)
+        await hangup_current_room()
+
+        return "Session ended gracefully."
