@@ -45,7 +45,7 @@ class MyAgent(Agent):
         """Politely end the LiveKit call for everyone."""
         # Step 1: Say goodbye
         await context.session.generate_reply(
-            instructions="Politely say goodbye before ending the call."
+            instructions="Just say have a great day before ending the call. IMP: dont repeat yourself while ending the call."
         )
         # Step 2: Small pause before hangup
         await asyncio.sleep(2)
