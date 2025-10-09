@@ -2,7 +2,7 @@ import asyncio
 import logging
 from dotenv import load_dotenv
 from livekit.agents import cli, WorkerOptions
-from livekit.agents import Agent, AgentSession, JobContext, RoomInputOptions
+from livekit.agents import Agent, AgentSession, JobContext, RoomInputOptions, RunContext
 from livekit.plugins import silero, noise_cancellation
 from livekit.plugins import sarvam, groq
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
@@ -18,7 +18,7 @@ class MyAgent(Agent):
         )
 
     @function_tool()
-    async def end_session(self, context):
+    async def end_session(self, context: RunContext):
         """End the LiveKit session politely."""
         await context.session.say("Okay, ending our call. Goodbye!")
         await asyncio.sleep(1)
