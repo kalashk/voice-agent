@@ -1,10 +1,15 @@
 import asyncio
+import logging
+from dotenv import load_dotenv
 from livekit.agents import cli, WorkerOptions
 from livekit.agents import Agent, AgentSession, JobContext, RoomInputOptions
 from livekit.plugins import silero, noise_cancellation
 from livekit.plugins import sarvam, groq
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 from livekit.agents import function_tool
+
+logger = logging.getLogger("agent")
+load_dotenv(".env.local")
 
 class MyAgent(Agent):
     def __init__(self):
@@ -22,6 +27,7 @@ class MyAgent(Agent):
         return "Session closed."
 
 async def entrypoint(ctx: JobContext):
+    logging.basicConfig(level=logging.DEBUG)
     session = AgentSession(
         stt=sarvam.STT(
             language="hi-IN",
