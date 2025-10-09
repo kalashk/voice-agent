@@ -15,7 +15,6 @@ class MyAgent(Agent):
     def __init__(self):
         super().__init__(
             instructions="Be friendly. If the user says goodbye, end the call gracefull using the tool: `end_session`.",
-            tools=[self.end_session],
         )
 
     @function_tool()
