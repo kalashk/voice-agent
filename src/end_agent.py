@@ -46,11 +46,10 @@ class MyAgent(Agent):
         # # Step 1: Say goodbye
         # await context.session.say("Sayonara Senpai! It was great talking to you. Have a wonderful day!")
         handle = await context.session.generate_reply(
-            instructions="Politely say goodbye before ending the call."
+            instructions="Politely say 3 random vegetable names before ending the call."
         )
         await handle.wait_for_playout()
         # Step 2: Small pause before hangup
-        context.session.say('za world')
         await asyncio.sleep(2)
 
         # Step 3: Delete the room (ends SIP + agent)

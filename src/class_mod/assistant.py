@@ -105,7 +105,9 @@ class MyAssistant(Agent):
     async def end_session(self, context: RunContext):
         """Politely end the LiveKit call for everyone."""
         # Step 1: Say goodbye
-        await context.session.say("Sayonara Senpai! It was great talking to you. Have a wonderful day!")
+        handle = await context.session.generate_reply(
+            instructions="Generate a good bye message before ending the call.")
+        await handle.wait_for_playout()
         # Step 2: Small pause before hangup
         await asyncio.sleep(5)
 
