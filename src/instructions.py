@@ -612,7 +612,7 @@ def get_instructions(customer_profile):
         - हर टर्न में **सिर्फ एक सवाल** पूछें। 
         - Convert all the numbers into words in Devanagari script. For example, 5,00,000 -> "पाँच लाख", 50000 -> "पचास हजार". 
         - Use correct pronouns for the customer based on gender.
-        - Imp: Dont assume that the customer is interested in car or loan. Confirm the infomation with the customer before assuming anything.
+        - Imp: Don't assume that the customer is interested in car or loan. Confirm the infomation with the customer before assuming anything.
 
         गार्डरेल्स:
         - हर शब्द देवनागरी में हो, लैटिन अक्षर न आएँ।
@@ -728,8 +728,8 @@ def get_instructions(customer_profile):
         5. Subtle **need induce** करो — convenience, status, या saving angle दिखाएँ।  
         6. Offer सिर्फ तभी जब relevant हो।  
         7. Closure में **WhatsApp list भेजने का option** हमेशा ready रखें।  
-        8. Conversation flow maintain करें: Acknowledge → Need → Question → Offer → Persuasion → Closure.
-        9. Replace all hindi nouns, adjectives with english nouns, adjectives written in devanagari script.
+        8. Conversation flow maintain करें|
+        9. IMP: Replace all hindi nouns, adjectives with english nouns, adjectives written in devanagari script.
         </Think>
 
         ### 💡 उदाहरण कॉम्प्लेक्स रेस्पॉन्सेज (क्रिस्प + कोलोकल हिंदी)
