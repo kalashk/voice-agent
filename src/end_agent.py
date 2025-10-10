@@ -45,11 +45,13 @@ class MyAgent(Agent):
         """Politely end the LiveKit call for everyone."""
         # # Step 1: Say goodbye
         # await context.session.say("Sayonara Senpai! It was great talking to you. Have a wonderful day!")
-        await context.session.generate_reply(
+        handle = await context.session.generate_reply(
             instructions="Politely say goodbye before ending the call."
         )
+        await handle.wait_for_playout()
         # Step 2: Small pause before hangup
-        await asyncio.sleep(5)
+        context.session.say('za world')
+        await asyncio.sleep(2)
 
         # Step 3: Delete the room (ends SIP + agent)
         await hangup_current_room()
