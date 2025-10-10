@@ -32,15 +32,15 @@ summary_instructions = """
         - summary_text
         
         Follow this JSON schema exactly:
-        {
-        "call_metadata": {
+        {{
+        "call_metadata": {{
             "call_id": "uuid-string",
             "agent_name": "string",
             "call_start_time": "ISO8601",
             "call_end_time": "ISO8601",
             "call_duration_seconds": "integer"
-        },
-        "customer_profile": {
+        }},
+        "customer_profile": {{
             "name": "string or null",
             "gender": "male | female | unknown",
             "age_estimate": "number or null",
@@ -48,23 +48,23 @@ summary_instructions = """
             "phone_number_last4": "string or null",
             "preferred_language": "Hindi | English | Hinglish | Other",
             "occupation_type": "Salaried | Self-Employed | Business Owner | Unknown"
-        },
-        "vehicle_information": {
+        }},
+        "vehicle_information": {{
             "vehicle_type": "Car | SUV | Commercial | Unknown",
             "make_model": "string or null",
             "registration_year": "number or null",
             "ownership_status": "Owned | Financed | New Purchase | Not Mentioned",
             "current_loan_provider": "string or null"
-        },
-        "financial_information": {
+        }},
+        "financial_information": {{
             "monthly_income_bracket": "Below 25k | 25k-50k | 50k-1L | Above 1L | Unknown",
             "existing_emi_burden": "Low | Moderate | High | Unknown",
             "cibil_score_discussed": "Yes | No",
             "approximate_cibil_score": "number or null",
             "loan_amount_requested": "number or null",
             "tenure_requested_months": "number or null"
-        },
-        "intent_and_qualification": {
+        }},
+        "intent_and_qualification": {{
             "interested_in_loan": "Yes | No | Maybe",
             "reason_if_not_interested": "string or null",
             "shared_documents_on_whatsapp": "Yes | No | Pending",
@@ -72,9 +72,9 @@ summary_instructions = """
             "communication_tone": "Cooperative | Polite | Rude | Disinterested",
             "follow_up_needed": "Yes | No",
             "preferred_follow_up_time": "string or null"
-        },
+        }},
         "summary_text": "2-3 sentences natural summary."
-        }
+        }}
 
         Output ONLY valid JSON.
         """
@@ -108,6 +108,7 @@ async def generate_summary_llm(history_text: str) -> dict:
 def extract_conversation(session: AgentSession) -> str:
     """Extract conversation history as a single text block."""
     history_dict = session.history.to_dict()
+    logger.info("Extracting conversation history from session. : %s", history_dict)
     messages = []
     for msg in history_dict.get("messages", []):
         role = msg.get("role", "unknown")
@@ -232,26 +233,8 @@ class MyAssistant(Agent):
     
 
     # ---------------- End-call functions ----------------
-    @function_tool(name="end_positive_call", description="End the call when customer agrees to take the loan.")
+    @function_tool(name="end_call", description="End the call.")
     async def end_positive_call(self, context: RunContext):
         logger.info("Ending call as customer is interested in the loan.")
-        instructions = "Thank the customer for cooperation and confirm receipt of documents. End with a cheerful goodbye."
-        return await self._end_call_with_summary(context, instructions)
-
-    @function_tool(name="end_declined_call", description="End the call when customer is not interested in taking the loan.")
-    async def end_declined_call(self, context: RunContext):
-        logger.info("Ending call as customer is not interested in the loan.")
-        instructions = "Thank the customer for their time and end the call politely without insisting further."
-        return await self._end_call_with_summary(context, instructions)
-
-    @function_tool(name="end_followup_call", description="End the call when customer requests a callback or is busy.")
-    async def end_followup_call(self, context: RunContext):
-        logger.info("Ending call as customer requested follow-up or is busy.")
-        instructions = "Acknowledge customer is busy, confirm follow-up, and end call courteously."
-        return await self._end_call_with_summary(context, instructions)
-
-    @function_tool(name="end_silent_call", description="End the call when customer is silent or disconnected.")
-    async def end_silent_call(self, context: RunContext):
-        logger.info("Ending call due to silence or disconnection.")
-        instructions = "Wait a few seconds, then say something brief like 'Seems we've lost connection, ending the call now.'"
+        instructions = "Thank the customer for cooperation and End with a cheerful goodbye."
         return await self._end_call_with_summary(context, instructions)
