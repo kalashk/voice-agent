@@ -89,8 +89,8 @@ summary_chain = prompt_template | summarizer_llm | parser
 
 async def generate_summary_llm(history_text: str) -> dict:
     """Call LLM independently to generate JSON summary from conversation history."""
-    print("Generating summary via independent LLM...")
-    print("History Text:", history_text[:500])  # print first 500 chars
+    logger.info("Generating call summary via independent LLM...")
+    logger.info("History Text: %s", history_text[:500])
     result = summary_chain.invoke({"input": history_text})
     try:
         summary_json = json.loads(json.dumps(result))  # ensure JSON serializable
@@ -98,7 +98,7 @@ async def generate_summary_llm(history_text: str) -> dict:
         summary_json = {"error": "Invalid JSON generated", "raw_text": str(result)}
 
 
-    print("Generated Summary:", summary_json)
+    logger.info("Generated Summary: %s", summary_json)
     return summary_json
 
 # ---------------- Conversation extraction ----------------
@@ -118,17 +118,20 @@ async def hangup_current_room():
     """Gracefully close the LiveKit room for this job."""
     ctx = get_job_context()
     if ctx is None or ctx.room is None:
-        print("⚠️ No active room found. Cannot hang up.")
+        logger.warning("No active room found. Cannot hang up.")
         return
 
     room_name = ctx.room.name
     print(f"🛑 Deleting room: {room_name}")
+    logger.info(f"Deleting room: {room_name}")
 
     try:
         await ctx.api.room.delete_room(api.DeleteRoomRequest(room=room_name))
         print(f"✅ Room '{room_name}' deleted successfully.")
+        logger.info(f"Room '{room_name}' deleted successfully.")
     except Exception as e:
         print(f"❌ Failed to delete room: {e}")
+        logger.error(f"Failed to delete room: {e}")
 
 class MyAssistant(Agent):
     def __init__(self, customer_profile: CustomerProfileType, session : AgentSession, **kwargs):
@@ -207,15 +210,18 @@ class MyAssistant(Agent):
 
     async def _end_call_with_summary(self, context: RunContext, goodbye_instructions: str) -> dict:
         # 1️⃣ Generate goodbye message
+        logger.info("Generating goodbye message before ending the call.")
         handle = await context.session.generate_reply(instructions=goodbye_instructions)
         await handle.wait_for_playout()
         await asyncio.sleep(1)
 
         # 2️⃣ Generate summary using independent LLM
+        logger.info("Extracting conversation history for summary generation.")
         history_text = extract_conversation(context.session)
         summary = await generate_summary_llm(history_text)
 
         # 3️⃣ Hangup room
+        logger.info("Hanging up the current room.")
         await hangup_current_room()
 
         logger.info("Call ended and summary generated.")
@@ -225,20 +231,24 @@ class MyAssistant(Agent):
     # ---------------- End-call functions ----------------
     @function_tool(name="end_positive_call", description="End the call when customer agrees to take the loan.")
     async def end_positive_call(self, context: RunContext):
+        logger.info("Ending call as customer is interested in the loan.")
         instructions = "Thank the customer for cooperation and confirm receipt of documents. End with a cheerful goodbye."
         return await self._end_call_with_summary(context, instructions)
 
     @function_tool(name="end_declined_call", description="End the call when customer is not interested in taking the loan.")
     async def end_declined_call(self, context: RunContext):
+        logger.info("Ending call as customer is not interested in the loan.")
         instructions = "Thank the customer for their time and end the call politely without insisting further."
         return await self._end_call_with_summary(context, instructions)
 
     @function_tool(name="end_followup_call", description="End the call when customer requests a callback or is busy.")
     async def end_followup_call(self, context: RunContext):
+        logger.info("Ending call as customer requested follow-up or is busy.")
         instructions = "Acknowledge customer is busy, confirm follow-up, and end call courteously."
         return await self._end_call_with_summary(context, instructions)
 
     @function_tool(name="end_silent_call", description="End the call when customer is silent or disconnected.")
     async def end_silent_call(self, context: RunContext):
+        logger.info("Ending call due to silence or disconnection.")
         instructions = "Wait a few seconds, then say something brief like 'Seems we've lost connection, ending the call now.'"
         return await self._end_call_with_summary(context, instructions)
