@@ -1,21 +1,24 @@
 import re
+import os
 import json
 import asyncio
 import logging
-from livekit import rtc, api
+from dotenv import load_dotenv
 from typing import AsyncIterable
+from livekit import rtc, api
 from livekit.agents import Agent, AgentSession
 from livekit.agents.voice import ModelSettings
+from livekit.agents import function_tool, RunContext, get_job_context
 from instructions import get_instructions
 from helpers.config import TTS_PROVIDER
 from helpers.customer_helper import CustomerProfileType
-from livekit.agents import function_tool, RunContext, get_job_context
 
 # External LLM dependencies for independent summary generation
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 
+load_dotenv(".env.local")
 logger = logging.getLogger("agent")
 
 summary_instructions = """
