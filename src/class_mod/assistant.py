@@ -3,6 +3,7 @@ import os
 import json
 import asyncio
 import logging
+from datetime import datetime
 from dotenv import load_dotenv
 from typing import AsyncIterable
 from livekit import rtc, api
@@ -32,21 +33,11 @@ summary_instructions = """
         - summary_text
         
         Follow this JSON schema exactly:
-        {{
-        "call_metadata": {{
-            "call_id": "uuid-string",
-            "agent_name": "string",
-            "call_start_time": "ISO8601",
-            "call_end_time": "ISO8601",
-            "call_duration_seconds": "integer"
-        }},
         "customer_profile": {{
             "name": "string or null",
             "gender": "male | female | unknown",
             "age_estimate": "number or null",
             "location_city": "string or null",
-            "phone_number_last4": "string or null",
-            "preferred_language": "Hindi | English | Hinglish | Other",
             "occupation_type": "Salaried | Self-Employed | Business Owner | Unknown"
         }},
         "vehicle_information": {{
@@ -116,22 +107,108 @@ async def generate_summary_llm(history_text: str) -> dict:
 #         messages.append(f"{role}: {content}")
 #     return "\n".join(messages)
 
-def extract_conversation(session: AgentSession) -> str:
-    """Extract conversation history as a clean, readable text block."""
+# def extract_conversation(session: AgentSession) -> str:
+#     """Extract conversation history as a clean, readable text block."""
+#     history_dict = session.history.to_dict()
+#     logger.info("Extracting conversation history from session. : %s", history_dict)
+
+#     messages = []
+#     for msg in history_dict.get("messages", []):
+#         role = msg.get("role", "unknown")
+#         content = msg.get("content", "")
+#         # Flatten list contents
+#         if isinstance(content, list):
+#             content = " ".join([str(c) for c in content])
+#         elif not isinstance(content, str):
+#             content = str(content)
+#         messages.append(f"{role}: {content.strip()}")
+#     return "\n".join(messages)
+
+def extract_conversation(session: AgentSession, *, max_messages: int = 5000, max_chars: int = 800000) -> str:
+    """
+    Extract conversation history as a clean, readable text block.
+
+    - Handles history keys: 'items', 'messages', or 'entries'.
+    - Flattens content lists/dicts into readable text.
+    - Returns up to `max_messages` last messages and truncates to `max_chars`.
+    """
     history_dict = session.history.to_dict()
     logger.info("Extracting conversation history from session. : %s", history_dict)
 
-    messages = []
-    for msg in history_dict.get("messages", []):
-        role = msg.get("role", "unknown")
-        content = msg.get("content", "")
-        # Flatten list contents
+    # support various history shapes
+    raw_items = history_dict.get("items") or history_dict.get("messages") or history_dict.get("entries") or []
+    # take last N messages to avoid huge prompts
+    raw_items = raw_items[-max_messages:]
+
+    def _flatten_content(content) -> str:
+        if content is None:
+            return ""
+        if isinstance(content, str):
+            return content
         if isinstance(content, list):
-            content = " ".join([str(c) for c in content])
-        elif not isinstance(content, str):
-            content = str(content)
-        messages.append(f"{role}: {content.strip()}")
-    return "\n".join(messages)
+            parts = []
+            for elem in content:
+                if isinstance(elem, str):
+                    parts.append(elem)
+                elif isinstance(elem, dict):
+                    # common shapes: {"text": "..."} or {"content": "..."}
+                    text = elem.get("text") or elem.get("content") or elem.get("value") or None
+                    if text and isinstance(text, str):
+                        parts.append(text)
+                    else:
+                        # fallback to serializing small dicts
+                        parts.append(" ".join(str(v) for v in elem.values() if isinstance(v, str)))
+                else:
+                    parts.append(str(elem))
+            return " ".join([p for p in parts if p])
+        if isinstance(content, dict):
+            return content.get("text") or content.get("content") or " ".join(
+                str(v) for v in content.values() if isinstance(v, str)
+            )
+        return str(content)
+
+    messages = []
+    for item in raw_items:
+        # make sure we only process messages
+        if item.get("type") and item["type"] != "message":
+            continue
+
+        role = item.get("role", "unknown")
+        content = item.get("content", "")
+        content_text = _flatten_content(content).strip()
+        if not content_text:
+            # sometimes 'transcript' or nested fields are present
+            alt = item.get("transcript") or item.get("text") or item.get("message")
+            content_text = _flatten_content(alt).strip()
+        if not content_text:
+            # skip empty messages
+            continue
+
+        # optional timestamp formatting
+        ts = item.get("timestamp") or item.get("created_at") or item.get("time")
+        if ts is not None:
+            try:
+                # if numeric epoch
+                ts_float = float(ts)
+                ts_str = datetime.fromtimestamp(ts_float).isoformat()
+            except Exception:
+                ts_str = str(ts)
+            messages.append(f"{role} [{ts_str}]: {content_text}")
+        else:
+            messages.append(f"{role}: {content_text}")
+
+    result = "\n".join(messages)
+
+    # truncate to max_chars (keep tail which contains the latest content)
+    if len(result) > max_chars:
+        result = result[-max_chars:]
+        # safe cutoff: start from next line break to avoid cutting mid-token
+        first_newline = result.find("\n")
+        if first_newline > 0:
+            result = result[first_newline + 1 :]
+
+    return result
+
 
 
 
@@ -254,5 +331,5 @@ class MyAssistant(Agent):
     @function_tool(name="end_call", description="End the call.")
     async def end_positive_call(self, context: RunContext):
         logger.info("Ending call as customer is interested in the loan.")
-        instructions = "Thank the customer for cooperation and End with a cheerful goodbye."
+        instructions = "Say you will call back to customer later and politely end the call."
         return await self._end_call_with_summary(context, instructions)
