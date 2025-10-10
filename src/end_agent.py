@@ -43,8 +43,11 @@ class MyAgent(Agent):
     @function_tool(name="hangup", description="To end the call")
     async def end_session(self, context: RunContext):
         """Politely end the LiveKit call for everyone."""
-        # Step 1: Say goodbye
-        await context.session.say("Sayonara Senpai! It was great talking to you. Have a wonderful day!")
+        # # Step 1: Say goodbye
+        # await context.session.say("Sayonara Senpai! It was great talking to you. Have a wonderful day!")
+        await context.session.generate_reply(
+            instructions="Politely say goodbye before ending the call."
+        )
         # Step 2: Small pause before hangup
         await asyncio.sleep(5)
 
@@ -83,7 +86,7 @@ async def entrypoint(ctx: JobContext):
         room=ctx.room,
         agent=agent,
         room_input_options=RoomInputOptions(
-            noise_cancellation=noise_cancellation.BVC(), 
+           # noise_cancellation=noise_cancellation.BVC(), 
         ),
     )
 
