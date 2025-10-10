@@ -69,14 +69,10 @@ async def entrypoint(ctx: JobContext):
         #     voice="bella",
         #     temperature=0.7
         # ),
-        # tts = sarvam.TTS(
-        #     target_language_code="en-IN",
-        #     speaker="manisha",
-        #     pace=0.95,
-        # ),
-        tts=groq.TTS(
-            model="playai-tts",
-            voice="Indigo-PlayAI",
+        tts = sarvam.TTS(
+            target_language_code="en-IN",
+            speaker="manisha",
+            pace=0.95,
         ),
         vad=silero.VAD.load(),
         turn_detection=MultilingualModel(),
