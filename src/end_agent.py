@@ -40,7 +40,7 @@ class MyAgent(Agent):
             ),
         )
 
-    @function_tool()
+    @function_tool(name="hangup", description="To end the call")
     async def end_session(self, context: RunContext):
         """Politely end the LiveKit call for everyone."""
         # Step 1: Say goodbye
@@ -65,15 +65,19 @@ async def entrypoint(ctx: JobContext):
             temperature=0.4,
             tool_choice='auto'
         ),
-        tts=lmnt.TTS(
-            voice="bella",
-            temperature=0.7
-        ),
+        # tts=lmnt.TTS(
+        #     voice="bella",
+        #     temperature=0.7
+        # ),
         # tts = sarvam.TTS(
         #     target_language_code="en-IN",
         #     speaker="manisha",
         #     pace=0.95,
         # ),
+        tts=groq.TTS(
+            model="playai-tts",
+            voice="Indigo-PlayAI",
+        ),
         vad=silero.VAD.load(),
         turn_detection=MultilingualModel(),
     )
