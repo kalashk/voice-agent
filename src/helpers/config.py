@@ -3,8 +3,8 @@ from pathlib import Path
 from datetime import timezone, timedelta
 
 #TTS_PROVIDER = "cartesia"
-#TTS_PROVIDER = "sarvam_anushka"
-TTS_PROVIDER = "sarvam_manisha"
+TTS_PROVIDER = "sarvam_anushka"
+#TTS_PROVIDER = "sarvam_manisha"
 #TTS_PROVIDER = "lmnt"  
 
 # STT_PROVIDER = "deepgram"
