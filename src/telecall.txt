@@ -100,3 +100,51 @@
             "gender": "Male",
         },
     ]
+
+
+{'call_metadata': 
+{
+    'call_id': 'uuid-string',
+    'agent_name': 'unknown', 
+    'call_start_time': '2024-06-01T10:00:00Z', 
+    'call_end_time': '2024-06-01T10:03:45Z', 
+    'call_duration_seconds': 225
+}, 
+'customer_profile': 
+{
+    'name': None, 
+    'gender': 'unknown', 
+    'age_estimate': None, 
+    'location_city': None, 
+    'phone_number_last4': None, 
+    'preferred_language': 'Hinglish', 
+    'occupation_type': 'Unknown'
+}, 
+'vehicle_information': 
+{
+    'vehicle_type': 'Unknown', 
+    'make_model': None, 
+    'registration_year': None, 
+    'ownership_status': 'Not Mentioned', 
+    'current_loan_provider': None
+}, 
+'financial_information': 
+{
+    'monthly_income_bracket': 'Unknown', 
+    'existing_emi_burden': 'Unknown', 
+    'cibil_score_discussed': 'No', 
+    'approximate_cibil_score': None, 
+    'loan_amount_requested': None, 
+    'tenure_requested_months': None
+}, 
+'intent_and_qualification': 
+{
+    'interested_in_loan': 'Maybe', 
+    'reason_if_not_interested': None, 
+    'shared_documents_on_whatsapp': 'Pending', 
+    'documents_mentioned': [], 
+    'communication_tone': 'Disinterested', 
+    'follow_up_needed': 'Yes', 
+    'preferred_follow_up_time': None
+}, 
+'summary_text': 'Customer unsure about car loan; asked for details on WhatsApp but no documents shared yet.'}

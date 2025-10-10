@@ -309,10 +309,10 @@ class MyAssistant(Agent):
 
     async def _end_call_with_summary(self, context: RunContext, goodbye_instructions: str) -> dict:
         # 1️⃣ Generate goodbye message
-        logger.info("Generating goodbye message before ending the call.")
-        handle = await context.session.generate_reply(instructions=goodbye_instructions)
-        await handle.wait_for_playout()
-        await asyncio.sleep(1)
+        # logger.info("Generating goodbye message before ending the call.")
+        # handle = await context.session.generate_reply(instructions=goodbye_instructions)
+        # await handle.wait_for_playout()
+        # await asyncio.sleep(1)
 
         # 2️⃣ Generate summary using independent LLM
         logger.info("Extracting conversation history for summary generation.")
