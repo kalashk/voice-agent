@@ -331,5 +331,5 @@ class MyAssistant(Agent):
     @function_tool(name="end_call", description="End the call.")
     async def end_positive_call(self, context: RunContext):
         logger.info("Ending call as customer is interested in the loan.")
-        instructions = "Say you will call back to customer later and politely end the call."
+        instructions = "Polietly end the call, if you have said goodbye already, just end the call."
         return await self._end_call_with_summary(context, instructions)
