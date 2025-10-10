@@ -13,6 +13,7 @@ dependencies = [
     "dataclasses>=0.8",
     "google-cloud-storage>=3.4.0",
     "google-genai>=1.32.0",
+    "langchain-groq>=0.3.8",
     "livekit-agents[aws,cartesia,deepgram,google,groq,lmnt,openai,playai,resemble,sarvam,silero,speechify,turn-detector]~=1.2",
     "livekit-plugins-noise-cancellation~=0.2",
     "loguru>=0.7.3",

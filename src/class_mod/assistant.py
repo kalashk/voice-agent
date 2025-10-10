@@ -1,15 +1,119 @@
 import re
+import json
 import asyncio
+import logging
 from livekit import rtc, api
 from typing import AsyncIterable
 from livekit.agents import Agent, AgentSession
 from livekit.agents.voice import ModelSettings
 from instructions import get_instructions
 from helpers.config import TTS_PROVIDER
-from livekit.agents.llm import LLM
 from helpers.customer_helper import CustomerProfileType
 from livekit.agents import function_tool, RunContext, get_job_context
 
+# External LLM dependencies for independent summary generation
+from langchain_groq import ChatGroq
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import JsonOutputParser
+
+logger = logging.getLogger("agent")
+
+summary_instructions = """
+        You are a call summary generator for a car loan sales assistant.
+        Analyze the entire conversation and output a JSON object with these keys:
+        - call_metadata
+        - customer_profile
+        - vehicle_information
+        - financial_information
+        - intent_and_qualification
+        - summary_text
+        
+        Follow this JSON schema exactly:
+        {
+        "call_metadata": {
+            "call_id": "uuid-string",
+            "agent_name": "string",
+            "call_start_time": "ISO8601",
+            "call_end_time": "ISO8601",
+            "call_duration_seconds": "integer"
+        },
+        "customer_profile": {
+            "name": "string or null",
+            "gender": "male | female | unknown",
+            "age_estimate": "number or null",
+            "location_city": "string or null",
+            "phone_number_last4": "string or null",
+            "preferred_language": "Hindi | English | Hinglish | Other",
+            "occupation_type": "Salaried | Self-Employed | Business Owner | Unknown"
+        },
+        "vehicle_information": {
+            "vehicle_type": "Car | SUV | Commercial | Unknown",
+            "make_model": "string or null",
+            "registration_year": "number or null",
+            "ownership_status": "Owned | Financed | New Purchase | Not Mentioned",
+            "current_loan_provider": "string or null"
+        },
+        "financial_information": {
+            "monthly_income_bracket": "Below 25k | 25k-50k | 50k-1L | Above 1L | Unknown",
+            "existing_emi_burden": "Low | Moderate | High | Unknown",
+            "cibil_score_discussed": "Yes | No",
+            "approximate_cibil_score": "number or null",
+            "loan_amount_requested": "number or null",
+            "tenure_requested_months": "number or null"
+        },
+        "intent_and_qualification": {
+            "interested_in_loan": "Yes | No | Maybe",
+            "reason_if_not_interested": "string or null",
+            "shared_documents_on_whatsapp": "Yes | No | Pending",
+            "documents_mentioned": ["PAN", "Aadhaar", "Salary Slip"],
+            "communication_tone": "Cooperative | Polite | Rude | Disinterested",
+            "follow_up_needed": "Yes | No",
+            "preferred_follow_up_time": "string or null"
+        },
+        "summary_text": "2-3 sentences natural summary."
+        }
+
+        Output ONLY valid JSON.
+        """
+
+# ---------------- LLM for summary ----------------
+summarizer_llm = ChatGroq(model="moonshotai/kimi-k2-instruct-0905", temperature=0.3)
+parser = JsonOutputParser(pydantic_object={
+    "type": "object"
+})  # pydantic validation, will be enforced via LLM
+prompt_template = ChatPromptTemplate.from_messages([
+    ("system", summary_instructions),
+    ("user", "{input}")
+])
+summary_chain = prompt_template | summarizer_llm | parser
+
+async def generate_summary_llm(history_text: str) -> dict:
+    """Call LLM independently to generate JSON summary from conversation history."""
+    print("Generating summary via independent LLM...")
+    print("History Text:", history_text[:500])  # print first 500 chars
+    result = summary_chain.invoke({"input": history_text})
+    try:
+        summary_json = json.loads(json.dumps(result))  # ensure JSON serializable
+    except Exception:
+        summary_json = {"error": "Invalid JSON generated", "raw_text": str(result)}
+
+
+    print("Generated Summary:", summary_json)
+    return summary_json
+
+# ---------------- Conversation extraction ----------------
+def extract_conversation(session: AgentSession) -> str:
+    """Extract conversation history as a single text block."""
+    history_dict = session.history.to_dict()
+    messages = []
+    for msg in history_dict.get("messages", []):
+        role = msg.get("role", "unknown")
+        content = msg.get("content", "")
+        messages.append(f"{role}: {content}")
+    return "\n".join(messages)
+
+
+# ---------------- Hangup function ----------------
 async def hangup_current_room():
     """Gracefully close the LiveKit room for this job."""
     ctx = get_job_context()
@@ -101,17 +205,40 @@ class MyAssistant(Agent):
         async for frame in Agent.default.tts_node(self, adjust_text(text), model_settings):
             yield frame
 
-    @function_tool(name="hangup", description="To end the call")
-    async def end_session(self, context: RunContext):
-        """Politely end the LiveKit call for everyone."""
-        # Step 1: Say goodbye
-        handle = await context.session.generate_reply(
-            instructions="Generate a good bye message before ending the call.")
+    async def _end_call_with_summary(self, context: RunContext, goodbye_instructions: str) -> dict:
+        # 1️⃣ Generate goodbye message
+        handle = await context.session.generate_reply(instructions=goodbye_instructions)
         await handle.wait_for_playout()
-        # Step 2: Small pause before hangup
-        await asyncio.sleep(5)
+        await asyncio.sleep(1)
 
-        # Step 3: Delete the room (ends SIP + agent)
+        # 2️⃣ Generate summary using independent LLM
+        history_text = extract_conversation(context.session)
+        summary = await generate_summary_llm(history_text)
+
+        # 3️⃣ Hangup room
         await hangup_current_room()
 
-        return "Session ended gracefully."
+        logger.info("Call ended and summary generated.")
+        return summary
+    
+
+    # ---------------- End-call functions ----------------
+    @function_tool(name="end_positive_call", description="End the call when customer agrees to take the loan.")
+    async def end_positive_call(self, context: RunContext):
+        instructions = "Thank the customer for cooperation and confirm receipt of documents. End with a cheerful goodbye."
+        return await self._end_call_with_summary(context, instructions)
+
+    @function_tool(name="end_declined_call", description="End the call when customer is not interested in taking the loan.")
+    async def end_declined_call(self, context: RunContext):
+        instructions = "Thank the customer for their time and end the call politely without insisting further."
+        return await self._end_call_with_summary(context, instructions)
+
+    @function_tool(name="end_followup_call", description="End the call when customer requests a callback or is busy.")
+    async def end_followup_call(self, context: RunContext):
+        instructions = "Acknowledge customer is busy, confirm follow-up, and end call courteously."
+        return await self._end_call_with_summary(context, instructions)
+
+    @function_tool(name="end_silent_call", description="End the call when customer is silent or disconnected.")
+    async def end_silent_call(self, context: RunContext):
+        instructions = "Wait a few seconds, then say something brief like 'Seems we've lost connection, ending the call now.'"
+        return await self._end_call_with_summary(context, instructions)
