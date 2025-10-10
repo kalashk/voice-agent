@@ -105,16 +105,34 @@ async def generate_summary_llm(history_text: str) -> dict:
     return summary_json
 
 # ---------------- Conversation extraction ----------------
+# def extract_conversation(session: AgentSession) -> str:
+#     """Extract conversation history as a single text block."""
+#     history_dict = session.history.to_dict()
+#     logger.info("Extracting conversation history from session. : %s", history_dict)
+#     messages = []
+#     for msg in history_dict.get("messages", []):
+#         role = msg.get("role", "unknown")
+#         content = msg.get("content", "")
+#         messages.append(f"{role}: {content}")
+#     return "\n".join(messages)
+
 def extract_conversation(session: AgentSession) -> str:
-    """Extract conversation history as a single text block."""
+    """Extract conversation history as a clean, readable text block."""
     history_dict = session.history.to_dict()
     logger.info("Extracting conversation history from session. : %s", history_dict)
+
     messages = []
     for msg in history_dict.get("messages", []):
         role = msg.get("role", "unknown")
         content = msg.get("content", "")
-        messages.append(f"{role}: {content}")
+        # Flatten list contents
+        if isinstance(content, list):
+            content = " ".join([str(c) for c in content])
+        elif not isinstance(content, str):
+            content = str(content)
+        messages.append(f"{role}: {content.strip()}")
     return "\n".join(messages)
+
 
 
 # ---------------- Hangup function ----------------
