@@ -287,68 +287,32 @@ class MyAssistant(Agent):
         #             )
         #         yield cleaned
 
-        # async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
-        #     in_think = False
-        #     buffer = ""
-
-        #     async for chunk in input_text:
-        #         logger.debug("Original chunk: %s", chunk)
-
-        #         buffer += chunk
-
-        #         # Detect start of think
-        #         if "<think>" in buffer:
-        #             in_think = True
-        #             buffer = buffer.split("<think>", 1)[0]  # keep text before <think>
-
-        #         # Detect end of think
-        #         if "</think>" in buffer:
-        #             in_think = False
-        #             # keep only the part after </think>
-        #             buffer = buffer.split("</think>", 1)[1]
-
-        #         # If inside a think block, don’t emit anything
-        #         if in_think:
-        #             continue
-
-        #         # Apply phonetic replacements
-        #         cleaned = buffer
-        #         for term, replacement in pronunciations.items():
-        #             cleaned = re.sub(
-        #                 rf"(?<!\w){re.escape(term)}(?!\w)",
-        #                 replacement,
-        #                 cleaned,
-        #                 flags=re.IGNORECASE
-        #             )
-
-        #         yield cleaned
-        #         buffer = ""
-
         async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
             in_think = False
-            tag_buffer = ""
+            buffer = ""
 
             async for chunk in input_text:
-                tag_buffer += chunk
+                logger.debug("Original chunk: %s", chunk)
 
-                # Normalize broken tag fragments
-                while True:
-                    start_idx = tag_buffer.find("<think>")
-                    end_idx = tag_buffer.find("</think>")
+                buffer += chunk
 
-                    if start_idx != -1 and (end_idx == -1 or start_idx < end_idx):
-                        in_think = True
-                        tag_buffer = tag_buffer[:start_idx]
-                    elif end_idx != -1:
-                        in_think = False
-                        tag_buffer = tag_buffer[end_idx + len("</think>"):]
-                    else:
-                        break
+                # Detect start of think
+                if "<t>" in buffer:
+                    in_think = True
+                    buffer = buffer.split("<t>", 1)[0]  # keep text before <think>
 
+                # Detect end of think
+                if "</t>" in buffer:
+                    in_think = False
+                    # keep only the part after </think>
+                    buffer = buffer.split("</t>", 1)[1]
+
+                # If inside a think block, don’t emit anything
                 if in_think:
                     continue
 
-                cleaned = tag_buffer
+                # Apply phonetic replacements
+                cleaned = buffer
                 for term, replacement in pronunciations.items():
                     cleaned = re.sub(
                         rf"(?<!\w){re.escape(term)}(?!\w)",
@@ -358,7 +322,43 @@ class MyAssistant(Agent):
                     )
 
                 yield cleaned
-                tag_buffer = ""
+                buffer = ""
+
+        # async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
+        #     in_think = False
+        #     tag_buffer = ""
+
+        #     async for chunk in input_text:
+        #         tag_buffer += chunk
+
+        #         # Normalize broken tag fragments
+        #         while True:
+        #             start_idx = tag_buffer.find("<t>")
+        #             end_idx = tag_buffer.find("</t>")
+
+        #             if start_idx != -1 and (end_idx == -1 or start_idx < end_idx):
+        #                 in_think = True
+        #                 tag_buffer = tag_buffer[:start_idx]
+        #             elif end_idx != -1:
+        #                 in_think = False
+        #                 tag_buffer = tag_buffer[end_idx + len("</t>"):]
+        #             else:
+        #                 break
+
+        #         if in_think:
+        #             continue
+
+        #         cleaned = tag_buffer
+        #         for term, replacement in pronunciations.items():
+        #             cleaned = re.sub(
+        #                 rf"(?<!\w){re.escape(term)}(?!\w)",
+        #                 replacement,
+        #                 cleaned,
+        #                 flags=re.IGNORECASE
+        #             )
+
+        #         yield cleaned
+        #         tag_buffer = ""
 
         # Feed the processed text into default TTS
         async for frame in Agent.default.tts_node(self, adjust_text(text), model_settings):
