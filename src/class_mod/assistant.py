@@ -363,7 +363,6 @@ class MyAssistant(Agent):
     async def _end_call_with_summary(self, context: RunContext, goodbye_instructions: str) -> dict:
         """Ends the call gracefully and generates LLM-based summary including customer metadata."""
         logger.info("Generating goodbye message before ending the call.")
-        await asyncio.sleep(4)
 
         logger.info("Extracting conversation history for summary generation.")
         history_text = extract_conversation(context.session)
@@ -379,7 +378,8 @@ class MyAssistant(Agent):
         summary = await generate_summary_llm(history_text, customer_data)
 
         # --- Hang up gracefully ---
-        logger.info("Hanging up the current room.")
+        logger.info("Hanging up the current room in 7 sec.")
+        await asyncio.sleep(7)
         await hangup_current_room()
 
         logger.info("Call ended and summary generated.")
