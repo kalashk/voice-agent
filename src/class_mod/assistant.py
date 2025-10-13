@@ -227,230 +227,12 @@ async def hangup_current_room():
         print(f"❌ Failed to delete room: {e}")
         logger.error(f"Failed to delete room: {e}")
 
-# class MyAssistant(Agent):
-#     def __init__(self, customer_profile: CustomerProfileType, session : AgentSession, **kwargs):
-#         instructions = get_instructions(customer_profile)
-#         super().__init__(instructions=instructions)
-#         self.customer_profile = customer_profile
-#         self.session_ref = session       
-
-#     async def tts_node(
-#         self,
-#         text: AsyncIterable[str],
-#         model_settings: ModelSettings
-#     ) -> AsyncIterable[rtc.AudioFrame]:
-#         """
-#         Custom TTS node:
-#         - Remove <think> tags from LLM output
-#         - Apply pronunciation replacements
-#         - Send to default TTS engine
-#         """
-
-#         # Define phonetic replacements
-#         pronunciations = {
-#             "umm": "अं-ं--..",
-#             "uhm": "अं-ं--..",
-#             "ahh": "आ-ं--आह..",
-#             "ah": "आ-ं--आह..",
-#             "HDFC": "एच-डी-एफ-सी",
-#             "hdfc": "एच-डी-एफ-सी",
-#             "EMI": "ई-एम-आई",
-#             "emi": "ई-एम-आई",
-#             "ROI": "आर-ओ-आई",
-#             "ITR": "आई-टी-आर",
-#             "PAN": "पैन",
-#             "Aadhar": "आधार",
-#             "Tenure": "टे-न्योर",
-#             "Interest": "इंट-रेस्ट",
-#             "Loan": "लोन",
-#             "Car": "कार",
-#             "Vehicle": "व्हीकल",
-#             "Finance": "फायनेंस",
-#             "Refinance": "री-फायनेंस",
-#             "Balance Transfer": "बैलेंस ट्रांसफर",
-#             "Top-Up": "टॉप-अप",
-#             "Salaried": "सैल-रिड",
-#             "Businessman": "बिज़-नेस-मैन",
-#             "Flat Rate": "फ्लैट रेट",
-#             "Reducing Rate": "रिड्यूसिंग रेट",
-#             "Personal Loan": "पर्सनल लोन",
-#             "Business Loan": "बिज़-नेस लोन",
-#         }
-
-#         if TTS_PROVIDER == "cartesia":
-#             pronunciations.update({
-#                 "Kajal": "काजल",
-#                 "kaajal": "काजल",
-#             })
-
-#         # Async generator to adjust text before TTS
-#         async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
-#             async for chunk in input_text:
-#                 # Remove <think> tags
-#                 think_match = re.search(r"<think>(.*?)</think>", chunk, flags=re.DOTALL)
-#                 logger.debug("Think: %s", think_match if think_match else "None")
-#                 cleaned = re.sub(r"<think>.*?</think>", " ", chunk, flags=re.DOTALL)
-#                 # Apply phonetic replacements
-#                 for term, replacement in pronunciations.items():
-#                     cleaned = re.sub(
-#                         rf"(?<!\w){re.escape(term)}(?!\w)",
-#                         replacement,
-#                         cleaned,
-#                         flags=re.IGNORECASE
-#                     )
-#                 yield cleaned
-
-#         # async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
-#         #     async for chunk in input_text:
-#         #         # Extract and log <draft>, <think>, <verification> parts
-#         #         draft_match = re.search(r"<draft>(.*?)</draft>", chunk, flags=re.DOTALL)
-#         #         think_match = re.search(r"<think>(.*?)</think>", chunk, flags=re.DOTALL)
-#         #         verify_match = re.search(r"<verification>(.*?)</verification>", chunk, flags=re.DOTALL)
-
-#         #         if draft_match:
-#         #             logger.debug("Draft: %s", draft_match.group(1).strip())
-#         #         if think_match:
-#         #             logger.debug("Think: %s", think_match.group(1).strip())
-#         #         if verify_match:
-#         #             logger.debug("Verification: %s", verify_match.group(1).strip())
-
-#         #         # Remove reasoning tags from the output
-#         #         cleaned = re.sub(r"<draft>.*?</draft>", " ", chunk, flags=re.DOTALL)
-#         #         cleaned = re.sub(r"<think>.*?</think>", " ", cleaned, flags=re.DOTALL)
-#         #         cleaned = re.sub(r"<verification>.*?</verification>", " ", cleaned, flags=re.DOTALL)
-
-#         #         # # Extract final response (if tagged explicitly)
-#         #         # final_match = re.search(r"final_response\s*[:\-]*\s*(.*)", cleaned, flags=re.DOTALL)
-#         #         # if final_match:
-#         #         #     cleaned = final_match.group(1).strip()
-#         #         #     logger.debug("Final response: %s", cleaned)
-#         #         # else:
-#         #         #     logger.debug("Final response (no tag found): %s", cleaned.strip())
-
-#         #         # Apply phonetic replacements
-#         #         for term, replacement in pronunciations.items():
-#         #             cleaned = re.sub(
-#         #                 rf"(?<!\w){re.escape(term)}(?!\w)",
-#         #                 replacement,
-#         #                 cleaned,
-#         #                 flags=re.IGNORECASE
-#         #             )
-
-#         #         yield cleaned
-
-#         # Feed the processed text into default TTS
-#         async for frame in Agent.default.tts_node(self, adjust_text(text), model_settings):
-#             yield frame
-
-#     # async def _end_call_with_summary(self, context: RunContext, goodbye_instructions: str) -> dict:
-#     #     # 1️⃣ Generate goodbye message
-#     #     logger.info("Generating goodbye message before ending the call.")
-#     #     # handle = await context.session.generate_reply(instructions=goodbye_instructions)
-#     #     # await handle.wait_for_playout()
-#     #     await asyncio.sleep(4)
-
-#     #     # 2️⃣ Generate summary using independent LLM
-#     #     logger.info("Extracting conversation history for summary generation.")
-#     #     history_text = extract_conversation(context.session)
-#     #     summary = await generate_summary_llm(history_text)
-
-#     #     # 3️⃣ Hangup room
-#     #     logger.info("Hanging up the current room.")
-#     #     await hangup_current_room()
-
-#     #     logger.info("Call ended and summary generated.")
-#     #     return summary
-    
-#     async def _end_call_with_summary(self, context: RunContext, goodbye_instructions: str) -> dict:
-#         """Ends the call gracefully and generates LLM-based summary including customer metadata."""
-#         logger.info("Generating goodbye message before ending the call.")
-
-#         logger.info("Extracting conversation history for summary generation.")
-#         history_text = extract_conversation(context.session)
-
-#         # --- Include customer data ---
-#         customer_data = {
-#             "customer_profile": self.customer_profile
-#             if hasattr(self.customer_profile, "dict")
-#             else dict(self.customer_profile)
-#         }
-
-#         # --- Generate summary with context ---
-#         summary = await generate_summary_llm(history_text, customer_data)
-
-#         # --- Hang up gracefully ---
-#         logger.info("Hanging up the current room in 7 sec.")
-#         await asyncio.sleep(7)
-#         await hangup_current_room()
-
-#         logger.info("Call ended and summary generated.")
-#         return summary
-    
-
-#     # ---------------- End-call functions ----------------
-#     @function_tool(name="end_call", description="End the call.")
-#     async def end_positive_call(self, context: RunContext):
-#         logger.info("Ending call as customer is interested in the loan.")
-#         instructions = "Say goodbye, very briefly"
-#         return await self._end_call_with_summary(context, instructions)
-
-
 class MyAssistant(Agent):
     def __init__(self, customer_profile: CustomerProfileType, session : AgentSession, **kwargs):
         instructions = get_instructions(customer_profile)
         super().__init__(instructions=instructions)
         self.customer_profile = customer_profile
-        self.session_ref = session  
-
-    def llm_node(
-        self,
-        chat_ctx,
-        tools,
-        model_settings='auto'
-    ):
-        """
-        A node in the processing pipeline that streams LLM output while stripping <think> tags.
-        """
-
-        async def process_stream():
-            logger.debug("self.llm type: %s", type(self.llm))
-            if not isinstance(self.llm, LLM):
-                raise TypeError("self.llm must be an LLM instance to call chat")
-
-            async with self.llm.chat(chat_ctx=chat_ctx, tools=tools, tool_choice='auto') as stream:
-                async for chunk in stream:
-                    if chunk is None:
-                        continue
-
-                    # Get content safely
-                    content = getattr(chunk.delta, 'content', None) if hasattr(chunk, 'delta') else str(chunk)
-                    if content is None:
-                        yield chunk
-                        continue
-
-                    think_match = re.search(r"<think>(.*?)</think>", content, flags=re.DOTALL)
-                    logger.debug("Think: %s", think_match if think_match else "None")
-                    processed_content = re.sub(r"<think>.*?</think>", " ", content, flags=re.DOTALL)
-
-                    # Log think tags
-                    # think_tags = re.findall(r"</?think>", content)
-                    # if think_tags:
-                    #     logger.debug("Found think tags: %s", think_tags)
-
-                    # Remove think tags
-                    # processed_content = content.replace("<think>", "").replace("</think>", "Okay, I'm ready to respond.")
-
-                    if processed_content != content:
-                        if chunk.delta is not None and hasattr(chunk.delta, 'content'):
-                            chunk.delta.content = processed_content
-                        else:
-                            chunk = processed_content
-
-                    yield chunk
-
-        # Returning the coroutine that yields an async iterable
-        return process_stream()
-    
+        self.session_ref = session       
 
     async def tts_node(
         self,
@@ -505,11 +287,10 @@ class MyAssistant(Agent):
         async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
             async for chunk in input_text:
                 # Remove <think> tags
-                # think_match = re.search(r"<think>(.*?)</think>", chunk, flags=re.DOTALL)
-                # logger.debug("Think: %s", think_match if think_match else "None")
-                # cleaned = re.sub(r"<think>.*?</think>", " ", chunk, flags=re.DOTALL)
+                think_match = re.search(r"<think>(.*?)</think>", chunk, flags=re.DOTALL)
+                logger.debug("Think: %s", think_match if think_match else "None")
+                cleaned = re.sub(r"<think>.*?</think>", " ", chunk, flags=re.DOTALL)
                 # Apply phonetic replacements
-                cleaned=chunk
                 for term, replacement in pronunciations.items():
                     cleaned = re.sub(
                         rf"(?<!\w){re.escape(term)}(?!\w)",
@@ -612,3 +393,4 @@ class MyAssistant(Agent):
         logger.info("Ending call as customer is interested in the loan.")
         instructions = "Say goodbye, very briefly"
         return await self._end_call_with_summary(context, instructions)
+

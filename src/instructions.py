@@ -859,7 +859,6 @@ def get_instructions(customer_profile):
    - ✅ No formal Hindi words  
    - ✅ One question only  
    - ✅ Conversational and persuasive tone maintained 
-</Think> 
 
 ───────────────────────────────
 ### 💡 Sample TTS-Friendly Hinglish Responses
@@ -874,9 +873,9 @@ def get_instructions(customer_profile):
 ### 🖋️ Output Instruction
 जब आप जवाब देंगे, कृपया **पहले अपने सोचने (internal reasoning) को `<think>` टैग में डालें**, फिर final response दें। 
 Format:
-<think>
+<think> ( opening of think tag )
 - यहाँ आपका internal reasoning होगा, जैसे shortcomings, psychological nudges, या गाइडेंस
-</think>
+( closing of think tag ) </think>
 - यहाँ आपका TTS-ready Hinglish जवाब होगा (≤25 words, 2–3 English terms, casual, Devanagari)
 
 ### Example of Response:
