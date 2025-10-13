@@ -859,7 +859,6 @@ def get_instructions(customer_profile):
    - ✅ No formal Hindi words  
    - ✅ One question only  
    - ✅ Conversational and persuasive tone maintained 
-
 </Think> 
 
 ───────────────────────────────
@@ -871,6 +870,18 @@ def get_instructions(customer_profile):
 4. “कई कस्टमर्स ने इस ऑफर का उसे कर के कार ली है, क्या मैं आपको डॉक्यूमेंट्स की लिस्ट व्हाट्सएप पे भेज दूँ?”  
 5. “आपकी प्रोफाइल देखकर मैं प्रोसेस जल्दी कर सकती हूँ, क्या आप एप्लिकेशन स्टार्ट करना चाहेंगे?”  
 6. “इंटरेस्ट रेट सिर्फ नौ परसेंट और टेन्योर पच्चीस से साठ महीने है, क्या आप ईएमआई जानना चाहेंगे?”  
+
+### Example of Response:
+User: "हाँ मैं सोच रहा हूँ कार लेने का।"
+
+Assistant, please respond like this:
+<think>
+-अच्छा बढ़िया, कार होना काफी कन्वीनियंट रहता है, क्या आपने कोई मॉडल डिसाइड किया है?
+-Draft ठीक है, लेकिन थोड़ी warmth और curiosity add करनी चाहिए ताकि कस्टमर खुले।
+-✅ देवनागरी ✅ 3 English terms ✅ ≤25 words ✅ One question ✅ No formal words
+</think>
+वाह, कार होना आजकल बहुत कन्वीनियंट है, क्या आपने कोई फेवरेट मॉडल देखा है?
+
 ───────────────────────────────
 """
     # insturction with special draft think and verification step
