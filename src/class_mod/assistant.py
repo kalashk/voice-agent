@@ -283,47 +283,12 @@ class MyAssistant(Agent):
             })
 
         # Async generator to adjust text before TTS
-        # async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
-        #     async for chunk in input_text:
-        #         # Remove <think> tags
-        #         cleaned = re.sub(r"<think>.*?</think>", " ", chunk, flags=re.DOTALL)
-        #         # Apply phonetic replacements
-        #         for term, replacement in pronunciations.items():
-        #             cleaned = re.sub(
-        #                 rf"(?<!\w){re.escape(term)}(?!\w)",
-        #                 replacement,
-        #                 cleaned,
-        #                 flags=re.IGNORECASE
-        #             )
-        #         yield cleaned
-
         async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
             async for chunk in input_text:
-                # Extract and log <draft>, <think>, <verification> parts
-                draft_match = re.search(r"<draft>(.*?)</draft>", chunk, flags=re.DOTALL)
+                # Remove <think> tags
                 think_match = re.search(r"<think>(.*?)</think>", chunk, flags=re.DOTALL)
-                verify_match = re.search(r"<verification>(.*?)</verification>", chunk, flags=re.DOTALL)
-
-                if draft_match:
-                    logger.debug("Draft: %s", draft_match.group(1).strip())
-                if think_match:
-                    logger.debug("Think: %s", think_match.group(1).strip())
-                if verify_match:
-                    logger.debug("Verification: %s", verify_match.group(1).strip())
-
-                # Remove reasoning tags from the output
-                cleaned = re.sub(r"<draft>.*?</draft>", " ", chunk, flags=re.DOTALL)
-                cleaned = re.sub(r"<think>.*?</think>", " ", cleaned, flags=re.DOTALL)
-                cleaned = re.sub(r"<verification>.*?</verification>", " ", cleaned, flags=re.DOTALL)
-
-                # # Extract final response (if tagged explicitly)
-                # final_match = re.search(r"final_response\s*[:\-]*\s*(.*)", cleaned, flags=re.DOTALL)
-                # if final_match:
-                #     cleaned = final_match.group(1).strip()
-                #     logger.debug("Final response: %s", cleaned)
-                # else:
-                #     logger.debug("Final response (no tag found): %s", cleaned.strip())
-
+                logger.debug("Think: %s", think_match.group(1).strip() if think_match else "None")
+                cleaned = re.sub(r"<think>.*?</think>", " ", chunk, flags=re.DOTALL)
                 # Apply phonetic replacements
                 for term, replacement in pronunciations.items():
                     cleaned = re.sub(
@@ -332,8 +297,45 @@ class MyAssistant(Agent):
                         cleaned,
                         flags=re.IGNORECASE
                     )
-
                 yield cleaned
+
+        # async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
+        #     async for chunk in input_text:
+        #         # Extract and log <draft>, <think>, <verification> parts
+        #         draft_match = re.search(r"<draft>(.*?)</draft>", chunk, flags=re.DOTALL)
+        #         think_match = re.search(r"<think>(.*?)</think>", chunk, flags=re.DOTALL)
+        #         verify_match = re.search(r"<verification>(.*?)</verification>", chunk, flags=re.DOTALL)
+
+        #         if draft_match:
+        #             logger.debug("Draft: %s", draft_match.group(1).strip())
+        #         if think_match:
+        #             logger.debug("Think: %s", think_match.group(1).strip())
+        #         if verify_match:
+        #             logger.debug("Verification: %s", verify_match.group(1).strip())
+
+        #         # Remove reasoning tags from the output
+        #         cleaned = re.sub(r"<draft>.*?</draft>", " ", chunk, flags=re.DOTALL)
+        #         cleaned = re.sub(r"<think>.*?</think>", " ", cleaned, flags=re.DOTALL)
+        #         cleaned = re.sub(r"<verification>.*?</verification>", " ", cleaned, flags=re.DOTALL)
+
+        #         # # Extract final response (if tagged explicitly)
+        #         # final_match = re.search(r"final_response\s*[:\-]*\s*(.*)", cleaned, flags=re.DOTALL)
+        #         # if final_match:
+        #         #     cleaned = final_match.group(1).strip()
+        #         #     logger.debug("Final response: %s", cleaned)
+        #         # else:
+        #         #     logger.debug("Final response (no tag found): %s", cleaned.strip())
+
+        #         # Apply phonetic replacements
+        #         for term, replacement in pronunciations.items():
+        #             cleaned = re.sub(
+        #                 rf"(?<!\w){re.escape(term)}(?!\w)",
+        #                 replacement,
+        #                 cleaned,
+        #                 flags=re.IGNORECASE
+        #             )
+
+        #         yield cleaned
 
         # Feed the processed text into default TTS
         async for frame in Agent.default.tts_node(self, adjust_text(text), model_settings):
