@@ -718,6 +718,7 @@ def get_instructions(customer_profile):
         6. **Closure**  
         > “क्या मैं डॉक्यूमेंट्स की लिस्ट व्हाट्सएप पे भेज दूँ ताकि आप आराम से देख लें?”
         > IF the conversaion has reached closure and first say goodbye to the customer and then end the call, not before that.
+        > End the call based on your judgement of the conversation, dont ask the customer if they want to end the call.
 
         ---
         ### <Think>
