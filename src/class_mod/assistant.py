@@ -287,12 +287,62 @@ class MyAssistant(Agent):
         #             )
         #         yield cleaned
 
+        # async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
+        #     in_think = False
+        #     buffer = ""
+
+        #     async for chunk in input_text:
+        #         #logger.debug("Original chunk: %s", chunk)
+        #         buffer += chunk
+
+        #         # Check for start marker (¤)
+        #         if "¤" in buffer:
+        #             before, _, after = buffer.partition("¤")
+        #             buffer = before
+        #             in_think = True
+        #             logger.debug("Think section started.")
+        #             # (Optional) You can log the start of reasoning if you want:
+        #             # logger.debug("Captured think start, skipping reasoning.")
+        #             continue
+
+        #         # Check for end marker (¶)
+        #         if "¶" in buffer:
+        #             _, _, after = buffer.partition("¶")
+        #             buffer = after  # keep only content after reasoning block
+        #             in_think = False
+        #             logger.debug("Think section ended. Resuming output.")
+
+        #         # If currently inside reasoning, skip output
+        #         if in_think:
+        #             continue
+
+        #         # Process the visible (speakable) part
+        #         cleaned = buffer
+        #         for term, replacement in pronunciations.items():
+        #             cleaned = re.sub(
+        #                 rf"(?<!\w){re.escape(term)}(?!\w)",
+        #                 replacement,
+        #                 cleaned,
+        #                 flags=re.IGNORECASE
+        #             )
+
+        #         # # Normalize whitespace
+        #         # cleaned = re.sub(r"\s+", " ", cleaned).strip()
+
+        #         if cleaned:
+        #             yield cleaned
+        #             # logger.debug("Yielded cleaned text: %s", cleaned)
+
+        #         # reset buffer for next chunk
+        #         buffer = ""
+        
         async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
             in_think = False
             buffer = ""
+            think_buffer = ""  # stores reasoning text for counting
 
             async for chunk in input_text:
-                logger.debug("Original chunk: %s", chunk)
+                # logger.debug("Original chunk: %s", chunk)
                 buffer += chunk
 
                 # Check for start marker (¤)
@@ -300,21 +350,31 @@ class MyAssistant(Agent):
                     before, _, after = buffer.partition("¤")
                     buffer = before
                     in_think = True
+                    think_buffer = ""  # reset reasoning buffer
                     logger.debug("Think section started.")
-                    # (Optional) You can log the start of reasoning if you want:
-                    # logger.debug("Captured think start, skipping reasoning.")
+                    # continue collecting upcoming tokens into think_buffer
                     continue
 
-                # Check for end marker (¶)
-                if "¶" in buffer:
-                    _, _, after = buffer.partition("¶")
-                    buffer = after  # keep only content after reasoning block
-                    in_think = False
-                    logger.debug("Think section ended. Resuming output.")
-
-                # If currently inside reasoning, skip output
+                # If we’re currently in a reasoning section, accumulate
                 if in_think:
-                    continue
+                    # Check if reasoning ends in this same chunk
+                    if "¶" in buffer:
+                        pre_think, _, after = buffer.partition("¶")
+                        think_buffer += pre_think
+                        token_count = len(think_buffer.strip())
+                        logger.debug(
+                            "Think section ended. Tokens (chars): %d, text: %s",
+                            token_count,
+                            think_buffer.strip()[:120] + ("..." if len(think_buffer) > 120 else "")
+                        )
+                        buffer = after
+                        in_think = False
+                        think_buffer = ""
+                    else:
+                        # still inside think, accumulate and skip emitting
+                        think_buffer += buffer
+                        buffer = ""
+                        continue
 
                 # Process the visible (speakable) part
                 cleaned = buffer
@@ -326,12 +386,9 @@ class MyAssistant(Agent):
                         flags=re.IGNORECASE
                     )
 
-                # # Normalize whitespace
-                # cleaned = re.sub(r"\s+", " ", cleaned).strip()
-
-                if cleaned:
+                if cleaned.strip():
                     yield cleaned
-                    logger.debug("Yielded cleaned text: %s", cleaned)
+                    # logger.debug("Yielded cleaned text: %s", cleaned.strip())
 
                 # reset buffer for next chunk
                 buffer = ""
