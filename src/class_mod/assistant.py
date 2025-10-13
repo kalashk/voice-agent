@@ -420,6 +420,7 @@ class MyAssistant(Agent):
                         continue
 
                     processed_content = content.replace("<think>", "").replace("</think>", "")
+                    processed_content = content.replace("<think>", "").replace("<think>", "")
 
                     if processed_content != content:
                         # if hasattr(chunk, 'delta') and hasattr(chunk.delta, 'content'):
