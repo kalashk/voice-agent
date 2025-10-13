@@ -82,20 +82,6 @@ prompt_template = ChatPromptTemplate.from_messages([
 ])
 summary_chain = prompt_template | summarizer_llm | parser
 
-# async def generate_summary_llm(history_text: str) -> dict:
-#     """Call LLM independently to generate JSON summary from conversation history."""
-#     logger.info("Generating call summary via independent LLM...")
-#     # logger.info("History Text: %s", history_text[:500])
-#     result = summary_chain.invoke({"input": history_text})
-#     try:
-#         summary_json = json.loads(json.dumps(result))  # ensure JSON serializable
-#     except Exception:
-#         summary_json = {"error": "Invalid JSON generated", "raw_text": str(result)}
-
-
-#     logger.info("Generated Summary: %s", summary_json)
-#     return summary_json
-
 async def generate_summary_llm(history_text: str, customer_data: dict) -> dict:
     """Call LLM independently to generate JSON summary from conversation history + customer metadata."""
     logger.info("Generating call summary via independent LLM...")
@@ -287,9 +273,9 @@ class MyAssistant(Agent):
         async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
             async for chunk in input_text:
                 # Remove <think> tags
-                think_match = re.search(r"<think>(.*?)</think>", chunk, flags=re.DOTALL)
-                logger.debug("Think: %s", think_match if think_match else "None")
-                cleaned = re.sub(r"<think>.*?</think>", " ", chunk, flags=re.DOTALL)
+                think_match = re.search(r"<think>(.*?)<think>", chunk, flags=re.DOTALL)
+                #logger.debug("Think: %s", think_match if think_match else "None")
+                cleaned = re.sub(r"<think>.*?<think>", " ", chunk, flags=re.DOTALL)
                 # Apply phonetic replacements
                 for term, replacement in pronunciations.items():
                     cleaned = re.sub(
@@ -393,4 +379,6 @@ class MyAssistant(Agent):
         logger.info("Ending call as customer is interested in the loan.")
         instructions = "Say goodbye, very briefly"
         return await self._end_call_with_summary(context, instructions)
+
+
 
