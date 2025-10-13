@@ -81,49 +81,45 @@ prompt_template = ChatPromptTemplate.from_messages([
 ])
 summary_chain = prompt_template | summarizer_llm | parser
 
-async def generate_summary_llm(history_text: str) -> dict:
-    """Call LLM independently to generate JSON summary from conversation history."""
+# async def generate_summary_llm(history_text: str) -> dict:
+#     """Call LLM independently to generate JSON summary from conversation history."""
+#     logger.info("Generating call summary via independent LLM...")
+#     # logger.info("History Text: %s", history_text[:500])
+#     result = summary_chain.invoke({"input": history_text})
+#     try:
+#         summary_json = json.loads(json.dumps(result))  # ensure JSON serializable
+#     except Exception:
+#         summary_json = {"error": "Invalid JSON generated", "raw_text": str(result)}
+
+
+#     logger.info("Generated Summary: %s", summary_json)
+#     return summary_json
+
+async def generate_summary_llm(history_text: str, customer_data: dict) -> dict:
+    """Call LLM independently to generate JSON summary from conversation history + customer metadata."""
     logger.info("Generating call summary via independent LLM...")
-    logger.info("History Text: %s", history_text[:500])
-    result = summary_chain.invoke({"input": history_text})
+
+    # Prepare contextualized input for the LLM
+    llm_input = f"""
+    CUSTOMER CONTEXT:
+    The following is structured customer information collected before or during the call.
+    {json.dumps(customer_data, indent=2, ensure_ascii=False)}
+
+    CONVERSATION HISTORY:
+    {history_text}
+    """
+
+    result = summary_chain.invoke({"input": llm_input})
     try:
         summary_json = json.loads(json.dumps(result))  # ensure JSON serializable
-    except Exception:
+    except Exception as e:
+        logger.error("Failed to parse summary JSON: %s", e)
         summary_json = {"error": "Invalid JSON generated", "raw_text": str(result)}
-
 
     logger.info("Generated Summary: %s", summary_json)
     return summary_json
 
 # ---------------- Conversation extraction ----------------
-# def extract_conversation(session: AgentSession) -> str:
-#     """Extract conversation history as a single text block."""
-#     history_dict = session.history.to_dict()
-#     logger.info("Extracting conversation history from session. : %s", history_dict)
-#     messages = []
-#     for msg in history_dict.get("messages", []):
-#         role = msg.get("role", "unknown")
-#         content = msg.get("content", "")
-#         messages.append(f"{role}: {content}")
-#     return "\n".join(messages)
-
-# def extract_conversation(session: AgentSession) -> str:
-#     """Extract conversation history as a clean, readable text block."""
-#     history_dict = session.history.to_dict()
-#     logger.info("Extracting conversation history from session. : %s", history_dict)
-
-#     messages = []
-#     for msg in history_dict.get("messages", []):
-#         role = msg.get("role", "unknown")
-#         content = msg.get("content", "")
-#         # Flatten list contents
-#         if isinstance(content, list):
-#             content = " ".join([str(c) for c in content])
-#         elif not isinstance(content, str):
-#             content = str(content)
-#         messages.append(f"{role}: {content.strip()}")
-#     return "\n".join(messages)
-
 def extract_conversation(session: AgentSession, *, max_messages: int = 5000, max_chars: int = 800000) -> str:
     """
     Extract conversation history as a clean, readable text block.
@@ -208,8 +204,6 @@ def extract_conversation(session: AgentSession, *, max_messages: int = 5000, max
             result = result[first_newline + 1 :]
 
     return result
-
-
 
 
 # ---------------- Hangup function ----------------
@@ -307,19 +301,44 @@ class MyAssistant(Agent):
         async for frame in Agent.default.tts_node(self, adjust_text(text), model_settings):
             yield frame
 
-    async def _end_call_with_summary(self, context: RunContext, goodbye_instructions: str) -> dict:
-        # 1️⃣ Generate goodbye message
-        logger.info("Generating goodbye message before ending the call.")
-        # handle = await context.session.generate_reply(instructions=goodbye_instructions)
-        # await handle.wait_for_playout()
-        await asyncio.sleep(6)
+    # async def _end_call_with_summary(self, context: RunContext, goodbye_instructions: str) -> dict:
+    #     # 1️⃣ Generate goodbye message
+    #     logger.info("Generating goodbye message before ending the call.")
+    #     # handle = await context.session.generate_reply(instructions=goodbye_instructions)
+    #     # await handle.wait_for_playout()
+    #     await asyncio.sleep(4)
 
-        # 2️⃣ Generate summary using independent LLM
+    #     # 2️⃣ Generate summary using independent LLM
+    #     logger.info("Extracting conversation history for summary generation.")
+    #     history_text = extract_conversation(context.session)
+    #     summary = await generate_summary_llm(history_text)
+
+    #     # 3️⃣ Hangup room
+    #     logger.info("Hanging up the current room.")
+    #     await hangup_current_room()
+
+    #     logger.info("Call ended and summary generated.")
+    #     return summary
+    
+    async def _end_call_with_summary(self, context: RunContext, goodbye_instructions: str) -> dict:
+        """Ends the call gracefully and generates LLM-based summary including customer metadata."""
+        logger.info("Generating goodbye message before ending the call.")
+        await asyncio.sleep(4)
+
         logger.info("Extracting conversation history for summary generation.")
         history_text = extract_conversation(context.session)
-        summary = await generate_summary_llm(history_text)
 
-        # 3️⃣ Hangup room
+        # --- Include customer data ---
+        customer_data = {
+            "customer_profile": self.customer_profile
+            if hasattr(self.customer_profile, "dict")
+            else dict(self.customer_profile)
+        }
+
+        # --- Generate summary with context ---
+        summary = await generate_summary_llm(history_text, customer_data)
+
+        # --- Hang up gracefully ---
         logger.info("Hanging up the current room.")
         await hangup_current_room()
 
