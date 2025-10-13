@@ -402,35 +402,49 @@ class MyAssistant(Agent):
         self.customer_profile = customer_profile
         self.session_ref = session  
 
-    async def llm_node(
-        self, chat_ctx, tools, model_settings='auto'
+    def llm_node(
+        self,
+        chat_ctx,
+        tools,
+        model_settings='auto'
     ):
-        
+        """
+        A node in the processing pipeline that streams LLM output while stripping <think> tags.
+        """
+
         async def process_stream():
             if not isinstance(self.llm, LLM):
                 raise TypeError("self.llm must be an LLM instance to call chat")
+
             async with self.llm.chat(chat_ctx=chat_ctx, tools=tools, tool_choice='auto') as stream:
                 async for chunk in stream:
                     if chunk is None:
                         continue
 
+                    # Get content safely
                     content = getattr(chunk.delta, 'content', None) if hasattr(chunk, 'delta') else str(chunk)
                     if content is None:
                         yield chunk
                         continue
 
-                    processed_content = content.replace("<think>", "").replace("</think>", "")
-                    processed_content = content.replace("<think>", "").replace("<think>", "")
+                    # Log think tags
+                    think_tags = re.findall(r"</?think>", content)
+                    if think_tags:
+                        logger.debug("Found think tags: %s", think_tags)
+
+                    # Remove think tags
+                    processed_content = content.replace("<think>", "").replace("</think>", "Okay, I'm ready to respond.")
 
                     if processed_content != content:
-                        # if hasattr(chunk, 'delta') and hasattr(chunk.delta, 'content'):
                         if chunk.delta is not None and hasattr(chunk.delta, 'content'):
                             chunk.delta.content = processed_content
                         else:
                             chunk = processed_content
 
-                    yield chunk     
+                    yield chunk
 
+        # Returning the coroutine that yields an async iterable
+        return process_stream()
     async def tts_node(
         self,
         text: AsyncIterable[str],
