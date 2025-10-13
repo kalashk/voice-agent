@@ -326,8 +326,8 @@ class MyAssistant(Agent):
                         flags=re.IGNORECASE
                     )
 
-                # Normalize whitespace
-                cleaned = re.sub(r"\s+", " ", cleaned).strip()
+                # # Normalize whitespace
+                # cleaned = re.sub(r"\s+", " ", cleaned).strip()
 
                 if cleaned:
                     yield cleaned
