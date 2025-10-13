@@ -86,7 +86,7 @@ def setup_llm(provider: str = LLM_PROVIDER):
         return groq.LLM(
             model="meta-llama/llama-4-scout-17b-16e-instruct", 
             tool_choice='auto',
-            temperature=0.3
+            temperature=0.2
             )
     else:
         raise ValueError(f"Unknown LLM provider: {provider}")
