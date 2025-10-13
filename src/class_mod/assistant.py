@@ -273,6 +273,7 @@ class MyAssistant(Agent):
         async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
             async for chunk in input_text:
                 # Remove <think> tags
+                logger.debug("Original chunk: %s", chunk)
                 think_match = re.search(r"<think>(.*?)<think>", chunk, flags=re.DOTALL)
                 #logger.debug("Think: %s", think_match if think_match else "None")
                 cleaned = re.sub(r"<think>.*?<think>", " ", chunk, flags=re.DOTALL)
