@@ -413,6 +413,7 @@ class MyAssistant(Agent):
         """
 
         async def process_stream():
+            logger.debug("self.llm type: %s", type(self.llm))
             if not isinstance(self.llm, LLM):
                 raise TypeError("self.llm must be an LLM instance to call chat")
 
@@ -427,13 +428,17 @@ class MyAssistant(Agent):
                         yield chunk
                         continue
 
+                    think_match = re.search(r"<think>(.*?)</think>", content, flags=re.DOTALL)
+                    logger.debug("Think: %s", think_match if think_match else "None")
+                    processed_content = re.sub(r"<think>.*?</think>", " ", content, flags=re.DOTALL)
+
                     # Log think tags
-                    think_tags = re.findall(r"</?think>", content)
-                    if think_tags:
-                        logger.debug("Found think tags: %s", think_tags)
+                    # think_tags = re.findall(r"</?think>", content)
+                    # if think_tags:
+                    #     logger.debug("Found think tags: %s", think_tags)
 
                     # Remove think tags
-                    processed_content = content.replace("<think>", "").replace("</think>", "Okay, I'm ready to respond.")
+                    # processed_content = content.replace("<think>", "").replace("</think>", "Okay, I'm ready to respond.")
 
                     if processed_content != content:
                         if chunk.delta is not None and hasattr(chunk.delta, 'content'):
@@ -445,6 +450,8 @@ class MyAssistant(Agent):
 
         # Returning the coroutine that yields an async iterable
         return process_stream()
+    
+
     async def tts_node(
         self,
         text: AsyncIterable[str],
