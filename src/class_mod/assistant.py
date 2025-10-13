@@ -287,7 +287,7 @@ class MyAssistant(Agent):
             async for chunk in input_text:
                 # Remove <think> tags
                 think_match = re.search(r"<think>(.*?)</think>", chunk, flags=re.DOTALL)
-                logger.debug("Think: %s", think_match.group(1).strip() if think_match else "None")
+                logger.debug("Think: %s", think_match if think_match else "None")
                 cleaned = re.sub(r"<think>.*?</think>", " ", chunk, flags=re.DOTALL)
                 # Apply phonetic replacements
                 for term, replacement in pronunciations.items():
