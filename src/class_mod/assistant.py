@@ -316,13 +316,13 @@ class MyAssistant(Agent):
                 cleaned = re.sub(r"<think>.*?</think>", " ", cleaned, flags=re.DOTALL)
                 cleaned = re.sub(r"<verification>.*?</verification>", " ", cleaned, flags=re.DOTALL)
 
-                # Extract final response (if tagged explicitly)
-                final_match = re.search(r"final_response\s*[:\-]*\s*(.*)", cleaned, flags=re.DOTALL)
-                if final_match:
-                    cleaned = final_match.group(1).strip()
-                    logger.debug("Final response: %s", cleaned)
-                else:
-                    logger.debug("Final response (no tag found): %s", cleaned.strip())
+                # # Extract final response (if tagged explicitly)
+                # final_match = re.search(r"final_response\s*[:\-]*\s*(.*)", cleaned, flags=re.DOTALL)
+                # if final_match:
+                #     cleaned = final_match.group(1).strip()
+                #     logger.debug("Final response: %s", cleaned)
+                # else:
+                #     logger.debug("Final response (no tag found): %s", cleaned.strip())
 
                 # Apply phonetic replacements
                 for term, replacement in pronunciations.items():
@@ -333,7 +333,7 @@ class MyAssistant(Agent):
                         flags=re.IGNORECASE
                     )
 
-                yield cleaned.strip()
+                yield cleaned
 
         # Feed the processed text into default TTS
         async for frame in Agent.default.tts_node(self, adjust_text(text), model_settings):
