@@ -293,25 +293,30 @@ class MyAssistant(Agent):
 
             async for chunk in input_text:
                 logger.debug("Original chunk: %s", chunk)
-
                 buffer += chunk
 
-                # Detect start of think
-                if "<t>" in buffer:
+                # Check for start marker (¤)
+                if "¤" in buffer:
+                    before, _, after = buffer.partition("¤")
+                    buffer = before
                     in_think = True
-                    buffer = buffer.split("<t>", 1)[0]  # keep text before <think>
+                    logger.debug("Think section started.")
+                    # (Optional) You can log the start of reasoning if you want:
+                    # logger.debug("Captured think start, skipping reasoning.")
+                    continue
 
-                # Detect end of think
-                if "</t>" in buffer:
+                # Check for end marker (¶)
+                if "¶" in buffer:
+                    _, _, after = buffer.partition("¶")
+                    buffer = after  # keep only content after reasoning block
                     in_think = False
-                    # keep only the part after </think>
-                    buffer = buffer.split("</t>", 1)[1]
+                    logger.debug("Think section ended. Resuming output.")
 
-                # If inside a think block, don’t emit anything
+                # If currently inside reasoning, skip output
                 if in_think:
                     continue
 
-                # Apply phonetic replacements
+                # Process the visible (speakable) part
                 cleaned = buffer
                 for term, replacement in pronunciations.items():
                     cleaned = re.sub(
@@ -321,44 +326,15 @@ class MyAssistant(Agent):
                         flags=re.IGNORECASE
                     )
 
-                yield cleaned
+                # Normalize whitespace
+                cleaned = re.sub(r"\s+", " ", cleaned).strip()
+
+                if cleaned:
+                    yield cleaned
+                    logger.debug("Yielded cleaned text: %s", cleaned)
+
+                # reset buffer for next chunk
                 buffer = ""
-
-        # async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
-        #     in_think = False
-        #     tag_buffer = ""
-
-        #     async for chunk in input_text:
-        #         tag_buffer += chunk
-
-        #         # Normalize broken tag fragments
-        #         while True:
-        #             start_idx = tag_buffer.find("<t>")
-        #             end_idx = tag_buffer.find("</t>")
-
-        #             if start_idx != -1 and (end_idx == -1 or start_idx < end_idx):
-        #                 in_think = True
-        #                 tag_buffer = tag_buffer[:start_idx]
-        #             elif end_idx != -1:
-        #                 in_think = False
-        #                 tag_buffer = tag_buffer[end_idx + len("</t>"):]
-        #             else:
-        #                 break
-
-        #         if in_think:
-        #             continue
-
-        #         cleaned = tag_buffer
-        #         for term, replacement in pronunciations.items():
-        #             cleaned = re.sub(
-        #                 rf"(?<!\w){re.escape(term)}(?!\w)",
-        #                 replacement,
-        #                 cleaned,
-        #                 flags=re.IGNORECASE
-        #             )
-
-        #         yield cleaned
-        #         tag_buffer = ""
 
         # Feed the processed text into default TTS
         async for frame in Agent.default.tts_node(self, adjust_text(text), model_settings):
