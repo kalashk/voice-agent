@@ -1,26 +1,24 @@
-import uuid
 import logging
+import uuid
 from datetime import datetime
-from typing import Dict
 
 from livekit.agents import (
     AgentSession,
-    MetricsCollectedEvent,
-    metrics,
-    UserInputTranscribedEvent,
     ConversationItemAddedEvent,
+    MetricsCollectedEvent,
+    UserInputTranscribedEvent,
+    metrics,
 )
 from livekit.agents.llm import ChatMessage
 
-from helpers.usage_tracker import CostCalculator
 # from helpers.config import LLM_PROVIDER, TTS_PROVIDER, STT_PROVIDER, IST
-import os
-from helpers.config import IST, TTS_PROVIDER, STT_PROVIDER, LLM_PROVIDER
+from helpers.config import IST, LLM_PROVIDER, STT_PROVIDER, TTS_PROVIDER
+from helpers.usage_tracker import CostCalculator
 
 logger = logging.getLogger("agent")
 
 
-def setup_metrics(session: AgentSession, SESSION_LOGS: dict):
+def setup_metrics(session: AgentSession, SESSION_LOGS: dict):  # noqa: N803
     """
     Sets up real-time metrics collection for a LiveKit AgentSession.
     Tracks LLM, STT, TTS, EOU, VAD, and conversation latencies.
@@ -36,7 +34,7 @@ def setup_metrics(session: AgentSession, SESSION_LOGS: dict):
     cost_calc = CostCalculator(llm_provider=LLM_PROVIDER ,stt_provider=STT_PROVIDER, tts_provider=TTS_PROVIDER)
 
     # Per-turn temporary store {speech_id: {...metrics...}}
-    turn_metrics: Dict[str, dict] = {}
+    turn_metrics: dict[str, dict] = {}
 
     # ------------------------
     # User transcription events

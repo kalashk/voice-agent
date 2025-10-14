@@ -1,13 +1,28 @@
 import asyncio
 import logging
+
 from dotenv import load_dotenv
 from livekit import api
-from livekit.agents import cli, WorkerOptions
-from livekit.agents import Agent, AgentSession, JobContext, RoomInputOptions, RunContext, get_job_context
-from livekit.plugins import silero, noise_cancellation
-from livekit.plugins import sarvam, groq, lmnt, deepgram
+from livekit.agents import (
+    Agent,
+    AgentSession,
+    JobContext,
+    RoomInputOptions,
+    RunContext,
+    WorkerOptions,
+    cli,
+    function_tool,
+    get_job_context,
+)
+from livekit.plugins import (  # noqa: F401
+    deepgram,
+    groq,
+    lmnt,
+    noise_cancellation,
+    sarvam,
+    silero,
+)
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
-from livekit.agents import function_tool
 
 logger = logging.getLogger("agent")
 load_dotenv(".env.local")
@@ -61,7 +76,7 @@ async def entrypoint(ctx: JobContext):
     logging.basicConfig(level=logging.DEBUG)
     session = AgentSession(
         stt=deepgram.STT(
-            model="nova-3", 
+            model="nova-3",
             language="multi"
         ),
         llm=groq.LLM(
@@ -87,7 +102,7 @@ async def entrypoint(ctx: JobContext):
         room=ctx.room,
         agent=agent,
         room_input_options=RoomInputOptions(
-           # noise_cancellation=noise_cancellation.BVC(), 
+           # noise_cancellation=noise_cancellation.BVC(),
         ),
     )
 
@@ -96,7 +111,7 @@ async def entrypoint(ctx: JobContext):
         await asyncio.sleep(120)  # 2 minutes
         if session._started:
             print("Session timeout reached — asking LLM to generate closing response.")
-            
+
             # Ask the LLM to generate a natural goodbye message
             await session.generate_reply(
                 instructions=(

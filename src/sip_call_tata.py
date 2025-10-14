@@ -1,18 +1,22 @@
+import asyncio
 import os
 import uuid
-import asyncio
+
 from dotenv import load_dotenv
 from livekit import api
-from livekit.api import StopEgressRequest, GCPUpload
+from livekit.api import (
+    EncodedFileOutput,
+    GCPUpload,
+    RoomCompositeEgressRequest,
+    StopEgressRequest,
+)
+from livekit.protocol.room import ListParticipantsRequest
 from livekit.protocol.sip import (
     CreateSIPOutboundTrunkRequest,
-    SIPOutboundTrunkInfo,
     CreateSIPParticipantRequest,
     ListSIPOutboundTrunkRequest,
+    SIPOutboundTrunkInfo,
 )
-from livekit.api import EncodedFileOutput, RoomCompositeEgressRequest
-from livekit.protocol.room import ListParticipantsRequest
-
 
 # --------------------------
 # Load environment variables
@@ -158,7 +162,7 @@ async def run_calls():
 
 
 # --------------------------
-# Main       
+# Main
 # --------------------------
 if __name__ == "__main__":
     asyncio.run(run_calls())

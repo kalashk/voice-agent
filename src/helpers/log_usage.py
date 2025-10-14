@@ -2,16 +2,17 @@ import json
 import logging
 from dataclasses import asdict
 from datetime import datetime
+
 from helpers.config import LOG_PATH
 
 # Logger for agent/session events
 logger = logging.getLogger("agent")
 
 
-async def log_usage(usage_collector, cost_calc, SESSION_LOGS, SESSION_ID, customer_profile, TTS_PROVIDER, STT_PROVIDER, LLM_PROVIDER):
+async def log_usage(usage_collector, cost_calc, SESSION_LOGS, SESSION_ID, customer_profile, TTS_PROVIDER, STT_PROVIDER, LLM_PROVIDER):  # noqa: N803
     """
     Logs and persists session usage and cost information.
-    
+
     Parameters:
         usage_collector: Aggregates metrics from the session (LLM, STT, TTS)
         cost_calc: CostCalculator instance for computing costs
@@ -40,7 +41,7 @@ async def log_usage(usage_collector, cost_calc, SESSION_LOGS, SESSION_ID, custom
     all_timestamps = []
     for section in ("stt", "tts", "llm", "eou", "conversation"):
         for ev in SESSION_LOGS.get(section, []):
-            try:
+            try:  # noqa: SIM105
                 # Convert ISO timestamp to datetime object
                 all_timestamps.append(datetime.fromisoformat(ev["timestamp"]))
             except Exception:

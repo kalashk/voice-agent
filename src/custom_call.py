@@ -1,21 +1,29 @@
-import os
-import json
-import logging
-import uuid
 import asyncio
+import logging
+import os
+import uuid
+
 from dotenv import load_dotenv
 from livekit import api
-from livekit.api import StopEgressRequest, GCPUpload
+from livekit.api import (
+    EncodedFileOutput,
+    GCPUpload,
+    RoomCompositeEgressRequest,
+    StopEgressRequest,
+)
+from livekit.protocol.room import ListParticipantsRequest
 from livekit.protocol.sip import (
     CreateSIPOutboundTrunkRequest,
-    SIPOutboundTrunkInfo,
     CreateSIPParticipantRequest,
     ListSIPOutboundTrunkRequest,
+    SIPOutboundTrunkInfo,
 )
-from helpers.customer_helper import update_customer_profile, CustomerProfileType, save_customer_profile
-from livekit.api import EncodedFileOutput, RoomCompositeEgressRequest
-from livekit.protocol.room import ListParticipantsRequest
 
+from helpers.customer_helper import (
+    CustomerProfileType,
+    save_customer_profile,
+    update_customer_profile,
+)
 
 # --------------------------
 # Configure Logging

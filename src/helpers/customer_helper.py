@@ -1,5 +1,5 @@
-import os
 import json
+import os
 from typing import TypedDict
 
 CUSTOMER_FILE = "customer.json"
@@ -35,7 +35,7 @@ def load_customer_profile(file_path=CUSTOMER_FILE) -> CustomerProfileType:
         save_customer_profile(default_data, file_path)
         return default_data
 
-    with open(file_path, "r") as f:
+    with open(file_path) as f:
         return json.load(f)
 
 # --------------------------

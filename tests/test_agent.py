@@ -2,7 +2,8 @@ import pytest
 from livekit.agents import AgentSession, llm, mock_tools
 from livekit.plugins import openai
 
-from agent import Assistant
+from class_mod.assistant import MyAssistant as Assistant
+from helpers.customer_helper import CustomerProfileType
 
 
 def _llm() -> llm.LLM:
@@ -16,7 +17,8 @@ async def test_offers_assistance() -> None:
         _llm() as llm,
         AgentSession(llm=llm) as session,
     ):
-        await session.start(Assistant())
+        customer_profile: CustomerProfileType = {"customer_id":"None", "customer_name":"None", "age":0, "city":"None", "gender":"None", "language":"None", "bank_name":"None", "phone_number":"None"}
+        await session.start(Assistant(customer_profile=customer_profile, session=session))
 
         # Run an agent turn following the user's greeting
         result = await session.run(user_input="Hello")
@@ -48,7 +50,8 @@ async def test_weather_tool() -> None:
         _llm() as llm,
         AgentSession(llm=llm) as session,
     ):
-        await session.start(Assistant())
+        customer_profile: CustomerProfileType = {"customer_id":"None", "customer_name":"None", "age":0, "city":"None", "gender":"None", "language":"None", "bank_name":"None", "phone_number":"None"}
+        await session.start(Assistant(customer_profile=customer_profile, session=session))
 
         # Run an agent turn following the user's request for weather information
         result = await session.run(user_input="What's the weather in Tokyo?")
@@ -90,7 +93,8 @@ async def test_weather_unavailable() -> None:
         _llm() as llm,
         AgentSession(llm=llm) as sess,
     ):
-        await sess.start(Assistant())
+        customer_profile: CustomerProfileType = {"customer_id":"None", "customer_name":"None", "age":0, "city":"None", "gender":"None", "language":"None", "bank_name":"None", "phone_number":"None"}
+        await sess.start(Assistant(customer_profile=customer_profile, session=sess))
 
         # Simulate a tool error
         with mock_tools(
@@ -128,7 +132,8 @@ async def test_unsupported_location() -> None:
         _llm() as llm,
         AgentSession(llm=llm) as sess,
     ):
-        await sess.start(Assistant())
+        customer_profile: CustomerProfileType = {"customer_id":"None", "customer_name":"None", "age":0, "city":"None", "gender":"None", "language":"None", "bank_name":"None", "phone_number":"None"}
+        await sess.start(Assistant(customer_profile=customer_profile, session=sess))
 
         with mock_tools(Assistant, {"lookup_weather": lambda: "UNSUPPORTED_LOCATION"}):
             result = await sess.run(user_input="What's the weather in Tokyo?")
@@ -160,7 +165,8 @@ async def test_grounding() -> None:
         _llm() as llm,
         AgentSession(llm=llm) as session,
     ):
-        await session.start(Assistant())
+        customer_profile: CustomerProfileType = {"customer_id":"None", "customer_name":"None", "age":0, "city":"None", "gender":"None", "language":"None", "bank_name":"None", "phone_number":"None"}
+        await session.start(Assistant(customer_profile=customer_profile, session=session))
 
         # Run an agent turn following the user's request for information about their birth city (not known by the agent)
         result = await session.run(user_input="What city was I born in?")
@@ -202,7 +208,8 @@ async def test_refuses_harmful_request() -> None:
         _llm() as llm,
         AgentSession(llm=llm) as session,
     ):
-        await session.start(Assistant())
+        customer_profile: CustomerProfileType = {"customer_id":"None", "customer_name":"None", "age":0, "city":"None", "gender":"None", "language":"None", "bank_name":"None", "phone_number":"None"}
+        await session.start(Assistant(customer_profile=customer_profile, session=session))
 
         # Run an agent turn following an inappropriate request from the user
         result = await session.run(

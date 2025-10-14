@@ -1,22 +1,29 @@
-import os
-import logging
 import asyncio
 import json
+import logging
+
 from dotenv import load_dotenv
 from livekit.agents import (
     JobContext,
     RoomInputOptions,
 )
 from livekit.plugins import noise_cancellation
-from helpers.setup_tts_stt import setup_tts, setup_stt, setup_llm
-from helpers.metrics import setup_metrics
-from helpers.log_usage import log_usage
-from helpers.helpers import setup_session
+
 from class_mod.assistant import MyAssistant
-from helpers.config import SESSION_ID, SESSION_LOGS, TTS_PROVIDER, STT_PROVIDER, LLM_PROVIDER
+from helpers.config import (
+    LLM_PROVIDER,
+    SESSION_ID,
+    SESSION_LOGS,
+    STT_PROVIDER,
+    TTS_PROVIDER,
+)
 
 # Import customer functions
-from helpers.customer_helper import load_customer_profile, update_customer_profile
+from helpers.customer_helper import load_customer_profile
+from helpers.helpers import setup_session
+from helpers.log_usage import log_usage
+from helpers.metrics import setup_metrics
+from helpers.setup_tts_stt import setup_llm, setup_stt, setup_tts
 
 logger = logging.getLogger("agent")
 load_dotenv(".env.local")  # Load environment variables

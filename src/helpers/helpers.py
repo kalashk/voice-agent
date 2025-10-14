@@ -1,19 +1,17 @@
-import os
-import json
-import asyncio
 import logging
+
 from livekit.agents import (
-    JobProcess,
-    JobContext,
-    AgentSession,
-    AgentFalseInterruptionEvent,
     NOT_GIVEN,
+    AgentFalseInterruptionEvent,
+    AgentSession,
+    JobContext,
+    JobProcess,
 )
 from livekit.plugins import silero
-from livekit.plugins.turn_detector.multilingual import MultilingualModel
 from livekit.plugins.turn_detector.english import EnglishModel
-from helpers.config import TTS_PROVIDER
+from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
+from helpers.config import TTS_PROVIDER
 
 # Logger for this module
 logger = logging.getLogger("agent")
@@ -23,8 +21,8 @@ aligned_script = False
 if TTS_PROVIDER == "cartesia":
     aligned_script = True
 
-def turn_detector_model(TTS_PROVIDER):
-    if TTS_PROVIDER == "cartesia": 
+def turn_detector_model(TTS_PROVIDER):  # noqa: N803
+    if TTS_PROVIDER == "cartesia":
         return EnglishModel()
     return MultilingualModel()
 # --------------------------
@@ -52,7 +50,7 @@ def prewarm(proc: JobProcess):
 #   Session Setup
 # --------------------------
 
-def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER, STT_PROVIDER, TTS_PROVIDER) -> AgentSession:
+def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER, STT_PROVIDER, TTS_PROVIDER) -> AgentSession:  # noqa: N803
     """
     Create and configure an AgentSession for handling:
       - LLM (OpenAI GPT model)
@@ -62,8 +60,6 @@ def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER
       - VAD (voice activity detection)
     """
 
-    # Noise Cancellation
-    # Initialize AgentSession with components
     session = AgentSession(
         llm=setup_llm(LLM_PROVIDER),       # Use OpenAI LLM for responses
         stt=setup_stt(STT_PROVIDER),               # Speech-to-Text provider
@@ -77,12 +73,12 @@ def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER
         min_consecutive_speech_delay=0.15, # Time between two speech segments
 
         # 🔽 Transcript handling
-        use_tts_aligned_transcript=aligned_script,  # Don’t wait for TTS metadata to finalize transcript
+        use_tts_aligned_transcript=aligned_script,  # Donot wait for TTS metadata to finalize transcript
 
         # 🔽 Responsiveness
         preemptive_generation=True,        # Start generating replies while user is still talking
 
-        # 🧏 Interruptions – smoother and less aggressive
+        # 🧏 Interruptions : smoother and less aggressive
         allow_interruptions=True,
         min_interruption_duration=0.15,   # require 150ms of user speech to count as real interruption
         min_interruption_words=1,        # only if STT is enabled
@@ -102,23 +98,6 @@ def setup_session(ctx: JobContext, setup_llm, setup_stt, setup_tts, LLM_PROVIDER
         """
         logger.info("false positive interruption, resuming")
         session.generate_reply(instructions=ev.extra_instructions or NOT_GIVEN)
-
-    # @session.on("user_state_changed")
-    # async def handle_user_speaking(event):
-    #     # Detect if user started talking
-    #     if event.new_state == "speaking":
-    #         # If agent was speaking, treat it as interruption
-    #         if session.agent_state == "speaking":
-    #             print("⚠️ User interrupted agent. Pausing for 2 seconds...")
-
-    #             # Stop current TTS playback (speech handle)
-    #             if session._active_speech:
-    #                 await session._active_speech.cancel()
-
-    #             # Wait 2 seconds before listening again
-    #             await asyncio.sleep(2)
-    #             print("🕓 Listening again...")
-
 
 
     return session

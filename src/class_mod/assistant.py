@@ -1,24 +1,29 @@
-import re
-import os
-import json
 import asyncio
+import json
 import logging
+import re
+from collections.abc import AsyncIterable
 from datetime import datetime
+
 from dotenv import load_dotenv
-from typing import AsyncIterable
-from livekit import rtc, api
-from livekit.agents import Agent, AgentSession
-from livekit.agents.llm import LLM
-from livekit.agents.voice import ModelSettings
-from livekit.agents import function_tool, RunContext, get_job_context
-from instructions import get_instructions
-from helpers.config import TTS_PROVIDER
-from helpers.customer_helper import CustomerProfileType
+from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.prompts import ChatPromptTemplate
 
 # External LLM dependencies for independent summary generation
 from langchain_groq import ChatGroq
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import JsonOutputParser
+from livekit import api, rtc
+from livekit.agents import (
+    Agent,
+    AgentSession,
+    RunContext,
+    function_tool,
+    get_job_context,
+)
+from livekit.agents.voice import ModelSettings
+
+from helpers.config import TTS_PROVIDER
+from helpers.customer_helper import CustomerProfileType
+from instructions import get_instructions
 
 load_dotenv(".env.local")
 logger = logging.getLogger("agent")
@@ -32,7 +37,7 @@ summary_instructions = """
         - financial_information
         - intent_and_qualification
         - summary_text
-        
+
         Follow this JSON schema exactly:
         "customer_profile": {{
             "name": "string or null",
@@ -218,7 +223,7 @@ class MyAssistant(Agent):
         instructions = get_instructions(customer_profile)
         super().__init__(instructions=instructions)
         self.customer_profile = customer_profile
-        self.session_ref = session       
+        self.session_ref = session
 
     async def tts_node(
         self,
@@ -335,7 +340,7 @@ class MyAssistant(Agent):
 
         #         # reset buffer for next chunk
         #         buffer = ""
-        
+
         async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
             in_think = False
             buffer = ""
@@ -355,7 +360,7 @@ class MyAssistant(Agent):
                     # continue collecting upcoming tokens into think_buffer
                     continue
 
-                # If we’re currently in a reasoning section, accumulate
+                # If we are currently in a reasoning section, accumulate
                 if in_think:
                     # Check if reasoning ends in this same chunk
                     if "¶" in buffer:
@@ -415,7 +420,7 @@ class MyAssistant(Agent):
 
     #     logger.info("Call ended and summary generated.")
     #     return summary
-    
+
     async def _end_call_with_summary(self, context: RunContext, goodbye_instructions: str) -> dict:
         """Ends the call gracefully and generates LLM-based summary including customer metadata."""
         logger.info("Generating goodbye message before ending the call.")
@@ -440,7 +445,7 @@ class MyAssistant(Agent):
 
         logger.info("Call ended and summary generated.")
         return summary
-    
+
 
     # ---------------- End-call functions ----------------
     @function_tool(name="end_call", description="End the call.")

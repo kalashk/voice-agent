@@ -1,7 +1,9 @@
 import json
 import logging
 from datetime import datetime
+
 from livekit.agents import metrics
+
 from helpers.config import COST_PATH, IST
 
 # Logger dedicated to usage & cost tracking
@@ -23,7 +25,7 @@ def load_cost_config(service: str) -> dict:
     path = CONFIG_PATH / f"{service}.json"
     if not path.exists():
         raise FileNotFoundError(f"Cost config not found: {path}")
-    with open(path, "r") as f:
+    with open(path) as f:
         return json.load(f)
 
 
@@ -37,7 +39,7 @@ class CostCalculator:
       - LLM usage (tokens in/out, cached tokens)
       - STT usage (seconds of audio transcribed)
       - TTS usage (characters, tokens, or seconds of audio generated)
-    
+
     Also records detailed per-event logs with timestamps.
     """
 

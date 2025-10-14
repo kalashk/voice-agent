@@ -1,11 +1,11 @@
 import uuid
+from datetime import timedelta, timezone
 from pathlib import Path
-from datetime import timezone, timedelta
 
 #TTS_PROVIDER = "cartesia"
 TTS_PROVIDER = "sarvam_anushka"
 #TTS_PROVIDER = "sarvam_manisha"
-#TTS_PROVIDER = "lmnt"  
+#TTS_PROVIDER = "lmnt"
 
 # STT_PROVIDER = "deepgram"
 STT_PROVIDER = "sarvam"
@@ -33,7 +33,7 @@ SESSION_ID = str(uuid.uuid4())
 
 # Dictionary to hold structured logs for this session
 SESSION_LOGS = {
-    "metadata": {}, "transcript": [], "stt": [], 
+    "metadata": {}, "transcript": [], "stt": [],
     "llm": [], "tts": [], "eou": [], "conversation": []
 }
 
