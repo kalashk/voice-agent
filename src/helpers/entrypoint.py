@@ -20,9 +20,9 @@ from helpers.config import (
 
 # Import customer functions
 from helpers.customer_helper import load_customer_profile
-from helpers.helpers import setup_session
 from helpers.log_usage import log_usage
 from helpers.metrics import setup_metrics
+from helpers.setup_session import setup_session
 from helpers.setup_tts_stt import setup_llm, setup_stt, setup_tts
 
 logger = logging.getLogger("agent")

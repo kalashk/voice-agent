@@ -14,16 +14,10 @@ from livekit.agents import (
     function_tool,
     get_job_context,
 )
-from livekit.plugins import (  # noqa: F401
-    deepgram,
-    groq,
-    lmnt,
-    noise_cancellation,
-    sarvam,
-    silero,
-)
+from livekit.plugins import deepgram, groq, sarvam, silero
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
+# from livekit.plugins import noise_cancellation, lmnt
 logger = logging.getLogger("agent")
 load_dotenv(".env.local")
 

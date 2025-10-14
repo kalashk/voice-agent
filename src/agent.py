@@ -4,7 +4,7 @@ from livekit.agents import (
 )
 
 from helpers.entrypoint import entrypoint
-from helpers.helpers import prewarm
+from helpers.setup_session import prewarm
 
 # --------------------------
 #   CLI Runner

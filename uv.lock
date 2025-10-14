@@ -18,6 +18,7 @@ dependencies = [
     { name = "google-cloud-storage" },
     { name = "google-genai" },
     { name = "langchain-groq" },
+    { name = "langfuse" },
     { name = "livekit-agents", extra = ["aws", "cartesia", "deepgram", "google", "groq", "lmnt", "openai", "playai", "resemble", "sarvam", "silero", "speechify", "turn-detector"] },
     { name = "livekit-plugins-noise-cancellation" },
     { name = "loguru" },
@@ -51,6 +52,7 @@ requires-dist = [
     { name = "google-cloud-storage", specifier = ">=3.4.0" },
     { name = "google-genai", specifier = ">=1.32.0" },
     { name = "langchain-groq", specifier = ">=0.3.8" },
+    { name = "langfuse", specifier = ">=3.6.2" },
     { name = "livekit-agents", extras = ["aws", "cartesia", "deepgram", "google", "groq", "lmnt", "openai", "playai", "resemble", "sarvam", "silero", "speechify", "turn-detector"], specifier = "~=1.2" },
     { name = "livekit-plugins-noise-cancellation", specifier = "~=0.2" },
     { name = "loguru", specifier = ">=0.7.3" },
@@ -453,6 +455,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/85/aa/5bdc01e7b8c1444ba3ec17b4d254da7ce46622f7d704f34f5bb8ec3a41d2/awscrt-0.26.1-cp313-abi3-musllinux_1_1_x86_64.whl", hash = "sha256:507fa4106d1bbf6b5fbb1c4d287eb832a0459a361eb7f5aa5e5272f15f3e9077", size = 8974509, upload-time = "2025-04-09T20:50:52.868Z" },
     { url = "https://files.pythonhosted.org/packages/d8/2d/c3146eec592a192b331c5796aee229d98788ce4a89c0827194e97ae2fac0/awscrt-0.26.1-cp313-abi3-win32.whl", hash = "sha256:1ebf5078d1281cfe51cd9ed7f324cb25d58404540c1be0d8794e48a033b01dca", size = 3675889, upload-time = "2025-04-09T20:50:55.622Z" },
     { url = "https://files.pythonhosted.org/packages/83/f8/7a2de6f30f00cacfae286c98fb0c96ff456e7d1fdfe7d368073c8cd53478/awscrt-0.26.1-cp313-abi3-win_amd64.whl", hash = "sha256:6fbffffee0333f8ae54ed12958c492b37e1803e6c27e6a2fff8f56851f748c45", size = 3804270, upload-time = "2025-04-09T20:50:56.915Z" },
+]
+
+[[package]]
+name = "backoff"
+version = "2.2.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/47/d7/5bbeb12c44d7c4f2fb5b56abce497eb5ed9f34d85701de869acedd602619/backoff-2.2.1.tar.gz", hash = "sha256:03f829f5bb1923180821643f8753b0502c3b682293992485b0eef2807afa5cba", size = 17001, upload-time = "2022-10-05T19:19:32.061Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/df/73/b6e24bd22e6720ca8ee9a85a0c4a2971af8497d8f3193fa05390cbd46e09/backoff-2.2.1-py3-none-any.whl", hash = "sha256:63579f9a0628e06278f7e47b7d7d5b6ce20dc65c5e96a6f3ca99a6adca0396e8", size = 15148, upload-time = "2022-10-05T19:19:30.546Z" },
 ]
 
 [[package]]
@@ -1937,6 +1948,26 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/11/43/dcda8fd25f0b19cb2835f2f6bb67f26ad58634f04ac2d8eae00526b0fa55/langchain_text_splitters-0.3.11.tar.gz", hash = "sha256:7a50a04ada9a133bbabb80731df7f6ddac51bc9f1b9cab7fa09304d71d38a6cc", size = 46458, upload-time = "2025-08-31T23:02:58.316Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/58/0d/41a51b40d24ff0384ec4f7ab8dd3dcea8353c05c973836b5e289f1465d4f/langchain_text_splitters-0.3.11-py3-none-any.whl", hash = "sha256:cf079131166a487f1372c8ab5d0bfaa6c0a4291733d9c43a34a16ac9bcd6a393", size = 33845, upload-time = "2025-08-31T23:02:57.195Z" },
+]
+
+[[package]]
+name = "langfuse"
+version = "3.6.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "backoff" },
+    { name = "httpx" },
+    { name = "opentelemetry-api" },
+    { name = "opentelemetry-exporter-otlp-proto-http" },
+    { name = "opentelemetry-sdk" },
+    { name = "packaging" },
+    { name = "pydantic" },
+    { name = "requests" },
+    { name = "wrapt" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/55/2a/7bf1d22b18b018fda42451a0822a451b663444d760e1445fb1e07540e1d3/langfuse-3.6.2.tar.gz", hash = "sha256:b4ca589a09e4c559b2f4b08facf9646b4214602a0e336d16b045fb0e0d315195", size = 190678, upload-time = "2025-10-10T08:07:55.044Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fd/bb/3e4a067ce9c89ba29cbf4ac544bfbb99277ea77d118e9a253e2ca9bafefd/langfuse-3.6.2-py3-none-any.whl", hash = "sha256:03aa924ab1c5a5cb1f0b659157c56c33443ee077dddd2a4595d2f3502147d50b", size = 351767, upload-time = "2025-10-10T08:07:53.089Z" },
 ]
 
 [[package]]

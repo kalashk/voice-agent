@@ -25,6 +25,7 @@ def turn_detector_model(TTS_PROVIDER):  # noqa: N803
     if TTS_PROVIDER == "cartesia":
         return EnglishModel()
     return MultilingualModel()
+
 # --------------------------
 #   Prewarm Function
 # --------------------------
