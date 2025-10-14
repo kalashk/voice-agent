@@ -32,7 +32,7 @@ from livekit.plugins.turn_detector.english import EnglishModel
 logger = logging.getLogger("openai-voice-agent")
 logger.setLevel(logging.INFO)
 
-load_dotenv()
+load_dotenv(".env.local")
 
 _langfuse = Langfuse()
 
