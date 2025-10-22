@@ -1339,5 +1339,5 @@ verification - ✅ देवनागरी ✅ 3 इंग्लिश टर�
     #     instructions = devnagari_instructions4
 
     if  LLM_PROVIDER == "groq openai gpt-oss-120b" or LLM_PROVIDER == "groq meta-llama llama-4-scout-17b-16e-instruct":
-        instructions = devnagari_instructions_groq_13
+        instructions = devnagari_instructions_groq_14
     return instructions
