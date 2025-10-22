@@ -3,7 +3,9 @@
   "customer_name": "Rahul",
   "age": 30,
   "city": "Pune",
+  "vehicle_owned": "car",
+  "vehicle_number": "MH12AB1234",
+  "vehicle_model": "Hyundai Creta",
   "language": "hindi",
-  "bank_name": "HDFC",
   "phone_number": "9669953995"
 }
