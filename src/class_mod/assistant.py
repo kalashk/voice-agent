@@ -274,73 +274,6 @@ class MyAssistant(Agent):
                 "kaajal": "काजल",
             })
 
-        # Async generator to adjust text before TTS
-        # async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
-        #     async for chunk in input_text:
-        #         # Remove <think> tags
-        #         logger.debug("Original chunk: %s", chunk)
-        #         think_match = re.search(r"<think>(.*?)<think>", chunk, flags=re.DOTALL)
-        #         #logger.debug("Think: %s", think_match if think_match else "None")
-        #         cleaned = re.sub(r"<think>.*?<think>", " ", chunk, flags=re.DOTALL)
-        #         # Apply phonetic replacements
-        #         for term, replacement in pronunciations.items():
-        #             cleaned = re.sub(
-        #                 rf"(?<!\w){re.escape(term)}(?!\w)",
-        #                 replacement,
-        #                 cleaned,
-        #                 flags=re.IGNORECASE
-        #             )
-        #         yield cleaned
-
-        # async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
-        #     in_think = False
-        #     buffer = ""
-
-        #     async for chunk in input_text:
-        #         #logger.debug("Original chunk: %s", chunk)
-        #         buffer += chunk
-
-        #         # Check for start marker (¤)
-        #         if "¤" in buffer:
-        #             before, _, after = buffer.partition("¤")
-        #             buffer = before
-        #             in_think = True
-        #             logger.debug("Think section started.")
-        #             # (Optional) You can log the start of reasoning if you want:
-        #             # logger.debug("Captured think start, skipping reasoning.")
-        #             continue
-
-        #         # Check for end marker (¶)
-        #         if "¶" in buffer:
-        #             _, _, after = buffer.partition("¶")
-        #             buffer = after  # keep only content after reasoning block
-        #             in_think = False
-        #             logger.debug("Think section ended. Resuming output.")
-
-        #         # If currently inside reasoning, skip output
-        #         if in_think:
-        #             continue
-
-        #         # Process the visible (speakable) part
-        #         cleaned = buffer
-        #         for term, replacement in pronunciations.items():
-        #             cleaned = re.sub(
-        #                 rf"(?<!\w){re.escape(term)}(?!\w)",
-        #                 replacement,
-        #                 cleaned,
-        #                 flags=re.IGNORECASE
-        #             )
-
-        #         # # Normalize whitespace
-        #         # cleaned = re.sub(r"\s+", " ", cleaned).strip()
-
-        #         if cleaned:
-        #             yield cleaned
-        #             # logger.debug("Yielded cleaned text: %s", cleaned)
-
-        #         # reset buffer for next chunk
-        #         buffer = ""
-
         async def adjust_text(input_text: AsyncIterable[str]) -> AsyncIterable[str]:
             in_think = False
             buffer = ""
@@ -401,25 +334,6 @@ class MyAssistant(Agent):
         # Feed the processed text into default TTS
         async for frame in Agent.default.tts_node(self, adjust_text(text), model_settings):
             yield frame
-
-    # async def _end_call_with_summary(self, context: RunContext, goodbye_instructions: str) -> dict:
-    #     # 1️⃣ Generate goodbye message
-    #     logger.info("Generating goodbye message before ending the call.")
-    #     # handle = await context.session.generate_reply(instructions=goodbye_instructions)
-    #     # await handle.wait_for_playout()
-    #     await asyncio.sleep(4)
-
-    #     # 2️⃣ Generate summary using independent LLM
-    #     logger.info("Extracting conversation history for summary generation.")
-    #     history_text = extract_conversation(context.session)
-    #     summary = await generate_summary_llm(history_text)
-
-    #     # 3️⃣ Hangup room
-    #     logger.info("Hanging up the current room.")
-    #     await hangup_current_room()
-
-    #     logger.info("Call ended and summary generated.")
-    #     return summary
 
     async def _end_call_with_summary(self, context: RunContext, goodbye_instructions: str) -> dict:
         """Ends the call gracefully and generates LLM-based summary including customer metadata."""
