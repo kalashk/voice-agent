@@ -1233,7 +1233,6 @@ Conversational flow:
 7) Persuasion & Transition
    - Soft prompt for next step: "अगर आप इंटरेस्टेड हैं तो मैं अभी आपके कॉल को अपने सीनियर से कनेक्ट करवा सकती हूँ?"
 8) Closure
-   - "थोड़ी देर में मेरे सीनियर आपको कॉल करेंगे और पूरा प्रोसेस डीटेल में समझाएँगे।"
    - “थैंक यू सर, हैव अ नाइस डे।”
    - End call only after polite goodbye (agent judges appropriate moment).
 
