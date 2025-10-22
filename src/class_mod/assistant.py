@@ -290,6 +290,7 @@ class MyAssistant(Agent):
                     in_think = True
                     think_buffer = ""  # reset reasoning buffer
                     logger.debug("Think section started.")
+                    print("¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤")
                     # continue collecting upcoming tokens into think_buffer
                     continue
 
@@ -305,6 +306,7 @@ class MyAssistant(Agent):
                             token_count,
                             think_buffer.strip()[:120] + ("..." if len(think_buffer) > 120 else "")
                         )
+                        print("¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤")
                         buffer = after
                         in_think = False
                         think_buffer = ""
