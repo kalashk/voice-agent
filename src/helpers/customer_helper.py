@@ -20,20 +20,20 @@ class CustomerProfileType(TypedDict):
 # --------------------------
 def load_customer_profile(file_path=CUSTOMER_FILE) -> CustomerProfileType:
     """Load customer data from JSON, create default if file not found."""
-    if not os.path.exists(file_path):
-        print(f"❌ {file_path} not found. Creating default profile.")
-        default_data: CustomerProfileType = {
-            "customer_id": "u123",
-            "customer_name": "Rahul",
-            "age": 30,
-            "city": "Pune",
-            "language": "hindi",
-            "bank_name": "HDFC",
-            "phone_number": "9669953995",
-            "gender": ""
-        }
-        save_customer_profile(default_data, file_path)
-        return default_data
+    # if not os.path.exists(file_path):
+    #     print(f"❌ {file_path} not found. Creating default profile.")
+    #     default_data: CustomerProfileType = {
+    #         "customer_id": "u123",
+    #         "customer_name": "Rahul",
+    #         "age": 30,
+    #         "city": "Pune",
+    #         "language": "hindi",
+    #         "bank_name": "HDFC",
+    #         "phone_number": "9669953995",
+    #         "gender": ""
+    #     }
+    #     save_customer_profile(default_data, file_path)
+    #     return default_data
 
     with open(file_path) as f:
         return json.load(f)
