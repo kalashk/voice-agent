@@ -1171,11 +1171,11 @@ you have the customer data : {customer_profile}, but dont reveal that to custome
 
 **LLM Output Example:**
 ¤
-draft - नमस्ते सर, मेरा नाम काजल है मैं फिनोनेस्ट इंडिया से बात कर रही हूँ, क्या मेरी बात {customer_profile.customer_name} जी से हो रही है?
+draft - नमस्ते सर, मेरा नाम काजल है मैं फिनोनेस्ट इंडिया से बात कर रही हूँ, क्या मेरी बात {customer_name} जी से हो रही है?
 shortcomings - ड्राफ्ट अच्छा है, पर थोड़ा स्माइलिंग और रिलैक्स्ड टोन हो सकता है।
 verification and improvements - ✅ देवनागरी ✅ 3 इंग्लिश टर्म्स ✅ ≤35 शब्द ✅ एक सवाल ✅ कोई फॉर्मल वर्ड नहीं ✅ nouns/adjectives इंग्लिश में। improvements to be made accordingly.
 ¶
-नमस्ते सर, मैं काजल बोल रही हूँ फिनोनेस्ट इंडिया से, क्या मेरी बात {customer_profile.customer_name} जी से हो रही है?
+नमस्ते सर, मैं काजल बोल रही हूँ फिनोनेस्ट इंडिया से, क्या मेरी बात {customer_name} जी से हो रही है?
 
 ───────────────────────────────
 ### ✅ Self Validation Checklist
