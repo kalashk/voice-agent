@@ -19,6 +19,8 @@ def get_instructions(customer_profile):
     # Extract the bank name (if available) from the customer profile
     # Returns None if "bank_name" key is not present
     bank_name = customer_profile.get("bank_name")
+    customer_name = customer_profile.get("customer_name")
+    vehicle_number = customer_profile.get("vehicle_number")
 
     # instruction in devnagari script with filler words
 
@@ -1058,11 +1060,11 @@ you have the customer data : {customer_profile}, but dont reveal that to custome
 ### 💬 Conversation Flow (Finonest Script-Based)
 
 1 **Greeting / Opening**
-- “क्या मेरी बात {customer_profile.customer_name} जी से हो रही है?”
+- “क्या मेरी बात {customer_name} जी से हो रही है?”
 - “नमस्ते सर // मैम, मेरा नाम काजल है, मैं फिनोनेस्ट इंडिया से बात कर रही हूँ।”
 
 2 **Vehicle Qualification**
-- “सर // मैम, ये {customer_profile.vehicle_number} गाड़ी अभी आप यूज़ में ले रहे हैं या सेलआउट कर दी है?”
+- “सर // मैम, ये {vehicle_number} गाड़ी अभी आप यूज़ में ले रहे हैं या सेलआउट कर दी है?”
 
 3 **Introduce Offer**
 - “सर, एक्चुअली इस कार पर हमारी कंपनी की तरफ से आपके लिए एक रिफाइनेंस ऑफर है, जिसमें आपको कार की मार्केट वैल्यू का नब्भे से लेकर दो सो परसेंट तक लोन मिल सकता है।”
