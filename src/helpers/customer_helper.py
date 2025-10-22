@@ -2,7 +2,7 @@ import json
 import os
 from typing import TypedDict
 
-CUSTOMER_FILE = "customer.json"
+CUSTOMER_FILE = "src/customer.json"
 
 class CustomerProfileType(TypedDict):
     customer_id: str
