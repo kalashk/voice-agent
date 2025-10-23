@@ -31,7 +31,8 @@ tracker = get_client()
 logger = logging.getLogger("agent")
 load_dotenv(".env.local")  # Load environment variables
 
-SESSION_ID = SESSION_ID
+customer_profile = load_customer_profile()
+room_name = f"{SESSION_ID}"
 
 async def entrypoint(ctx: JobContext):
     """
@@ -42,11 +43,6 @@ async def entrypoint(ctx: JobContext):
     """
     try:
         logging.basicConfig(level=logging.DEBUG)
-
-        logger.debug("SESSION ID IS (inside entry point) --------------------------",{SESSION_ID})
-        # Load customer profile
-        customer_profile = load_customer_profile()
-
         # Store profile metadata into the job for tracking
         ctx.job.metadata = json.dumps(customer_profile)
         metadata = json.loads(ctx.job.metadata)
