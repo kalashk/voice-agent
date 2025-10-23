@@ -1,5 +1,5 @@
 import json
-import os
+import os  # noqa: F401
 from typing import TypedDict
 
 CUSTOMER_FILE = "src/customer.json"
