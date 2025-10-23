@@ -29,7 +29,7 @@ LOG_PATH.mkdir(exist_ok=True)
 IST = timezone(timedelta(hours=5, minutes=30))
 
 # Unique session ID for tracking each run
-SESSION_ID = str(uuid.uuid4())
+SESSION_ID = str(uuid.uuid4().hex[:4])
 
 # Dictionary to hold structured logs for this session
 SESSION_LOGS = {

@@ -125,7 +125,8 @@ async def start_audio_recording(room_name: str):
     logger.info(f"🎙️ Starting recording for room {room_name}...")
     async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
         try:
-            file_output = EncodedFileOutput(gcp=GCPUpload(bucket=GCP_BUCKET))
+            filename = f"{room_name}-recordingggggg.ogg"
+            file_output = EncodedFileOutput(filepath=f"{filename}" ,gcp=GCPUpload(bucket=GCP_BUCKET))
             egress_req = RoomCompositeEgressRequest(
                 room_name=room_name,
                 audio_only=True,
