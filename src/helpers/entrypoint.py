@@ -31,6 +31,8 @@ tracker = get_client()
 logger = logging.getLogger("agent")
 load_dotenv(".env.local")  # Load environment variables
 
+SESSION_ID = SESSION_ID
+
 async def entrypoint(ctx: JobContext):
     """
     Main entrypoint for the assistant.

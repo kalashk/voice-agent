@@ -21,12 +21,12 @@ from livekit.protocol.sip import (
     SIPOutboundTrunkInfo,
 )
 
-from helpers.config import SESSION_ID
 from helpers.customer_helper import (
     CustomerProfileType,
     save_customer_profile,
     update_customer_profile,
 )
+from helpers.entrypoint import SESSION_ID
 
 # --------------------------
 # Configure Logging
@@ -263,7 +263,7 @@ async def run_calls_rec():
     logger.info(f"🔑 Using trunk ID: {trunk_id}")
 
     participant_identity = customer["customer_id"]
-    room_name = f"room-{SESSION_ID}"
+    room_name = SESSION_ID
     base_name = f"{room_name}_{participant_identity}"
 
     participant = await make_call(
