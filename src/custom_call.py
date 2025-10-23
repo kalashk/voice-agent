@@ -174,24 +174,95 @@ async def upload_summary_to_gcp(bucket_name: str, file_path: Path):
 # ----------------------------------------
 # Run Single Call with Optional Recording
 # ----------------------------------------
+# async def run_calls_rec():
+#     """
+#     1. Create a trunk id
+#     2. Ask user for name, gender, and number
+#     3. Make call
+#     4. Optionally start & stop recording
+#     """
+#     logger.info("🚀 Starting single call workflow with optional recording")
+
+#     customer = update_customer_profile()
+#     record_choice = input("🎙️ Do you want to record the call? (Y/N) [N]: ").strip().upper() or "N"
+#     do_record = record_choice == "Y"
+
+#     trunk_id = await create_or_get_trunk()
+#     logger.info(f"🔑 Using trunk ID: {trunk_id}")
+
+#     participant_identity = customer["customer_id"]
+#     # room_name = f"room-{uuid.uuid4().hex[:4]}"
+#     room_name = f"room-{SESSION_ID}"
+#     base_name = f"{room_name}_{participant_identity}"
+
+#     participant = await make_call(
+#         phone_number=customer["phone_number"],
+#         name=customer["customer_name"],
+#         gender=customer["gender"],
+#         sip_trunk_id=trunk_id,
+#         room_name=room_name,
+#         participant_identity=participant_identity
+#     )
+
+#     if participant:
+#         egress_info = None
+#         if do_record:
+#             egress_info = await start_audio_recording(room_name, base_name)
+
+#         async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
+#             logger.info(f"📡 Monitoring participants in room {room_name}...")
+#             while True:
+#                 participants_resp = await lkapi.room.list_participants(
+#                     ListParticipantsRequest(room=room_name)
+#                 )
+#                 identities = [p.identity for p in participants_resp.participants]
+#                 if participant_identity not in identities:
+#                     logger.info("📴 Participant left.")
+#                     if do_record and egress_info:
+#                         await stop_audio_recording(egress_info.egress_id)
+#                     break
+#                 # ✅ After participant leaves, upload the generated summary JSON
+#                 try:
+#                     # Construct path to temp folder inside src/
+#                     temp_dir = Path(__file__).parent / "temp"
+#                     summary_filename = f"{room_name}_{participant_identity}.json"
+#                     summary_path = temp_dir / summary_filename
+
+#                     if summary_path.exists():
+#                         logger.info(f"📂 Found summary file: {summary_path}")
+#                         gcs_uri = await upload_summary_to_gcp(GCP_BUCKET, summary_path)
+#                         if gcs_uri:
+#                             logger.info(f"☁️ Uploaded summary to GCP: {gcs_uri}")
+#                             # Optional cleanup
+#                             try:
+#                                 summary_path.unlink(missing_ok=True)
+#                                 logger.info("🧹 Deleted local temp summary file.")
+#                             except Exception as cleanup_err:
+#                                 logger.warning(f"⚠️ Could not delete local file: {cleanup_err}")
+#                         else:
+#                             logger.warning("⚠️ Summary upload failed or skipped.")
+#                     else:
+#                         logger.warning(f"⚠️ No summary file found at {summary_path}")
+#                 except Exception as e:
+#                     logger.error(f"❌ Failed to upload summary to GCP: {e}", exc_info=True)
+
 async def run_calls_rec():
     """
     1. Create a trunk id
     2. Ask user for name, gender, and number
     3. Make call
-    4. Optionally start & stop recording
+    4. Optionally start & stop recording and upload summary/audio
     """
     logger.info("🚀 Starting single call workflow with optional recording")
 
     customer = update_customer_profile()
-    record_choice = input("🎙️ Do you want to record the call? (Y/N) [N]: ").strip().upper() or "N"
+    record_choice = input("🎙️ Do you want to record the call and upload summary? (Y/N) [N]: ").strip().upper() or "N"
     do_record = record_choice == "Y"
 
     trunk_id = await create_or_get_trunk()
     logger.info(f"🔑 Using trunk ID: {trunk_id}")
 
     participant_identity = customer["customer_id"]
-    # room_name = f"room-{uuid.uuid4().hex[:4]}"
     room_name = f"room-{SESSION_ID}"
     base_name = f"{room_name}_{participant_identity}"
 
@@ -221,30 +292,43 @@ async def run_calls_rec():
                     if do_record and egress_info:
                         await stop_audio_recording(egress_info.egress_id)
                     break
-                                # ✅ After participant leaves, upload the generated summary JSON
-                try:
-                    # Construct path to temp folder inside src/
-                    temp_dir = Path(__file__).parent / "temp"
-                    summary_filename = f"{room_name}_{participant_identity}.json"
-                    summary_path = temp_dir / summary_filename
 
-                    if summary_path.exists():
-                        logger.info(f"📂 Found summary file: {summary_path}")
-                        gcs_uri = await upload_summary_to_gcp(GCP_BUCKET, summary_path)
-                        if gcs_uri:
-                            logger.info(f"☁️ Uploaded summary to GCP: {gcs_uri}")
-                            # Optional cleanup
-                            try:
-                                summary_path.unlink(missing_ok=True)
-                                logger.info("🧹 Deleted local temp summary file.")
-                            except Exception as cleanup_err:
-                                logger.warning(f"⚠️ Could not delete local file: {cleanup_err}")
-                        else:
-                            logger.warning("⚠️ Summary upload failed or skipped.")
+        # ✅ After participant leaves, handle summary/audio upload if recording was enabled
+        if do_record:
+            try:
+                temp_dir = Path(__file__).parent / "temp"
+                summary_filename = f"{room_name}_{participant_identity}.json"
+                summary_path = temp_dir / summary_filename
+
+                # Upload summary JSON
+                if summary_path.exists():
+                    logger.info(f"📂 Found summary file: {summary_path}")
+                    gcs_uri = await upload_summary_to_gcp(GCP_BUCKET, summary_path)
+                    if gcs_uri:
+                        logger.info(f"☁️ Uploaded summary to GCP: {gcs_uri}")
+                        summary_path.unlink(missing_ok=True)
+                        logger.info("🧹 Deleted local summary file.")
                     else:
-                        logger.warning(f"⚠️ No summary file found at {summary_path}")
-                except Exception as e:
-                    logger.error(f"❌ Failed to upload summary to GCP: {e}", exc_info=True)
+                        logger.warning("⚠️ Summary upload failed or skipped.")
+                else:
+                    logger.warning(f"⚠️ No summary file found at {summary_path}")
+
+                # Upload audio file
+                audio_path = Path(f"{base_name}.ogg")  # same name as recording
+                if audio_path.exists():
+                    logger.info(f"📂 Found audio file: {audio_path}")
+                    gcs_audio_uri = await upload_summary_to_gcp(GCP_BUCKET, audio_path)
+                    if gcs_audio_uri:
+                        logger.info(f"☁️ Uploaded audio to GCP: {gcs_audio_uri}")
+                        audio_path.unlink(missing_ok=True)
+                        logger.info("🧹 Deleted local audio file.")
+                    else:
+                        logger.warning("⚠️ Audio upload failed or skipped.")
+                else:
+                    logger.warning(f"⚠️ No audio file found at {audio_path}")
+
+            except Exception as e:
+                logger.error(f"❌ Failed to upload summary/audio to GCP: {e}", exc_info=True)
 
 
 # -------------------------------------------
