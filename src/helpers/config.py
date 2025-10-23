@@ -10,12 +10,7 @@ TTS_PROVIDER = "sarvam_anushka"
 # STT_PROVIDER = "deepgram"
 STT_PROVIDER = "sarvam"
 
-
-#LLM_PROVIDER = "openai"
-#LLM_PROVIDER = "groq openai gpt-oss-120b"
 LLM_PROVIDER = "groq meta-llama llama-4-scout-17b-16e-instruct"
-
-
 
 # Base directory of the project
 BASE_DIR = Path(__file__).resolve().parent
@@ -36,6 +31,5 @@ SESSION_LOGS = {
     "metadata": {}, "transcript": [], "stt": [],
     "llm": [], "tts": [], "eou": [], "conversation": []
 }
-
 
 COST_PATH = Path("src/costs")

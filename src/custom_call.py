@@ -2,8 +2,10 @@ import asyncio
 import logging
 import os
 import uuid
+from pathlib import Path
 
 from dotenv import load_dotenv
+from google.cloud import storage
 from livekit import api
 from livekit.api import (
     EncodedFileOutput,
@@ -19,6 +21,7 @@ from livekit.protocol.sip import (
     SIPOutboundTrunkInfo,
 )
 
+from helpers.config import SESSION_ID
 from helpers.customer_helper import (
     CustomerProfileType,
     save_customer_profile,
@@ -120,13 +123,12 @@ async def make_call(phone_number: str, name: str, gender: str, sip_trunk_id: str
 # --------------------------
 # Start Audio Recording
 # --------------------------
-async def start_audio_recording(room_name: str):
+async def start_audio_recording(room_name: str, base_name: str):
     """Start GCP audio recording."""
     logger.info(f"🎙️ Starting recording for room {room_name}...")
     async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
         try:
-            filename = f"{room_name}-recordingggggg.ogg"
-            file_output = EncodedFileOutput(filepath=f"{filename}" ,gcp=GCPUpload(bucket=GCP_BUCKET))
+            file_output = EncodedFileOutput(filepath=f"{base_name}" ,gcp=GCPUpload(bucket=GCP_BUCKET))
             egress_req = RoomCompositeEgressRequest(
                 room_name=room_name,
                 audio_only=True,
@@ -153,10 +155,25 @@ async def stop_audio_recording(egress_id: str):
         except Exception as e:
             logger.error(f"❌ Failed to stop recording {egress_id}: {e}", exc_info=True)
 
+# --------------------------
+# Upload recording to GCP
+# --------------------------
+async def upload_summary_to_gcp(bucket_name: str, file_path: Path):
+    """Uploads the call summary JSON file to GCP bucket."""
+    try:
+        client = storage.Client()
+        bucket = client.bucket(bucket_name)
+        blob = bucket.blob(f"call_summaries/{file_path.name}")
+        blob.upload_from_filename(str(file_path))
+        logger.info(f"✅ Uploaded summary file to gs://{bucket_name}/call_summaries/{file_path.name}")
+        return f"gs://{bucket_name}/call_summaries/{file_path.name}"
+    except Exception as e:
+        logger.error(f"❌ Failed to upload summary to GCP: {e}", exc_info=True)
+        return None
 
-# --------------------------
+# ----------------------------------------
 # Run Single Call with Optional Recording
-# --------------------------
+# ----------------------------------------
 async def run_calls_rec():
     """
     1. Create a trunk id
@@ -173,8 +190,10 @@ async def run_calls_rec():
     trunk_id = await create_or_get_trunk()
     logger.info(f"🔑 Using trunk ID: {trunk_id}")
 
-    participant_identity = f"sip-{uuid.uuid4().hex[:4]}"
-    room_name = f"room-{uuid.uuid4().hex[:4]}"
+    participant_identity = customer["customer_id"]
+    # room_name = f"room-{uuid.uuid4().hex[:4]}"
+    room_name = f"room-{SESSION_ID}"
+    base_name = f"{room_name}_{participant_identity}"
 
     participant = await make_call(
         phone_number=customer["phone_number"],
@@ -188,7 +207,7 @@ async def run_calls_rec():
     if participant:
         egress_info = None
         if do_record:
-            egress_info = await start_audio_recording(room_name)
+            egress_info = await start_audio_recording(room_name, base_name)
 
         async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
             logger.info(f"📡 Monitoring participants in room {room_name}...")
@@ -202,10 +221,35 @@ async def run_calls_rec():
                     if do_record and egress_info:
                         await stop_audio_recording(egress_info.egress_id)
                     break
+                                # ✅ After participant leaves, upload the generated summary JSON
+                try:
+                    # Construct path to temp folder inside src/
+                    temp_dir = Path(__file__).parent / "temp"
+                    summary_filename = f"{room_name}_{participant_identity}.json"
+                    summary_path = temp_dir / summary_filename
 
-# --------------------------
+                    if summary_path.exists():
+                        logger.info(f"📂 Found summary file: {summary_path}")
+                        gcs_uri = await upload_summary_to_gcp(GCP_BUCKET, summary_path)
+                        if gcs_uri:
+                            logger.info(f"☁️ Uploaded summary to GCP: {gcs_uri}")
+                            # Optional cleanup
+                            try:
+                                summary_path.unlink(missing_ok=True)
+                                logger.info("🧹 Deleted local temp summary file.")
+                            except Exception as cleanup_err:
+                                logger.warning(f"⚠️ Could not delete local file: {cleanup_err}")
+                        else:
+                            logger.warning("⚠️ Summary upload failed or skipped.")
+                    else:
+                        logger.warning(f"⚠️ No summary file found at {summary_path}")
+                except Exception as e:
+                    logger.error(f"❌ Failed to upload summary to GCP: {e}", exc_info=True)
+
+
+# -------------------------------------------
 # Run Calls with Rolling Concurrency + Delay
-# --------------------------
+# -------------------------------------------
 async def run_parallel_calls(max_concurrent: int = 4, delay_seconds: int = 5):
     """
     Run multiple customer calls concurrently with:
