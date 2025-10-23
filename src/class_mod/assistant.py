@@ -25,6 +25,7 @@ from livekit.agents import (
     #    get_job_context,
     stt,
 )
+from livekit.agents.llm import ChatChunk
 from livekit.agents.voice import ModelSettings
 
 from class_mod.assistant_helpers import extract_conversation, hangup_current_room
@@ -275,7 +276,15 @@ class MyAssistant(Agent):
     async def stt_node(
         self, audio: AsyncIterable[rtc.AudioFrame], model_settings: ModelSettings
     ) -> AsyncIterable[stt.SpeechEvent]:
-        ...
+        """Convert speech to text using Deepgram."""
+        try:
+            async for event in Agent.default.stt_node(self, audio, model_settings):
+                if event.type == stt.SpeechEventType.FINAL_TRANSCRIPT:
+                    logger.info(f"STT result: {event.alternatives[0].text[:80]}...")
+                yield event
+        except Exception as e:
+            logger.error(f"STT error: {e}")
+            raise
 
     @observe(name="llm_node")
     async def llm_node(
@@ -284,7 +293,23 @@ class MyAssistant(Agent):
         tools: list[FunctionTool | llm.RawFunctionTool],
         model_settings: ModelSettings,
     ) -> AsyncIterable[llm.ChatChunk]:
-        ...
+        """Generate responses using the LLaMA Scout 17B model."""
+        # Make a copy of chat context to avoid mutation
+        copied_ctx = chat_ctx.copy()
+        try:
+            async for chunk in Agent.default.llm_node(self, copied_ctx, tools, model_settings):
+                # Ensure only ChatChunk instances are yielded
+                if isinstance(chunk, ChatChunk):
+                    # Optional: log for tracker
+                    if chunk.delta and chunk.delta.content:
+                        logger.info(f"LLM generated chunk: {chunk.delta.content[:80]}...")
+                    yield chunk
+                else:
+                    # Ignore non-ChatChunk types (some backends may send "done" events or metadata)
+                    continue
+        except Exception as e:
+            logger.exception(f"LLM node error: {e}")
+            raise
 
     # async def tts_node(
     #     self,
