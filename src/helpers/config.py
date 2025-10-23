@@ -37,6 +37,5 @@ SESSION_LOGS = {
     "llm": [], "tts": [], "eou": [], "conversation": []
 }
 
-THINKING_PROBABILITY = 1 # Probability of playing a thinking sound before replies
 
 COST_PATH = Path("src/costs")

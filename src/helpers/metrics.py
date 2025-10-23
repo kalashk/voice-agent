@@ -160,7 +160,8 @@ def setup_metrics(session: AgentSession, SESSION_LOGS: dict):  # noqa: N803
         # ---------------- VAD ----------------
         # Commented out cause it clutters the terminal
         elif isinstance(ev.metrics, metrics.VADMetrics):
-            logger.info(f"VAD metrics: {ev.metrics.model_dump()}")
+            #logger.info(f"VAD metrics: {ev.metrics.model_dump()}")
+            pass
 
         else:
             logger.warning(f"Unknown metrics type: {type(ev.metrics)}")

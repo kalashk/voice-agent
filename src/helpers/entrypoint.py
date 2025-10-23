@@ -3,6 +3,7 @@ import json
 import logging
 
 from dotenv import load_dotenv
+from langfuse import get_client
 from livekit.agents import (
     JobContext,
     RoomInputOptions,
@@ -24,6 +25,8 @@ from helpers.log_usage import log_usage
 from helpers.metrics import setup_metrics
 from helpers.setup_session import setup_session
 from helpers.setup_tts_stt import setup_llm, setup_stt, setup_tts
+
+tracker = get_client()
 
 logger = logging.getLogger("agent")
 load_dotenv(".env.local")  # Load environment variables
@@ -90,10 +93,12 @@ async def entrypoint(ctx: JobContext):
         await asyncio.sleep(3)
 
         # Generate initial greeting
-        reply = await session.generate_reply(
-            instructions="simply greet with namaste and introduce yourself with your name and bank name, nothing else, keep it very simple and short, without think tag, dont think here",
-        )
-        print("LLM →", reply.chat_items)
+        # reply = await session.generate_reply(
+        #     instructions="simply greet with namaste and introduce yourself with your name and bank name, nothing else, keep it very simple and short, without think tag, dont think here",
+        # )
+        # print("LLM →", reply.chat_items)
+
+        tracker.flush()
 
     except Exception as e:
         logger.exception("Error in entrypoint")
