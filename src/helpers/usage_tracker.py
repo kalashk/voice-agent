@@ -221,6 +221,7 @@ class CostCalculator:
 
         # Return clean breakdown (to save in DB, display, etc.)
         return {
+            "session_id" : session_id,
             "llm_cost": llm_cost,
             "stt_cost": stt_cost,
             "tts_cost": tts_cost,

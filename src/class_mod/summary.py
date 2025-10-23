@@ -84,7 +84,7 @@ async def generate_summary_llm(history_text: str, customer_data: dict) -> dict:
     try:
         result = _summary_chain.invoke({"input": llm_input})
         summary_json = json.loads(json.dumps(result))
-        logger.info("Generated Summary: %s", summary_json)
+        logger.info("Summary Successfully Generated")
         return summary_json
     except Exception as e:
         logger.error("Failed to parse summary JSON: %s", e)
