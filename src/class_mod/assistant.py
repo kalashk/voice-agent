@@ -100,6 +100,7 @@ class MyAssistant(Agent):
 
             # ✅ Prepare file save path
             session_id = SESSION_ID
+            logger.debug("SESSION ID INSIDE THE ASSISTANT IS ----------", {SESSION_ID})
             participant_id = self.customer_profile.get("customer_id", "unknown_participant")
 
             base_dir = Path(__file__).resolve().parent.parent / "temp"

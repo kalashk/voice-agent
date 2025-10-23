@@ -43,6 +43,7 @@ async def entrypoint(ctx: JobContext):
     try:
         logging.basicConfig(level=logging.DEBUG)
 
+        logger.debug("SESSION ID IS (inside entry point) --------------------------",{SESSION_ID})
         # Load customer profile
         customer_profile = load_customer_profile()
 
