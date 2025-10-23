@@ -22,7 +22,7 @@ from livekit.agents.voice import ModelSettings
 from class_mod.assistant_helpers import extract_conversation, hangup_current_room
 from class_mod.summary import generate_summary_llm
 from class_mod.tts_utils import adjust_text_for_tts, get_pronunciations
-from helpers.config import TTS_PROVIDER
+from helpers.config import SESSION_ID, TTS_PROVIDER
 from helpers.customer_helper import CustomerProfileType
 from instructions import get_instructions
 
@@ -99,7 +99,7 @@ class MyAssistant(Agent):
                 summary = "Already generated earlier."
 
             # ✅ Prepare file save path
-            session_id = getattr(self.session_ref, "session_id", "unknown_session")
+            session_id = SESSION_ID
             participant_id = self.customer_profile.get("customer_id", "unknown_participant")
 
             base_dir = Path(__file__).resolve().parent.parent / "temp"
