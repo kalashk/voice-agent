@@ -301,8 +301,8 @@ class MyAssistant(Agent):
                 # Ensure only ChatChunk instances are yielded
                 if isinstance(chunk, ChatChunk):
                     # Optional: log for tracker
-                    if chunk.delta and chunk.delta.content:
-                        logger.info(f"LLM generated chunk: {chunk.delta.content[:80]}...")
+                    # if chunk.delta and chunk.delta.content:
+                    #     logger.info(f"LLM generated chunk: {chunk.delta.content[:80]}...")
                     yield chunk
                 else:
                     # Ignore non-ChatChunk types (some backends may send "done" events or metadata)
@@ -426,7 +426,6 @@ class MyAssistant(Agent):
     async def tts_node(self, text: AsyncIterable[str], model_settings: ModelSettings):
         pronunciations = get_pronunciations(TTS_PROVIDER)
         async for frame in Agent.default.tts_node(self, adjust_text_for_tts(text, pronunciations), model_settings):
-            print("YES YES YES ROADROLLAAAAAR")
             yield frame
 
 
