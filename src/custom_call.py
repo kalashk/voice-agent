@@ -573,7 +573,7 @@ async def run_calls_api(name: str, gender: str, phone_number: str, room_name: st
         from livekit import api  # use the same LiveKit API lib you already use
         from livekit.protocol.room import ListParticipantsRequest
 
-        async with api.LiveKitAPI("YOUR_LIVEKIT_URL", "API_KEY", "API_SECRET") as lkapi:
+        async with api.LiveKitAPI(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET) as lkapi:
             logger.info(f"📡 Monitoring participants in room {room_name}...")
             while True:
                 participants_resp = await lkapi.room.list_participants(
