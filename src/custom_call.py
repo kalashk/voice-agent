@@ -526,9 +526,9 @@ async def run_parallel_calls(max_concurrent: int = 4, delay_seconds: int = 5):
 # --------------------------
 # Main
 # --------------------------
-if __name__ == "__main__":
-    #asyncio.run(run_parallel_calls(max_concurrent=12, delay_seconds=2))
-    asyncio.run(run_calls_rec())
+# if __name__ == "__main__":
+#     #asyncio.run(run_parallel_calls(max_concurrent=12, delay_seconds=2))
+#     asyncio.run(run_calls_rec())
 
 async def run_calls_api(name: str, gender: str, phone_number: str, room_name: str = "voice_agent_room", do_record: bool = False):
     """
