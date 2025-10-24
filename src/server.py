@@ -87,6 +87,15 @@ async def start_agent():
                 creationflags=subprocess.CREATE_NEW_PROCESS_GROUP,
             )
 
+        import threading
+        def stream_output(pipe, logfile):
+            for line in iter(pipe.readline, b''):
+                logfile.write(line)
+                logfile.flush()
+                print(line.decode().rstrip())
+
+        threading.Thread(target=stream_output, args=(proc.stdout, logfile), daemon=True).start()
+
         PID_FILE.write_text(str(proc.pid))
         logger.info("✅ Started agent via uv with PID %s", proc.pid)
         return {"status": "started", "pid": proc.pid}
