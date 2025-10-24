@@ -31,28 +31,32 @@ def verify_api_key(x_api_key: str = Header(None)):
 # ==============================
 # AGENT MANAGEMENT
 # ==============================
-def _get_agent_process():
-    """Return the running agent.py process or None."""
-    for proc in psutil.process_iter(attrs=["pid", "cmdline"]):
-        cmdline = proc.info.get("cmdline")
-        if not cmdline:  # skip processes without cmdline
-            continue
+PID_FILE = AGENT_DIR / "agent.pid"
+
+def _get_saved_pid() -> Optional[int]:
+    """Read the saved PID from file, if present."""
+    if PID_FILE.exists():
         try:
-            if any("agent.py" in str(part) for part in cmdline):
-                return proc
-        except Exception:
-            continue
+            return int(PID_FILE.read_text().strip())
+        except ValueError:
+            return None
     return None
 
+def _is_agent_running() -> bool:
+    """Check if saved PID exists and process is alive."""
+    pid = _get_saved_pid()
+    if not pid:
+        return False
+    return psutil.pid_exists(pid)
 
-def _is_agent_running():
-    return _get_agent_process() is not None
-
+def _clear_pid_file():
+    if PID_FILE.exists():
+        PID_FILE.unlink()
 @app.post("/start-agent", dependencies=[Depends(verify_api_key)])
 async def start_agent():
+    """Start the agent.py process if not already running."""
     if _is_agent_running():
-        proc = _get_agent_process()
-        pid = proc.pid if proc else None  # safe, no warning
+        pid = _get_saved_pid()
         return {"status": "already_running", "pid": pid}
 
     if not AGENT_SCRIPT.exists():
@@ -60,7 +64,7 @@ async def start_agent():
 
     logfile = open(AGENT_DIR / "agent.out.log", "ab")  # noqa: SIM115
 
-    # Cross-platform subprocess launch
+    # Launch agent
     if os.name == "posix":
         proc = subprocess.Popen(
             ["python3", str(AGENT_SCRIPT)],
@@ -69,7 +73,7 @@ async def start_agent():
             stderr=subprocess.STDOUT,
             preexec_fn=os.setpgrp,
         )
-    else:  # Windows
+    else:
         proc = subprocess.Popen(
             ["python", str(AGENT_SCRIPT)],
             cwd=AGENT_DIR,
@@ -78,30 +82,38 @@ async def start_agent():
             creationflags=subprocess.CREATE_NEW_PROCESS_GROUP,
         )
 
+    PID_FILE.write_text(str(proc.pid))
     logger.info("✅ Started agent.py with pid %s", proc.pid)
     return {"status": "started", "pid": proc.pid}
 
+
 @app.post("/stop-agent", dependencies=[Depends(verify_api_key)])
 async def stop_agent():
-    proc = _get_agent_process()
-    if not proc:
+    """Stop the running agent."""
+    pid = _get_saved_pid()
+    if not pid or not psutil.pid_exists(pid):
+        _clear_pid_file()
         return {"status": "not_running"}
 
     try:
         if os.name == "posix":
-            os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
+            os.killpg(os.getpgid(pid), signal.SIGTERM)
         else:
-            proc.send_signal(signal.CTRL_BREAK_EVENT)
+            psutil.Process(pid).send_signal(signal.CTRL_BREAK_EVENT)
     except Exception:
-        proc.terminate()
+        psutil.Process(pid).terminate()
 
-    logger.info("🛑 Agent stopped (PID %s)", proc.pid)
-    return {"status": "stopped", "pid": proc.pid}
+    _clear_pid_file()
+    logger.info("🛑 Agent stopped (PID %s)", pid)
+    return {"status": "stopped", "pid": pid}
+
 
 @app.get("/agent-status", dependencies=[Depends(verify_api_key)])
 async def agent_status():
-    proc = _get_agent_process()
-    return {"running": proc is not None, "pid": proc.pid if proc else None}
+    """Check if agent.py is running."""
+    pid = _get_saved_pid()
+    running = pid is not None and psutil.pid_exists(pid)
+    return {"running": running, "pid": pid if running else None}
 
 # ==============================
 # CALL HANDLER
