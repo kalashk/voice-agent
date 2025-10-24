@@ -52,39 +52,48 @@ def _is_agent_running() -> bool:
 def _clear_pid_file():
     if PID_FILE.exists():
         PID_FILE.unlink()
+
 @app.post("/start-agent", dependencies=[Depends(verify_api_key)])
 async def start_agent():
-    """Start the agent.py process if not already running."""
+    """Start the agent via 'uv run src/agent.py dev' if not already running."""
     if _is_agent_running():
         pid = _get_saved_pid()
         return {"status": "already_running", "pid": pid}
 
+    # Ensure agent.py exists
     if not AGENT_SCRIPT.exists():
         raise HTTPException(status_code=500, detail=f"{AGENT_SCRIPT} not found")
 
-    logfile = open(AGENT_DIR / "agent.out.log", "ab")  # noqa: SIM115
+    logfile = open(AGENT_DIR / "agent.out.log", "ab")
 
-    # Launch agent
-    if os.name == "posix":
-        proc = subprocess.Popen(
-            ["python3", str(AGENT_SCRIPT)],
-            cwd=AGENT_DIR,
-            stdout=logfile,
-            stderr=subprocess.STDOUT,
-            preexec_fn=os.setpgrp,
-        )
-    else:
-        proc = subprocess.Popen(
-            ["python", str(AGENT_SCRIPT)],
-            cwd=AGENT_DIR,
-            stdout=logfile,
-            stderr=subprocess.STDOUT,
-            creationflags=subprocess.CREATE_NEW_PROCESS_GROUP,
-        )
+    # Command to run the agent using uv (like you do manually)
+    command = ["uv", "run", "src/agent.py", "dev"]
 
-    PID_FILE.write_text(str(proc.pid))
-    logger.info("✅ Started agent.py with pid %s", proc.pid)
-    return {"status": "started", "pid": proc.pid}
+    try:
+        if os.name == "posix":  # Linux/macOS
+            proc = subprocess.Popen(
+                command,
+                cwd=AGENT_DIR,
+                stdout=logfile,
+                stderr=subprocess.STDOUT,
+                preexec_fn=os.setpgrp,
+            )
+        else:  # Windows
+            proc = subprocess.Popen(
+                command,
+                cwd=AGENT_DIR,
+                stdout=logfile,
+                stderr=subprocess.STDOUT,
+                creationflags=subprocess.CREATE_NEW_PROCESS_GROUP,
+            )
+
+        PID_FILE.write_text(str(proc.pid))
+        logger.info("✅ Started agent via uv with PID %s", proc.pid)
+        return {"status": "started", "pid": proc.pid}
+
+    except Exception as e:
+        logger.exception("❌ Failed to start agent: %s", e)
+        raise HTTPException(status_code=500, detail=f"Failed to start agent: {str(e)}")
 
 
 @app.post("/stop-agent", dependencies=[Depends(verify_api_key)])
