@@ -64,9 +64,10 @@ async def start_agent():
     if not AGENT_SCRIPT.exists():
         raise HTTPException(status_code=500, detail=f"{AGENT_SCRIPT} not found")
 
-    logfile = open(AGENT_DIR / "agent.out.log", "ab")
+    logfile_path = AGENT_DIR / "agent.out.log"
+    logfile = open(logfile_path, "ab")
 
-    # Command to run the agent using uv (like you do manually)
+    # Command to run agent
     command = ["uv", "run", "src/agent.py", "dev"]
 
     try:
@@ -74,25 +75,30 @@ async def start_agent():
             proc = subprocess.Popen(
                 command,
                 cwd=AGENT_DIR,
-                stdout=logfile,
+                stdout=subprocess.PIPE,         # <── use PIPE
                 stderr=subprocess.STDOUT,
                 preexec_fn=os.setpgrp,
+                bufsize=1,                      # line-buffered
+                text=True,                      # decode bytes automatically
             )
         else:  # Windows
             proc = subprocess.Popen(
                 command,
                 cwd=AGENT_DIR,
-                stdout=logfile,
+                stdout=subprocess.PIPE,         # <── use PIPE
                 stderr=subprocess.STDOUT,
                 creationflags=subprocess.CREATE_NEW_PROCESS_GROUP,
+                bufsize=1,
+                text=True,
             )
 
         import threading
+
         def stream_output(pipe, logfile):
-            for line in iter(pipe.readline, b''):
-                logfile.write(line)
+            for line in pipe:
+                logfile.write(line.encode())    # save to file
                 logfile.flush()
-                print(line.decode().rstrip())
+                print(line.rstrip())            # print to console
 
         threading.Thread(target=stream_output, args=(proc.stdout, logfile), daemon=True).start()
 
