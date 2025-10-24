@@ -32,7 +32,7 @@ logger = logging.getLogger("agent")
 load_dotenv(".env.local")  # Load environment variables
 
 customer_profile = load_customer_profile()
-room_name = f"{SESSION_ID}"
+room_name_str = f"{SESSION_ID}"
 
 async def entrypoint(ctx: JobContext):
     """

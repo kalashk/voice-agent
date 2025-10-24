@@ -11,6 +11,7 @@ requires-python = ">=3.10,<4.0"
 dependencies = [
     "asyncio>=4.0.0",
     "dataclasses>=0.8",
+    "fastapi>=0.120.0",
     "google-cloud-storage>=3.4.0",
     "google-genai>=1.32.0",
     "langchain-groq>=0.3.8",
@@ -25,11 +26,13 @@ dependencies = [
     "pyrnnoise>=0.3.8",
     "python-docx>=1.2.0",
     "python-dotenv",
+    "python-multipart>=0.0.20",
     "ragas>=0.3.5",
     "sacrebleu>=2.5.1",
     "sounddevice>=0.5.2",
     "torch>=2.8.0",
     "uuid>=1.30",
+    "uvicorn[standard]>=0.38.0",
     "wavio>=0.0.9",
 ]
 

@@ -526,6 +526,90 @@ async def run_parallel_calls(max_concurrent: int = 4, delay_seconds: int = 5):
 # --------------------------
 # Main
 # --------------------------
-if __name__ == "__main__":
-    #asyncio.run(run_parallel_calls(max_concurrent=12, delay_seconds=2))
-    asyncio.run(run_calls_rec())
+# if __name__ == "__main__":
+#     #asyncio.run(run_parallel_calls(max_concurrent=12, delay_seconds=2))
+#     asyncio.run(run_calls_rec())
+
+async def run_calls_api(name: str, gender: str, phone_number: str, room_name: str = "voice_agent_room", do_record: bool = False):
+    """
+    Programmatic version of the single call workflow.
+    Call this from the server; do NOT use input() here.
+    """
+    logger.info("🚀 Starting single call workflow (programmatic)")
+
+    customer = {
+        "customer_name": name,
+        "gender": gender,
+        "phone_number": phone_number,
+        "customer_id": f"{name.lower().replace(' ', '_')}"
+    }
+
+    try:
+        trunk_id = await create_or_get_trunk()
+        logger.info(f"🔑 Using trunk ID: {trunk_id}")
+
+        participant_identity = customer["customer_id"]
+        room_name = room_name
+        base_name = f"{room_name}_{participant_identity}"
+
+        participant = await make_call(
+            phone_number=customer["phone_number"],
+            name=customer["customer_name"],
+            gender=customer["gender"],
+            sip_trunk_id=trunk_id,
+            room_name=room_name,
+            participant_identity=participant_identity
+        )
+
+        if not participant:
+            logger.error("❌ Failed to create participant / place call")
+            return {"status": "failed", "reason": "make_call failed"}
+
+        egress_info = None
+        if do_record:
+            egress_info = await start_audio_recording(room_name, base_name)
+
+        # monitor participants
+        from livekit import api  # use the same LiveKit API lib you already use
+        from livekit.protocol.room import ListParticipantsRequest
+
+        async with api.LiveKitAPI("YOUR_LIVEKIT_URL", "API_KEY", "API_SECRET") as lkapi:
+            logger.info(f"📡 Monitoring participants in room {room_name}...")
+            while True:
+                participants_resp = await lkapi.room.list_participants(
+                    ListParticipantsRequest(room=room_name)
+                )
+                identities = [p.identity for p in participants_resp.participants]
+                if participant_identity not in identities:
+                    logger.info("📴 Participant left.")
+                    if do_record and egress_info:
+                        await stop_audio_recording(egress_info.egress_id)
+                    break
+                await asyncio.sleep(2)
+
+        # After participant leaves, upload summary/audio if recorded
+        if do_record:
+            try:
+                temp_dir = Path(__file__).parent / "temp"
+                summary_filename = f"{room_name}_{participant_identity}.json"
+                summary_path = temp_dir / summary_filename
+
+                if summary_path.exists():
+                    gcs_uri = await upload_summary_to_gcp("YOUR_GCP_BUCKET", summary_path)
+                    if gcs_uri:
+                        summary_path.unlink(missing_ok=True)
+
+                audio_path = Path(f"{base_name}.ogg")
+                if audio_path.exists():
+                    gcs_audio_uri = await upload_summary_to_gcp("YOUR_GCP_BUCKET", audio_path)
+                    if gcs_audio_uri:
+                        audio_path.unlink(missing_ok=True)
+
+            except Exception as e:
+                logger.exception("Failed uploading recorded assets: %s", e)
+
+        return {"status": "completed"}
+
+    except Exception as e:
+        logger.exception("run_calls_rec failed: %s", e)
+        return {"status": "failed", "exception": str(e)}
