@@ -1,6 +1,7 @@
-import uuid
 from datetime import timedelta, timezone
 from pathlib import Path
+
+from helpers.customer_helper import load_customer_profile
 
 #TTS_PROVIDER = "cartesia"
 TTS_PROVIDER = "sarvam_anushka"
@@ -24,7 +25,8 @@ LOG_PATH.mkdir(exist_ok=True)
 IST = timezone(timedelta(hours=5, minutes=30))
 
 # Unique session ID for tracking each run
-SESSION_ID = "voice"
+customer_profile = load_customer_profile()
+SESSION_ID = customer_profile['phone_number']
 
 # Dictionary to hold structured logs for this session
 SESSION_LOGS = {
