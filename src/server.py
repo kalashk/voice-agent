@@ -74,7 +74,7 @@ async def start_agent():
         if os.name == "posix":  # Linux/macOS
             proc = subprocess.Popen(
                 command,
-                cwd=AGENT_DIR,
+                cwd=AGENT_DIR.parent,
                 stdout=subprocess.PIPE,         # <── use PIPE
                 stderr=subprocess.STDOUT,
                 preexec_fn=os.setpgrp,
