@@ -88,7 +88,6 @@
 #     call_btn.click(make_call, inputs=[name_in, number_in, gender_in, record_in], outputs=[call_output])
 
 # demo.launch(server_name="0.0.0.0", server_port=7860, share=True)
-
 import os
 
 import gradio as gr
@@ -103,6 +102,9 @@ SERVER_URL = os.getenv("VOICE_AGENT_SERVER", "http://127.0.0.1:8000")
 API_KEY = os.getenv("VOICE_AGENT_API_KEY", "supersecret123")
 
 HEADERS = {"X-API-Key": API_KEY}
+
+# Global state to track if call is active
+call_active = False
 
 # ==========================
 # HELPERS
@@ -123,6 +125,7 @@ def check_agent_status() -> tuple[str, str]:
 
 def make_call(name, number, gender, record):
     """Trigger a new outbound call via backend."""
+    global call_active
     try:
         # Ensure +91 prefix
         if not number.startswith("+"):
@@ -145,30 +148,71 @@ def make_call(name, number, gender, record):
 
         if resp.status_code == 200:
             data = resp.json()
-            return f"✅ Call initiated to {number}\n\n{data}"
+            call_active = True  # Activate call tracking
+            return (
+                f"✅ Call initiated to {number}\n\n{data}",
+                gr.update(active=True),  # Activate call timer
+                "🔄 **Call In Progress** - Monitoring..."  # Update call status
+            )
         else:
-            return f"❌ Failed: {resp.status_code}\n{resp.text}"
+            return (
+                f"❌ Failed: {resp.status_code}\n{resp.text}",
+                gr.update(active=False),
+                "❌ Call Failed"
+            )
     except Exception as e:
-        return f"⚠️ Error: {e}"
+        return (
+            f"⚠️ Error: {e}",
+            gr.update(active=False),
+            "⚠️ Error"
+        )
 
 
-def get_call_status() -> str:
-    """Poll backend for live call status."""
+def get_call_status() -> tuple[str, dict]:
+    """Poll backend for live call status. Only called when call is active."""
+    global call_active
+
+    if not call_active:
+        return "💤 No ongoing call", gr.update(active=False)
+
     try:
         resp = requests.get(f"{SERVER_URL}/latest-call-status", headers=HEADERS, timeout=5)
         data = resp.json()
-        status = data.get("status", "idle").capitalize()
+        status = data.get("status", "idle").lower()
         number = data.get("number") or "—"
-        emoji = {
+
+        emoji_map = {
             "idle": "💤",
             "initiated": "📞",
             "in_progress": "🟡",
             "completed": "✅",
             "failed": "❌",
-        }.get(status.lower(), "❓")
-        return f"{emoji} Call {status} — {number}"
+        }
+        emoji = emoji_map.get(status, "❓")
+
+        # If call is completed or failed, stop polling
+        if status in ["completed", "failed", "idle"]:
+            call_active = False
+            status_text = f"{emoji} Call {status.capitalize()} — {number}"
+            return status_text, gr.update(active=False)
+
+        # Call still in progress
+        status_text = f"{emoji} Call {status.replace('_', ' ').title()} — {number}"
+        return status_text, gr.update(active=True)
+
     except Exception as e:
-        return f"⚠️ Error fetching call status: {e}"
+        call_active = False
+        return f"⚠️ Error fetching call status: {e}", gr.update(active=False)
+
+
+def refresh_call_status():
+    """Wrapper for timer tick that only updates when call is active."""
+    global call_active
+    if call_active:
+        status, timer_update = get_call_status()
+        return status, timer_update
+    else:
+        return "💤 No ongoing call", gr.update(active=False)
 
 # ==========================
 # UI
@@ -194,36 +238,44 @@ with gr.Blocks(theme=custom_theme, title="Voice Agent Dashboard") as demo:
     gr.Markdown("---")
 
     with gr.Accordion("📞 Make a Call", open=True):
-        name_in = gr.Textbox(label="Customer Name", placeholder="e.g., Abhishek")
-        number_in = gr.Textbox(label="Phone Number", placeholder="e.g., 9987654321")
-        gender_in = gr.Radio(["male", "female"], label="Voice Gender", value="male")
-        record_in = gr.Checkbox(label="Record Call", value=False)
-        call_btn = gr.Button("🚀 Start Call", variant="primary")
-        call_output = gr.Textbox(label="Call Response", lines=6, interactive=False)
+        with gr.Row():
+            with gr.Column(scale=2):
+                name_in = gr.Textbox(label="Customer Name", placeholder="e.g., Abhishek")
+                number_in = gr.Textbox(label="Phone Number", placeholder="e.g., 9987654321")
+            with gr.Column(scale=1):
+                gender_in = gr.Radio(["male", "female"], label="Voice Gender", value="male")
+                record_in = gr.Checkbox(label="Record Call", value=False)
 
-    with gr.Row():
-        call_status_label = gr.Markdown("💤 No ongoing call")
+        call_btn = gr.Button("🚀 Start Call", variant="primary", size="lg")
+        call_output = gr.Textbox(label="Call Response", lines=4, interactive=False)
 
-    # Bind call button
+    gr.Markdown("---")
+
+    with gr.Row() and  gr.Column():
+            call_status_label = gr.Markdown("💤 No ongoing call")
+            gr.Markdown("_Updates automatically during active calls_", elem_classes="text-sm text-gray-500")
+
+    # Create timers
+    agent_timer = gr.Timer(value=5.0, active=True)  # Always active for agent status
+    call_timer = gr.Timer(value=3.0, active=False)  # Only active during calls
+
+    # Bind call button - returns 3 outputs now
     call_btn.click(
         make_call,
         inputs=[name_in, number_in, gender_in, record_in],
-        outputs=[call_output]
+        outputs=[call_output, call_timer, call_status_label]
     )
 
-    # Create timers for periodic updates
-    agent_timer = gr.Timer(value=5.0, active=True)
-    call_timer = gr.Timer(value=5.0, active=True)
-
-    # Bind timers to update functions
+    # Bind agent status timer (always running)
     agent_timer.tick(
         check_agent_status,
         outputs=[agent_status_label, agent_details]
     )
 
+    # Bind call status timer (only runs when call is active)
     call_timer.tick(
-        get_call_status,
-        outputs=[call_status_label]
+        refresh_call_status,
+        outputs=[call_status_label, call_timer]
     )
 
 
