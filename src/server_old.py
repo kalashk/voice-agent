@@ -65,7 +65,9 @@ async def start_agent():
         raise HTTPException(status_code=500, detail=f"{AGENT_SCRIPT} not found")
 
     logfile_path = AGENT_DIR / "agent.out.log"
-    logfile = open(logfile_path, "ab")
+    with open(logfile_path, "ab") as logfile:
+        logfile.write(b"Some log content\n")
+
 
     # Command to run agent
     command = ["uv", "run", "src/agent.py", "dev"]
@@ -108,7 +110,11 @@ async def start_agent():
 
     except Exception as e:
         logger.exception("❌ Failed to start agent: %s", e)
-        raise HTTPException(status_code=500, detail=f"Failed to start agent: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to start agent: {e!s}"
+        ) from e
+
 
 
 @app.post("/stop-agent", dependencies=[Depends(verify_api_key)])
