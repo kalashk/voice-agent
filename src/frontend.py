@@ -89,7 +89,6 @@
 
 # demo.launch(server_name="0.0.0.0", server_port=7860, share=True)
 
-
 import os
 
 import gradio as gr
@@ -212,17 +211,19 @@ with gr.Blocks(theme=custom_theme, title="Voice Agent Dashboard") as demo:
         outputs=[call_output]
     )
 
-    # Periodic status refresh using load() instead of Timer
-    demo.load(
+    # Create timers for periodic updates
+    agent_timer = gr.Timer(value=5.0, active=True)
+    call_timer = gr.Timer(value=5.0, active=True)
+
+    # Bind timers to update functions
+    agent_timer.tick(
         check_agent_status,
-        outputs=[agent_status_label, agent_details],
-        every=5.0
+        outputs=[agent_status_label, agent_details]
     )
 
-    demo.load(
+    call_timer.tick(
         get_call_status,
-        outputs=[call_status_label],
-        every=5.0
+        outputs=[call_status_label]
     )
 
 
