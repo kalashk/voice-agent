@@ -22,15 +22,24 @@ from livekit.agents.voice import ModelSettings
 from class_mod.assistant_helpers import extract_conversation, hangup_current_room
 from class_mod.summary import generate_summary_llm
 from class_mod.tts_utils import adjust_text_for_tts, get_pronunciations
-from helpers.config import SESSION_ID, TTS_PROVIDER
-from helpers.customer_helper import CustomerProfileType
+from helpers.config import (
+    LLM_PROVIDER,
+    SESSION_ID,
+    SESSION_LOGS,
+    STT_PROVIDER,
+    TTS_PROVIDER,
+)
+from helpers.customer_helper import load_customer_profile
+from helpers.log_usage import log_usage
+from helpers.metrics import setup_metrics
 from instructions import get_instructions
 
 load_dotenv(".env.local")
 logger = logging.getLogger("agent")
 
 class MyAssistant(Agent):
-    def __init__(self, customer_profile: CustomerProfileType, session : AgentSession, **kwargs):
+    def __init__(self, session : AgentSession, **kwargs):
+        customer_profile=load_customer_profile()
         instructions = get_instructions(customer_profile)
         super().__init__(instructions=instructions)
         self.customer_profile = customer_profile
@@ -119,6 +128,17 @@ class MyAssistant(Agent):
                 json.dump(data, f, ensure_ascii=False, indent=4)
 
             logger.info(f"💾 Session data saved to {filepath}")
+            usage_collector, cost_calc = setup_metrics(self.session, SESSION_LOGS)
+            await log_usage(
+                usage_collector=usage_collector,
+                cost_calc=cost_calc,
+                SESSION_LOGS=SESSION_LOGS,
+                SESSION_ID=SESSION_ID,
+                customer_profile=self.customer_profile,
+                TTS_PROVIDER=TTS_PROVIDER,
+                STT_PROVIDER=STT_PROVIDER,
+                LLM_PROVIDER=LLM_PROVIDER
+            )
 
             # ✅ Hang up gracefully
             await hangup_current_room()
