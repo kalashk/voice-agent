@@ -1,5 +1,6 @@
 import asyncio
-import json
+
+# import json
 import logging
 
 from dotenv import load_dotenv
@@ -14,15 +15,15 @@ from class_mod.assistant import MyAssistant
 from helpers.config import (
     LLM_PROVIDER,
     SESSION_ID,
-    SESSION_LOGS,
+    # SESSION_LOGS,
     STT_PROVIDER,
     TTS_PROVIDER,
 )
 
 # Import customer functions
-from helpers.customer_helper import load_customer_profile
-from helpers.log_usage import log_usage
-from helpers.metrics import setup_metrics
+# from helpers.customer_helper import load_customer_profile
+# from helpers.log_usage import log_usage
+# from helpers.metrics import setup_metrics
 from helpers.setup_session import setup_session
 from helpers.setup_tts_stt import setup_llm, setup_stt, setup_tts
 
@@ -31,7 +32,7 @@ tracker = get_client()
 logger = logging.getLogger("agent")
 load_dotenv(".env.local")  # Load environment variables
 
-customer_profile = load_customer_profile()
+# customer_profile = load_customer_profile()
 room_name_str = f"{SESSION_ID}"
 
 async def entrypoint(ctx: JobContext):
@@ -44,9 +45,9 @@ async def entrypoint(ctx: JobContext):
     try:
         logging.basicConfig(level=logging.DEBUG)
         # Store profile metadata into the job for tracking
-        ctx.job.metadata = json.dumps(customer_profile)
-        metadata = json.loads(ctx.job.metadata)
-        logger.info(f"User profile loaded: {metadata}")
+        # ctx.job.metadata = json.dumps(customer_profile)
+        # metadata = json.loads(ctx.job.metadata)
+        # logger.info(f"User profile loaded: {metadata}")
 
         # Setup session with STT, TTS, LLM
         session = setup_session(
@@ -60,25 +61,25 @@ async def entrypoint(ctx: JobContext):
         )
 
         # Setup usage metrics
-        usage_collector, cost_calc = setup_metrics(session, SESSION_LOGS)
+        #usage_collector, cost_calc = setup_metrics(session, SESSION_LOGS)
 
         # Shutdown callback to log usage
-        ctx.add_shutdown_callback(
-            lambda: log_usage(
-                usage_collector=usage_collector,
-                cost_calc=cost_calc,
-                SESSION_LOGS=SESSION_LOGS,
-                SESSION_ID=SESSION_ID,
-                customer_profile=customer_profile,
-                TTS_PROVIDER=TTS_PROVIDER,
-                STT_PROVIDER=STT_PROVIDER,
-                LLM_PROVIDER=LLM_PROVIDER
-            )
-        )
+        # ctx.add_shutdown_callback(
+        #     lambda: log_usage(
+        #         usage_collector=usage_collector,
+        #         cost_calc=cost_calc,
+        #         SESSION_LOGS=SESSION_LOGS,
+        #         SESSION_ID=SESSION_ID,
+        #         customer_profile=customer_profile,
+        #         TTS_PROVIDER=TTS_PROVIDER,
+        #         STT_PROVIDER=STT_PROVIDER,
+        #         LLM_PROVIDER=LLM_PROVIDER
+        #     )
+        # )
 
         # Create assistant
-        assistant = MyAssistant(customer_profile, session=session)
-
+        #assistant = MyAssistant(customer_profile, session=session)
+        assistant = MyAssistant(session=session)
         # Connect to LiveKit room
         await ctx.connect()
 
