@@ -240,10 +240,10 @@ with gr.Blocks(theme=custom_theme, title="Voice Agent Dashboard") as demo:
     with gr.Accordion("📞 Make a Call", open=True):
         with gr.Row():
             with gr.Column(scale=2):
-                name_in = gr.Textbox(label="Customer Name", placeholder="e.g., Abhishek")
+                name_in = gr.Textbox(label="Customer Name", placeholder="e.g., Abhishek Kumar")
                 number_in = gr.Textbox(label="Phone Number", placeholder="e.g., 9987654321")
             with gr.Column(scale=1):
-                gender_in = gr.Radio(["male", "female"], label="Voice Gender", value="male")
+                gender_in = gr.Radio(["male", "female"], label="Customer Gender", value="male")
                 record_in = gr.Checkbox(label="Record Call", value=False)
 
         call_btn = gr.Button("🚀 Start Call", variant="primary", size="lg")
@@ -251,7 +251,8 @@ with gr.Blocks(theme=custom_theme, title="Voice Agent Dashboard") as demo:
 
     gr.Markdown("---")
 
-    with gr.Row() and  gr.Column():
+    with gr.Row():
+        with gr.Column():
             call_status_label = gr.Markdown("💤 No ongoing call")
             gr.Markdown("_Updates automatically during active calls_", elem_classes="text-sm text-gray-500")
 
