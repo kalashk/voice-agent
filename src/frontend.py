@@ -87,4 +87,4 @@ with gr.Blocks(theme=custom_theme, title="Voice Agent Dashboard") as demo:
     status_btn.click(check_agent_status, outputs=[status_output])
     call_btn.click(make_call, inputs=[name_in, number_in, gender_in, record_in], outputs=[call_output])
 
-demo.launch(server_name="0.0.0.0", server_port=7860)
+demo.launch(server_name="0.0.0.0", server_port=7860, share=True)
